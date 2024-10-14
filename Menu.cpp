@@ -16,76 +16,60 @@ using namespace std;
 ///(Tambien nos falta que podamos traducirlo de binario a español)
 
 
-void Menu::getMainMenu(){
-        int op=0;
-        bool opcionValida=false;
-        bool boolExit=false;
+void Menu::getMainMenu()
+{
+    int op=0;
+    bool opcionValida=false;
+    bool boolExit=false;
 
-        do{
+    do
+    {
 
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Crear nuevo usuario"<<endl;
-        cout<<"2. Listar Personas"<<endl;
+        cout<<"2. Listar empleados"<<endl;
+        cout<<"3. Listar Usuarios"<<endl;
         cout<<"0. Salir"<<endl;
         //cout<<"3. Crear Nuevo Usuario"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
         system("cls");
-            if(op == 1 || op== 2) {
-                opcionValida=true;
+        if(op> (-1) && op<3)
+        {
+            opcionValida=true;
+        }
+
+            switch (op)
+            {
+            case 1:
+                InterfazCrearUsuario();
+                break;
+            case 2:
+                listarEmpleados();
+                break;
+            case 3:
+                listarUsuarios();
+                break;
+            case 0:
+                boolExit= true;
+                break;
+            default:
+                cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
             }
-        if(!opcionValida){
-            cout<<"Opcion invalida! Vuelva a intentarlo"<<endl;
             system("pause");
             system("cls");
-        }else{
-            EjecutarFuncion(op,boolExit);
-        }
-        }while(boolExit==false);
-    opcionValida = false;
-    boolExit=false;
+
+
+    }
+    while(boolExit==false || !opcionValida);
 }
 
-void Menu::EjecutarFuncion(int opcionElegida, bool &boolExit){
-    Persona persona;
-    switch (opcionElegida) {
-        case 1 :
-            FILE *registro;
-        InterfazCrearUsuario();
-        registro = fopen("Archivo.dat", "ab"); // r+b lectura + escritura
-        if (registro == NULL) { // Se comprueba que la apertura fue correcta
-            cout << "Error de archivo";
-            boolExit=true;
-        }
-
-        system("pause");
-        system("cls");
-        fwrite(&persona, sizeof(persona), 1, registro); // Escritura del archivo
-        fseek(registro, 0, SEEK_SET);
-
-        while (fread(&persona, sizeof(persona), 1, registro) == 1) {
-            persona.mostrarPersona(); // Mostrar cada persona leída
-        }
-
-        fclose(registro);
-        break;
-        case 2:
-            cout<<"Esto es el case 2: "<<endl;
-        case 0:
-            boolExit = true;
-        break;
-        default:
-            boolExit = true;
-    }
-    }
 
 
-void Menu::listarVentas(){cout<<""<<endl;}
 
-void Menu::listarEmpleados(){cout<<""<<endl;}
-
-void Menu::InterfazCrearUsuario(){
+void Menu::InterfazCrearUsuario()
+{
     Persona usuario;
     int ingresoNumeros;
     char ingresoDatos[30];
@@ -115,6 +99,21 @@ void Menu::InterfazCrearUsuario(){
     cin.getline(ingresoDatos, 30);
     usuario.setLocalidad(ingresoDatos);
 
-usuario.mostrarPersona();
+    usuario.mostrarPersona();
 }
+
+void Menu::listarEmpleados()
+{
+    cout<<"Empleado: " << "ID empleado: " << "Ventas concretadas: " <<endl;
+}
+void Menu::listarUsuarios(){
+    cout<< "Usuario: " << "ID usuario: " << " Compras realizadas: " << endl;
+}
+void Menu::listarVentas()
+{
+    cout<<""<<endl;
+}
+
+
+
 

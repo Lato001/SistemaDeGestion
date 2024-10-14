@@ -5,11 +5,10 @@
 class Menu{
 public:
     void getMainMenu();
-    void listarVentas();
-    void listarEmpleados();
-    void EjecutarFuncion(int opcionElegida, bool &exit);
     void InterfazCrearUsuario();
-    void InterfazMostrarUsuario();
+    void listarEmpleados();
+    void listarUsuarios();
+    void listarVentas();
 };
 
 #endif // MENU_H_INCLUDED
