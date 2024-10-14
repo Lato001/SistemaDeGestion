@@ -64,8 +64,7 @@ void Menu::InterfazCrearUsuario()
     Persona usuario;
 
     int ingresoNumeros;
-    char ingresoDatos[30];
-    string inputDatos;
+    char ingresoDatos[50];
     cout<<"========= Crea tu usuario ========="<<endl;
 
     cout<<"Ingrese el DNI de su usuario <Unicamente numeros>"<<endl;
@@ -74,21 +73,20 @@ void Menu::InterfazCrearUsuario()
 
     cout<<"Ingrese el nombre de su usuario"<<endl;
     cin.ignore(); // Para limpiar el buffer del cin
-    cin.getline(ingresoDatos, 30);
+    cin.getline(ingresoDatos, 50);
     usuario.setNombre(ingresoDatos);
 
     cout<< "Ingrese el apellido de su usuario"<<endl;
-    cin.ignore(); // Para limpiar el buffer del cin
-    cin.getline(ingresoDatos, 30);
+    cin.getline(ingresoDatos, 50);
+    cout << "Apellido ingresado: " << ingresoDatos << endl; // Para depuración
     usuario.setApellido(ingresoDatos);
 
     cout<< "Ingrese el email de su usuario"<<endl;
-    cin >> inputDatos;
-    usuario.setEmail(inputDatos);
+    cin.getline(ingresoDatos, 50);
+    usuario.setEmail(ingresoDatos);
 
     cout<< "Ingrese la localidad de su usuario"<<endl;
-    cin.ignore(); // Para limpiar el buffer del cin
-    cin.getline(ingresoDatos, 30);
+    cin.getline(ingresoDatos, 50);
     usuario.setLocalidad(ingresoDatos);
 
 
@@ -103,7 +101,7 @@ void Menu::listarEmpleados()
     int pepitomelachupa = Personas.CantidadRegistros();
     cout<< "cantidad de registros: " << pepitomelachupa << endl;
 
-    registro = Personas.Leer(0);
+    registro = Personas.Leer(1);
     registro.mostrarPersona();
 
 }

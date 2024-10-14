@@ -42,19 +42,18 @@
 
 1728929329 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.h
 
-1728930631 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\main.cpp
+1728940959 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\main.cpp
 	<iostream>
 	"Menu.h"
 
 1728931850 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.h
 	"Persona.h"
 
-1728934999 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.h
+1728941570 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.h
 
-1728930631 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.cpp
+1728942494 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.cpp
 	<iostream>
 	"Persona.h"
-	<string>
 	<cstring>
 
 1728929329 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.cpp
@@ -67,11 +66,12 @@
 	"Fecha.h"
 	"Persona.h"
 
-1728931878 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
+1728942874 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
 	<iostream>
 	<cstdio>
 	"Menu.h"
 	"Persona.h"
+	"ArchivoPersonas.h"
 
 1728935867 source:c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\archivo.cpp
 	<string>
@@ -136,5 +136,14 @@
 	<string>
 	<cstring>
 	"ArchivoPersonas.h"
+	"Persona.h"
+
+1728940959 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivopersonas.cpp
+	<string>
+	<cstring>
+	"ArchivoPersonas.h"
+	"Persona.h"
+
+1728940959 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivopersonas.h
 	"Persona.h"
 
