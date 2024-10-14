@@ -36,3 +36,40 @@
 	"Fecha.h"
 	"Persona.h"
 
+1728929329 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.cpp
+	<iostream>
+	"Fecha.h"
+
+1728929329 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.h
+
+1728930631 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\main.cpp
+	<iostream>
+	"Menu.h"
+
+1728931850 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.h
+	"Persona.h"
+
+1728930631 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.h
+
+1728930631 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.cpp
+	<iostream>
+	"Persona.h"
+	<string>
+	<cstring>
+
+1728929329 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.cpp
+	<iostream>
+	"Venta.h"
+	"Fecha.h"
+	"Persona.h"
+
+1728929329 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.h
+	"Fecha.h"
+	"Persona.h"
+
+1728931878 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
+	<iostream>
+	<cstdio>
+	"Menu.h"
+	"Persona.h"
+

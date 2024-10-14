@@ -4,17 +4,6 @@
 #include "Menu.h"
 #include "Persona.h"
 using namespace std;
-///Actaulizaciones version 0.4::
-
-///Modifique el void Menu::getMainMenu para que el
-///final del programa funcione correctamente pq con el
-///cod anterior solo tomaba el 1 como opcion correcta y si
-///presionabas cero o cualquier otro entraba en un bucle infinito.
-
-///Agregue el archivo.dat, toda su configuracion, faltaria poder utilizarlo como tal.
-///Pero con lo que podes ver en esta version el archivo se crea y escribe los datos de la persona en el.
-///(Tambien nos falta que podamos traducirlo de binario a español)
-
 
 void Menu::getMainMenu()
 {
