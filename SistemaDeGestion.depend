@@ -6,7 +6,7 @@
 1728931390 c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\menu.h
 	"Persona.h"
 
-1728931727 source:c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\menu.cpp
+1728935867 source:c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\menu.cpp
 	<iostream>
 	<cstdio>
 	"Menu.h"
@@ -24,7 +24,7 @@
 	<string>
 	<cstring>
 
-1728861439 c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\persona.h
+1728935867 c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\persona.h
 
 1728489697 source:c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\venta.cpp
 	<iostream>
@@ -71,5 +71,70 @@
 	<iostream>
 	<cstdio>
 	"Menu.h"
+	"Persona.h"
+
+1728935867 source:c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\archivo.cpp
+	<string>
+	<cstring>
+	"Archivo.h"
+	"Persona.h"
+
+1728935867 c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\archivo.h
+	"Persona.h"
+
+1728935867 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivo.cpp
+	<string>
+	<cstring>
+	"Archivo.h"
+	"Persona.h"
+
+1728935867 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivo.h
+	"Persona.h"
+
+1728935867 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\persona.h
+
+1728478733 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\fecha.cpp
+	<iostream>
+	"Fecha.h"
+
+1728478295 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\fecha.h
+
+1728861638 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\persona.cpp
+	<iostream>
+	"Persona.h"
+	<string>
+	<cstring>
+
+1728489697 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.cpp
+	<iostream>
+	"Venta.h"
+	"Fecha.h"
+	"Persona.h"
+
+1728489680 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.h
+	"Fecha.h"
+	"Persona.h"
+
+1728936137 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\main.cpp
+	<iostream>
+	"Menu.h"
+
+1728931390 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\menu.h
+	"Persona.h"
+
+1728939941 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\menu.cpp
+	<iostream>
+	<cstdio>
+	"Menu.h"
+	"Persona.h"
+	"ArchivoPersonas.h"
+
+1728938991 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivopersonas.h
+	"Persona.h"
+
+1728939045 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivopersonas.cpp
+	<string>
+	<cstring>
+	"ArchivoPersonas.h"
 	"Persona.h"
 

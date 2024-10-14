@@ -2,16 +2,16 @@
 #include <string>
 #include <cstring>
 
-#include "Archivo.h"
+#include "ArchivoPersonas.h"
 #include "Persona.h"
 using namespace std;
 
 
-ArchivoPersona::ArchivoPersona(string nombreArchivo){
+ArchivoPersonas::ArchivoPersonas(string nombreArchivo){
     _nombreArchivo = nombreArchivo;
 }
 
-bool ArchivoPersona::Guardar(Persona persona){
+bool ArchivoPersonas::Guardar(Persona persona){
     FILE *registro = fopen(_nombreArchivo.c_str(), "ab");
     if(registro == NULL){
         return false;
@@ -21,7 +21,7 @@ bool ArchivoPersona::Guardar(Persona persona){
     return ok;
 }
 
-bool ArchivoPersona::Guardar(Persona persona, int posicion){
+bool ArchivoPersonas::Guardar(Persona persona, int posicion){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb+");
     if(registro == NULL){
         return false;
@@ -32,7 +32,7 @@ bool ArchivoPersona::Guardar(Persona persona, int posicion){
     return ok;
 }
 
-int ArchivoPersona::Buscar(int DNI){
+int ArchivoPersonas::Buscar(int DNI){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     if(registro == NULL){
         return -1;
@@ -49,7 +49,7 @@ int ArchivoPersona::Buscar(int DNI){
     fclose(registro);
     return -1;
 }
-Persona ArchivoPersona::Leer(int posicion){
+Persona ArchivoPersonas::Leer(int posicion){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     if(registro == NULL){
         return Persona();
@@ -61,7 +61,7 @@ Persona ArchivoPersona::Leer(int posicion){
     return persona;
 }
 
-int ArchivoPersona::CantidadRegistros(){
+int ArchivoPersonas::CantidadRegistros(){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     if(registro == NULL){
         return 0;
@@ -72,7 +72,8 @@ int ArchivoPersona::CantidadRegistros(){
     return cantidadRegistros;
 }
 
-void ArchivoPersona::Leer(int cantidadRegistros, Persona *vector){
+
+void ArchivoPersonas::Leer(int cantidadRegistros, Persona *vector){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     if(registro == NULL){
         return;
@@ -82,3 +83,4 @@ void ArchivoPersona::Leer(int cantidadRegistros, Persona *vector){
     }
     fclose(registro);
 }
+

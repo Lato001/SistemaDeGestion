@@ -5,20 +5,18 @@
 
 using namespace std;
 
-class ArchivoPersona {
+class ArchivoPersonas {
 private:
         string _nombreArchivo;
 
     public:
-        ArchivoPersona(string nombreArchivo);
-
+        ArchivoPersonas(string nombreArchivo);
         bool Guardar(Persona persona);
         bool Guardar(Persona persona, int posicion);
         int Buscar(int DNI);
-        ArchivoPersona Leer(int posicion);
+        Persona Leer(int posicion);
         int CantidadRegistros();
-        int registro;
-        void Leer(int cantidadRegistros, ArchivoPersona *vector);
+        void Leer(int cantidadRegistros, Persona *vector);
 };
 
 #endif // ARCHIVO_H_INCLUDED

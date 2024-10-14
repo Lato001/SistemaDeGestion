@@ -3,6 +3,7 @@
 
 #include "Menu.h"
 #include "Persona.h"
+#include "ArchivoPersonas.h"
 using namespace std;
 
 void Menu::getMainMenu()
@@ -59,7 +60,9 @@ void Menu::getMainMenu()
 
 void Menu::InterfazCrearUsuario()
 {
+    ArchivoPersonas archivo("Personas.dat");
     Persona usuario;
+
     int ingresoNumeros;
     char ingresoDatos[30];
     string inputDatos;
@@ -88,12 +91,21 @@ void Menu::InterfazCrearUsuario()
     cin.getline(ingresoDatos, 30);
     usuario.setLocalidad(ingresoDatos);
 
-    usuario.mostrarPersona();
+
+    archivo.Guardar(usuario,1);
 }
 
 void Menu::listarEmpleados()
 {
-    cout<<"Empleado: " << "ID empleado: " << "Ventas concretadas: " <<endl;
+    ArchivoPersonas Personas("Personas.dat");
+    Persona registro;
+
+    int pepitomelachupa = Personas.CantidadRegistros();
+    cout<< "cantidad de registros: " << pepitomelachupa << endl;
+
+    registro = Personas.Leer(0);
+    registro.mostrarPersona();
+
 }
 void Menu::listarUsuarios(){
     cout<< "Usuario: " << "ID usuario: " << " Compras realizadas: " << endl;
