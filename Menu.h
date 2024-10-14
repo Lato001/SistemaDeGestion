@@ -9,7 +9,7 @@ public:
     void listarEmpleados();
     void EjecutarFuncion(int opcionElegida, bool &exit);
     void InterfazCrearUsuario();
-
+    void InterfazMostrarUsuario();
 };
 
 #endif // MENU_H_INCLUDED

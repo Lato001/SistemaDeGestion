@@ -4,25 +4,25 @@ using namespace std;
 class Persona{
 private:
     int DNI;
-    string nombre;
-    string apellido;
+    char nombre [30];
+    char apellido [30];
     string email;
-    string localidad;
+    char localidad [30];
 public:
     Persona();
-    Persona(int _DNI, string _nombre,string _apellido,string _email,string _localidad);
+    Persona(int _DNI, const char* _nombre,const char* _apellido,string _email,const char* _localidad);
 
     int getDNI();
-    string getNombre();
-    string getApellido();
+    const char* getNombre();
+    const char* getApellido();
     string getEmail();
-    string getLocalidad();
+    const char* getLocalidad();
 
     void setDNI(int _DNI);
-    void setNombre(string _nombre);
-    void  setApellido(string _apellido);
+    void setNombre(const char* _nombre);
+    void  setApellido(const char* _apellido);
     void setEmail(string _email);
-    void  setLocalidad(string _localidad);
+    void  setLocalidad(const char* _localidad);
     void mostrarPersona();
 };
 
