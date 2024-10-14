@@ -4,7 +4,7 @@
 #include "Persona.h"
 using namespace std;
 
-
+///Hola como estas esto es un comentario
 void Menu::getMainMenu(){
         int op=0;
         bool opcionValida, exit = false;
