@@ -1,5 +1,6 @@
 #ifndef ARCHIVO_H_INCLUDED
 #define ARCHIVO_H_INCLUDED
+
 #include "Persona.h"
 
 using namespace std;
@@ -10,11 +11,13 @@ private:
 
     public:
         ArchivoPersona(string nombreArchivo);
+
         bool Guardar(Persona persona);
         bool Guardar(Persona persona, int posicion);
-        int Buscar(int IdPersona);
+        int Buscar(int DNI);
         ArchivoPersona Leer(int posicion);
         int CantidadRegistros();
+        int registro;
         void Leer(int cantidadRegistros, ArchivoPersona *vector);
 };
 
