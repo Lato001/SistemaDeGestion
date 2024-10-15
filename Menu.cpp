@@ -78,7 +78,6 @@ void Menu::InterfazCrearUsuario()
 
     cout<< "Ingrese el apellido de su usuario"<<endl;
     cin.getline(ingresoDatos, 50);
-    cout << "Apellido ingresado: " << ingresoDatos << endl; // Para depuración
     usuario.setApellido(ingresoDatos);
 
     cout<< "Ingrese el email de su usuario"<<endl;
@@ -89,21 +88,22 @@ void Menu::InterfazCrearUsuario()
     cin.getline(ingresoDatos, 50);
     usuario.setLocalidad(ingresoDatos);
 
-
-    archivo.Guardar(usuario,1);
+    ///UTILIZO -1 PARA QUE SE GUARDE SIEMPRE EN EL ULTIMO REGISTRO Y NO SE CREEN NUEVOS
+    archivo.Guardar(usuario,archivo.CantidadRegistros()-1);
 }
 
 void Menu::listarEmpleados()
 {
     ArchivoPersonas Personas("Personas.dat");
     Persona registro;
+    int cantRegistros = Personas.CantidadRegistros();
+    cout<< "cantidad de registros: " << cantRegistros << endl;
 
-    int pepitomelachupa = Personas.CantidadRegistros();
-    cout<< "cantidad de registros: " << pepitomelachupa << endl;
-
-    registro = Personas.Leer(1);
+    for (int i = 0; i <cantRegistros ;i++ ){
+    registro = Personas.Leer(i);
     registro.mostrarPersona();
 
+    }
 }
 void Menu::listarUsuarios(){
     cout<< "Usuario: " << "ID usuario: " << " Compras realizadas: " << endl;

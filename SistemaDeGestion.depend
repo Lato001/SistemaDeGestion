@@ -91,7 +91,7 @@
 1728935867 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivo.h
 	"Persona.h"
 
-1728935867 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\persona.h
+1728943825 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\persona.h
 
 1728478733 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\fecha.cpp
 	<iostream>
@@ -99,40 +99,39 @@
 
 1728478295 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\fecha.h
 
-1728861638 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\persona.cpp
+1728943825 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\persona.cpp
 	<iostream>
 	"Persona.h"
-	<string>
 	<cstring>
 
-1728489697 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.cpp
+1729024974 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.cpp
 	<iostream>
 	"Venta.h"
 	"Fecha.h"
 	"Persona.h"
 
-1728489680 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.h
+1729024950 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.h
 	"Fecha.h"
 	"Persona.h"
 
-1728936137 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\main.cpp
+1728941221 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\main.cpp
 	<iostream>
 	"Menu.h"
 
 1728931390 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\menu.h
 	"Persona.h"
 
-1728939941 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\menu.cpp
+1729025382 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\menu.cpp
 	<iostream>
 	<cstdio>
 	"Menu.h"
 	"Persona.h"
 	"ArchivoPersonas.h"
 
-1728938991 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivopersonas.h
+1728941221 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivopersonas.h
 	"Persona.h"
 
-1728939045 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivopersonas.cpp
+1728941221 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivopersonas.cpp
 	<string>
 	<cstring>
 	"ArchivoPersonas.h"
