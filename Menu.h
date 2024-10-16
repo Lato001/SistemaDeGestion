@@ -2,6 +2,7 @@
 #define MENU_H_INCLUDED
 #include "Persona.h"
 #include "Comprador.h"
+#include "Empleado.h"
 class Menu{
 public:
     void getMainMenu();

@@ -6,6 +6,7 @@
 #include "ArchivoPersonas.h"
 #include "Comprador.h"
 #include "ArchivoCompradores.h"
+#include "Empleado.h"
 using namespace std;
 
 void Menu::getMainMenu()
