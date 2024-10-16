@@ -2,7 +2,6 @@
 #define ARCHIVO_H_INCLUDED
 
 #include "Persona.h"
-
 using namespace std;
 
 class ArchivoPersonas {

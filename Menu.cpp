@@ -4,6 +4,8 @@
 #include "Menu.h"
 #include "Persona.h"
 #include "ArchivoPersonas.h"
+#include "Comprador.h"
+#include "ArchivoCompradores.h"
 using namespace std;
 
 void Menu::getMainMenu()
@@ -99,20 +101,45 @@ void Menu::listarEmpleados()
     int cantRegistros = Personas.CantidadRegistros();
     cout<< "cantidad de registros: " << cantRegistros << endl;
 
-    for (int i = 0; i <cantRegistros ;i++ ){
+    for (int i = 0; i < cantRegistros ;i++ ){
     registro = Personas.Leer(i);
     registro.mostrarPersona();
 
     }
 }
 void Menu::listarUsuarios(){
-    cout<< "Usuario: " << "ID usuario: " << " Compras realizadas: " << endl;
+///    crearUsuarioComprador();
+    ArchivoCompradores Compradores("Personas.dat");
+    Comprador registro;
+    int cantRegistros = Compradores.CantidadRegistros();
+    cout<< "Cantidad de registros: " << cantRegistros << endl;
+
+    for (int i = 0;i < cantRegistros;i++ ){
+    registro = Compradores.Leer(i);
+    registro.mostrarComprador();
+}
+
+    ///cout<< "Usuario: " << "ID usuario: " << " Compras realizadas: " << endl; /// ¿ Usuario o Comprador ? ¿ Lisar todos o mostrar 1 ?
+    ///Comprador usuario;
+    ///usuario.mostrarComprador();
 }
 void Menu::listarVentas()
 {
     cout<<""<<endl;
 }
+/*
+void Menu::crearUsuarioComprador()
+{
+    ArchivoCompradores archivo("Compradores.dat");
+    Comprador usuario;
 
+    int ingresoNumeros;
 
+    cout<<"¿Cual es su ID de comprador? <Unicamente numeros>"<<endl;
+    cin >> ingresoNumeros;
+    usuario.setcompradorID(ingresoNumeros);
 
-
+    ///UTILIZO -1 PARA QUE SE GUARDE SIEMPRE EN EL ULTIMO REGISTRO Y NO SE CREEN NUEVOS
+    archivo.Guardar(usuario,archivo.CantidadRegistros()-1);
+}
+*/

@@ -1,6 +1,6 @@
 #ifndef FECHA_H_INCLUDED
 #define FECHA_H_INCLUDED
-
+using namespace std;
 class Fecha{
     private:
     int _dia, _mes, _anio;
@@ -15,7 +15,7 @@ class Fecha{
     void setDia(int dia);
     void setMes(int mes);
     void setAnio(int anio);
-    std::string toString();
+    string toString();
 };
 
 #endif // FECHA_H_INCLUDED
