@@ -2,6 +2,7 @@
 #define EMPLEADO_H_INCLUDED
 
 #include "Persona.h"
+#include "Fecha.h"
 
 class Empleado {
 private:
@@ -21,6 +22,7 @@ public:
     int getAusentes();
     bool getIsVacaciones();
 
+    void setfechadeingreso(int _fechaDeIngreso);
     void setempleadoID(int _empleadoID);
     void setdiasTrabajados(int _diasTrabajados);
     void setausentes(int _ausentes);

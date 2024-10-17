@@ -20,6 +20,7 @@ void Menu::getMainMenu()
 
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
+        cout<<"1. Crear nuevo empleado"<<endl;
         cout<<"1. Crear nuevo usuario"<<endl;
         cout<<"2. Listar empleados"<<endl;
         cout<<"3. Listar Usuarios"<<endl;
@@ -39,9 +40,12 @@ void Menu::getMainMenu()
                 InterfazCrearUsuario();
                 break;
             case 2:
-                listarEmpleados();
+                crearUsuarioComprador();
                 break;
             case 3:
+                listarEmpleados();
+                break;
+            case 4:
                 listarUsuarios();
                 break;
             case 0:
@@ -128,17 +132,23 @@ void Menu::listarVentas()
 {
     cout<<""<<endl;
 }
-/*
+
 void Menu::crearUsuarioComprador()
 {
-    ArchivoCompradores archivo("Compradores.dat");
-    Comprador usuario;
+    ArchivoCompradores archivo("Personas.dat");
+    Comprador cliente;
+    Persona usuario;
 
-    int ingresoNumeros;
+    int inputnumber;
+    char ingresoDatos[50];
 
-    cout<<"¿Cual es su ID de comprador? <Unicamente numeros>"<<endl;
-    cin >> ingresoNumeros;
-    usuario.setcompradorID(ingresoNumeros);
+    cout<< " Nombre de Usario: "<<endl;
+    cin.getline(ingresoDatos, 50);
+    usuario.setNombre(ingresoDatos);
+
+    cout<< " ID Usuario : "<<endl;
+    cin>> inputnumber;
+    cliente.setcompradorID(inputnumber);
 
     ///UTILIZO -1 PARA QUE SE GUARDE SIEMPRE EN EL ULTIMO REGISTRO Y NO SE CREEN NUEVOS
     archivo.Guardar(usuario,archivo.CantidadRegistros()-1);

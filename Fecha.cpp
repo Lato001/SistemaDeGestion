@@ -39,7 +39,7 @@ void Fecha::setAnio(int anio){
     _anio = anio;
 }
 
-std::string Fecha::toString(){
-    return std::to_string(_dia) + "/" + std::to_string(_mes) + "/" + std::to_string(_anio);
+string Fecha::toString(){
+    return to_string(_dia) + "/" + to_string(_mes) + "/" + to_string(_anio);
 }
 

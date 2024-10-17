@@ -36,7 +36,7 @@
 	"Fecha.h"
 	"Persona.h"
 
-1728929329 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.cpp
+1729166013 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.cpp
 	<iostream>
 	"Fecha.h"
 
@@ -46,9 +46,10 @@
 	<iostream>
 	"Menu.h"
 
-1729114207 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.h
+1729115313 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.h
 	"Persona.h"
 	"Comprador.h"
+	"Empleado.h"
 
 1729103180 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.h
 
@@ -67,7 +68,7 @@
 	"Fecha.h"
 	"Persona.h"
 
-1729114400 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
+1729169798 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
 	<iostream>
 	<cstdio>
 	"Menu.h"
@@ -75,6 +76,7 @@
 	"ArchivoPersonas.h"
 	"Comprador.h"
 	"ArchivoCompradores.h"
+	"Empleado.h"
 
 1728935867 source:c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\archivo.cpp
 	<string>
@@ -149,12 +151,12 @@
 1729107982 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivopersonas.h
 	"Persona.h"
 
-1729114088 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\comprador.cpp
+1729168398 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\comprador.cpp
 	<iostream>
 	"Persona.h"
 	"Comprador.h"
 
-1729113921 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\comprador.h
+1729170102 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\comprador.h
 	"persona.h"
 
 1729113057 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivocompradores.cpp
@@ -163,7 +165,17 @@
 	"ArchivoCompradores.h"
 	"Comprador.h"
 
-1729108560 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivocompradores.h
+1729170432 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivocompradores.h
 	"Persona.h"
 	"Comprador.h"
+
+1729166259 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.h
+	"Persona.h"
+	"Fecha.h"
+
+1729166286 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.cpp
+	<iostream>
+	"Persona.h"
+	"Empleado.h"
+	"Fecha.h"
 
