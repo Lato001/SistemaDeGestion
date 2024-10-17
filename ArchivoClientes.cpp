@@ -2,46 +2,46 @@
 #include <string>
 #include <cstring>
 
-#include "ArchivoCompradores.h"
-#include "Comprador.h"
+#include "ArchivoClientes.h"
+#include "Cliente.h"
 
 using namespace std;
 
 
-ArchivoCompradores::ArchivoCompradores(string nombreArchivo){
+ArchivoClientes::ArchivoClientes(string nombreArchivo){
     _nombreArchivo = nombreArchivo;
 }
 
-bool ArchivoCompradores::Guardar(Comprador comprador){
+bool ArchivoClientes::Guardar(Cliente cliente){
     FILE *registro = fopen(_nombreArchivo.c_str(), "ab");
     if(registro == NULL){
         return false;
     }
-    bool ok = fwrite(&comprador, sizeof(Comprador), 1, registro);
+    bool ok = fwrite(&cliente, sizeof(Cliente), 1, registro);
     fclose(registro);
     return ok;
 }
 
-bool ArchivoCompradores::Guardar(Comprador comprador, int posicion){
+bool ArchivoClientes::Guardar(Cliente cliente, int posicion){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb+");
     if(registro == NULL){
         return false;
     }
-    fseek(registro, sizeof(Comprador) * posicion, SEEK_SET);
-    bool ok = fwrite(&comprador, sizeof(Comprador), 1, registro);
+    fseek(registro, sizeof(Cliente) * posicion, SEEK_SET);
+    bool ok = fwrite(&cliente, sizeof(Cliente), 1, registro);
     fclose(registro);
     return ok;
 }
 
-int ArchivoCompradores::Buscar(int compradorID){
+int ArchivoClientes::Buscar(int clienteID){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     if(registro == NULL){
         return -1;
     }
-    Comprador comprador;
+    Cliente cliente;
     int i = 0;
-    while(fread(&comprador, sizeof(comprador), 1, registro)){
-        if(comprador.getID() == compradorID){
+    while(fread(&cliente, sizeof(cliente), 1, registro)){
+        if(cliente.getID() == clienteID){
             fclose(registro);
             return i;
         }
@@ -50,37 +50,37 @@ int ArchivoCompradores::Buscar(int compradorID){
     fclose(registro);
     return -1;
 }
-Comprador ArchivoCompradores::Leer(int posicion){
+Cliente ArchivoClientes::Leer(int posicion){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     if(registro == NULL){
-        return Comprador();
+        return Cliente();
     }
-    Comprador comprador;
-    fseek(registro, sizeof(Comprador) * posicion, SEEK_SET);
-    fread(&comprador, sizeof(Comprador), 1, registro);
+    Cliente cliente;
+    fseek(registro, sizeof(Cliente) * posicion, SEEK_SET);
+    fread(&cliente, sizeof(Cliente), 1, registro);
     fclose(registro);
-    return comprador;
+    return cliente;
 }
 
-int ArchivoCompradores::CantidadRegistros(){
+int ArchivoClientes::CantidadRegistros(){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     if(registro == NULL){
         return 0;
     }
     fseek(registro, 0, SEEK_END);
-    int cantidadRegistros = ftell(registro) / sizeof(Comprador);
+    int cantidadRegistros = ftell(registro) / sizeof(Cliente);
     fclose(registro);
     return cantidadRegistros;
 }
 
 
-void ArchivoCompradores::Leer(int cantidadRegistros, Comprador *vector){
+void ArchivoClientes::Leer(int CantidadRegistros, Cliente *vector){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     if(registro == NULL){
         return;
     }
-    for(int i = 0; i < cantidadRegistros; i++){
-        fread(&vector[i], sizeof(Comprador), 1, registro);
+    for(int i = 0; i < CantidadRegistros; i++){
+        fread(&vector[i], sizeof(Cliente), 1, registro);
     }
     fclose(registro);
 }

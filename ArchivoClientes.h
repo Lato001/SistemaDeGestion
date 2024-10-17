@@ -1,8 +1,8 @@
-#ifndef ARCHIVOCOMPRADORES_H_INCLUDED
-#define ARCHIVOCOMPRADORES_H_INCLUDED
+#ifndef ARCHIVOCLIENTES_H_INCLUDED
+#define ARCHIVOCLIENTES_H_INCLUDED
 
 #include "Persona.h"
-#include "Comprador.h"
+#include "Cliente.h"
 
 using namespace std;
 
@@ -17,7 +17,7 @@ private:
         int Buscar(int clienteID);
         Cliente Leer(int posicion);
         int CantidadRegistros();
-        void Leer(int Cliente, *vector);
+        void Leer(int CantidadRegistros, Cliente *vector);
 };
 
-#endif // ARCHIVOCOMPRADORES_H_INCLUDED
+#endif // ARCHIVOCLIENTES_H_INCLUDED

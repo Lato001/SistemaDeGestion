@@ -1,7 +1,7 @@
 #ifndef MENU_H_INCLUDED
 #define MENU_H_INCLUDED
 #include "Persona.h"
-#include "Comprador.h"
+#include "Cliente.h"
 #include "Empleado.h"
 class Menu{
 public:
@@ -10,7 +10,7 @@ public:
     void listarEmpleados();
     void listarUsuarios();
     void listarVentas();
-    void crearUsuarioComprador();
+    void crearCliente();
 };
 
 #endif // MENU_H_INCLUDED

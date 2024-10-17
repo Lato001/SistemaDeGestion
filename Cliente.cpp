@@ -2,7 +2,7 @@
 
 using namespace std;
 #include "Persona.h"
-#include "Comprador.h"
+#include "Cliente.h"
 
 Cliente::Cliente()
 {
@@ -18,7 +18,7 @@ Cliente::Cliente(int _clienteID /*int _nComprasRealizadas*/)
 int Cliente::getID(){return clienteID;}
 //int Cliente::getComprasRealizadas(){return nComprasRealizadas;}
 
-void Comprador::setclienteID(int _clienteID)
+void Cliente::setclienteID(int _clienteID)
 {
 clienteID = _clienteID;
 }

@@ -4,8 +4,8 @@
 #include "Menu.h"
 #include "Persona.h"
 #include "ArchivoPersonas.h"
-#include "Comprador.h"
-#include "ArchivoCompradores.h"
+#include "Cliente.h"
+#include "ArchivoClientes.h"
 #include "Empleado.h"
 using namespace std;
 
@@ -21,9 +21,9 @@ void Menu::getMainMenu()
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Crear nuevo empleado"<<endl;
-        cout<<"1. Crear nuevo usuario"<<endl;
-        cout<<"2. Listar empleados"<<endl;
-        cout<<"3. Listar Usuarios"<<endl;
+        cout<<"2. Crear nuevo usuario"<<endl;
+        cout<<"3. Listar empleados"<<endl;
+        cout<<"4. Listar Usuarios"<<endl;
         cout<<"0. Salir"<<endl;
         //cout<<"3. Crear Nuevo Usuario"<<endl;
         cout<<"==================================="<<endl;
@@ -40,7 +40,7 @@ void Menu::getMainMenu()
                 InterfazCrearUsuario();
                 break;
             case 2:
-                crearUsuarioComprador();
+                crearCliente();
                 break;
             case 3:
                 listarEmpleados();
@@ -113,44 +113,41 @@ void Menu::listarEmpleados()
     }
 }
 void Menu::listarUsuarios(){
-///    crearUsuarioComprador();
-    ArchivoCompradores Compradores("Personas.dat");
-    Comprador registro;
-    int cantRegistros = Compradores.CantidadRegistros();
+    ArchivoClientes Clientes("Personas.dat");
+    Cliente registro;
+    int cantRegistros = Clientes.CantidadRegistros();
     cout<< "Cantidad de registros: " << cantRegistros << endl;
 
     for (int i = 0;i < cantRegistros;i++ ){
-    registro = Compradores.Leer(i);
-    registro.mostrarComprador();
+    registro = Clientes.Leer(i);
+    registro.mostrarCliente();
+    }
 }
 
-    ///cout<< "Usuario: " << "ID usuario: " << " Compras realizadas: " << endl; /// ¿ Usuario o Comprador ? ¿ Lisar todos o mostrar 1 ?
-    ///Comprador usuario;
-    ///usuario.mostrarComprador();
-}
 void Menu::listarVentas()
 {
     cout<<""<<endl;
 }
 
-void Menu::crearUsuarioComprador()
+void Menu::crearCliente()
 {
-    ArchivoCompradores archivo("Personas.dat");
-    Comprador cliente;
+    ArchivoClientes archivo("Personas.dat");
+    Cliente cliente;
     Persona usuario;
 
     int inputnumber;
     char ingresoDatos[50];
 
     cout<< " Nombre de Usario: "<<endl;
+    cin.ignore(); // Para limpiar el buffer del cin
     cin.getline(ingresoDatos, 50);
     usuario.setNombre(ingresoDatos);
 
     cout<< " ID Usuario : "<<endl;
     cin>> inputnumber;
-    cliente.setcompradorID(inputnumber);
+    cliente.setclienteID(inputnumber);
 
     ///UTILIZO -1 PARA QUE SE GUARDE SIEMPRE EN EL ULTIMO REGISTRO Y NO SE CREEN NUEVOS
-    archivo.Guardar(usuario,archivo.CantidadRegistros()-1);
+    archivo.Guardar(cliente,archivo.CantidadRegistros()-1);
 }
-*/
+
