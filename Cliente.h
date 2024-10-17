@@ -9,7 +9,7 @@ private:
 //    int nComprasRealizadas;
 public:
     Cliente();
-    Cliente(int _compradorID/* int _nComprasRealizadas*/);
+    Cliente(int _clienteID/* int _nComprasRealizadas*/);
 
     int getID();
 //    int getComprasRealizadas();

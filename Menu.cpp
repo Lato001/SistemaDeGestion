@@ -7,6 +7,8 @@
 #include "Cliente.h"
 #include "ArchivoClientes.h"
 #include "Empleado.h"
+#include "Venta.h"
+
 using namespace std;
 
 void Menu::getMainMenu()
@@ -91,7 +93,12 @@ void Menu::InterfazCrearUsuario()
     cin.getline(ingresoDatos, 50);
     usuario.setEmail(ingresoDatos);
 
+    cout<<"Ingrese su numero de telefono <Unicamente numeros>"<<endl;
+    cin >> ingresoNumeros;
+    usuario.setnTelefono(ingresoNumeros);
+
     cout<< "Ingrese la localidad de su usuario"<<endl;
+    cin.ignore();
     cin.getline(ingresoDatos, 50);
     usuario.setLocalidad(ingresoDatos);
 
@@ -126,7 +133,8 @@ void Menu::listarUsuarios(){
 
 void Menu::listarVentas()
 {
-    cout<<""<<endl;
+    Venta facturas;
+    cout<<" El ID(DNI) del vendedor es: "<< facturas.getVendedorID() <<endl;
 }
 
 void Menu::crearCliente()
