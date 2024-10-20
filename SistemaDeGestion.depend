@@ -36,13 +36,14 @@
 	"Fecha.h"
 	"Persona.h"
 
-1729166013 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.cpp
+1729462861 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.cpp
 	<iostream>
+	<cstring>
 	"Fecha.h"
 
-1729112747 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.h
+1729462840 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.h
 
-1729103180 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\main.cpp
+1729264202 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\main.cpp
 	<iostream>
 	"Menu.h"
 
@@ -64,12 +65,12 @@
 	"Fecha.h"
 	"Persona.h"
 
-1729202287 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.h
+1729463424 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.h
 	"Fecha.h"
 	"Persona.h"
 	"Cliente.h"
 
-1729199954 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
+1729459396 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
 	<iostream>
 	<cstdio>
 	"Menu.h"
@@ -78,6 +79,7 @@
 	"Cliente.h"
 	"ArchivoClientes.h"
 	"Empleado.h"
+	"Venta.h"
 
 1728935867 source:c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\archivo.cpp
 	<string>
@@ -170,12 +172,13 @@
 	"Persona.h"
 	"Comprador.h"
 
-1729166259 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.h
+1729461014 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.h
 	"Persona.h"
 	"Fecha.h"
 
-1729166286 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.cpp
+1729463207 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.cpp
 	<iostream>
+	<string>
 	"Persona.h"
 	"Empleado.h"
 	"Fecha.h"
@@ -198,5 +201,5 @@
 	"Persona.h"
 	"Cliente.h"
 
-1729198857 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\tareas.cpp
+1729456961 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\tareas.cpp
 

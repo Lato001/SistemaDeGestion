@@ -134,7 +134,7 @@ void Menu::listarUsuarios(){
 void Menu::listarVentas()
 {
     Venta facturas;
-    cout<<" El ID(DNI) del vendedor es: "<< facturas.getVendedorID() <<endl;
+    //cout<<" El ID(DNI) del vendedor es: "<< facturas.getVendedor() <<endl;
 }
 
 void Menu::crearCliente()

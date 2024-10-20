@@ -9,25 +9,22 @@ private:
     int nDeVenta;
     Fecha fecha;
     Persona vendedor;
-    Empleado vendedorID;
     int formaDePago;
     float importeDeVenta;
 public:
 
  Venta();
- Venta(int _nDeVenta, Fecha _fecha, Persona _vendedor, Empleado _vendedorID, int _formaDePago,float _importeDeVenta );
+ Venta(int _nDeVenta, Fecha _fecha, Persona _vendedor, int _formaDePago,float _importeDeVenta);
  int getNDeVenta();
  Fecha getFecha();
  Persona getVendedor();
- Empleado getVendedorID();
  int getFormaDePago();
- int getImporteDeVenta();
+float getImporteDeVenta();
 
  void setNDeVenta(int _nDeVenta);
  void setFecha(Fecha _fecha);
  void setFormaDePago(int _formaDePago);
  void setVendedor(Persona _vendedor);
- void setVendedorID(Empleado _vendedorID);
  void setImporteDeVenta(float _importeDeVenta);
 
  void mostrarVenta();

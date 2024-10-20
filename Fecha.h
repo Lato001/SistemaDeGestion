@@ -1,21 +1,20 @@
 #ifndef FECHA_H_INCLUDED
 #define FECHA_H_INCLUDED
-using namespace std;
 class Fecha{
     private:
-    int _dia, _mes, _anio;
+    int dia, mes, anio;
 
     public:
     Fecha();
-    Fecha(int dia, int mes, int anio);
+    Fecha(int _dia, int _mes, int _anio);
 
     int getDia();
     int getMes();
     int getAnio();
-    void setDia(int dia);
-    void setMes(int mes);
-    void setAnio(int anio);
-    string toString();
+    void setDia(int _dia);
+    void setMes(int _mes);
+    void setAnio(int _anio);
+    char* toString();
 };
 
 #endif // FECHA_H_INCLUDED

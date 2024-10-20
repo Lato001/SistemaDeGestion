@@ -9,23 +9,20 @@ private:
     Persona empleado;
     Fecha fechaDeIngreso;
     int empleadoID;
-    int diasTrabajados;
-    int ausentes;
+    int asistencias;
     bool vacacionesActivas;
 
 public:
     Empleado();
-    Empleado(int _fechaDeIngreso, int _empleadoID, int _diasTrabajados, int _ausentes, bool _vacacionesActivas);
+    Empleado(Fecha _fechaDeIngreso, int _empleadoID, int _asistencias, bool _vacacionesActivas);
     int getID();
     Fecha getFechaIngreso();
-    int getDiasTrabajados();
-    int getAusentes();
+    int getAsistencias();
     bool getIsVacaciones();
 
-    void setfechadeingreso(int _fechaDeIngreso);
+    void setfechadeingreso(Fecha _fechaDeIngreso);
     void setempleadoID(int _empleadoID);
-    void setdiasTrabajados(int _diasTrabajados);
-    void setausentes(int _ausentes);
+    void setAsistencias(int _asistencias);
     void setvacacionesActivas(bool _vacacionesActivas);
 
     void mostrarEmpleado();
