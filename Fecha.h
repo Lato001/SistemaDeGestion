@@ -14,6 +14,8 @@ class Fecha{
     void setDia(int _dia);
     void setMes(int _mes);
     void setAnio(int _anio);
+    void cargarFecha();
+    void mostrarFecha();
     char* toString();
 };
 

@@ -24,3 +24,21 @@ DetalleVenta::DetalleVenta(int _ventaID, int _prodcutoID, int _cantidadProducto,
     void DetalleVenta :: setProductoID(int _productoID){productoID = _productoID;}
     void DetalleVenta :: setCantidadProducto(int _cantidadProducto){cantidadProducto = _cantidadProducto;}
     void DetalleVenta :: setPrecio(int _precio){precio = _precio;}
+
+    void DetalleVenta :: cargarDetalleDeVenta(){
+        int input;
+        float decimalInput;
+        cout<< "ingrese el id de su venta: "<<endl;
+        cin>> input;
+        ventaID = input;
+        cout<< "Ingrese el ID del producto: " << endl;
+        cin>> input;
+        productoID = input;
+        cout<< "Ingrese el precio del producto: " << endl;
+        cin>> input;
+        precio = decimalInput;
+
+    }
+    void DetalleVenta :: mostrarDetalleDeVenta(){
+        cout<<"ID de venta: " << getVentaID() << " ID de producto: " << getProductoID()<< " Precio total: " << getPrecio() <<endl;
+    }

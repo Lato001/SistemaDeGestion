@@ -4,7 +4,8 @@
 #include "Persona.h"
 #include "Cliente.h"
 
-class Venta{
+class Venta
+{
 private:
     int nDeVenta;
     Fecha fecha;
@@ -13,21 +14,21 @@ private:
     float TotalDeVenta = 0;
 public:
 
- Venta();
- Venta(int _nDeVenta, Fecha _fecha, Persona _vendedor, int _formaDePago,float _TotalDeVenta);
- int getNDeVenta();
- Fecha getFecha();
- Persona getVendedor();
- int getFormaDePago();
-float getTotalDeVenta();
+    Venta();
+    Venta(int _nDeVenta, Fecha _fecha, Persona _vendedor, int _formaDePago,float _TotalDeVenta);
+    int getNDeVenta();
+    Fecha getFecha();
+    Persona getVendedor();
+    int getFormaDePago();
+    float getTotalDeVenta();
 
- void setNDeVenta(int _nDeVenta);
- void setFecha(Fecha _fecha);
- void setFormaDePago(int _formaDePago);
- void setVendedor(Persona _vendedor);
- void setTotalDeVenta(float _TotalDeVenta);
-
- void mostrarVenta();
+    void setNDeVenta(int _nDeVenta);
+    void setFecha(Fecha _fecha);
+    void setFormaDePago(int _formaDePago);
+    void setVendedor(Persona _vendedor);
+    void setTotalDeVenta(float _TotalDeVenta);
+    void mostrarVenta();
+    void cargarVenta();
 };
 
 

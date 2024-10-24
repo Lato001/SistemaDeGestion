@@ -7,11 +7,11 @@
 using namespace std;
 
 Venta::Venta(){
-    nDeVenta;
+    nDeVenta = 0;
     fecha;
     vendedor;
-    formaDePago;
-    TotalDeVenta;
+    formaDePago = 0;
+    TotalDeVenta = 0;
  }
  Venta::Venta(int _nDeVenta, Fecha _fecha, Persona _vendedor, int _formaDePago, float _TotalDeVenta)
  {
@@ -36,14 +36,16 @@ Venta::Venta(){
  void Venta::setTotalDeVenta(float _TotalDeVenta){TotalDeVenta = _TotalDeVenta;}
 
  void Venta::mostrarVenta(){
-     Persona venta;
-     cout<<"-----------------------------------"<<endl;
+    cout<<"-----------------------------------"<<endl;
     cout << "N de Venta: " << nDeVenta << endl;
     cout << "Fecha: " << fecha.toString() << endl;
     cout << "Vendedor: ";
-    venta.mostrarPersona();
     cout<<endl;
     cout << "Forma de Pago: " << formaDePago << endl;
     cout << "Total a pagar: " << TotalDeVenta << endl;
     cout<<"-----------------------------------"<<endl;
  }
+
+
+
+

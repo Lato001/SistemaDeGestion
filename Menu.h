@@ -9,7 +9,7 @@ public:
     void InterfazCrearUsuario();
     void listarEmpleados();
     void listarUsuarios();
-    void listarVentas();
+    void registrarVenta();
     void crearCliente();
 };
 

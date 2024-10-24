@@ -39,7 +39,21 @@ void Fecha::setMes(int _mes){
 void Fecha::setAnio(int _anio){
     anio = _anio;
 }
-
+void Fecha::cargarFecha(){
+    int input;
+    cout << "Ingrese el dia"<<endl;
+    cin >> input;
+    dia = input;
+    cout << "Ingrese el mes"<<endl;
+    cin >> input;
+    mes = input;
+    cout << "Ingrese el anio"<<endl;
+    cin >> input;
+    anio = input;
+}
+void Fecha :: mostrarFecha(){
+    cout<< dia << "/" << mes << "/" << anio<<endl;
+}
 char* Fecha::toString() {
     char* buffer = new char[11];
     snprintf(buffer, 11, "%02d/%02d/%04d", dia, mes, anio);

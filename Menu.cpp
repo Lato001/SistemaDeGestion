@@ -24,9 +24,9 @@ void Menu::getMainMenu()
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Crear nuevo empleado"<<endl;
         cout<<"2. Crear nuevo usuario"<<endl;
-        cout<<"3. Listar empleados"<<endl;
+        cout<<"3. Listar Empleados"<<endl;
         cout<<"4. Listar Usuarios"<<endl;
-        cout<<"5. Listar Ventas"<<endl;
+        cout<<"5. Registrar Venta"<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
@@ -51,7 +51,7 @@ void Menu::getMainMenu()
                 listarUsuarios();
                 break;
             case 5:
-                listarVentas();
+                registrarVenta();
                 break;
             case 0:
                 boolExit= true;
@@ -106,7 +106,7 @@ void Menu::InterfazCrearUsuario()
     usuario.setLocalidad(ingresoDatos);
 
     ///UTILIZO -1 PARA QUE SE GUARDE SIEMPRE EN EL ULTIMO REGISTRO Y NO SE CREEN NUEVOS
-    archivo.Guardar(usuario,archivo.CantidadRegistros()-1);
+    archivo.Guardar(usuario,0);
 }
 
 void Menu::listarEmpleados()
@@ -136,11 +136,10 @@ void Menu::listarUsuarios(){
     }
 }
 
-void Menu::listarVentas()
+void Menu::registrarVenta()
 {
-    Venta nueva;
-    nueva.mostrarVenta();
-    cout << endl;
+    Venta venta;
+    venta.mostrarVenta();
 }
 
 void Menu::crearCliente()

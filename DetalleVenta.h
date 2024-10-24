@@ -21,6 +21,8 @@ public:
     void setProductoID(int _productoID);
     void setCantidadProducto(int _cantidadProducto);
     void setPrecio(int _precio);
+    void cargarDetalleDeVenta();
+    void mostrarDetalleDeVenta();
 
 };
 
