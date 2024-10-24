@@ -20,6 +20,7 @@ DetalleVenta::DetalleVenta(int _ventaID, int _prodcutoID, int _cantidadProducto,
     int DetalleVenta :: getProductoID(){return productoID;}
     int DetalleVenta :: getCantidadProducto(){return cantidadProducto;}
     float DetalleVenta :: getPrecio(){return precio;}
+
     void DetalleVenta :: setVenta(int _ventaID){ventaID = _ventaID;}
     void DetalleVenta :: setProductoID(int _productoID){productoID = _productoID;}
     void DetalleVenta :: setCantidadProducto(int _cantidadProducto){cantidadProducto = _cantidadProducto;}

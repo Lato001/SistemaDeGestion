@@ -71,7 +71,7 @@
 	"Persona.h"
 	"Cliente.h"
 
-1729806778 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
+1729807228 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
 	<iostream>
 	<cstdio>
 	"Menu.h"
@@ -268,5 +268,5 @@
 	<cstring>
 	"Producto.h"
 
-1729779641 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.h
+1729808838 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.h
 

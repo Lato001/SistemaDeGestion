@@ -8,6 +8,7 @@ private:
     int  productoID;
     int cantidadProducto;
     float precio;
+    //Agregar tipo de producto
 public:
     DetalleVenta();
     DetalleVenta(int ventaID, int productoID, int cantidadProducto, float precio);
@@ -17,10 +18,12 @@ public:
     int getProductoID();
     int getCantidadProducto();
     float getPrecio();
+
     void setVenta(int _ventaID);
     void setProductoID(int _productoID);
     void setCantidadProducto(int _cantidadProducto);
     void setPrecio(int _precio);
+
     void cargarDetalleDeVenta();
     void mostrarDetalleDeVenta();
 
