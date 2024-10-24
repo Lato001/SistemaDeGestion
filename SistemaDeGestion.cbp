@@ -38,6 +38,8 @@
 		<Unit filename="ArchivoPersonas.h" />
 		<Unit filename="Cliente.cpp" />
 		<Unit filename="Cliente.h" />
+		<Unit filename="DetalleVenta.cpp" />
+		<Unit filename="DetalleVenta.h" />
 		<Unit filename="Empleado.cpp" />
 		<Unit filename="Empleado.h" />
 		<Unit filename="Fecha.cpp" />
@@ -46,6 +48,8 @@
 		<Unit filename="Menu.h" />
 		<Unit filename="Persona.cpp" />
 		<Unit filename="Persona.h" />
+		<Unit filename="Producto.cpp" />
+		<Unit filename="Producto.h" />
 		<Unit filename="Tareas.cpp" />
 		<Unit filename="Venta.cpp" />
 		<Unit filename="Venta.h" />
