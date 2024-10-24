@@ -4,7 +4,7 @@
 #include "Persona.h"
 #include "Fecha.h"
 
-class Empleado {
+class Empleado : public Persona {
 private:
     Persona empleado;
     Fecha fechaDeIngreso;
@@ -14,7 +14,8 @@ private:
 
 public:
     Empleado();
-    Empleado(Fecha _fechaDeIngreso, int _empleadoID, int _asistencias, bool _vacacionesActivas);
+    Empleado(int, const char *, const char*, const char*, int, const char*,Fecha _fechaDeIngreso, int _empleadoID, int _asistencias, bool _vacacionesActivas); //Constructor de la clase Empleado
+
     int getID();
     Fecha getFechaIngreso();
     int getAsistencias();

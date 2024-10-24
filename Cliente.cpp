@@ -3,7 +3,6 @@
 using namespace std;
 #include "Persona.h"
 #include "Cliente.h"
-
 Cliente::Cliente()
 {
     clienteID = 0;
@@ -12,7 +11,6 @@ Cliente::Cliente(int _DNI, const char* _nombre,const char* _apellido,const char*
 {
     clienteID = _clienteID;
 }
-
 int Cliente::getID(){return clienteID;}
 
 void Cliente::setClienteID(int _clienteID)

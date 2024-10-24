@@ -1,12 +1,8 @@
-/// -Eliminar ncomprasrealizadas (ya comente todas las líneas donde aparece para que no se ejecuten, luego hablamos entre todos de que hacer con esto)
-
 /// -sumar sueldo a empleado
 
 /// -En la clase venta en cuanto a los datos del empleado y del cliente solo nos debe devolver sus ID's o DNI. Algo con lo que los podamos identificar.
 
 /// -Agregar base de datos con los productos/articulos que vamos a vender
-
-/// -Eliminar ncomprasrealizadas (ya comente todas las líneas donde aparece para que no se ejecuten, luego hablamos entre todos de que hacer con esto)
 
 /// -sumar sueldo a empleado
 

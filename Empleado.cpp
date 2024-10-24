@@ -2,8 +2,8 @@
 #include <string>
 using namespace std;
 
-#include "Persona.h"
 #include "Empleado.h"
+#include "Persona.h"
 #include "Fecha.h"
 
 Empleado::Empleado()
@@ -13,7 +13,8 @@ Empleado::Empleado()
     asistencias = 0;
     vacacionesActivas = false;
 }
-Empleado::Empleado(Fecha _fechaDeIngreso, int _empleadoID, int _asistencias, bool _vacacionesActivas){
+Empleado::Empleado(int _DNI, const char* _nombre,const char* _apellido,const char* _email, int _nTelefono, const char* _localidad, Fecha _fechaDeIngreso, int _empleadoID, int _asistencias, bool _vacacionesActivas) : Persona(_DNI, _nombre, _apellido, _email, _nTelefono, _localidad)
+{
 fechaDeIngreso = _fechaDeIngreso;
 empleadoID = _empleadoID;
 asistencias = _asistencias;
@@ -29,8 +30,9 @@ void Empleado::setAsistencias(int _asistencias){asistencias = _asistencias;}
 void Empleado::setvacacionesActivas(bool _vacacionesActivas){vacacionesActivas = _vacacionesActivas;}
 void Empleado::setfechadeingreso (Fecha _fechaDeIngreso){fechaDeIngreso = _fechaDeIngreso;}
 
-void mostrarEmpleado()
+void Empleado::mostrarEmpleado()
 {
+    mostrarPersona();
     Empleado uno;
     Fecha una;
        cout << "Empleado ID: " << uno.getID() << endl;

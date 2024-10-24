@@ -36,18 +36,18 @@
 	"Fecha.h"
 	"Persona.h"
 
-1729463570 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.cpp
+1729801433 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.cpp
 	<iostream>
 	<cstring>
 	"Fecha.h"
 
-1729462840 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.h
+1729801433 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.h
 
 1729774034 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\main.cpp
 	<iostream>
 	"Menu.h"
 
-1729172102 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.h
+1729803120 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.h
 	"Persona.h"
 	"Cliente.h"
 	"Empleado.h"
@@ -59,19 +59,19 @@
 	<cstring>
 	"Persona.h"
 
-1729775760 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.cpp
+1729801433 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.cpp
 	<iostream>
 	"Venta.h"
 	"Fecha.h"
 	"Persona.h"
 	"Empleado.h"
 
-1729775740 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.h
+1729801433 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.h
 	"Fecha.h"
 	"Persona.h"
 	"Cliente.h"
 
-1729781731 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
+1729806778 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
 	<iostream>
 	<cstdio>
 	"Menu.h"
@@ -182,18 +182,18 @@
 	"Persona.h"
 	"Comprador.h"
 
-1729461014 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.h
+1729804162 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.h
 	"Persona.h"
 	"Fecha.h"
 
-1729463207 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.cpp
+1729804436 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.cpp
 	<iostream>
 	<string>
-	"Persona.h"
 	"Empleado.h"
+	"Persona.h"
 	"Fecha.h"
 
-1729779014 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\cliente.h
+1729803309 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\cliente.h
 	"persona.h"
 
 1729172385 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoclientes.cpp
@@ -206,12 +206,12 @@
 	"Persona.h"
 	"Cliente.h"
 
-1729779092 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\cliente.cpp
+1729804278 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\cliente.cpp
 	<iostream>
 	"Persona.h"
 	"Cliente.h"
 
-1729456961 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\tareas.cpp
+1729802069 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\tareas.cpp
 
 1729782649 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoclientes.cpp
 	<string>
@@ -257,11 +257,11 @@
 
 1729782649 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\producto.h
 
-1729779641 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.cpp
+1729801433 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.cpp
 	<iostream>
 	"DetalleVenta.h"
 
-1729779641 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.h
+1729801433 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.h
 
 1729779641 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.cpp
 	<iostream>

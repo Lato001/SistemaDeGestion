@@ -107,7 +107,17 @@ void Menu::InterfazCrearUsuario()
 
     ///UTILIZO -1 PARA QUE SE GUARDE SIEMPRE EN EL ULTIMO REGISTRO Y NO SE CREEN NUEVOS
     archivo.Guardar(usuario,0);
+
+    if ( archivo.Guardar(usuario,0) )  {
+            cout<<endl;
+        cout << "Cliente guardado correctamente." << endl;
+    }
+    else {
+        cout<<endl;
+        cout << "Error al guardar el cliente." << endl;
+    }
 }
+
 
 void Menu::listarEmpleados()
 {
@@ -144,20 +154,22 @@ void Menu::registrarVenta()
 
 void Menu::crearCliente()
 {
-    ArchivoClientes archivo("Clientes.dat");
+    ArchivoClientes archivo("Personas.dat");
     int inputnumber;
     char ingresoDatos[50];
-    Cliente homo1;
-
-
+    Cliente uno;
+    cout <<uno.getNombre();
+    cin>>inputnumber;
+    uno.setClienteID(inputnumber);
+    cout<<uno.getID();
     ///UTILIZO -1 PARA QUE SE GUARDE SIEMPRE EN EL ULTIMO REGISTRO Y NO SE CREEN NUEVOS
-    archivo.Guardar(homo1, archivo.CantidadRegistros()-1);
+    archivo.Guardar(uno, archivo.CantidadRegistros()-1);
 
-    if (!archivo.Guardar(homo1, archivo.CantidadRegistros() - 1))  {
-        cout << "Error al guardar el cliente." << endl;
-    }
-    else {
+    if ( archivo.Guardar (uno, archivo.CantidadRegistros()-1) )  {
+        cout<<endl;
         cout << "Cliente guardado correctamente." << endl;
     }
+    else {
+        cout << "Error al guardar el cliente." << endl;
+    }
 }
-
