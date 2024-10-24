@@ -13,7 +13,7 @@ Venta::Venta(){
     formaDePago;
     importeDeVenta;
  }
- Venta::Venta(int _nDeVenta, Fecha _fecha, Persona _vendedor, int _formaDePago, int _importeDeVenta)
+ Venta::Venta(int _nDeVenta, Fecha _fecha, Persona _vendedor, int _formaDePago, float _importeDeVenta)
  {
     nDeVenta = _nDeVenta;
     fecha = _fecha;
@@ -38,7 +38,9 @@ Venta::Venta(){
  void Venta::mostrarVenta(){
     cout << "N° de Venta: " << nDeVenta << endl;
     cout << "Fecha: " << fecha.toString() << endl;
-    cout << "Vendedor: " << vendedor() << endl;
+    cout << "Vendedor: ";
+    getVendedor().mostrarPersona();
+    cout<<endl;
     cout << "Forma de Pago: " << formaDePago << endl;
     cout << "Importe de Venta: " << importeDeVenta << endl;
  }
