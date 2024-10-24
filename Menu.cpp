@@ -26,8 +26,8 @@ void Menu::getMainMenu()
         cout<<"2. Crear nuevo usuario"<<endl;
         cout<<"3. Listar empleados"<<endl;
         cout<<"4. Listar Usuarios"<<endl;
+        cout<<"5. Listar Ventas"<<endl;
         cout<<"0. Salir"<<endl;
-        //cout<<"3. Crear Nuevo Usuario"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
         system("cls");
@@ -49,6 +49,9 @@ void Menu::getMainMenu()
                 break;
             case 4:
                 listarUsuarios();
+                break;
+            case 5:
+                listarVentas();
                 break;
             case 0:
                 boolExit= true;
@@ -133,8 +136,9 @@ void Menu::listarUsuarios(){
 
 void Menu::listarVentas()
 {
-    Venta facturas;
-    //cout<<" El ID(DNI) del vendedor es: "<< facturas.getVendedor() <<endl;
+    Venta nueva;
+    nueva.mostrarVenta();
+    cout << endl;
 }
 
 void Menu::crearCliente()

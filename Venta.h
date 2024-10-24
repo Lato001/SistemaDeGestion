@@ -10,7 +10,7 @@ private:
     Fecha fecha;
     Persona vendedor;
     int formaDePago;
-    float importeDeVenta;
+    float importeDeVenta = 0;
 public:
 
  Venta();

@@ -36,11 +36,14 @@ Venta::Venta(){
  void Venta::setImporteDeVenta(float _importeDeVenta){importeDeVenta = _importeDeVenta;}
 
  void Venta::mostrarVenta(){
-    cout << "N° de Venta: " << nDeVenta << endl;
+     Persona venta;
+     cout<<"-----------------------------------"<<endl;
+    cout << "N de Venta: " << nDeVenta << endl;
     cout << "Fecha: " << fecha.toString() << endl;
     cout << "Vendedor: ";
-    getVendedor().mostrarPersona();
+    venta.mostrarPersona();
     cout<<endl;
     cout << "Forma de Pago: " << formaDePago << endl;
     cout << "Importe de Venta: " << importeDeVenta << endl;
+    cout<<"-----------------------------------"<<endl;
  }
