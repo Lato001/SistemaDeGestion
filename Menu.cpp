@@ -131,6 +131,8 @@ void Menu::listarUsuarios(){
     for (int i = 0;i < cantRegistros;i++ ){
     registro = Clientes.Leer(i);
     registro.mostrarCliente();
+    cout<<endl;
+    cout<<endl;
     }
 }
 
@@ -148,21 +150,15 @@ void Menu::crearCliente()
     char ingresoDatos[50];
     Cliente homo1;
 
-    cout<< " Nombre de Usario: "<<endl;
-    cin.ignore(); // Para limpiar el buffer del cin
-    cin.getline(ingresoDatos, 50);
-    homo1.setNombre(ingresoDatos);
-
-    cout<< " ID Usuario : "<<endl;
-    cin>> inputnumber;
-    homo1.setClienteID(inputnumber);
 
     ///UTILIZO -1 PARA QUE SE GUARDE SIEMPRE EN EL ULTIMO REGISTRO Y NO SE CREEN NUEVOS
     archivo.Guardar(homo1, archivo.CantidadRegistros()-1);
 
-    if (!archivo.Guardar(homo1, archivo.CantidadRegistros() - 1))
-    {
+    if (!archivo.Guardar(homo1, archivo.CantidadRegistros() - 1))  {
         cout << "Error al guardar el cliente." << endl;
+    }
+    else {
+        cout << "Cliente guardado correctamente." << endl;
     }
 }
 

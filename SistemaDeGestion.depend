@@ -71,7 +71,7 @@
 	"Persona.h"
 	"Cliente.h"
 
-1729779440 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
+1729781731 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
 	<iostream>
 	<cstdio>
 	"Menu.h"
@@ -242,4 +242,17 @@
 	"Fecha.h"
 
 1729694162 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\tareas.cpp
+
+1729779641 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.cpp
+	<iostream>
+	"DetalleVenta.h"
+
+1729779641 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.h
+
+1729779641 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.cpp
+	<iostream>
+	<cstring>
+	"Producto.h"
+
+1729779641 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.h
 
