@@ -2,6 +2,8 @@
 #include <cstring>
 #include "Persona.h"
 
+using namespace std;
+
 Persona::Persona()
 {
     DNI = 0;

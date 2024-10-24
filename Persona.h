@@ -1,8 +1,6 @@
 #ifndef PERSONA_H_INCLUDED
 #define PERSONA_H_INCLUDED
 
-using namespace std;
-
 class Persona{
 private:
     int  DNI;

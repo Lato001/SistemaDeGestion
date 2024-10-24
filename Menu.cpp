@@ -143,23 +143,26 @@ void Menu::listarVentas()
 
 void Menu::crearCliente()
 {
-    ArchivoClientes archivo("Personas.dat");
-    Cliente cliente;
-    Persona usuario;
-
+    ArchivoClientes archivo("Clientes.dat");
     int inputnumber;
     char ingresoDatos[50];
+    Cliente homo1;
 
     cout<< " Nombre de Usario: "<<endl;
     cin.ignore(); // Para limpiar el buffer del cin
     cin.getline(ingresoDatos, 50);
-    usuario.setNombre(ingresoDatos);
+    homo1.setNombre(ingresoDatos);
 
     cout<< " ID Usuario : "<<endl;
     cin>> inputnumber;
-    cliente.setclienteID(inputnumber);
+    homo1.setClienteID(inputnumber);
 
     ///UTILIZO -1 PARA QUE SE GUARDE SIEMPRE EN EL ULTIMO REGISTRO Y NO SE CREEN NUEVOS
-    archivo.Guardar(cliente,archivo.CantidadRegistros()-1);
+    archivo.Guardar(homo1, archivo.CantidadRegistros()-1);
+
+    if (!archivo.Guardar(homo1, archivo.CantidadRegistros() - 1))
+    {
+        cout << "Error al guardar el cliente." << endl;
+    }
 }
 

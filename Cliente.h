@@ -2,20 +2,16 @@
 #define CLIENTE_H_INCLUDED
 #include "persona.h"
 
-class Cliente {
+class Cliente : public Persona {
 private:
-    Persona cliente;
     int clienteID;
-//    int nComprasRealizadas;
 public:
     Cliente();
-    Cliente(int _clienteID/* int _nComprasRealizadas*/);
+    Cliente(int, const char*, const char*, const char*, int, const char*, int _clienteID); //Constructor de la clase Cliente
 
     int getID();
-//    int getComprasRealizadas();
+    void setClienteID (int _clienteID);
 
-    void setclienteID (int _clienteID);
-//    void setnComprasRealizadas (int _nComprasRealizadas);
     void crearCliente();
     void mostrarCliente();
 };
