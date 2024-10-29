@@ -65,6 +65,35 @@ void Persona::setLocalidad(const char* _localidad) {
 void Persona::mostrarPersona(){
     cout<<"DNI: "<<getDNI()<<" Nombre: " << getNombre() << " Apellido: " << getApellido()<<" email: " << getEmail() <<" N Telefono: " << getnTelefono() << " localidad: " << getLocalidad() <<endl;
 }
+void Persona::cargarPersona(){
+    int inputNumeros;
+    char inputLetras[50];
+
+    cout<<"Ingrese el DNI:"<<endl;
+    cin >> inputNumeros;
+    setDNI(inputNumeros);
+
+    cout<<"Ingrese el Nombre:"<<endl;
+    cin.ignore();
+    cin.getline(inputLetras, 50);
+    setNombre(inputLetras);
+
+    cout<<"Ingrese el Apellido:"<<endl;
+    cin.getline(inputLetras, 50);
+    setApellido(inputLetras);
+
+    cout<<"Ingrese el email"<<endl;
+    cin.getline(inputLetras, 50);
+    setEmail(inputLetras);
+
+    cout<< "Ingrese el telefono"<<endl;
+    cin>> inputNumeros;
+    setnTelefono(inputNumeros);
+    cout<<"Ingrese la localidad"<<endl;
+    cin.ignore();
+    cin.getline(inputLetras, 50);
+    setLocalidad(inputLetras);
+}
 
 
 using namespace std;

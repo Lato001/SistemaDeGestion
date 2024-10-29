@@ -8,7 +8,7 @@ public:
     void getMainMenu();
     void InterfazCrearUsuario();
     void listarEmpleados();
-    void listarUsuarios();
+    void listarClientes();
     void registrarVenta();
     void crearCliente();
 };

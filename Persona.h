@@ -27,6 +27,7 @@ public:
     void setnTelefono(int _nTelefono);
     void setLocalidad(const char* _localidad);
     void mostrarPersona();
+    void cargarPersona();
 
 };
 

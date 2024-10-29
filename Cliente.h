@@ -5,6 +5,7 @@
 
 class Cliente : public Persona {
 private:
+    Persona cliente;
     int clienteID;
 public:
     Cliente();
@@ -12,9 +13,11 @@ public:
 
     int getID();
     void setClienteID (int _clienteID);
+    Persona getPersona();
 
   //  void crearCliente(); Crear MenuCliente y luego llamar desde Menu.cpp a crearCliente que estará en MenuCliente
     void mostrarCliente();
+    void cargarCliente();
 };
 
 #endif // CLIENTE_H_INCLUDED

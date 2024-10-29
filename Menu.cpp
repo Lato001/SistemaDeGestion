@@ -13,6 +13,7 @@ using namespace std;
 
 void Menu::getMainMenu()
 {
+    ArchivoClientes clientes("ArchivoClientes.dat");
     int op=0;
     bool opcionValida=false;
     bool boolExit=false;
@@ -22,25 +23,22 @@ void Menu::getMainMenu()
 
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
-        cout<<"1. Crear nuevo empleado"<<endl;
-        cout<<"2. Crear nuevo usuario"<<endl;
+        cout<<"1. Crear Nuevo Empleado"<<endl;
+        cout<<"2. Crear Nuevo Cliente"<<endl;
         cout<<"3. Listar Empleados"<<endl;
-        cout<<"4. Listar Usuarios"<<endl;
+        cout<<"4. Listar Clientes"<<endl;
         cout<<"5. Registrar Venta"<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
         system("cls");
-        if(op> (-1) && op<3)
+        if(op> (-1) && op<6)
         {
             opcionValida=true;
         }
 
             switch (op)
             {
-            case 1:
-                InterfazCrearUsuario();
-                break;
             case 2:
                 crearCliente();
                 break;
@@ -48,7 +46,7 @@ void Menu::getMainMenu()
                 listarEmpleados();
                 break;
             case 4:
-                listarUsuarios();
+                listarClientes();
                 break;
             case 5:
                 registrarVenta();
@@ -62,66 +60,13 @@ void Menu::getMainMenu()
             system("pause");
             system("cls");
 
-
-    }
-    while(boolExit==false || !opcionValida);
+        opcionValida = false;
+    }while(boolExit==false || !opcionValida);
 }
-
-
-
-
-void Menu::InterfazCrearUsuario()
-{
-    ArchivoPersonas archivo("Personas.dat");
-    Persona usuario;
-
-    int ingresoNumeros;
-    char ingresoDatos[50];
-    cout<<"========= Crea tu usuario ========="<<endl;
-
-    cout<<"Ingrese el DNI de su usuario <Unicamente numeros>"<<endl;
-    cin >> ingresoNumeros;
-    usuario.setDNI(ingresoNumeros);
-
-    cout<<"Ingrese el nombre de su usuario"<<endl;
-    cin.ignore(); // Para limpiar el buffer del cin
-    cin.getline(ingresoDatos, 50);
-    usuario.setNombre(ingresoDatos);
-
-    cout<< "Ingrese el apellido de su usuario"<<endl;
-    cin.getline(ingresoDatos, 50);
-    usuario.setApellido(ingresoDatos);
-
-    cout<< "Ingrese el email de su usuario"<<endl;
-    cin.getline(ingresoDatos, 50);
-    usuario.setEmail(ingresoDatos);
-
-    cout<<"Ingrese su numero de telefono <Unicamente numeros>"<<endl;
-    cin >> ingresoNumeros;
-    usuario.setnTelefono(ingresoNumeros);
-
-    cout<< "Ingrese la localidad de su usuario"<<endl;
-    cin.ignore();
-    cin.getline(ingresoDatos, 50);
-    usuario.setLocalidad(ingresoDatos);
-
-    ///UTILIZO -1 PARA QUE SE GUARDE SIEMPRE EN EL ULTIMO REGISTRO Y NO SE CREEN NUEVOS
-    archivo.Guardar(usuario,0);
-
-    if ( archivo.Guardar(usuario,0) )  {
-            cout<<endl;
-        cout << "Cliente guardado correctamente." << endl;
-    }
-    else {
-        cout<<endl;
-        cout << "Error al guardar el cliente." << endl;
-    }
-}
-
 
 void Menu::listarEmpleados()
 {
-    ArchivoPersonas Personas("Personas.dat");
+    ArchivoPersonas Personas("ArchivoEmpleados.dat");
     Persona registro;
     int cantRegistros = Personas.CantidadRegistros();
     cout<< "cantidad de registros: " << cantRegistros << endl;
@@ -132,18 +77,22 @@ void Menu::listarEmpleados()
 
     }
 }
-void Menu::listarUsuarios(){
-    ArchivoClientes Clientes("Personas.dat");
+void Menu::listarClientes(){
+    ArchivoClientes Clientes("ArchivoClientes.dat");
     Cliente registro;
     int cantRegistros = Clientes.CantidadRegistros();
-    cout<< "Cantidad de registros: " << cantRegistros << endl;
+    if(cantRegistros == 0){
+    cout<< "No se han encontrado clientes registrados" << endl;
+    }else{
 
+    cout<< "TOTAL DE CLIENTES: " << cantRegistros << endl;
     for (int i = 0;i < cantRegistros;i++ ){
     registro = Clientes.Leer(i);
     registro.mostrarCliente();
     cout<<endl;
-    cout<<endl;
     }
+    }
+
 }
 
 void Menu::registrarVenta()
@@ -154,18 +103,20 @@ void Menu::registrarVenta()
 
 void Menu::crearCliente()
 {
-    ArchivoClientes archivo("Personas.dat");
+    ArchivoClientes archivoClientes("ArchivoClientes.dat");
+
     int inputnumber;
     char ingresoDatos[50];
-    Cliente uno;
-    cout <<uno.getNombre();
-    cin>>inputnumber;
-    uno.setClienteID(inputnumber);
-    cout<<uno.getID();
-    ///UTILIZO -1 PARA QUE SE GUARDE SIEMPRE EN EL ULTIMO REGISTRO Y NO SE CREEN NUEVOS
-    archivo.Guardar(uno, archivo.CantidadRegistros()-1);
 
-    if ( archivo.Guardar (uno, archivo.CantidadRegistros()-1) )  {
+    Cliente cliente;
+    cliente.cargarCliente();
+    cliente.mostrarCliente();
+
+/*GUARDA Y VERIFICA DE QUE EL CLIENTE HAYA SIDO REGISTRADO
+EN LA ULTIMA POSICION DEL ARCHIVO DE CLIENTES
+*/
+
+    if ( archivoClientes.Guardar(cliente) )  {
         cout<<endl;
         cout << "Cliente guardado correctamente." << endl;
     }
