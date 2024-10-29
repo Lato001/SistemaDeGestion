@@ -270,3 +270,102 @@
 
 1729808838 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.h
 
+1729694449 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\archivoclientes.cpp
+	<string>
+	<cstring>
+	"ArchivoClientes.h"
+	"Cliente.h"
+
+1729694449 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\archivoclientes.h
+	"Persona.h"
+	"Cliente.h"
+
+1730157057 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\persona.h
+
+1730157057 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\cliente.h
+	"persona.h"
+
+1729022332 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\archivopersonas.cpp
+	<string>
+	<cstring>
+	"ArchivoPersonas.h"
+	"Persona.h"
+
+1729694449 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\archivopersonas.h
+	"Persona.h"
+
+1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\cliente.cpp
+	<iostream>
+	"Persona.h"
+	"Cliente.h"
+
+1730164109 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\detalleventa.cpp
+	<iostream>
+	"DetalleVenta.h"
+
+1730164066 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\detalleventa.h
+
+1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\empleado.cpp
+	<iostream>
+	<string>
+	"Empleado.h"
+	"Persona.h"
+	"Fecha.h"
+
+1730157057 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\empleado.h
+	"Persona.h"
+	"Fecha.h"
+
+1730157057 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\fecha.h
+
+1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\fecha.cpp
+	<iostream>
+	<cstring>
+	"Fecha.h"
+
+1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\main.cpp
+	<iostream>
+	"Menu.h"
+
+1730157057 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\menu.h
+	"Persona.h"
+	"Cliente.h"
+	"Empleado.h"
+
+1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\menu.cpp
+	<iostream>
+	<cstdio>
+	"Menu.h"
+	"Persona.h"
+	"ArchivoPersonas.h"
+	"Cliente.h"
+	"ArchivoClientes.h"
+	"Empleado.h"
+	"Venta.h"
+
+1730157057 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\venta.h
+	"Fecha.h"
+	"Persona.h"
+	"Cliente.h"
+
+1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\persona.cpp
+	<iostream>
+	<cstring>
+	"Persona.h"
+
+1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\producto.cpp
+	<iostream>
+	<cstring>
+	"Producto.h"
+
+1730164066 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\producto.h
+
+1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\venta.cpp
+	<iostream>
+	"Venta.h"
+	"Fecha.h"
+	"Persona.h"
+	"Empleado.h"
+
+1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\tareas.cpp
+

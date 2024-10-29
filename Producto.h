@@ -7,21 +7,23 @@ private:
     char nombreProducto[50];
     float precioUnitario;
     int stock;
-    //sumar factura total
-    //sumar categoriaProducto
+    char categoriaProducto;
+    //sumar facturaTotal
 public:
     Producto();
-    Producto(int productoID, const char* nombreProducto, float precioUnitario, int stock);
+    Producto(int productoID, const char* nombreProducto, float precioUnitario, int stock, const char* categoriaProducto);
 
     int getProductoID();
     const char* getNombre();
     float getPrecioUnitario();
+    const char* getCategoriaProducto();
 
     void setProductoID(int _productoID);
     void setNombre(const char* _nombre);
     void setPrecioUnitario(float _precioUnitario);
+    void setCategoriaProducto(const char* _categoriaProducto);
 
-    // sumar cargar Producto();
+    void cargarProducto();
     void mostrarProducto();
 
 };

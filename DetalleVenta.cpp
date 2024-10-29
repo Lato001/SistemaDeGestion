@@ -8,7 +8,7 @@ DetalleVenta::DetalleVenta()
     cantidadProducto = 0;
     precio = 0;
 }
-DetalleVenta::DetalleVenta(int _ventaID, int _prodcutoID, int _cantidadProducto, float _precio)
+DetalleVenta::DetalleVenta(int _ventaID, int _prodcutoID, int _cantidadProducto, float _precio, const char* categoriaProducto)
 {
     ventaID = _ventaID;
     productoID = _prodcutoID;

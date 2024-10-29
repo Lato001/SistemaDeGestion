@@ -10,7 +10,7 @@ Producto::Producto()
     precioUnitario = 0;
     stock = 0;
 }
-Producto::Producto(int _productoID, const char* _nombreProducto, float _precioUnitario, int _stock)
+Producto::Producto(int _productoID, const char* _nombreProducto, float _precioUnitario, int _stock, const char* categoriaProducto)
 {
     productoID = _productoID;
 
