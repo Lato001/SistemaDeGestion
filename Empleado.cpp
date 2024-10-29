@@ -5,6 +5,7 @@ using namespace std;
 #include "Empleado.h"
 #include "Persona.h"
 #include "Fecha.h"
+#include "ArchivoEmpleados.h"
 
 Empleado::Empleado()
 {
@@ -32,11 +33,39 @@ void Empleado::setfechadeingreso (Fecha _fechaDeIngreso){fechaDeIngreso = _fecha
 
 void Empleado::mostrarEmpleado()
 {
-    mostrarPersona();
-    Empleado uno;
-    Fecha una;
-       cout << "Empleado ID: " << uno.getID() << endl;
-    cout << "Fecha de Ingreso: " << una.toString() << endl;
-    cout << "Asistencias: " << uno.getAsistencias() << endl;
-    cout << "Vacaciones Activas: " << uno.getIsVacaciones() << endl;
+    cout << "Empleado ID: " << getID() << endl;
+    cout << "Fecha de Ingreso: ";
+    getFechaIngreso().mostrarFecha();
+    cout << "Asistencias: " << getAsistencias() << endl;
+    cout << "Vacaciones Activas: " << getIsVacaciones() << endl;
+}
+void Empleado::cargarEmpleado(){
+    ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
+    int inputNumeros;
+    char inputLetra;
+    Fecha fechaACargar;
+
+    cargarPersona();
+    cout<<"Ingrese la Fecha de Ingreso: " <<endl;
+    fechaACargar.cargarFecha();
+    fechaDeIngreso = fechaACargar;
+    empleadoID = (Empleados.CantidadRegistros()+1);
+    cout<< "Ingrese las asistencias del empleado: " << endl;
+    cin >> inputNumeros;
+    asistencias = inputNumeros;
+    cout<<"Esta en vacaciones S/N ? "<<endl;
+    cin >> inputLetra;
+    while(inputLetra != 'S' && inputLetra != 'N' ){
+        cout<<"Opcion invalida" << endl;
+        system("pause");
+        system("cls");
+    cin >> inputLetra;
+
+    }
+    if(inputLetra == 'S'){
+        vacacionesActivas = true;
+    }else{
+        vacacionesActivas = false;
+    }
+
 }

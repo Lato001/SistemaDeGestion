@@ -11,6 +11,7 @@ public:
     void listarClientes();
     void registrarVenta();
     void crearCliente();
+    void crearEmpleado();
 };
 
 #endif // MENU_H_INCLUDED

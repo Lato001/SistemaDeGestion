@@ -16,6 +16,7 @@ Fecha::Fecha(int _dia, int _mes, int _anio){
     anio = _anio;
 }
 
+
 int Fecha::getDia(){
     return dia;
 }

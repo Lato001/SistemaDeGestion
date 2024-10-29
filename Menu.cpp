@@ -1,11 +1,12 @@
 #include <iostream>
 #include <cstdio>
 
+#include "ArchivoPersonas.h"
+#include "ArchivoClientes.h"
+#include "ArchivoEmpleados.h"
 #include "Menu.h"
 #include "Persona.h"
-#include "ArchivoPersonas.h"
 #include "Cliente.h"
-#include "ArchivoClientes.h"
 #include "Empleado.h"
 #include "Venta.h"
 
@@ -32,37 +33,87 @@ void Menu::getMainMenu()
         cout<<"==================================="<<endl;
         cin>>op;
         system("cls");
-        if(op> (-1) && op<6)
+        if(op> (0) && op<6)
         {
             opcionValida=true;
         }
 
-            switch (op)
-            {
-            case 2:
-                crearCliente();
-                break;
-            case 3:
-                listarEmpleados();
-                break;
-            case 4:
-                listarClientes();
-                break;
-            case 5:
-                registrarVenta();
-                break;
-            case 0:
-                boolExit= true;
-                break;
-            default:
-                cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
-            }
-            system("pause");
-            system("cls");
+        switch (op)
+        {
+        case 1:
+            crearEmpleado();
+            break;
+        case 2:
+            crearCliente();
+            break;
+        case 3:
+            listarEmpleados();
+            break;
+        case 4:
+            listarClientes();
+            break;
+        case 5:
+            registrarVenta();
+            break;
+        case 0:
+            boolExit= true;
+            break;
+        default:
+            cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
+        }
+        system("pause");
+        system("cls");
 
         opcionValida = false;
-    }while(boolExit==false || !opcionValida);
+    }
+    while(boolExit==false || !opcionValida);
 }
+
+
+void Menu::crearCliente()
+{
+    ArchivoClientes archivoClientes("ArchivoClientes.dat");
+
+
+    Cliente cliente;
+    cliente.cargarCliente();
+    cliente.mostrarCliente();
+
+    /*GUARDA Y VERIFICA DE QUE EL CLIENTE HAYA SIDO REGISTRADO
+    EN LA ULTIMA POSICION DEL ARCHIVO DE CLIENTES
+    */
+
+    if ( archivoClientes.Guardar(cliente) )
+    {
+        cout<<endl;
+        cout << "Cliente guardado correctamente." << endl;
+    }
+    else
+    {
+        cout << "Error al guardar el cliente." << endl;
+    }
+}
+
+
+void Menu::crearEmpleado()
+{
+    ArchivoEmpleados archivoEmpleados("ArchivoEmpleados.dat");
+
+
+    Empleado empleado;
+    empleado.cargarEmpleado();
+    empleado.mostrarEmpleado();
+    if ( archivoEmpleados.Guardar(empleado) )
+    {
+        cout<<endl;
+        cout << "Cliente guardado correctamente." << endl;
+    }
+    else
+    {
+        cout << "Error al guardar el cliente." << endl;
+    }
+}
+
 
 void Menu::listarEmpleados()
 {
@@ -71,26 +122,32 @@ void Menu::listarEmpleados()
     int cantRegistros = Personas.CantidadRegistros();
     cout<< "cantidad de registros: " << cantRegistros << endl;
 
-    for (int i = 0; i < cantRegistros ;i++ ){
-    registro = Personas.Leer(i);
-    registro.mostrarPersona();
+    for (int i = 0; i < cantRegistros ; i++ )
+    {
+        registro = Personas.Leer(i);
+        registro.mostrarPersona();
 
     }
 }
-void Menu::listarClientes(){
+void Menu::listarClientes()
+{
     ArchivoClientes Clientes("ArchivoClientes.dat");
     Cliente registro;
     int cantRegistros = Clientes.CantidadRegistros();
-    if(cantRegistros == 0){
-    cout<< "No se han encontrado clientes registrados" << endl;
-    }else{
-
-    cout<< "TOTAL DE CLIENTES: " << cantRegistros << endl;
-    for (int i = 0;i < cantRegistros;i++ ){
-    registro = Clientes.Leer(i);
-    registro.mostrarCliente();
-    cout<<endl;
+    if(cantRegistros == 0)
+    {
+        cout<< "No se han encontrado clientes registrados" << endl;
     }
+    else
+    {
+
+        cout<< "TOTAL DE CLIENTES: " << cantRegistros << endl;
+        for (int i = 0; i < cantRegistros; i++ )
+        {
+            registro = Clientes.Leer(i);
+            registro.mostrarCliente();
+            cout<<endl;
+        }
     }
 
 }
@@ -99,28 +156,4 @@ void Menu::registrarVenta()
 {
     Venta venta;
     venta.mostrarVenta();
-}
-
-void Menu::crearCliente()
-{
-    ArchivoClientes archivoClientes("ArchivoClientes.dat");
-
-    int inputnumber;
-    char ingresoDatos[50];
-
-    Cliente cliente;
-    cliente.cargarCliente();
-    cliente.mostrarCliente();
-
-/*GUARDA Y VERIFICA DE QUE EL CLIENTE HAYA SIDO REGISTRADO
-EN LA ULTIMA POSICION DEL ARCHIVO DE CLIENTES
-*/
-
-    if ( archivoClientes.Guardar(cliente) )  {
-        cout<<endl;
-        cout << "Cliente guardado correctamente." << endl;
-    }
-    else {
-        cout << "Error al guardar el cliente." << endl;
-    }
 }

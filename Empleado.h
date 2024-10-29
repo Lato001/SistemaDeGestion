@@ -6,7 +6,6 @@
 
 class Empleado : public Persona {
 private:
-    Persona empleado;
     Fecha fechaDeIngreso;
     int empleadoID;
     int asistencias;
@@ -27,6 +26,7 @@ public:
     void setvacacionesActivas(bool _vacacionesActivas);
 
     void mostrarEmpleado();
+    void cargarEmpleado();
 
 };
 

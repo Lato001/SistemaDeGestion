@@ -5,7 +5,6 @@
 
 class Cliente : public Persona {
 private:
-    Persona cliente;
     int clienteID;
 public:
     Cliente();
