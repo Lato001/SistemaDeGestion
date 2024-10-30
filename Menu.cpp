@@ -155,5 +155,6 @@ void Menu::listarClientes()
 void Menu::registrarVenta()
 {
     Venta venta;
-    venta.mostrarVenta();
+    venta.cargarVenta();
+
 }

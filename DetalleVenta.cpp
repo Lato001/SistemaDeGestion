@@ -41,5 +41,11 @@ DetalleVenta::DetalleVenta(int _ventaID, int _prodcutoID, int _cantidadProducto,
 
     }
     void DetalleVenta :: mostrarDetalleDeVenta(){
-        cout<<"ID de venta: " << getVentaID() << " ID de producto: " << getProductoID()<< " Precio total: " << getPrecio() <<endl;
+    cout<<"-----------------------------------"<<endl;
+    cout<< "ID DE VENTA: " << getVentaID()<<endl;
+    cout<< "ID DEL PRODUCTO: " << getProductoID()<<endl;
+    cout<< "CANTIDAD DEL PRODUCTO: " << getCantidadProducto()<<endl;
+    cout<< "CATEGORIA DEL PRODUCTO: " << getCantidadProducto()<<endl;
+    cout<< "PRECIO: " << getPrecio() << endl;
+    cout<<"-----------------------------------"<<endl;
     }

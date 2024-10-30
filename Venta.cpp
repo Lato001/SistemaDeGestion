@@ -3,6 +3,9 @@
 #include "Fecha.h"
 #include "Persona.h"
 #include "Empleado.h"
+#include "ArchivoEmpleados.h"
+#include "ArchivoClientes.h"
+#include "ArchivoVentas.h"
 
 using namespace std;
 
@@ -11,9 +14,10 @@ Venta::Venta(){
     fecha;
     vendedor;
     formaDePago = 0;
+    detalleDeVenta;
     TotalDeVenta = 0;
  }
- Venta::Venta(int _nDeVenta, Fecha _fecha, Persona _vendedor, int _formaDePago, float _TotalDeVenta)
+ Venta::Venta(int _nDeVenta, Fecha _fecha, Persona _vendedor, int _formaDePago,DetalleVenta detalleVenta, float _TotalDeVenta)
  {
     nDeVenta = _nDeVenta;
     fecha = _fecha;
@@ -28,6 +32,7 @@ Venta::Venta(){
  Persona Venta::getVendedor(){return vendedor;}
  int Venta::getFormaDePago(){return formaDePago;}
  float Venta::getTotalDeVenta(){return TotalDeVenta;}
+ DetalleVenta Venta::getDetalleDeVenta(){return detalleDeVenta;}
 
  void Venta::setNDeVenta(int _nDeVenta){nDeVenta = _nDeVenta;}
  void Venta::setFecha(Fecha _fecha){fecha = _fecha;}
@@ -37,13 +42,61 @@ Venta::Venta(){
 
  void Venta::mostrarVenta(){
     cout<<"-----------------------------------"<<endl;
-    cout << "N de Venta: " << nDeVenta << endl;
-    cout << "Fecha: " << fecha.toString() << endl;
-    cout << "Vendedor: ";
-    cout<<endl;
-    cout << "Forma de Pago: " << formaDePago << endl;
-    cout << "Total a pagar: " << TotalDeVenta << endl;
+    cout<< "Nro DE VENTA: " << getNDeVenta()<<endl;
+    cout<< "FECHA: ";
+    getFecha().mostrarFecha();
+    cout<< "VENDEDOR: ";
+    getVendedor().mostrarPersona();
+    cout<< "FORMA DE PAGO: " << getFormaDePago()<< endl;
+    cout<<"---------------DETALLE DE VENTA--------------------"<<endl;
+    detalleDeVenta.mostrarDetalleDeVenta();
+    cout<<"---------------................--------------------"<<endl;
+    cout<< "TOTAL DE VENTA: " << getTotalDeVenta();
     cout<<"-----------------------------------"<<endl;
+ }
+
+ void Venta::cargarVenta(){
+
+     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
+     Empleado registroEmpleado;
+     ArchivoClientes Clientes("ArchivoClientes.dat");
+     Cliente registroCliente;
+     ArchivoVentas Ventas("ArchivoVentas.dat");
+     int inputNumeros;
+     float montoTotalVenta;
+    cout<< "Ingrese el numero de venta: ";
+    cin >> inputNumeros;
+
+    cout<< "FECHA: ";
+    fecha.cargarFecha();
+
+    cout<< "Elija cual fue el vendedor"<<endl;
+    for(int i = 0; i <Empleados.CantidadRegistros() ; i++ ){
+            registroEmpleado = Empleados.Leer(i);
+            cout<< i << ". ";
+            registroEmpleado.mostrarEmpleado();
+
+    }
+    cout<< "Elija cual fue el comprador"<<endl;
+    for(int i = 0; i <Clientes.CantidadRegistros() ; i++ ){
+            registroCliente= Clientes.Leer(i);
+            cout<< i << ". ";
+            registroCliente.mostrarCliente();
+
+    }
+    cout<< "Seleccione forma de pago "<<endl;
+    cout<< "1. Efectivo / 2. Debito / 3. Credito"<<endl;
+    cin >> inputNumeros;
+    formaDePago = inputNumeros;
+    cout<<"---------------DETALLE DE VENTA--------------------"<<endl;
+    detalleDeVenta.cargarDetalleDeVenta();
+    cout<<"---------------................--------------------"<<endl;
+    cout<< "Ingrese el monto total de la venta realizada "<<endl;
+    cin >> montoTotalVenta;
+    TotalDeVenta = montoTotalVenta;
+    cout<<"-----------------------------------"<<endl;
+
+
  }
 
 

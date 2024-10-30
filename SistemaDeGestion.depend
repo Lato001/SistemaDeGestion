@@ -114,17 +114,21 @@
 	<cstring>
 	"Persona.h"
 
-1729785115 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.cpp
+1730255316 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.cpp
 	<iostream>
 	"Venta.h"
 	"Fecha.h"
 	"Persona.h"
 	"Empleado.h"
+	"ArchivoEmpleados.h"
+	"ArchivoClientes.h"
+	"ArchivoVentas.h"
 
-1729785115 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.h
+1730252160 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.h
 	"Fecha.h"
 	"Persona.h"
 	"Cliente.h"
+	"DetalleVenta.h"
 
 1729782615 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\main.cpp
 	<iostream>
@@ -247,11 +251,11 @@
 
 1730167789 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\tareas.cpp
 
-1730167789 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\detalleventa.cpp
+1730253466 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\detalleventa.cpp
 	<iostream>
 	"DetalleVenta.h"
 
-1730167789 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\detalleventa.h
+1730252177 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\detalleventa.h
 
 1730167789 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\producto.cpp
 	<iostream>
@@ -378,7 +382,20 @@
 	"ArchivoEmpleados.h"
 	"Empleado.h"
 
-1730197690 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoempleados.h
+1730251489 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoempleados.h
 	"Persona.h"
 	"Empleado.h"
+
+1730251705 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoventas.cpp
+	<string>
+	<cstring>
+	"ArchivoVentas.h"
+	"Venta.h"
+
+1730251659 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoventas.h
+	"Venta.h"
+	"Cliente.h"
+	"Fecha.h"
+	"Venta.h"
+	"DetalleVenta.h"
 
