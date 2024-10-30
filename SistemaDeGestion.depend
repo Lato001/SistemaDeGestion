@@ -399,3 +399,130 @@
 	"Venta.h"
 	"DetalleVenta.h"
 
+1729993933 source:c:\users\agustin\documents\github\sistemadegestion\archivoclientes.cpp
+	<string>
+	<cstring>
+	"ArchivoClientes.h"
+	"Cliente.h"
+
+1729993933 c:\users\agustin\documents\github\sistemadegestion\archivoclientes.h
+	"Persona.h"
+	"Cliente.h"
+
+1730223134 c:\users\agustin\documents\github\sistemadegestion\persona.h
+
+1730223134 c:\users\agustin\documents\github\sistemadegestion\cliente.h
+	"persona.h"
+
+1729993933 source:c:\users\agustin\documents\github\sistemadegestion\archivopersonas.cpp
+	<string>
+	<cstring>
+	"ArchivoPersonas.h"
+	"Persona.h"
+
+1729993933 c:\users\agustin\documents\github\sistemadegestion\archivopersonas.h
+	"Persona.h"
+
+1730223134 source:c:\users\agustin\documents\github\sistemadegestion\cliente.cpp
+	<iostream>
+	"Persona.h"
+	"Cliente.h"
+	"ArchivoClientes.h"
+
+1730287437 source:c:\users\agustin\documents\github\sistemadegestion\detalleventa.cpp
+	<iostream>
+	"DetalleVenta.h"
+
+1730223134 c:\users\agustin\documents\github\sistemadegestion\detalleventa.h
+
+1730223134 source:c:\users\agustin\documents\github\sistemadegestion\empleado.cpp
+	<iostream>
+	<string>
+	"Empleado.h"
+	"Persona.h"
+	"Fecha.h"
+	"ArchivoEmpleados.h"
+
+1730223134 c:\users\agustin\documents\github\sistemadegestion\empleado.h
+	"Persona.h"
+	"Fecha.h"
+
+1729993933 c:\users\agustin\documents\github\sistemadegestion\fecha.h
+
+1730223134 c:\users\agustin\documents\github\sistemadegestion\archivoempleados.h
+	"Persona.h"
+	"Empleado.h"
+
+1730223134 source:c:\users\agustin\documents\github\sistemadegestion\fecha.cpp
+	<iostream>
+	<cstring>
+	"Fecha.h"
+
+1729993894 source:c:\users\agustin\documents\github\sistemadegestion\main.cpp
+	<iostream>
+	"Menu.h"
+
+1730223134 c:\users\agustin\documents\github\sistemadegestion\menu.h
+	"Persona.h"
+	"Cliente.h"
+	"Empleado.h"
+
+1730287437 source:c:\users\agustin\documents\github\sistemadegestion\menu.cpp
+	<iostream>
+	<cstdio>
+	"ArchivoPersonas.h"
+	"ArchivoClientes.h"
+	"ArchivoEmpleados.h"
+	"Menu.h"
+	"Persona.h"
+	"Cliente.h"
+	"Empleado.h"
+	"Venta.h"
+
+1730287438 c:\users\agustin\documents\github\sistemadegestion\venta.h
+	"Fecha.h"
+	"Persona.h"
+	"Cliente.h"
+	"DetalleVenta.h"
+
+1730223134 source:c:\users\agustin\documents\github\sistemadegestion\persona.cpp
+	<iostream>
+	<cstring>
+	"Persona.h"
+
+1730223134 source:c:\users\agustin\documents\github\sistemadegestion\producto.cpp
+	<iostream>
+	<cstring>
+	"Producto.h"
+
+1730223134 c:\users\agustin\documents\github\sistemadegestion\producto.h
+
+1730287438 source:c:\users\agustin\documents\github\sistemadegestion\venta.cpp
+	<iostream>
+	"Venta.h"
+	"Fecha.h"
+	"Persona.h"
+	"Empleado.h"
+	"ArchivoEmpleados.h"
+	"ArchivoClientes.h"
+	"ArchivoVentas.h"
+
+1730287437 c:\users\agustin\documents\github\sistemadegestion\archivoventas.h
+	"Venta.h"
+	"Cliente.h"
+	"Fecha.h"
+	"Venta.h"
+	"DetalleVenta.h"
+
+1730223134 source:c:\users\agustin\documents\github\sistemadegestion\archivoempleados.cpp
+	<string>
+	<cstring>
+	"ArchivoEmpleados.h"
+	"Empleado.h"
+
+1730287437 source:c:\users\agustin\documents\github\sistemadegestion\archivoventas.cpp
+	<string>
+	<cstring>
+	"ArchivoVentas.h"
+	"Venta.h"
+

@@ -34,8 +34,12 @@
 		</Compiler>
 		<Unit filename="ArchivoClientes.cpp" />
 		<Unit filename="ArchivoClientes.h" />
+		<Unit filename="ArchivoEmpleados.cpp" />
+		<Unit filename="ArchivoEmpleados.h" />
 		<Unit filename="ArchivoPersonas.cpp" />
 		<Unit filename="ArchivoPersonas.h" />
+		<Unit filename="ArchivoVentas.cpp" />
+		<Unit filename="ArchivoVentas.h" />
 		<Unit filename="Cliente.cpp" />
 		<Unit filename="Cliente.h" />
 		<Unit filename="DetalleVenta.cpp" />
@@ -50,7 +54,6 @@
 		<Unit filename="Persona.h" />
 		<Unit filename="Producto.cpp" />
 		<Unit filename="Producto.h" />
-		<Unit filename="Tareas.cpp" />
 		<Unit filename="Venta.cpp" />
 		<Unit filename="Venta.h" />
 		<Unit filename="main.cpp" />
