@@ -13,22 +13,24 @@ Venta::Venta(){
     nDeVenta = 0;
     fecha;
     vendedor;
+    comprador;
     formaDePago = 0;
     detalleDeVenta;
     TotalDeVenta = 0;
 }
-Venta::Venta(int _nDeVenta, Fecha _fecha, Persona _vendedor, int _formaDePago, DetalleVenta detalleVenta, float _TotalDeVenta)
+Venta::Venta(int _nDeVenta, Fecha _fecha, Empleado _vendedor, Cliente _comprador, int _formaDePago, DetalleVenta detalleDeVenta, float _TotalDeVenta)
 {
     nDeVenta = _nDeVenta;
     fecha = _fecha;
     vendedor = _vendedor;
+    comprador = _comprador;
     formaDePago = _formaDePago;
     TotalDeVenta = _TotalDeVenta;
 }
 
 int Venta::getNDeVenta(){return nDeVenta;}
 Fecha Venta::getFecha(){return fecha;}
-Persona Venta::getVendedor(){return vendedor;}
+Empleado Venta::getVendedor(){return vendedor;}
 int Venta::getFormaDePago(){return formaDePago;}
 float Venta::getTotalDeVenta(){return TotalDeVenta;}
 DetalleVenta Venta::getDetalleDeVenta(){return detalleDeVenta;}
@@ -36,7 +38,7 @@ DetalleVenta Venta::getDetalleDeVenta(){return detalleDeVenta;}
 void Venta::setNDeVenta(int _nDeVenta){nDeVenta = _nDeVenta;}
 void Venta::setFecha(Fecha _fecha){fecha = _fecha;}
 void Venta::setFormaDePago(int _formaDePago){formaDePago = _formaDePago;}
-void Venta::setVendedor(Persona _vendedor){vendedor = _vendedor;}
+void Venta::setVendedor(Empleado _vendedor){vendedor = _vendedor;}
 void Venta::setTotalDeVenta(float _TotalDeVenta){TotalDeVenta = _TotalDeVenta;}
 
 void Venta::mostrarVenta(){
@@ -69,23 +71,50 @@ void Venta::cargarVenta() {
     cout << "FECHA: ";
     fecha.cargarFecha();
 
-    cout << "Seleccione el vendedor (ID - Nombre):" << endl;
-    for (int i = 0; i < Empleados.CantidadRegistros(); i++) {
-        registroEmpleado = Empleados.Leer(i);
-        cout << i << ". ID: " << registroEmpleado.getID() << " - Nombre: " << registroEmpleado.getNombre() << endl;
-    }
-    cout << "Ingrese el ID del vendedor: ";
-    cin >> inputNumeros;
-    vendedor = Empleados.Leer(inputNumeros);
 
-    cout << "Seleccione el cliente (ID - Nombre):" << endl;
-    for (int i = 0; i < Clientes.CantidadRegistros(); i++) {
-        registroCliente = Clientes.Leer(i);
-        cout << i << ". ID: " << registroCliente.getID() << " - Nombre: " << registroCliente.getNombre() << endl;
-    }
-    cout << "Ingrese el ID del cliente: ";
-    cin >> inputNumeros;
+    int idVendedor = 0;
+    bool vendedorValido = false;
+    while (!vendedorValido) {
+        cout << "Seleccione el vendedor (ID - Nombre):" << endl;
+        for (int i = 0; i < Empleados.CantidadRegistros(); i++) {
+            registroEmpleado = Empleados.Leer(i);
+            cout << "ID: " << registroEmpleado.getID() << " - Nombre: " << registroEmpleado.getNombre() << endl;
+        }
+        cout << "Ingrese el ID del vendedor: ";
+        cin >> idVendedor;
 
+        if (idVendedor > 0 && idVendedor <= Empleados.CantidadRegistros()) {
+            vendedor = Empleados.Leer(idVendedor -1);
+            vendedorValido = true;
+        } else {
+            cout << "ID invalido. Intente nuevamente." << endl;
+            system("pause");
+            system("cls");
+        }
+    }
+
+
+    int idCliente = 0;
+    bool clienteValido = false;
+    while (!clienteValido) {
+        cout << "Seleccione el cliente (ID - Nombre):" << endl;
+        for (int i = 0; i < Clientes.CantidadRegistros(); i++) {
+            registroCliente = Clientes.Leer(i);
+            cout << "ID: " << registroCliente.getID() << " - Nombre: " << registroCliente.getNombre() << endl;
+        }
+        cout << "Ingrese el ID del cliente: ";
+        cin >> idCliente;
+
+        if (idCliente > 0 && idCliente <= Clientes.CantidadRegistros()) {
+
+            clienteValido = true;
+            comprador = Clientes.Leer(idCliente -1);
+        } else {
+            cout << "ID invalido. Intente nuevamente." << endl;
+            system("pause");
+            system("cls");
+        }
+    }
 
     cout << "Seleccione forma de pago:" << endl;
     cout << "1. Efectivo\n2. Debito\n3. Credito" << endl;
@@ -113,5 +142,3 @@ void listarClientes() {
         cout << "ID: " << registroCliente.getID() << " - Nombre: " << registroCliente.getNombre() << endl;
     }
 }
-
-
