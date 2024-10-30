@@ -109,7 +109,7 @@
 
 1729785115 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\fecha.h
 
-1730174162 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\persona.cpp
+1730317939 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\persona.cpp
 	<iostream>
 	<cstring>
 	"Persona.h"
@@ -124,7 +124,7 @@
 	"ArchivoClientes.h"
 	"ArchivoVentas.h"
 
-1730252160 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.h
+1730321684 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.h
 	"Fecha.h"
 	"Persona.h"
 	"Cliente.h"
@@ -139,7 +139,7 @@
 	"Cliente.h"
 	"Empleado.h"
 
-1730198005 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\menu.cpp
+1730321588 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\menu.cpp
 	<iostream>
 	<cstdio>
 	"ArchivoPersonas.h"
@@ -231,13 +231,13 @@
 1730196002 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\cliente.h
 	"persona.h"
 
-1730196208 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\cliente.cpp
+1730317840 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\cliente.cpp
 	<iostream>
 	"Persona.h"
 	"Cliente.h"
 	"ArchivoClientes.h"
 
-1730197741 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\empleado.cpp
+1730317828 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\empleado.cpp
 	<iostream>
 	<string>
 	"Empleado.h"
@@ -255,14 +255,14 @@
 	<iostream>
 	"DetalleVenta.h"
 
-1730252177 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\detalleventa.h
+1730321588 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\detalleventa.h
 
 1730167789 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\producto.cpp
 	<iostream>
 	<cstring>
 	"Producto.h"
 
-1730167789 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\producto.h
+1730321588 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\producto.h
 
 1729801433 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.cpp
 	<iostream>

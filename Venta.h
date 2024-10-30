@@ -1,27 +1,26 @@
 #ifndef VENTA_H_INCLUDED
 #define VENTA_H_INCLUDED
 #include "Fecha.h"
+#include "Persona.h"
 #include "Cliente.h"
 #include "DetalleVenta.h"
-#include "Empleado.h"
 
 class Venta
 {
 private:
     int nDeVenta;
     Fecha fecha;
-    Empleado vendedor;
-    Cliente comprador;
+    Persona vendedor;
     int formaDePago;
     DetalleVenta detalleDeVenta;
     float TotalDeVenta = 0;
 public:
 
     Venta();
-    Venta(int _nDeVenta, Fecha _fecha, Empleado _vendedor, Cliente _comprador, int _formaDePago, DetalleVenta detalleDeVenta,float _TotalDeVenta);
+    Venta(int _nDeVenta, Fecha _fecha, Persona _vendedor, int _formaDePago, DetalleVenta detalleDeVenta,float _TotalDeVenta);
     int getNDeVenta();
     Fecha getFecha();
-    Empleado getVendedor();
+    Persona getVendedor();
     int getFormaDePago();
     float getTotalDeVenta();
     DetalleVenta getDetalleDeVenta();
@@ -29,7 +28,7 @@ public:
     void setNDeVenta(int _nDeVenta);
     void setFecha(Fecha _fecha);
     void setFormaDePago(int _formaDePago);
-    void setVendedor(Empleado _vendedor);
+    void setVendedor(Persona _vendedor);
     void setTotalDeVenta(float _TotalDeVenta);
     void mostrarVenta();
     void cargarVenta();
