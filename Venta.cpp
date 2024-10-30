@@ -68,10 +68,13 @@ void Venta::cargarVenta() {
     cout << "Ingrese el numero de venta: ";
     cin >> inputNumeros;
     nDeVenta = inputNumeros;
+    system("pause");
+    system("cls");
 
-    cout << "FECHA: ";
+    cout << "FECHA: " << endl;
     fecha.cargarFecha();
-
+    system("pause");
+    system("cls");
 
     int idVendedor = 0;
     bool vendedorValido = false;
@@ -85,7 +88,7 @@ void Venta::cargarVenta() {
         cin >> idVendedor;
 
         if (idVendedor > 0 && idVendedor <= Empleados.CantidadRegistros()) {
-            vendedor = Empleados.Leer(idVendedor -1);
+            vendedor = Empleados.Leer(idVendedor - 1);
             vendedorValido = true;
         } else {
             cout << "ID invalido. Intente nuevamente." << endl;
@@ -93,7 +96,8 @@ void Venta::cargarVenta() {
             system("cls");
         }
     }
-
+     system("pause");
+     system("cls");
 
     int idCliente = 0;
     bool clienteValido = false;
@@ -107,20 +111,38 @@ void Venta::cargarVenta() {
         cin >> idCliente;
 
         if (idCliente > 0 && idCliente <= Clientes.CantidadRegistros()) {
-
             clienteValido = true;
-            comprador = Clientes.Leer(idCliente -1);
+            comprador = Clientes.Leer(idCliente - 1);
         } else {
             cout << "ID invalido. Intente nuevamente." << endl;
             system("pause");
             system("cls");
         }
     }
+     system("pause");
+     system("cls");
 
-    cout << "Seleccione forma de pago:" << endl;
-    cout << "1. Efectivo\n2. Debito\n3. Credito" << endl;
+    cout << "Seleccione forma de pago:" << endl << "1. Efectivo\n2. Debito\n3. Credito" << endl << "Opcion: " ;
     cin >> inputNumeros;
     formaDePago = inputNumeros;
+
+
+    switch (formaDePago) {
+        case 1:
+            cout << "Metodo de pago seleccionado: Efectivo" << endl;
+            break;
+        case 2:
+            cout << "Metodo de pago seleccionado: Debito" << endl;
+            break;
+        case 3:
+            cout << "Metodo de pago seleccionado: Credito" << endl;
+            break;
+        default:
+            cout << "Metodo de pago no valido." << endl;
+            break;
+    }
+     system("pause");
+     system("cls");
 
     cout << "--------------- DETALLE DE VENTA --------------------" << endl;
     detalleDeVenta.cargarDetalleDeVenta();
@@ -143,3 +165,4 @@ void listarClientes() {
         cout << "ID: " << registroCliente.getID() << " - Nombre: " << registroCliente.getNombre() << endl;
     }
 }
+
