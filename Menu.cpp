@@ -9,6 +9,7 @@
 #include "Cliente.h"
 #include "Empleado.h"
 #include "Venta.h"
+#include "rlutil.h"
 
 using namespace std;
 
@@ -56,7 +57,7 @@ void Menu::getMainMenu()
             registrarVenta();
             break;
         case 0:
-            boolExit= true;
+            exit(0);
             break;
         default:
             cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
