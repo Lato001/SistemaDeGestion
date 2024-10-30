@@ -63,7 +63,12 @@ void Persona::setLocalidad(const char* _localidad) {
     localidad[sizeof(localidad) - 1] = '\0';
 }
 void Persona::mostrarPersona(){
-    cout<<"DNI: "<<getDNI()<<" Nombre: " << getNombre() << " Apellido: " << getApellido()<<" email: " << getEmail() <<" N Telefono: " << getnTelefono() << " localidad: " << getLocalidad() <<endl;
+    cout<<"              DNI: "<<getDNI()<<endl;
+    cout<< "              Nombre: " << getNombre()<<endl;
+    cout<< "              Apellido: " << getApellido()<<endl;
+    cout<<"              email: " << getEmail() << endl;
+    cout<<"              N Telefono: " << getnTelefono() << endl;
+    cout<< "              localidad: " << getLocalidad() <<endl;
 }
 void Persona::cargarPersona(){
     int inputNumeros;

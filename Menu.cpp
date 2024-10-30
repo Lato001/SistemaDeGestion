@@ -106,26 +106,26 @@ void Menu::crearEmpleado()
     if ( archivoEmpleados.Guardar(empleado) )
     {
         cout<<endl;
-        cout << "Cliente guardado correctamente." << endl;
+        cout << "Empleado guardado correctamente." << endl;
     }
     else
     {
-        cout << "Error al guardar el cliente." << endl;
+        cout << "Error al guardar el Empleado." << endl;
     }
 }
 
 
 void Menu::listarEmpleados()
 {
-    ArchivoPersonas Personas("ArchivoEmpleados.dat");
-    Persona registro;
-    int cantRegistros = Personas.CantidadRegistros();
-    cout<< "cantidad de registros: " << cantRegistros << endl;
+    ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
+    Empleado registro;
+    int cantRegistros = Empleados.CantidadRegistros();
+    cout<< "TOTAL DE EMPLEADOS: " << cantRegistros << endl;
 
     for (int i = 0; i < cantRegistros ; i++ )
     {
-        registro = Personas.Leer(i);
-        registro.mostrarPersona();
+        registro = Empleados.Leer(i);
+        registro.mostrarEmpleado();
 
     }
 }

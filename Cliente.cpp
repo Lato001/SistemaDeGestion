@@ -21,7 +21,7 @@ clienteID = _clienteID;
 
 void Cliente::mostrarCliente()
 {
-    cout<<"ID usuario: "<< clienteID << " ";
+    cout<<"////////////////// ID CLIENTE: "<< getID() <<" //////////////////" <<endl;
     mostrarPersona();
 }
 

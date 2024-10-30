@@ -33,11 +33,13 @@ void Empleado::setfechadeingreso (Fecha _fechaDeIngreso){fechaDeIngreso = _fecha
 
 void Empleado::mostrarEmpleado()
 {
-    cout << "Empleado ID: " << getID() << endl;
-    cout << "Fecha de Ingreso: ";
+    cout << "////////////////// ID EMPLEADO: "<< getID() <<" //////////////////"<<endl;
+    mostrarPersona();
+    cout<<"////////////////// Detalles en la empresa: "<<" //////////////////" <<endl;
+    cout << "              Fecha de Ingreso: ";
     getFechaIngreso().mostrarFecha();
-    cout << "Asistencias: " << getAsistencias() << endl;
-    cout << "Vacaciones Activas: " << getIsVacaciones() << endl;
+    cout << "              Asistencias: " << getAsistencias() << endl;
+    cout << "              Vacaciones Activas: " << getIsVacaciones() <<endl<<"//////////////////////////////////////////////////////////////"<< endl << endl;
 }
 void Empleado::cargarEmpleado(){
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
