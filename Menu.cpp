@@ -126,6 +126,7 @@ void Menu::listarEmpleados()
     {
         registro = Empleados.Leer(i);
         registro.mostrarEmpleado();
+        cout<<endl;
 
     }
 }

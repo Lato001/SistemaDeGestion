@@ -18,13 +18,14 @@ Venta::Venta(){
     detalleDeVenta;
     TotalDeVenta = 0;
 }
-Venta::Venta(int _nDeVenta, Fecha _fecha, Empleado _vendedor, Cliente _comprador, int _formaDePago, DetalleVenta detalleDeVenta, float _TotalDeVenta)
+Venta::Venta(int _nDeVenta, Fecha _fecha, Empleado _vendedor, Cliente _comprador, int _formaDePago, DetalleVenta _detalleDeVenta, float _TotalDeVenta)
 {
     nDeVenta = _nDeVenta;
     fecha = _fecha;
     vendedor = _vendedor;
     comprador = _comprador;
     formaDePago = _formaDePago;
+    detalleDeVenta = _detalleDeVenta;
     TotalDeVenta = _TotalDeVenta;
 }
 
