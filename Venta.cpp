@@ -123,7 +123,7 @@ void Venta::cargarVenta() {
     cout << "Seleccione el vendedor (ID - Nombre):" << endl;
     for (int i = 0; i < Empleados.CantidadRegistros(); i++) {
         registroEmpleado = Empleados.Leer(i);
-        cout << i << ". ID: " << registroEmpleado.getID() << " - Nombre: " << registroEmpleado.getNombre() << endl;
+        cout << "ID: " << registroEmpleado.getID() << " - Nombre: " << registroEmpleado.getNombre() << endl;
     }
     cout << "Ingrese el ID del vendedor: ";
     cin >> inputNumeros;
@@ -132,7 +132,7 @@ void Venta::cargarVenta() {
     cout << "Seleccione el cliente (ID - Nombre):" << endl;
     for (int i = 0; i < Clientes.CantidadRegistros(); i++) {
         registroCliente = Clientes.Leer(i);
-        cout << i << ". ID: " << registroCliente.getID() << " - Nombre: " << registroCliente.getNombre() << endl;
+        cout << "ID: " << registroCliente.getID() << " - Nombre: " << registroCliente.getNombre() << endl;
     }
     cout << "Ingrese el ID del cliente: ";
     cin >> inputNumeros;
