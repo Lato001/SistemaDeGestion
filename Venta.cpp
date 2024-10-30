@@ -6,6 +6,7 @@
 #include "ArchivoClientes.h"
 #include "ArchivoVentas.h"
 
+
 using namespace std;
 
 Venta::Venta(){
