@@ -26,8 +26,9 @@ public:
     void setPrecio(int _precio);
     void setCategoriaProducto(const char* _categoriaProducto);
 
-    void mostrarDetalleDeVenta();
+    void cargarProducto();
     void cargarDetalleDeVenta();
+    void mostrarDetalleDeVenta();
 
 };
 
