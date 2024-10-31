@@ -8,8 +8,8 @@ private:
     char nombreProducto[WORD];
     float precioUnitario;
     int stock;
-    char categoriaProducto;
-    //sumar facturaTotal
+    char categoriaProducto[WORD];
+
 public:
     Producto();
     Producto(int productoID, const char* nombreProducto, float precioUnitario, int stock, const char* categoriaProducto);
@@ -18,11 +18,13 @@ public:
     const char* getNombre();
     float getPrecioUnitario();
     const char* getCategoriaProducto();
+    int getStock();
 
     void setProductoID(int _productoID);
     void setNombre(const char* _nombre);
     void setPrecioUnitario(float _precioUnitario);
     void setCategoriaProducto(const char* _categoriaProducto);
+    void setStock(int _stock);
 
     void cargarProducto();
     void mostrarProducto();
