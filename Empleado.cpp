@@ -13,6 +13,7 @@ Empleado::Empleado()
     empleadoID = 0;
     asistencias = 0;
     vacacionesActivas = false;
+    sueldo = 0;
 }
 Empleado::Empleado(int _DNI, const char* _nombre,const char* _apellido,const char* _email, int _nTelefono, const char* _localidad, Fecha _fechaDeIngreso, int _empleadoID, int _asistencias, bool _vacacionesActivas) : Persona(_DNI, _nombre, _apellido, _email, _nTelefono, _localidad)
 {
@@ -25,12 +26,13 @@ int Empleado::getID(){return empleadoID;}
 int Empleado::getAsistencias() {return asistencias;}
 bool Empleado::getIsVacaciones() {return vacacionesActivas;}
 Fecha Empleado::getFechaIngreso() {return fechaDeIngreso;}
+float Empleado::getSueldo(){return sueldo;}
 
 void Empleado::setempleadoID(int _empleadoID){empleadoID = _empleadoID;}
 void Empleado::setAsistencias(int _asistencias){asistencias = _asistencias;}
 void Empleado::setvacacionesActivas(bool _vacacionesActivas){vacacionesActivas = _vacacionesActivas;}
 void Empleado::setfechadeingreso (Fecha _fechaDeIngreso){fechaDeIngreso = _fechaDeIngreso;}
-
+void Empleado::setSueldo(float _sueldo){sueldo = _sueldo;}
 void Empleado::mostrarEmpleado()
 {
     cout << "////////////////// ID EMPLEADO: "<< getID() <<" //////////////////"<<endl;

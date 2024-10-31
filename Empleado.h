@@ -10,6 +10,7 @@ private:
     int empleadoID;
     int asistencias;
     bool vacacionesActivas;
+    float sueldo;
 
 public:
     Empleado();
@@ -19,11 +20,13 @@ public:
     Fecha getFechaIngreso();
     int getAsistencias();
     bool getIsVacaciones();
+    float getSueldo();
 
     void setfechadeingreso(Fecha _fechaDeIngreso);
     void setempleadoID(int _empleadoID);
     void setAsistencias(int _asistencias);
     void setvacacionesActivas(bool _vacacionesActivas);
+    void setSueldo(float _sueldo);
 
     void cargarEmpleado();
     void mostrarEmpleado();
