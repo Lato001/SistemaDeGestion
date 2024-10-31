@@ -6,7 +6,7 @@ using namespace std;
 void cambiarFondo(int color);
 int main()
 {
-    rlutil::setBackgroundColor(rlutil::BLUE);
+    rlutil::setBackgroundColor(rlutil::DARKGREY);
     rlutil::setColor(rlutil::WHITE);
     system("cls");
 
