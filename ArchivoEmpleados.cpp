@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <cstring>
-
+#include <iostream>
 #include "ArchivoEmpleados.h"
 #include "Empleado.h"
 using namespace std;
@@ -32,23 +32,29 @@ bool ArchivoEmpleados::Guardar(Empleado empleado, int posicion){
     return ok;
 }
 
-int ArchivoEmpleados::Buscar(int DNI){
+
+Empleado ArchivoEmpleados::Buscar(int empleadoID){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    Empleado empleado, fallo;
+    fallo.setempleadoID(-1);
     if(registro == NULL){
-        return -1;
+        return fallo;
     }
-    Empleado empleado;
-    int i = 0;
     while(fread(&empleado, sizeof(empleado), 1, registro)){
-        if(empleado.getDNI() == DNI){
+        if(empleado.getID() == empleadoID){
             fclose(registro);
-            return i;
+            return empleado;
         }
-        i++;
     }
     fclose(registro);
-    return -1;
+    return fallo;
 }
+
+
+
+
+
+
 Empleado ArchivoEmpleados::Leer(int posicion){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     if(registro == NULL){

@@ -14,11 +14,11 @@ private:
     Fecha fecha;
     int formaDePago;
     float importeTotal = 0;
-    bool estado;
+    bool estado = false;
 public:
 
     Venta();
-    Venta(int _idVenta, Fecha _fecha, int _idEmpleado, int _idCliente, int _formaDePago, float _importeTotal, bool _estado);
+    Venta(int _idVenta,  int _idEmpleado, int _idCliente, Fecha _fecha, int _formaDePago, float _importeTotal, bool _estado);
     int getIdVenta();
     int getIdEmpleado(); //Cambio
     int getIdCliente();  //Cambio
@@ -28,10 +28,10 @@ public:
     bool getEstado(); //Cambio
 
     void setidVenta(int _idVenta); //Cambio
-    void setFecha(Fecha _fecha);
-    void setFormaDePago(int _formaDePago);
     void setidEmpleado(int _idEmpleado); //Cambio
     void setidCliente(int _idCliente); //Cambio
+    void setFecha(Fecha _fecha);
+    void setFormaDePago(int _formaDePago);
     void setImporteTotal(float _ImporteTotal); //CambioD
     void setEstado(bool _estado);
 

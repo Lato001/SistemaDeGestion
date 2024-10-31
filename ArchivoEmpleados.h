@@ -14,7 +14,7 @@ private:
         ArchivoEmpleados(string nombreArchivo);
         bool Guardar(Empleado empleado);
         bool Guardar(Empleado empleado, int posicion);
-        int Buscar(int empleadoID);
+        Empleado Buscar(int empleadoID);
         Empleado Leer(int posicion);
         int CantidadRegistros();
         void Leer(int CantidadRegistros, Empleado *vector);

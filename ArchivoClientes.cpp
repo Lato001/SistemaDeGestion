@@ -33,22 +33,23 @@ bool ArchivoClientes::Guardar(Cliente cliente, int posicion){
     return ok;
 }
 
-int ArchivoClientes::Buscar(int clienteID){
+Cliente ArchivoClientes::Buscar(int clienteID){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    Cliente cliente, fallo;
+    fallo.setClienteID(-1);
     if(registro == NULL){
-        return -1;
+        return fallo;
     }
-    Cliente cliente;
     int i = 0;
-    while(fread(&cliente, sizeof(cliente), 1, registro)){
+    while(fread(&cliente, sizeof(cliente), 1, registro) == 1){
         if(cliente.getID() == clienteID){
             fclose(registro);
-            return i;
+            return cliente;
         }
         i++;
     }
     fclose(registro);
-    return -1;
+    return fallo;
 }
 Cliente ArchivoClientes::Leer(int posicion){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
