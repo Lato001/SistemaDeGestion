@@ -18,8 +18,8 @@ public:
     const char* getNombre();
     const char* getApellido();
     const char* getEmail();
-    const char* getLocalidad();
     int getnTelefono();
+    const char* getLocalidad();
 
     void setDNI(int _DNI);
     void setNombre(const char* _nombre);
@@ -27,8 +27,8 @@ public:
     void setEmail(const char* _email);
     void setnTelefono(int _nTelefono);
     void setLocalidad(const char* _localidad);
-    void mostrarPersona();
     void cargarPersona();
+    void mostrarPersona();
 
 };
 

@@ -25,8 +25,8 @@ public:
     void setAsistencias(int _asistencias);
     void setvacacionesActivas(bool _vacacionesActivas);
 
-    void mostrarEmpleado();
     void cargarEmpleado();
+    void mostrarEmpleado();
 
 };
 

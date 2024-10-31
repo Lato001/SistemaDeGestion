@@ -26,8 +26,8 @@ public:
     void setCategoriaProducto(const char* _categoriaProducto);
     void setStock(int _stock);
 
-    void mostrarProducto();
     void cargarProducto();
+    void mostrarProducto();
 
 };
 

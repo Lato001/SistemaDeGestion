@@ -33,8 +33,9 @@ public:
     void setVendedor(Empleado _vendedor);
     void setComprador(Cliente _comprador);
     void setTotalDeVenta(float _TotalDeVenta);
-    void mostrarVenta();
+
     void cargarVenta();
+    void mostrarVenta();
 };
 
 

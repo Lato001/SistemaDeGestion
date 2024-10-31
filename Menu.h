@@ -5,15 +5,17 @@
 class Menu{
 public:
     void getMainMenu();
-    void InterfazCrearUsuario();
+
     void listarEmpleados();
     void listarClientes();
     void listarVentas();
+    void listarProductos();
+
     void registrarVenta();
     void crearCliente();
     void crearEmpleado();
     void registrarProducto();
-    void listarProductos();
+
 };
 
 #endif // MENU_H_INCLUDED

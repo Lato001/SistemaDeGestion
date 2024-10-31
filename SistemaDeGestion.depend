@@ -36,51 +36,57 @@
 	"Fecha.h"
 	"Persona.h"
 
-1729801433 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.cpp
+1730372941 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.cpp
 	<iostream>
 	<cstring>
 	"Fecha.h"
 
 1729801433 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.h
 
-1729774034 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\main.cpp
+1730379024 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\main.cpp
 	<iostream>
 	"Menu.h"
+	"rlutil.h"
 
-1729803120 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.h
-	"Persona.h"
+1730375776 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.h
 	"Cliente.h"
 	"Empleado.h"
 
-1729779130 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.h
+1730376514 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.h
 
-1729779366 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.cpp
+1730341598 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.cpp
 	<iostream>
 	<cstring>
 	"Persona.h"
 
-1729801433 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.cpp
+1730372941 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.cpp
 	<iostream>
 	"Venta.h"
 	"Fecha.h"
-	"Persona.h"
 	"Empleado.h"
+	"ArchivoEmpleados.h"
+	"ArchivoClientes.h"
+	"ArchivoVentas.h"
 
-1729801433 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.h
+1730377394 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.h
 	"Fecha.h"
-	"Persona.h"
+	"Empleado.h"
 	"Cliente.h"
+	"DetalleVenta.h"
 
-1729807228 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
+1730372941 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
 	<iostream>
 	<cstdio>
-	"Menu.h"
-	"Persona.h"
-	"ArchivoPersonas.h"
-	"Cliente.h"
 	"ArchivoClientes.h"
+	"ArchivoEmpleados.h"
+	"ArchivoVentas.h"
+	"ArchivoProductos.h"
+	"Menu.h"
+	"Cliente.h"
 	"Empleado.h"
 	"Venta.h"
+	"Producto.h"
+	"rlutil.h"
 
 1728935867 source:c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\archivo.cpp
 	<string>
@@ -187,18 +193,19 @@
 	"Persona.h"
 	"Comprador.h"
 
-1729804162 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.h
+1730375305 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.h
 	"Persona.h"
 	"Fecha.h"
 
-1729804436 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.cpp
+1730341598 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.cpp
 	<iostream>
 	<string>
 	"Empleado.h"
 	"Persona.h"
 	"Fecha.h"
+	"ArchivoEmpleados.h"
 
-1729803309 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\cliente.h
+1730341598 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\cliente.h
 	"persona.h"
 
 1729172385 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoclientes.cpp
@@ -211,10 +218,11 @@
 	"Persona.h"
 	"Cliente.h"
 
-1729804278 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\cliente.cpp
+1730341598 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\cliente.cpp
 	<iostream>
 	"Persona.h"
 	"Cliente.h"
+	"ArchivoClientes.h"
 
 1729802069 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\tareas.cpp
 
@@ -264,18 +272,20 @@
 
 1730321588 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\producto.h
 
-1729801433 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.cpp
+1730372941 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.cpp
 	<iostream>
 	"DetalleVenta.h"
+	"ArchivoProductos.h"
 
-1729801433 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.h
+1730372941 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.h
 
-1729779641 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.cpp
+1730372941 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.cpp
 	<iostream>
 	<cstring>
 	"Producto.h"
+	"ArchivoProductos.h"
 
-1729808838 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.h
+1730376972 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.h
 
 1729694449 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\archivoclientes.cpp
 	<string>
@@ -525,4 +535,50 @@
 	<cstring>
 	"ArchivoVentas.h"
 	"Venta.h"
+
+1730341598 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.cpp
+	<string>
+	<cstring>
+	"ArchivoEmpleados.h"
+	"Empleado.h"
+
+1730341598 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.h
+	"Persona.h"
+	"Empleado.h"
+
+1730341598 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoventas.cpp
+	<string>
+	<cstring>
+	"ArchivoVentas.h"
+	"Venta.h"
+
+1730341598 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoventas.h
+	"Venta.h"
+	"Cliente.h"
+	"Fecha.h"
+	"Venta.h"
+	"DetalleVenta.h"
+
+1730372941 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoproductos.h
+	"Producto.h"
+
+1730341598 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1730372941 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoproductos.cpp
+	<string>
+	<cstring>
+	"ArchivoProductos.h"
+	"Producto.h"
 
