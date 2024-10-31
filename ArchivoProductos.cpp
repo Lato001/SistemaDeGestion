@@ -32,22 +32,21 @@ bool ArchivoProductos::Guardar(Producto producto, int posicion){
     return ok;
 }
 
-int ArchivoProductos::Buscar(int ID){
+Producto ArchivoProductos::Buscar(int productoID){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    Producto producto, fallo;
+    fallo.setProductoID(-1);
     if(registro == NULL){
-        return -1;
+        return fallo;
     }
-    Producto producto;
-    int i = 0;
     while(fread(&producto, sizeof(producto), 1, registro)){
-        if(producto.getProductoID()== ID){
+        if(producto.getProductoID() == productoID){
             fclose(registro);
-            return i;
+            return producto;
         }
-        i++;
     }
     fclose(registro);
-    return -1;
+    return fallo;
 }
 Producto ArchivoProductos::Leer(int posicion){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");

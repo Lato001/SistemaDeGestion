@@ -12,7 +12,7 @@ private:
         ArchivoProductos(string nombreArchivo);
         bool Guardar(Producto producto);
         bool Guardar(Producto prodcuto, int posicion);
-        int Buscar(int ID);
+        Producto Buscar(int ID);
         Producto Leer(int posicion);
         int CantidadRegistros();
         void Leer(int cantidadRegistros, Producto *vector);
