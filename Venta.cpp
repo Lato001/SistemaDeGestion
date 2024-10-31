@@ -2,9 +2,11 @@
 #include "Venta.h"
 #include "Fecha.h"
 #include "Empleado.h"
+#include "DetalleVenta.h"
 #include "ArchivoEmpleados.h"
 #include "ArchivoClientes.h"
 #include "ArchivoVentas.h"
+#include "ArchivoDetalleVentas.h"
 
 
 using namespace std;
@@ -93,20 +95,21 @@ void Venta::cargarVenta()
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     ArchivoClientes Clientes("ArchivoClientes.dat");
     ArchivoVentas Ventas("ArchivoVentas.dat");
+    ArchivoDetalleVentas DetalleVentas("ArchivoDetalleVentas.dat");
     Empleado registroEmpleado;
     Cliente registroCliente;
-    int inputNumeros;
+    DetalleVenta registroDetalle;
     float montoTotalVenta;
     idVenta = Ventas.CantidadRegistros()+1;
     int input = 0;
-
+    char inputChar= 'n';
+    bool vendedorValido= false, clienteValido = false, formaDePagoValida = false;
 
     cout << "Ingrese la fecha de la venta: " << endl;
     fecha.cargarFecha();
     system("pause");
     system("cls");
 
-    bool vendedorValido = false;
     while (!vendedorValido)
     {
         cout << "Seleccione el vendedor (ID - Nombre):" << endl;
@@ -134,7 +137,6 @@ void Venta::cargarVenta()
     system("cls");
 
 
-    bool clienteValido = false;
     while (!clienteValido)
     {
         cout << "Seleccione el cliente (ID - Nombre):" << endl;
@@ -162,40 +164,74 @@ void Venta::cargarVenta()
     system("cls");
 
 
-    cout << "Seleccione forma de pago:" << endl << "1. Efectivo\n2. Debito\n3. Credito" << endl << "Opcion: " ;
-    cin >> inputNumeros;
-    formaDePago = inputNumeros;
-
-
-    switch (formaDePago)
+    while(!formaDePagoValida)
     {
-    case 1:
-        cout << "Metodo de pago seleccionado: Efectivo" << endl;
-        break;
-    case 2:
-        cout << "Metodo de pago seleccionado: Debito" << endl;
-        break;
-    case 3:
-        cout << "Metodo de pago seleccionado: Credito" << endl;
-        break;
-    default:
-        cout << "Metodo de pago no valido." << endl;
-        break;
-    }
-    system("pause");
-    system("cls");
 
-    cout << "--------------- DETALLE DE VENTA --------------------" << endl;
-    ///detalleDeVenta.cargarDetalleDeVenta();
-    cout << "-----------------------------------------------------" << endl;
+        cout << "Seleccione forma de pago:" << endl << "1. Efectivo\n2. Debito\n3. Credito" << endl << "Opcion: " ;
+        cin >> input;
+        formaDePago = input;
 
-    cout << "Ingrese el monto total de la venta realizada: ";
-    cin >> montoTotalVenta;
-    importeTotal = montoTotalVenta;
+        if(formaDePago > 0 && formaDePago < 4)
+        {
+            formaDePagoValida = true;
+            switch (formaDePago)
+            {
+            case 1:
+                cout << "Metodo de pago seleccionado: Efectivo" << endl;
+                break;
+            case 2:
+                cout << "Metodo de pago seleccionado: Debito" << endl;
+                break;
+            case 3:
+                cout << "Metodo de pago seleccionado: Credito" << endl;
+                break;
+            }
+        }
+            else
+            {
+                cout << "Metodo de pago no valido." << endl;
+            }
+        }
+        system("pause");
+        system("cls");
+
+
+    bool registroDetalles = false;
+    while(!registroDetalles)
+    {
+
+        cout << "--------------- DETALLE DE VENTA --------------------" << endl;
+        ///CREAR LOGICA PARA PODER CARGAR LOGICA DE DETALLE DE VENTA EN ARCHIVO DETALLE DE VENTAS
+        registroDetalle.cargarDetalleDeVenta();
+        if(DetalleVentas.Guardar(registroDetalle)){
+            cout<< "El detalle de venta se ha registrado correctamente"<<endl;
+        }
+
+        cout << "-----------------------------------------------------" << endl;
+        while(inputChar != 'S' && inputChar != 'N'){
+            cout<< "Desea registrar otro producto para esta venta? S/N: ";
+            cin >> inputChar;
+            if(inputChar != 'S' && inputChar != 'N'){
+                cout << "Opcion invalida! Vuelva a intentarlo";
+            }
+        }
+        if(inputChar == 'N'){
+
+        registroDetalles = true;
+        }
+        system("pause");
+        system("cls");
+
+
+    cout << "TOTAL DE LA VENTA REALIZADA: " << DetalleVentas.Buscar(getIdVenta()).getImporte()<<endl;
+    ///CREAR LA LOGICA PARA EL TOTAL DE LA VENTA REALIZADA
+
 
 
     cout << "-----------------------------------" << endl;
 }
+    }
+
 
 void listarClientes()
 {
@@ -222,7 +258,7 @@ void Venta::mostrarVenta()
     cout << "VENDEDOR: "<<endl;
     Empleados.Buscar(getIdEmpleado()).mostrarEmpleado();
     cout<< endl;
-    cout << "CCOMPRADOR: "<<endl;
+    cout << "COMPRADOR: "<<endl;
     Clientes.Buscar(getIdCliente()).mostrarCliente();
     cout<< endl;
     cout << "FORMA DE PAGO: " << getFormaDePago() << endl<<endl;
