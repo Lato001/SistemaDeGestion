@@ -61,7 +61,7 @@ void Menu::getMainMenu()
     }
     while(!opcionValida);
 }
-void Menu:: listar()
+void Menu::listar()
 {
     int op=0;
     bool opcionValida=false;
@@ -154,7 +154,7 @@ void Menu::crear()
     while(!opcionValida);
     crear();
 }
-void Menu:: registrar()
+void Menu::registrar()
 {
     int op=0;
     bool opcionValida=false;
@@ -312,7 +312,6 @@ void Menu::crearEmpleado()
 void Menu::crearCliente()
 {
     ArchivoClientes archivoClientes("ArchivoClientes.dat");
-
 
     Cliente cliente;
     cliente.cargarCliente();

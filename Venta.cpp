@@ -36,67 +36,24 @@ Venta::Venta(int _idVenta,  int _idEmpleado, int _idCliente, Fecha _fecha, int _
     importeTotal = _importeTotal;
 }
 
-int Venta::getIdVenta()
-{
-    return idVenta;
-}
-int  Venta::getIdEmpleado()
-{
-    return idEmpleado;
-}
-int  Venta::getIdCliente()
-{
-    return idCliente;
-}
-Fecha  Venta::getFecha()
-{
-    return fecha;
-}
-int  Venta::getFormaDePago()
-{
-    return formaDePago;
-}
-float  Venta::getImporteTotal()
-{
-    return importeTotal;
-}
-bool  Venta::getEstado()
-{
-    return estado;
-}
+int Venta::getIdVenta(){return idVenta;}
+int  Venta::getIdEmpleado(){return idEmpleado;}
+int  Venta::getIdCliente(){return idCliente;}
+Fecha  Venta::getFecha(){return fecha;}
+int  Venta::getFormaDePago(){return formaDePago;}
+float  Venta::getImporteTotal(){return importeTotal;}
+bool  Venta::getEstado(){return estado;}
 
-void Venta::setidVenta(int _idVenta)
-{
-    idVenta = _idVenta;   //Cambio
-}
-void Venta::setFecha(Fecha _fecha)
-{
-    fecha = _fecha;
-}
-void Venta::setFormaDePago(int _formaDePago)
-{
-    formaDePago = _formaDePago;
-}
-void Venta::setidEmpleado(int _idEmpleado)
-{
-    idEmpleado = _idEmpleado;   //Cambio
-}
-void Venta::setidCliente(int _idCliente)
-{
-    idCliente = _idCliente;
-} //Cambio
-void Venta::setImporteTotal(float _importeTotal)
-{
-    importeTotal = _importeTotal;   //CambioD
-}
-void Venta::setEstado(bool _estado)
-{
-    estado = _estado;
-}
+void Venta::setidVenta(int _idVenta){idVenta = _idVenta;}
+void Venta::setFecha(Fecha _fecha){fecha = _fecha;}
+void Venta::setFormaDePago(int _formaDePago){formaDePago = _formaDePago;}
+void Venta::setidEmpleado(int _idEmpleado){idEmpleado = _idEmpleado;}
+void Venta::setidCliente(int _idCliente){idCliente = _idCliente;}
+void Venta::setImporteTotal(float _importeTotal){importeTotal = _importeTotal;}
+void Venta::setEstado(bool _estado){estado = _estado;}
 
 void Venta::cargarVenta()
 {
-
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     ArchivoClientes Clientes("ArchivoClientes.dat");
     ArchivoVentas Ventas("ArchivoVentas.dat");
@@ -107,7 +64,7 @@ void Venta::cargarVenta()
     float montoTotalVenta;
     idVenta = Ventas.CantidadRegistros()+1;
     int input = 0;
-    char inputChar= 'n';
+    char inputChar = 'n';
     bool vendedorValido= false, clienteValido = false, formaDePagoValida = false;
 
     cout << "Ingrese la fecha de la venta: " << endl;
@@ -192,51 +149,64 @@ void Venta::cargarVenta()
                 break;
             }
         }
-            else
-            {
-                cout << "Metodo de pago no valido." << endl;
-            }
+        else
+        {
+            cout << "Metodo de pago no valido." << endl;
         }
-        system("pause");
-        system("cls");
+    }
+    system("pause");
+    system("cls");
 
 
-    bool registroDetalles = false;
-    while(!registroDetalles)
+    bool validacionDetalles = false;
+    while(!validacionDetalles)
     {
 
         cout << "--------------- DETALLE DE VENTA --------------------" << endl;
         ///CREAR LOGICA PARA PODER CARGAR LOGICA DE DETALLE DE VENTA EN ARCHIVO DETALLE DE VENTAS
         registroDetalle.cargarDetalleDeVenta();
-        if(DetalleVentas.Guardar(registroDetalle)){
+        if(DetalleVentas.Guardar(registroDetalle))
+        {
             cout<< "El detalle de venta se ha registrado correctamente"<<endl;
         }
 
         cout << "-----------------------------------------------------" << endl;
-        while(inputChar != 'S' && inputChar != 'N'){
+        while(inputChar != 'S' && inputChar != 'N')
+        {
             cout<< "Desea registrar otro producto para esta venta? S/N: ";
             cin >> inputChar;
-            if(inputChar != 'S' && inputChar != 'N'){
+            if(inputChar != 'S' && inputChar != 'N')
+            {
                 cout << "Opcion invalida! Vuelva a intentarlo";
             }
         }
-        if(inputChar == 'N'){
+        if(inputChar == 'N')
+        {
 
-        registroDetalles = true;
+            validacionDetalles = true;
         }
+/*
+Hacer esto una vez que se haya validado si hay un detalle de venta anterior al que se quiere registrar.
+  else
+        {
+
+            validacionDetalles = true;
+        }
+*/
+
         system("pause");
         system("cls");
         /*
 
 
-    cout << "TOTAL DE LA VENTA REALIZADA: " << DetalleVentas.Buscar(getIdVenta()).getImporte()<<endl;
-    ///CREAR LA LOGICA PARA EL TOTAL DE LA VENTA REALIZADA
+        cout << "TOTAL DE LA VENTA REALIZADA: " << DetalleVentas.Buscar(getIdVenta()).getImporte()<<endl;
+        ///CREAR LA LOGICA PARA EL TOTAL DE LA VENTA REALIZADA
 
 
-*/
-    cout << "-----------------------------------" << endl;
-}
+        */
+        cout << "-----------------------------------" << endl;
     }
+}
 
 
 void listarClientes()
@@ -244,13 +214,14 @@ void listarClientes()
     ArchivoClientes Clientes("ArchivoClientes.dat");
     Cliente registroCliente;
 
-    cout << "Lista de Clientes (ID - Nombre):" << endl;
+    cout << "Lista de Clientes (ID - Nombre): " << endl;
     for (int i = 0; i < Clientes.CantidadRegistros(); i++)
     {
         registroCliente = Clientes.Leer(i);
         cout << "ID: " << registroCliente.getID() << " - Nombre: " << registroCliente.getNombre() << endl;
     }
 
+}
 }
 void Venta::mostrarVenta()
 {

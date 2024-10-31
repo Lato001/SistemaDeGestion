@@ -43,12 +43,12 @@
 
 1729801433 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.h
 
-1730379465 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\main.cpp
+1730404321 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\main.cpp
 	<iostream>
 	"Menu.h"
 	"rlutil.h"
 
-1730375776 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.h
+1730404321 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.h
 	"Cliente.h"
 	"Empleado.h"
 
@@ -59,22 +59,25 @@
 	<cstring>
 	"Persona.h"
 
-1730384818 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.cpp
+1730409094 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.cpp
 	<iostream>
-	"Venta.h"
 	"Fecha.h"
 	"Empleado.h"
+	"Cliente.h"
 	"ArchivoEmpleados.h"
 	"ArchivoClientes.h"
+	"Venta.h"
 	"ArchivoVentas.h"
+	"ArchivoDetalleVentas.h"
+	"DetalleVenta.h"
 
-1730388556 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.h
+1730408180 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.h
 	"Fecha.h"
 	"Empleado.h"
 	"Cliente.h"
 	"DetalleVenta.h"
 
-1730380341 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
+1730407038 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
 	<iostream>
 	<cstdio>
 	"ArchivoClientes.h"
@@ -86,7 +89,6 @@
 	"Empleado.h"
 	"Venta.h"
 	"Producto.h"
-	"rlutil.h"
 
 1728935867 source:c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\archivo.cpp
 	<string>
@@ -193,11 +195,11 @@
 	"Persona.h"
 	"Comprador.h"
 
-1730375305 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.h
+1730404321 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.h
 	"Persona.h"
 	"Fecha.h"
 
-1730341598 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.cpp
+1730404321 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.cpp
 	<iostream>
 	<string>
 	"Empleado.h"
@@ -208,13 +210,13 @@
 1730341598 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\cliente.h
 	"persona.h"
 
-1729172385 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoclientes.cpp
+1730404321 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoclientes.cpp
 	<string>
 	<cstring>
 	"ArchivoClientes.h"
 	"Cliente.h"
 
-1729172361 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoclientes.h
+1730404321 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoclientes.h
 	"Persona.h"
 	"Cliente.h"
 
@@ -272,14 +274,14 @@
 
 1730321588 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\producto.h
 
-1730372941 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.cpp
+1730407863 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.cpp
 	<iostream>
 	"DetalleVenta.h"
 	"ArchivoProductos.h"
 
-1730386568 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.h
+1730404321 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.h
 
-1730386723 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.cpp
+1730406458 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.cpp
 	<iostream>
 	<cstring>
 	"Producto.h"
@@ -536,17 +538,18 @@
 	"ArchivoVentas.h"
 	"Venta.h"
 
-1730385701 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.cpp
+1730404321 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.cpp
 	<string>
 	<cstring>
+	<iostream>
 	"ArchivoEmpleados.h"
 	"Empleado.h"
 
-1730341598 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.h
+1730404321 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.h
 	"Persona.h"
 	"Empleado.h"
 
-1730341598 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoventas.cpp
+1730404321 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoventas.cpp
 	<string>
 	<cstring>
 	"ArchivoVentas.h"
@@ -559,7 +562,7 @@
 	"Venta.h"
 	"DetalleVenta.h"
 
-1730372941 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoproductos.h
+1730404321 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoproductos.h
 	"Producto.h"
 
 1730341598 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\rlutil.h
@@ -576,9 +579,18 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1730372941 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoproductos.cpp
+1730404321 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoproductos.cpp
 	<string>
 	<cstring>
 	"ArchivoProductos.h"
 	"Producto.h"
+
+1730404321 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivodetalleventas.h
+	"DetalleVenta.h"
+
+1730404321 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivodetalleventas.cpp
+	<string>
+	<cstring>
+	"ArchivoDetalleVentas.h"
+	"DetalleVenta.h"
 

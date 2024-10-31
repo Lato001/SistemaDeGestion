@@ -32,56 +32,62 @@ DetalleVenta::DetalleVenta(int _idVenta, int _idLinea, int _idProducto, int _can
     void DetalleVenta::setIdLinea(int _idLinea){idLinea = _idLinea;}
     void DetalleVenta::setIdProducto(int _idProducto){idProducto = _idProducto;}
     void DetalleVenta::setCantidadProducto( int _cantidadProducto){cantidadProducto = _cantidadProducto;}
-    void  DetalleVenta::setImporte(float _importe){importe = _importe;}
+    void DetalleVenta::setImporte(float _importe){importe = _importe;}
     void DetalleVenta::setEstado(bool _estado){estado = _estado;}
 
-    void DetalleVenta :: cargarDetalleDeVenta(){
-        ArchivoProductos Productos("ArchivoProductos.dat");
-        Producto registro;
-        int input;
+void DetalleVenta :: cargarDetalleDeVenta()
+{
+    ArchivoProductos Productos("ArchivoProductos.dat");
+    Producto registro;
+    int input;
 
-
-
-        bool opcionValida = false;
-        while(!opcionValida){
-            for (int i = 0 ; i < Productos.CantidadRegistros();i++ ){
+    bool opcionValida = false;
+    while(!opcionValida)
+    {
+        for (int i = 0 ; i < Productos.CantidadRegistros(); i++ )
+        {
             registro = Productos.Leer(i);
-             cout<< "i";
-             registro.mostrarProducto();
-             cout<< endl;
-            }
+            registro.mostrarProducto();
+            cout<< endl;
+        }
         cout<< "Ingrese la opcion deseada: ";
         cin >> input;
-            if(Productos.Buscar(input).getProductoID() != -1){
-                opcionValida = true;
-                idProducto = Productos.Buscar(input).getProductoID();
-            }else{
-                cout << "Opcion invalida, vuelva a intentarlo"<<endl;
-            }
+        if(Productos.Buscar(input).getProductoID() != -1) //Utilizar para venta Validacion ID!!
+        {
+            opcionValida = true;
+            idProducto = Productos.Buscar(input).getProductoID();
+        }
+        else
+        {
+            cout << "Opcion invalida, vuelva a intentarlo"<<endl;
+        }
         system("pause");
         system("cls");
-        }
+    }
 
-        opcionValida = false;
-        while(!opcionValida){
-            cout<< "Stock Disponible: " << Productos.Buscar(idProducto).getStock()<<endl<<endl;
-            cout<< "Ingrese la cantidad comprada del producto: " << endl;
-            cin>> input;
-        if(input <= Productos.Buscar(idProducto).getStock()){
+    opcionValida = false;
+    while(!opcionValida)
+    {
+        cout<< "Stock Disponible: " << Productos.Buscar(idProducto).getStock()<<endl<<endl;
+        cout<< "Ingrese la cantidad comprada del producto: " << endl;
+        cin>> input;
+        if(input <= Productos.Buscar(idProducto).getStock())
+        {
             cantidadProducto = input;
             Productos.Buscar(idProducto).setStock(Productos.Buscar(idProducto).getStock() - input);
             opcionValida = true;
-        }else{
+        }
+        else
+        {
             cout << "Opcion invalida! Vuelva a intentarlo"<<endl;
             system("pause");
             system("cls");
         }
         importe = Productos.Buscar(idProducto).getPrecioUnitario() * cantidadProducto;
-
-
-
-    }}
-    void DetalleVenta :: mostrarDetalleDeVenta(){
+    }
+}
+void DetalleVenta :: mostrarDetalleDeVenta()
+{
     cout<< "ID DEL PRODUCTO: " << getIdProducto()<<endl;
     cout<< "CANTIDAD DEL PRODUCTO: " << getCantidadProducto()<<endl;
-    }
+}

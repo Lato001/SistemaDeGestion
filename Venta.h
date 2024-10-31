@@ -9,8 +9,8 @@ class Venta
 {
 private:
     int idVenta;
-    int idEmpleado; //Cambio
-    int idCliente; //Cambio
+    int idEmpleado;
+    int idCliente;
     Fecha fecha;
     int formaDePago;
     float importeTotal = 0;
@@ -20,19 +20,19 @@ public:
     Venta();
     Venta(int _idVenta,  int _idEmpleado, int _idCliente, Fecha _fecha, int _formaDePago, float _importeTotal, bool _estado);
     int getIdVenta();
-    int getIdEmpleado(); //Cambio
-    int getIdCliente();  //Cambio
+    int getIdEmpleado();
+    int getIdCliente();
     Fecha getFecha();
     int getFormaDePago();
-    float getImporteTotal(); //Cambio
-    bool getEstado(); //Cambio
+    float getImporteTotal();
+    bool getEstado();
 
-    void setidVenta(int _idVenta); //Cambio
-    void setidEmpleado(int _idEmpleado); //Cambio
-    void setidCliente(int _idCliente); //Cambio
+    void setidVenta(int _idVenta);
+    void setidEmpleado(int _idEmpleado);
+    void setidCliente(int _idCliente);
     void setFecha(Fecha _fecha);
     void setFormaDePago(int _formaDePago);
-    void setImporteTotal(float _ImporteTotal); //CambioD
+    void setImporteTotal(float _ImporteTotal);
     void setEstado(bool _estado);
 
     void cargarVenta();
