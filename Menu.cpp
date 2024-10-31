@@ -11,13 +11,12 @@
 #include "Empleado.h"
 #include "Venta.h"
 #include "Producto.h"
-#include "rlutil.h"
+
 
 using namespace std;
 
 void Menu::getMainMenu()
 {
-    ArchivoClientes clientes("ArchivoClientes.dat");
     int op=0;
     bool opcionValida=false;
 
@@ -26,19 +25,14 @@ void Menu::getMainMenu()
 
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
-        cout<<"1. Crear Nuevo Empleado"<<endl;
-        cout<<"2. Crear Nuevo Cliente"<<endl;
-        cout<<"3. Listar Empleados"<<endl;
-        cout<<"4. Listar Clientes"<<endl;
-        cout<<"5. Registrar Venta"<<endl;
-        cout<<"6. Listar Ventas"<<endl;
-        cout<<"7. Registrar Producto"<<endl;
-        cout<<"8. Listar Productos"<<endl;
+        cout<<"1. Listar"<<endl;
+        cout<<"2. Crear (Empleado / Usuario)"<<endl;
+        cout<<"3. Registrar (Ventas / Productos)"<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
         system("cls");
-        if(op> (0) && op<8)
+        if(op> (0) && op<4)
         {
             opcionValida=true;
         }
@@ -46,28 +40,13 @@ void Menu::getMainMenu()
         switch (op)
         {
         case 1:
-            crearEmpleado();
+            listar();
             break;
         case 2:
-            crearCliente();
+            crear();
             break;
         case 3:
-            listarEmpleados();
-            break;
-        case 4:
-            listarClientes();
-            break;
-        case 5:
-            registrarVenta();
-            break;
-        case 6:
-            listarVentas();
-            break;
-        case 7:
-            registrarProducto();
-            break;
-        case 8:
-            listarProductos();
+            registrar();
             break;
         case 0:
             exit(0);
@@ -82,52 +61,139 @@ void Menu::getMainMenu()
     }
     while(!opcionValida);
 }
-
-
-void Menu::crearCliente()
+void Menu:: listar()
 {
-    ArchivoClientes archivoClientes("ArchivoClientes.dat");
+    int op=0;
+    bool opcionValida=false;
 
-
-    Cliente cliente;
-    cliente.cargarCliente();
-    cliente.mostrarCliente();
-
-    /*GUARDA Y VERIFICA DE QUE EL CLIENTE HAYA SIDO REGISTRADO
-    EN LA ULTIMA POSICION DEL ARCHIVO DE CLIENTES
-    */
-
-    if ( archivoClientes.Guardar(cliente) )
+    do
     {
-        cout<<endl;
-        cout << "Cliente guardado correctamente." << endl;
+
+        cout<<"----------------------------------"<<endl;
+        cout<<"Elija la opcion que desee realizar"<<endl;
+        cout<<"1. Listar Ventas"<<endl;
+        cout<<"2. Listar Productos"<<endl;
+        cout<<"3. Listar Empleados"<<endl;
+        cout<<"4. Listar Clientes"<<endl;
+        cout<<"0. Volver al menu principal"<<endl;
+        cout<<"==================================="<<endl;
+        cin>>op;
+        system("cls");
+        if(op>0 && op<5)
+        {
+            opcionValida=true;
+        }
+        switch (op)
+        {
+        case 1:
+            listarVentas();
+            break;
+        case 2:
+            listarProductos();
+            break;
+        case 3:
+            listarEmpleados();
+            break;
+        case 4:
+            listarClientes();
+            break;
+        case 0:
+            getMainMenu();
+        default:
+            cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
+        }
+        system("pause");
+        system("cls");
+
+
+
     }
-    else
-    {
-        cout << "Error al guardar el cliente." << endl;
-    }
+    while(!opcionValida);
+    listar();
 }
+void Menu::crear() {
+    int op=0;
+    bool opcionValida=false;
 
-
-void Menu::crearEmpleado()
-{
-    ArchivoEmpleados archivoEmpleados("ArchivoEmpleados.dat");
-
-
-    Empleado empleado;
-    empleado.cargarEmpleado();
-    empleado.mostrarEmpleado();
-    if ( archivoEmpleados.Guardar(empleado) )
+    do
     {
-        cout<<endl;
-        cout << "Empleado guardado correctamente." << endl;
-    }
-    else
-    {
-        cout << "Error al registrar el Empleado." << endl;
-    }
-}
 
+        cout<<"----------------------------------"<<endl;
+        cout<<"Elija la opcion que desee realizar"<<endl;
+        cout<<"1. Crear Empleado"<<endl;
+        cout<<"2. Crear Cliente"<<endl;
+        cout<<"0. Volver al menu principal"<<endl;
+        cout<<"==================================="<<endl;
+        cin>>op;
+        system("cls");
+        if(op>0 && op<3)
+        {
+            opcionValida=true;
+        }
+        switch (op)
+        {
+        case 1:
+           crearEmpleado();
+            break;
+        case 2:
+            crearCliente();
+            break;
+        case 0:
+            getMainMenu();
+            break;
+        default:
+            cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
+        }
+        system("pause");
+        system("cls");
+
+
+
+    }
+    while(!opcionValida);
+    crear();
+    }
+void Menu:: registrar() {
+   int op=0;
+    bool opcionValida=false;
+
+    do
+    {
+
+        cout<<"----------------------------------"<<endl;
+        cout<<"Elija la opcion que desee realizar"<<endl;
+        cout<<"1. Registrar Venta"<<endl;
+        cout<<"2. Registrar Producto"<<endl;
+        cout<<"0. Volver al menu principal"<<endl;
+        cout<<"==================================="<<endl;
+        cin>>op;
+        system("cls");
+        if(op>0 && op<3)
+        {
+            opcionValida=true;
+        }
+        switch (op)
+        {
+        case 1:
+           registrarVenta();
+            break;
+        case 2:
+            registrarProducto();
+            break;
+        case 0:
+            getMainMenu();
+        default:
+            cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
+        }
+        system("pause");
+        system("cls");
+
+
+
+    }
+    while(!opcionValida);
+    registrar();
+    }
 
 void Menu::listarEmpleados()
 {
@@ -189,38 +255,6 @@ void Menu::listarVentas()
     }
 
 }
-
-void Menu::registrarVenta()
-{
-    ArchivoVentas Ventas("ArchivoVentas.dat");
-    Venta venta;
-    venta.cargarVenta();
-    if ( Ventas.Guardar(venta) )
-    {
-        cout<<endl;
-        cout << "La venta se ha registrado correctamente." << endl;
-    }
-    else
-    {
-        cout << "Error al registrar la venta." << endl;
-    }
-
-}
-void Menu::registrarProducto(){
-    ArchivoProductos Productos("ArchivoProductos.dat");
-    Producto producto;
-    producto.cargarProducto();
-     if ( Productos.Guardar(producto) )
-    {
-        cout<<endl;
-        cout << "El producto se ha registrado correctamente." << endl;
-    }
-    else
-    {
-        cout << "Error al registrar el producto." << endl;
-    }
-
-}
 void Menu::listarProductos()
 {
     ArchivoProductos Productos("ArchivoProductos.dat");
@@ -242,5 +276,85 @@ void Menu::listarProductos()
             cout<<endl;
         }
     }
+}
+
+void Menu::crearEmpleado()
+{
+    ArchivoEmpleados archivoEmpleados("ArchivoEmpleados.dat");
+
+
+    Empleado empleado;
+    empleado.cargarEmpleado();
+    empleado.mostrarEmpleado();
+    if ( archivoEmpleados.Guardar(empleado) )
+    {
+        cout<<endl;
+        cout << "Empleado guardado correctamente." << endl;
+    }
+    else
+    {
+        cout << "Error al registrar el Empleado." << endl;
+    }
+}
+
+void Menu::crearCliente()
+{
+    ArchivoClientes archivoClientes("ArchivoClientes.dat");
+
+
+    Cliente cliente;
+    cliente.cargarCliente();
+    cliente.mostrarCliente();
+
+    /*GUARDA Y VERIFICA DE QUE EL CLIENTE HAYA SIDO REGISTRADO
+    EN LA ULTIMA POSICION DEL ARCHIVO DE CLIENTES
+    */
+
+    if ( archivoClientes.Guardar(cliente) )
+    {
+        cout<<endl;
+        cout << "Cliente guardado correctamente." << endl;
+    }
+    else
+    {
+        cout << "Error al guardar el cliente." << endl;
+    }
+}
+
+
+
+void Menu::registrarVenta()
+{
+    ArchivoVentas Ventas("ArchivoVentas.dat");
+    Venta venta;
+    venta.cargarVenta();
+    if ( Ventas.Guardar(venta) )
+    {
+        cout<<endl;
+        cout << "La venta se ha registrado correctamente." << endl;
+    }
+    else
+    {
+        cout << "Error al registrar la venta." << endl;
+    }
 
 }
+void Menu::registrarProducto()
+{
+    ArchivoProductos Productos("ArchivoProductos.dat");
+    Producto producto;
+    producto.cargarProducto();
+    if ( Productos.Guardar(producto) )
+    {
+        cout<<endl;
+        cout << "El producto se ha registrado correctamente." << endl;
+    }
+    else
+    {
+        cout << "Error al registrar el producto." << endl;
+    }
+
+}
+
+
+
