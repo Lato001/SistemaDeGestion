@@ -6,6 +6,7 @@ class DetalleVenta{
 private:
     int  productoID;
     int cantidadProducto;
+    int nLinea;
 public:
     DetalleVenta();
     DetalleVenta(int productoID, int cantidadProducto);

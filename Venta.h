@@ -8,31 +8,32 @@
 class Venta
 {
 private:
-    int nDeVenta;
+    int idVenta;
+    int idEmpleado; //Cambio
+    int idCliente; //Cambio
     Fecha fecha;
-    Empleado vendedor;
-    Cliente comprador;
     int formaDePago;
-    DetalleVenta detalleDeVenta;
-    float TotalDeVenta = 0;
+    float importeTotal = 0;
+    bool estado;
 public:
 
     Venta();
-    Venta(int _nDeVenta, Fecha _fecha, Empleado _vendedor, Cliente _comprador, int _formaDePago, DetalleVenta detalleDeVenta,float _TotalDeVenta);
-    int getNDeVenta();
+    Venta(int _idVenta, Fecha _fecha, int _idEmpleado, int _idCliente, int _formaDePago, float _importeTotal, bool _estado);
+    int getIdVenta();
+    int getIdEmpleado(); //Cambio
+    int getIdCliente();  //Cambio
     Fecha getFecha();
-    Empleado getVendedor();
-    Cliente getComprador();
     int getFormaDePago();
-    float getTotalDeVenta();
-    DetalleVenta getDetalleDeVenta();
+    float getImporteTotal(); //Cambio
+    bool getEstado(); //Cambio
 
-    void setNDeVenta(int _nDeVenta);
+    void setidVenta(int _idVenta); //Cambio
     void setFecha(Fecha _fecha);
     void setFormaDePago(int _formaDePago);
-    void setVendedor(Empleado _vendedor);
-    void setComprador(Cliente _comprador);
-    void setTotalDeVenta(float _TotalDeVenta);
+    void setidEmpleado(int _idEmpleado); //Cambio
+    void setidCliente(int _idCliente); //Cambio
+    void setImporteTotal(float _ImporteTotal); //CambioD
+    void setEstado(bool _estado);
 
     void cargarVenta();
     void mostrarVenta();

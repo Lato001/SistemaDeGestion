@@ -10,55 +10,57 @@
 using namespace std;
 
 Venta::Venta(){
-    nDeVenta = 0;
+    idVenta = 0;
+    idEmpleado;
+    idCliente;
     fecha;
-    vendedor;
-    comprador;
     formaDePago = 0;
-    detalleDeVenta;
-    TotalDeVenta = 0;
+    importeTotal = 0;
+    estado = false;
 }
-Venta::Venta(int _nDeVenta, Fecha _fecha, Empleado _vendedor, Cliente _comprador, int _formaDePago, DetalleVenta _detalleDeVenta, float _TotalDeVenta)
+Venta::Venta(int _idVenta, Fecha _fecha, int _idEmpleado, int _idCliente, int _formaDePago, float _importeTotal, bool _estado);
 {
-    nDeVenta = _nDeVenta;
+    idVenta = _idVenta;
+    idEmpleado = _idEmpleado;
+    idCliente = _idCliente;
     fecha = _fecha;
-    vendedor = _vendedor;
-    comprador = _comprador;
     formaDePago = _formaDePago;
-    detalleDeVenta = _detalleDeVenta;
-    TotalDeVenta = _TotalDeVenta;
+    importeTotal = _importeTotal;
 }
 
-int Venta::getNDeVenta(){return nDeVenta;}
-Fecha Venta::getFecha(){return fecha;}
-Empleado Venta::getVendedor(){return vendedor;}
-Cliente Venta::getComprador(){return comprador;}
-int Venta::getFormaDePago(){return formaDePago;}
-float Venta::getTotalDeVenta(){return TotalDeVenta;}
-DetalleVenta Venta::getDetalleDeVenta(){return detalleDeVenta;}
+    int getIdVenta() {return idVenta;}
+    int getIdEmpleado() {return idEmpleado;}
+    int getIdCliente(){return idCliente;}
+    Fecha getFecha(){return fecha;}
+    int getFormaDePago(){return formaDePago;}
+    float getImporteTotal(){return importeTotal;}
+    bool getEstado(){return estado;}
 
-void Venta::setNDeVenta(int _nDeVenta){nDeVenta = _nDeVenta;}
-void Venta::setFecha(Fecha _fecha){fecha = _fecha;}
-void Venta::setFormaDePago(int _formaDePago){formaDePago = _formaDePago;}
-void Venta::setVendedor(Empleado _vendedor){vendedor = _vendedor;}
-void Venta::setComprador(Cliente _comprador){comprador= _comprador;}
-void Venta::setTotalDeVenta(float _TotalDeVenta){TotalDeVenta = _TotalDeVenta;}
+    void Venta::setidVenta(int _idVenta){idVenta = _idVenta;} //Cambio
+    void Venta::setFecha(int _fecha){fecha = _fecha;}
+    void Venta::setFormaDePago(int _formaDePago) {formaDePago = _formaDePago;}
+    void Venta::setidEmpleado(int _idEmpleado) {idEmpleado = _idEmpleado;} //Cambio
+    void Venta::setidCliente(int _idCliente) {idCliente = _idCliente} //Cambio
+    void Venta::setImporteTotal(float _ImporteTotal) {importeTotal = _importeTotal;} //CambioD
+    void Venta::setEstado(bool _estado) {estado = _estado;}
 
 void Venta::mostrarVenta(){
-    cout <<"------------" << "Nro DE VENTA: " << getNDeVenta() << "------------------------" << endl;
+    cout <<"------------" << "Nro DE VENTA: " << getIdVenta() << "------------------------" << endl;
     cout << "FECHA: ";
     getFecha().mostrarFecha();
     cout << "VENDEDOR: "<<endl;
-    getVendedor().mostrarPersona();
+//    getVendedor().mostrarPersona();
+    getIdEmpleado().//?
     cout<< endl;
     cout << "CCOMPRADOR: "<<endl;
-    getComprador().mostrarPersona();
+//    getComprador().mostrarPersona();
+    getIdCliente().//?
     cout<< endl;
     cout << "FORMA DE PAGO: " << getFormaDePago() << endl<<endl;
     cout << "---------------DETALLE DE VENTA--------------------" << endl;
     detalleDeVenta.mostrarDetalleDeVenta();
     cout << "---------------------------------------------------" << endl;
-    cout << "TOTAL DE VENTA: " << getTotalDeVenta()<<endl;
+    cout << "TOTAL DE VENTA: " << getImporteTotal()<<endl;
     cout << "---------------------------------------------------" << endl;
 }
 
@@ -70,7 +72,7 @@ void Venta::cargarVenta() {
     Cliente registroCliente;
     int inputNumeros;
     float montoTotalVenta;
-    nDeVenta = Ventas.CantidadRegistros()+1;
+    idVenta = Ventas.CantidadRegistros()+1;
 
 
     cout << "Ingrese la fecha de la venta: " << endl;
@@ -78,7 +80,7 @@ void Venta::cargarVenta() {
     system("pause");
     system("cls");
 
-    int idVendedor = 0;
+    int idEmpleado = 0;
     bool vendedorValido = false;
     while (!vendedorValido) {
         cout << "Seleccione el vendedor (ID - Nombre):" << endl;
@@ -154,6 +156,7 @@ void Venta::cargarVenta() {
     cout << "Ingrese el monto total de la venta realizada: ";
     cin >> montoTotalVenta;
     TotalDeVenta = montoTotalVenta;
+
 
     cout << "-----------------------------------" << endl;
 }

@@ -52,14 +52,14 @@
 	"Cliente.h"
 	"Empleado.h"
 
-1730376514 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.h
+1730386634 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.h
 
-1730341598 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.cpp
+1730386664 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.cpp
 	<iostream>
 	<cstring>
 	"Persona.h"
 
-1730372941 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.cpp
+1730384818 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.cpp
 	<iostream>
 	"Venta.h"
 	"Fecha.h"
@@ -68,13 +68,13 @@
 	"ArchivoClientes.h"
 	"ArchivoVentas.h"
 
-1730377394 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.h
+1730388556 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.h
 	"Fecha.h"
 	"Empleado.h"
 	"Cliente.h"
 	"DetalleVenta.h"
 
-1730372941 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
+1730380341 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
 	<iostream>
 	<cstdio>
 	"ArchivoClientes.h"
@@ -277,15 +277,15 @@
 	"DetalleVenta.h"
 	"ArchivoProductos.h"
 
-1730372941 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.h
+1730386568 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.h
 
-1730372941 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.cpp
+1730386723 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.cpp
 	<iostream>
 	<cstring>
 	"Producto.h"
 	"ArchivoProductos.h"
 
-1730376972 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.h
+1730386757 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.h
 
 1729694449 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\archivoclientes.cpp
 	<string>
@@ -536,7 +536,7 @@
 	"ArchivoVentas.h"
 	"Venta.h"
 
-1730341598 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.cpp
+1730385701 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.cpp
 	<string>
 	<cstring>
 	"ArchivoEmpleados.h"

@@ -72,7 +72,7 @@ void Persona::mostrarPersona(){
 }
     void Persona::cargarPersona(){
     int inputNumeros;
-    char inputLetras[WORD];
+    char inputLetras[50];
 
     cout<<"Ingrese el DNI:"<<endl;
     cin >> inputNumeros;
@@ -80,15 +80,15 @@ void Persona::mostrarPersona(){
 
     cout<<"Ingrese el Nombre:"<<endl;
     cin.ignore();
-    cin.getline(inputLetras, WORD);
+    cin.getline(inputLetras, 50);
     setNombre(inputLetras);
 
     cout<<"Ingrese el Apellido:"<<endl;
-    cin.getline(inputLetras, WORD);
+    cin.getline(inputLetras, 50);
     setApellido(inputLetras);
 
     cout<<"Ingrese el email"<<endl;
-    cin.getline(inputLetras, WORD);
+    cin.getline(inputLetras, 50);
     setEmail(inputLetras);
 
     cout<< "Ingrese el telefono"<<endl;
@@ -96,6 +96,6 @@ void Persona::mostrarPersona(){
     setnTelefono(inputNumeros);
     cout<<"Ingrese la localidad"<<endl;
     cin.ignore();
-    cin.getline(inputLetras, WORD);
+    cin.getline(inputLetras, 50);
     setLocalidad(inputLetras);
 }

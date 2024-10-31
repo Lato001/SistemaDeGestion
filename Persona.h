@@ -3,13 +3,12 @@
 
 class Persona{
 private:
-    static const char WORD = 50;
     int  DNI;
-    char nombre [WORD];
-    char apellido [WORD];
-    char email [WORD];
+    char nombre [50];
+    char apellido [50];
+    char email [50];
     int  nTelefono;
-    char localidad [WORD];
+    char localidad [50];
 public:
     Persona();
     Persona(int _DNI, const char* _nombre,const char* _apellido,const char* _email, int _nTelefono, const char* _localidad);

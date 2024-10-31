@@ -20,7 +20,6 @@ void Menu::getMainMenu()
     ArchivoClientes clientes("ArchivoClientes.dat");
     int op=0;
     bool opcionValida=false;
-    bool boolExit=false;
 
     do
     {
@@ -39,7 +38,7 @@ void Menu::getMainMenu()
         cout<<"==================================="<<endl;
         cin>>op;
         system("cls");
-        if(op> (0) && op<9)
+        if(op> (0) && op<8)
         {
             opcionValida=true;
         }
@@ -81,7 +80,7 @@ void Menu::getMainMenu()
 
         opcionValida = false;
     }
-    while(boolExit==false || !opcionValida);
+    while(!opcionValida);
 }
 
 

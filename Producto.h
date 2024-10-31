@@ -3,12 +3,11 @@
 
 class Producto{
 private:
-    static const char WORD = 50;
     int productoID;
-    char nombreProducto[WORD];
+    char nombreProducto[50];
     float precioUnitario;
     int stock;
-    char categoriaProducto[WORD];
+    char categoriaProducto[50];
 
 public:
     Producto();

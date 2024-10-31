@@ -64,8 +64,8 @@ void Producto::cargarProducto()
     ArchivoProductos Productos("ArchivoProductos.dat");
 
     int inputProductoID;
-    char inputNombreProducto[WORD];
-    char inputCategoriaProducto[WORD];
+    char inputNombreProducto[50];
+    char inputCategoriaProducto[50];
     float inputPrecioUnitario;
     int inputStock;
 
