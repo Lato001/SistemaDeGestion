@@ -4,19 +4,30 @@
 
 class DetalleVenta{
 private:
-    int  productoID;
+    int idVenta;
+    int idLinea;
+    int idProducto;
     int cantidadProducto;
-    int nLinea;
+    float importe;
+    bool estado;
 public:
     DetalleVenta();
-    DetalleVenta(int productoID, int cantidadProducto);
+    DetalleVenta(int _idVenta, int _idLinea, int _idProducto, int _cantidadProducto, float _importe, bool _estado);
 
 
-    int getProductoID();
+    int getIdVenta();
+    int getIdLinea();
+    int getIdProducto();
     int getCantidadProducto();
+    float getImporte();
+    bool getEstado();
 
-    void setProductoID(int _productoID);
-    void setCantidadProducto(int _cantidadProducto);
+    void setIdVenta(int _idVenta);
+    void setIdLinea(int _idLinea);
+    void setIdProducto(int _idProducto);
+    void setCantidadProducto( int _cantidadProducto);
+    void setImporte(float _importe);
+    void setEstado(bool _estado);
 
     void cargarDetalleDeVenta();
     void mostrarDetalleDeVenta();

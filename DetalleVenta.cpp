@@ -4,25 +4,41 @@ using namespace std;
 #include "ArchivoProductos.h"
 DetalleVenta::DetalleVenta()
 {
-    productoID = 0;
+    idVenta = 0;
+    idLinea = 0;
+    idProducto = 0;
     cantidadProducto = 0;
+    importe = 0;
+    estado = false;
 }
-DetalleVenta::DetalleVenta(int _productoID, int _cantidadProducto)
+DetalleVenta::DetalleVenta(int _idVenta, int _idLinea, int _idProducto, int _cantidadProducto, float _importe, bool _estado)
 {
-    productoID = _productoID;
+    idVenta = _idVenta;
+    idLinea = _idLinea;
+    idProducto = _idProducto;
     cantidadProducto = _cantidadProducto;
+    importe = _importe;
+    estado  = _estado;
 }
 
-    int DetalleVenta :: getProductoID(){return productoID;}
+    int DetalleVenta :: getIdVenta(){return idVenta;}
+    int DetalleVenta :: getIdLinea(){return idLinea;}
+    int DetalleVenta :: getIdProducto(){return idProducto;}
     int DetalleVenta :: getCantidadProducto(){return cantidadProducto;}
+    float DetalleVenta :: getImporte(){return importe;}
+    bool DetalleVenta :: getEstado(){return estado;}
 
-    void DetalleVenta :: setProductoID(int _productoID){productoID = _productoID;}
-    void DetalleVenta :: setCantidadProducto(int _cantidadProducto){cantidadProducto = _cantidadProducto;}
+    void DetalleVenta:: setIdVenta(int _idVenta){idVenta = _idVenta;}
+    void DetalleVenta::setIdLinea(int _idLinea){idLinea = _idLinea;}
+    void DetalleVenta::setIdProducto(int _idProducto){idProducto = _idProducto;}
+    void DetalleVenta::setCantidadProducto( int _cantidadProducto){cantidadProducto = _cantidadProducto;}
+    void  DetalleVenta::setImporte(float _importe){importe = _importe;}
+    void DetalleVenta::setEstado(bool _estado){estado = _estado;}
 
     void DetalleVenta :: cargarDetalleDeVenta(){
         ArchivoProductos Productos("ArchivoProductos.dat");
         Producto registro;
-        int posReg, input;
+        int input;
 
 
 
@@ -35,10 +51,10 @@ DetalleVenta::DetalleVenta(int _productoID, int _cantidadProducto)
              cout<< endl;
             }
         cout<< "Ingrese la opcion deseada: ";
-        cin >> posReg;
-            if(posReg > -1 && posReg < Productos.CantidadRegistros()){
+        cin >> input;
+            if(Productos.Buscar(input).getProductoID() != -1){
                 opcionValida = true;
-                productoID = Productos.Leer(posReg).getProductoID();
+                idProducto = Productos.Buscar(input).getProductoID();
             }else{
                 cout << "Opcion invalida, vuelva a intentarlo"<<endl;
             }
@@ -48,25 +64,24 @@ DetalleVenta::DetalleVenta(int _productoID, int _cantidadProducto)
 
         opcionValida = false;
         while(!opcionValida){
-            cout<< "Stock Disponible: " << Productos.Leer(posReg).getStock()<<endl<<endl;
+            cout<< "Stock Disponible: " << Productos.Buscar(idProducto).getStock()<<endl<<endl;
             cout<< "Ingrese la cantidad comprada del producto: " << endl;
             cin>> input;
-        if(input >0  && input <= Productos.Leer(posReg).getStock()){
-            opcionValida = true;
+        if(input <= Productos.Buscar(idProducto).getStock()){
             cantidadProducto = input;
-            Productos.Leer(posReg).setStock( 0);
+            Productos.Buscar(idProducto).setStock(Productos.Buscar(idProducto).getStock() - input);
+            opcionValida = true;
         }else{
             cout << "Opcion invalida! Vuelva a intentarlo"<<endl;
             system("pause");
             system("cls");
-
-
         }
+        importe = Productos.Buscar(idProducto).getPrecioUnitario() * cantidadProducto;
 
 
 
     }}
     void DetalleVenta :: mostrarDetalleDeVenta(){
-    cout<< "ID DEL PRODUCTO: " << getProductoID()<<endl;
+    cout<< "ID DEL PRODUCTO: " << getIdProducto()<<endl;
     cout<< "CANTIDAD DEL PRODUCTO: " << getCantidadProducto()<<endl;
     }
