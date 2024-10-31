@@ -5,6 +5,7 @@
 #include "ArchivoClientes.h"
 #include "ArchivoEmpleados.h"
 #include "ArchivoVentas.h"
+#include "ArchivoProductos.h"
 #include "Menu.h"
 #include "Cliente.h"
 #include "Empleado.h"
@@ -32,11 +33,13 @@ void Menu::getMainMenu()
         cout<<"4. Listar Clientes"<<endl;
         cout<<"5. Registrar Venta"<<endl;
         cout<<"6. Listar Ventas"<<endl;
+        cout<<"7. Registrar Producto"<<endl;
+        cout<<"8. Listar Productos"<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
         system("cls");
-        if(op> (0) && op<6)
+        if(op> (0) && op<9)
         {
             opcionValida=true;
         }
@@ -60,6 +63,12 @@ void Menu::getMainMenu()
             break;
         case 6:
             listarVentas();
+            break;
+        case 7:
+            registrarProducto();
+            break;
+        case 8:
+            listarProductos();
             break;
         case 0:
             exit(0);
@@ -116,7 +125,7 @@ void Menu::crearEmpleado()
     }
     else
     {
-        cout << "Error al guardar el Empleado." << endl;
+        cout << "Error al registrar el Empleado." << endl;
     }
 }
 
@@ -171,7 +180,7 @@ void Menu::listarVentas()
     else
     {
 
-        cout<< "TOTAL DE VENTAS: " << cantRegistros << endl;
+        cout<< "TOTAL DE VENTAS: " << cantRegistros << endl<<endl;
         for (int i = 0; i < cantRegistros; i++ )
         {
             registro = Ventas.Leer(i);
@@ -194,11 +203,45 @@ void Menu::registrarVenta()
     }
     else
     {
-        cout << "Error al registrar el venta." << endl;
+        cout << "Error al registrar la venta." << endl;
     }
 
 }
-void Menu::crearProducto(){
+void Menu::registrarProducto(){
+    ArchivoProductos Productos("ArchivoProductos.dat");
     Producto producto;
     producto.cargarProducto();
+     if ( Productos.Guardar(producto) )
+    {
+        cout<<endl;
+        cout << "El producto se ha registrado correctamente." << endl;
+    }
+    else
+    {
+        cout << "Error al registrar el producto." << endl;
+    }
+
+}
+void Menu::listarProductos()
+{
+    ArchivoProductos Productos("ArchivoProductos.dat");
+    Producto registro;
+    int cantRegistros = Productos.CantidadRegistros();
+
+    if(cantRegistros == 0)
+    {
+        cout<< "No se han encontrado productos registrados" << endl;
+    }
+    else
+    {
+
+        cout<< "TOTAL DE PRODUCTOS: " << cantRegistros << endl<<endl;
+        for (int i = 0; i < cantRegistros; i++ )
+        {
+            registro = Productos.Leer(i);
+            registro.mostrarProducto();
+            cout<<endl;
+        }
+    }
+
 }

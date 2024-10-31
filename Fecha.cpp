@@ -42,13 +42,13 @@ void Fecha::setAnio(int _anio){
 }
 void Fecha::cargarFecha(){
     int input;
-    cout << "Ingrese el dia"<<endl;
+    cout << "Ingrese el dia: ";
     cin >> input;
     dia = input;
-    cout << "Ingrese el mes"<<endl;
+    cout << "Ingrese el mes: ";
     cin >> input;
     mes = input;
-    cout << "Ingrese el anio"<<endl;
+    cout << "Ingrese el anio: ";
     cin >> input;
     anio = input;
 }

@@ -12,7 +12,8 @@ public:
     void registrarVenta();
     void crearCliente();
     void crearEmpleado();
-    void crearProducto();
+    void registrarProducto();
+    void listarProductos();
 };
 
 #endif // MENU_H_INCLUDED
