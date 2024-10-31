@@ -2,6 +2,7 @@ using namespace std;
 #include <iostream>
 #include <cstring>
 #include "Producto.h"
+#include "ArchivoProductos.h"
 
 Producto::Producto()
 {
@@ -55,22 +56,20 @@ void Producto::mostrarProducto()
     cout << "Categor¡a del Producto: " << getCategoriaProducto() << endl;
     cout << "Precio Unitario: " << getPrecioUnitario() << endl;
     cout << "Stock: " << getStock() << endl;
-    cout << "//////////////////////////////////////////////////////////////" << endl << endl;
+    cout << "////////////////////////////////////////////////////" << endl << endl;
 }
 
 void Producto::cargarProducto()
 {
+    ArchivoProductos Productos("ArchivoProductos.dat");
+
     int inputProductoID;
     char inputNombreProducto[WORD];
     char inputCategoriaProducto[WORD];
     float inputPrecioUnitario;
     int inputStock;
 
-    cout << "Ingrese el ID del Producto: ";
-    cin >> inputProductoID;
-    setProductoID(inputProductoID);
-    system("pause");
-    system("cls");
+    productoID = Productos.CantidadRegistros()+1;
 
 
     cout << "Ingrese el nombre del Producto: ";
@@ -97,9 +96,6 @@ void Producto::cargarProducto()
     system("pause");
     system("cls");
 
-    cout << "El producto ha sido cargado con exito." << endl;
-    system("pause");
-    system("cls");
 }
 
 
