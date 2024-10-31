@@ -32,6 +32,7 @@ Venta::Venta(int _nDeVenta, Fecha _fecha, Empleado _vendedor, Cliente _comprador
 int Venta::getNDeVenta(){return nDeVenta;}
 Fecha Venta::getFecha(){return fecha;}
 Empleado Venta::getVendedor(){return vendedor;}
+Cliente Venta::getComprador(){return comprador;}
 int Venta::getFormaDePago(){return formaDePago;}
 float Venta::getTotalDeVenta(){return TotalDeVenta;}
 DetalleVenta Venta::getDetalleDeVenta(){return detalleDeVenta;}
@@ -44,35 +45,35 @@ void Venta::setComprador(Cliente _comprador){comprador= _comprador;}
 void Venta::setTotalDeVenta(float _TotalDeVenta){TotalDeVenta = _TotalDeVenta;}
 
 void Venta::mostrarVenta(){
-    cout << "-----------------------------------" << endl;
-    cout << "Nro DE VENTA: " << getNDeVenta() << endl;
+    cout <<"------------" << "Nro DE VENTA: " << getNDeVenta() << "------------------------" << endl;
     cout << "FECHA: ";
     getFecha().mostrarFecha();
-    cout << "VENDEDOR: ";
+    cout << "VENDEDOR: "<<endl;
     getVendedor().mostrarPersona();
-    cout << "FORMA DE PAGO: " << getFormaDePago() << endl;
+    cout<< endl;
+    cout << "CCOMPRADOR: "<<endl;
+    getComprador().mostrarPersona();
+    cout<< endl;
+    cout << "FORMA DE PAGO: " << getFormaDePago() << endl<<endl;
     cout << "---------------DETALLE DE VENTA--------------------" << endl;
     detalleDeVenta.mostrarDetalleDeVenta();
-    cout << "---------------................--------------------" << endl;
-    cout << "TOTAL DE VENTA: " << getTotalDeVenta();
-    cout << "-----------------------------------" << endl;
+    cout << "---------------------------------------------------" << endl;
+    cout << "TOTAL DE VENTA: " << getTotalDeVenta()<<endl;
+    cout << "---------------------------------------------------" << endl;
 }
 
 void Venta::cargarVenta() {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     ArchivoClientes Clientes("ArchivoClientes.dat");
+    ArchivoVentas Ventas("ArchivoVentas.dat");
     Empleado registroEmpleado;
     Cliente registroCliente;
     int inputNumeros;
     float montoTotalVenta;
+    nDeVenta = Ventas.CantidadRegistros()+1;
 
-    cout << "Ingrese el numero de venta: ";
-    cin >> inputNumeros;
-    nDeVenta = inputNumeros;
-    system("pause");
-    system("cls");
 
-    cout << "FECHA: " << endl;
+    cout << "Ingrese la fecha de la venta: " << endl;
     fecha.cargarFecha();
     system("pause");
     system("cls");
@@ -111,7 +112,7 @@ void Venta::cargarVenta() {
         cout << "Ingrese el ID del cliente: ";
         cin >> idCliente;
 
-        if (idCliente > 0 && idCliente < Clientes.CantidadRegistros()) {
+        if (idCliente > 0 && idCliente <= Clientes.CantidadRegistros()) {
             clienteValido = true;
             comprador = Clientes.Leer(idCliente - 1);
         } else {
