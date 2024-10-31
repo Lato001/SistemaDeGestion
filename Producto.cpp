@@ -71,15 +71,15 @@ void Producto::cargarProducto()
 
     productoID = Productos.CantidadRegistros()+1;
 
-
+    cin.ignore();
     cout << "Ingrese el nombre del Producto: ";
-    cin >> inputNombreProducto;
+    cin.getline(inputNombreProducto, 50);
     setNombre(inputNombreProducto);
     system("pause");
     system("cls");
 
     cout << "Ingrese la categoria del Producto: ";
-    cin >> inputCategoriaProducto;
+    cin.getline(inputCategoriaProducto, 50);
     setCategoriaProducto(inputCategoriaProducto);
     system("pause");
     system("cls");

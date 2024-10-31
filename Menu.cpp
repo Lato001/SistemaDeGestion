@@ -111,7 +111,8 @@ void Menu:: listar()
     while(!opcionValida);
     listar();
 }
-void Menu::crear() {
+void Menu::crear()
+{
     int op=0;
     bool opcionValida=false;
 
@@ -133,7 +134,7 @@ void Menu::crear() {
         switch (op)
         {
         case 1:
-           crearEmpleado();
+            crearEmpleado();
             break;
         case 2:
             crearCliente();
@@ -152,9 +153,10 @@ void Menu::crear() {
     }
     while(!opcionValida);
     crear();
-    }
-void Menu:: registrar() {
-   int op=0;
+}
+void Menu:: registrar()
+{
+    int op=0;
     bool opcionValida=false;
 
     do
@@ -175,7 +177,7 @@ void Menu:: registrar() {
         switch (op)
         {
         case 1:
-           registrarVenta();
+            registrarVenta();
             break;
         case 2:
             registrarProducto();
@@ -193,22 +195,32 @@ void Menu:: registrar() {
     }
     while(!opcionValida);
     registrar();
-    }
+}
 
 void Menu::listarEmpleados()
 {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     Empleado registro;
     int cantRegistros = Empleados.CantidadRegistros();
-    cout<< "TOTAL DE EMPLEADOS: " << cantRegistros << endl;
-
-    for (int i = 0; i < cantRegistros ; i++ )
+    if(cantRegistros == 0)
     {
-        registro = Empleados.Leer(i);
-        registro.mostrarEmpleado();
-
+        cout<< "No se han encontrado empleados registrados" << endl;
     }
+    else
+    {
+
+        cout<< "TOTAL DE EMPLEADOS: " << cantRegistros << endl;
+        for (int i = 0; i < cantRegistros; i++ )
+        {
+            registro = Empleados.Leer(i);
+            registro.mostrarEmpleado();
+            cout<<endl;
+        }
+    }
+
+
 }
+
 void Menu::listarClientes()
 {
     ArchivoClientes Clientes("ArchivoClientes.dat");

@@ -1,12 +1,17 @@
 #include <iostream>
-#include "Venta.h"
+
 #include "Fecha.h"
+///CLIENTES Y EMPLEADOS
 #include "Empleado.h"
-#include "DetalleVenta.h"
+#include "Cliente.h"
 #include "ArchivoEmpleados.h"
 #include "ArchivoClientes.h"
+///VENTA
+#include "Venta.h"
 #include "ArchivoVentas.h"
+///DETALLES DE VENTA
 #include "ArchivoDetalleVentas.h"
+#include "DetalleVenta.h"
 
 
 using namespace std;
@@ -221,13 +226,14 @@ void Venta::cargarVenta()
         }
         system("pause");
         system("cls");
+        /*
 
 
     cout << "TOTAL DE LA VENTA REALIZADA: " << DetalleVentas.Buscar(getIdVenta()).getImporte()<<endl;
     ///CREAR LA LOGICA PARA EL TOTAL DE LA VENTA REALIZADA
 
 
-
+*/
     cout << "-----------------------------------" << endl;
 }
     }
