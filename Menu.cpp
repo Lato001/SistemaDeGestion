@@ -1,14 +1,15 @@
 #include <iostream>
 #include <cstdio>
 
-#include "ArchivoPersonas.h"
+
 #include "ArchivoClientes.h"
 #include "ArchivoEmpleados.h"
+#include "ArchivoVentas.h"
 #include "Menu.h"
-#include "Persona.h"
 #include "Cliente.h"
 #include "Empleado.h"
 #include "Venta.h"
+#include "Producto.h"
 #include "rlutil.h"
 
 using namespace std;
@@ -30,6 +31,7 @@ void Menu::getMainMenu()
         cout<<"3. Listar Empleados"<<endl;
         cout<<"4. Listar Clientes"<<endl;
         cout<<"5. Registrar Venta"<<endl;
+        cout<<"6. Listar Ventas"<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
@@ -55,6 +57,9 @@ void Menu::getMainMenu()
             break;
         case 5:
             registrarVenta();
+            break;
+        case 6:
+            listarVentas();
             break;
         case 0:
             exit(0);
@@ -153,9 +158,47 @@ void Menu::listarClientes()
 
 }
 
+void Menu::listarVentas()
+{
+    ArchivoVentas Ventas("ArchivoVentas.dat");
+    Venta registro;
+    int cantRegistros = Ventas.CantidadRegistros();
+
+    if(cantRegistros == 0)
+    {
+        cout<< "No se han encontrado ventas registradas" << endl;
+    }
+    else
+    {
+
+        cout<< "TOTAL DE VENTAS: " << cantRegistros << endl;
+        for (int i = 0; i < cantRegistros; i++ )
+        {
+            registro = Ventas.Leer(i);
+            registro.mostrarVenta();
+            cout<<endl;
+        }
+    }
+
+}
+
 void Menu::registrarVenta()
 {
+    ArchivoVentas Ventas("ArchivoVentas.dat");
     Venta venta;
     venta.cargarVenta();
+    if ( Ventas.Guardar(venta) )
+    {
+        cout<<endl;
+        cout << "La venta se ha registrado correctamente." << endl;
+    }
+    else
+    {
+        cout << "Error al registrar el venta." << endl;
+    }
 
+}
+void Menu::crearProducto(){
+    Producto producto;
+    producto.cargarProducto();
 }

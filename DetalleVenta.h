@@ -4,29 +4,19 @@
 
 class DetalleVenta{
 private:
-    int ventaID;
     int  productoID;
     int cantidadProducto;
-    float precio;
-    char categoriaProducto;
 public:
     DetalleVenta();
-    DetalleVenta(int ventaID, int productoID, int cantidadProducto, float precio, const char* categoriaProducto);
+    DetalleVenta(int productoID, int cantidadProducto);
 
 
-    int getVentaID();
     int getProductoID();
     int getCantidadProducto();
-    float getPrecio();
-    const char* getCategoriaProducto();
 
-    void setVenta(int _ventaID);
     void setProductoID(int _productoID);
     void setCantidadProducto(int _cantidadProducto);
-    void setPrecio(int _precio);
-    void setCategoriaProducto(const char* _categoriaProducto);
 
-    void cargarProducto();
     void cargarDetalleDeVenta();
     void mostrarDetalleDeVenta();
 

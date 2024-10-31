@@ -18,13 +18,14 @@ Venta::Venta(){
     detalleDeVenta;
     TotalDeVenta = 0;
 }
-Venta::Venta(int _nDeVenta, Fecha _fecha, Empleado _vendedor, Cliente _comprador, int _formaDePago, DetalleVenta detalleVenta, float _TotalDeVenta)
+Venta::Venta(int _nDeVenta, Fecha _fecha, Empleado _vendedor, Cliente _comprador, int _formaDePago, DetalleVenta _detalleDeVenta, float _TotalDeVenta)
 {
     nDeVenta = _nDeVenta;
     fecha = _fecha;
     vendedor = _vendedor;
     comprador = _comprador;
     formaDePago = _formaDePago;
+    detalleDeVenta = _detalleDeVenta;
     TotalDeVenta = _TotalDeVenta;
 }
 
@@ -39,6 +40,7 @@ void Venta::setNDeVenta(int _nDeVenta){nDeVenta = _nDeVenta;}
 void Venta::setFecha(Fecha _fecha){fecha = _fecha;}
 void Venta::setFormaDePago(int _formaDePago){formaDePago = _formaDePago;}
 void Venta::setVendedor(Empleado _vendedor){vendedor = _vendedor;}
+void Venta::setComprador(Cliente _comprador){comprador= _comprador;}
 void Venta::setTotalDeVenta(float _TotalDeVenta){TotalDeVenta = _TotalDeVenta;}
 
 void Venta::mostrarVenta(){
@@ -109,7 +111,7 @@ void Venta::cargarVenta() {
         cout << "Ingrese el ID del cliente: ";
         cin >> idCliente;
 
-        if (idCliente > 0 && idCliente <= Clientes.CantidadRegistros()) {
+        if (idCliente > 0 && idCliente < Clientes.CantidadRegistros()) {
             clienteValido = true;
             comprador = Clientes.Leer(idCliente - 1);
         } else {
@@ -121,22 +123,6 @@ void Venta::cargarVenta() {
      system("pause");
      system("cls");
 
-    cout << "Seleccione el vendedor (ID - Nombre):" << endl;
-    for (int i = 0; i < Empleados.CantidadRegistros(); i++) {
-        registroEmpleado = Empleados.Leer(i);
-        cout << "ID: " << registroEmpleado.getID() << " - Nombre: " << registroEmpleado.getNombre() << endl;
-    }
-    cout << "Ingrese el ID del vendedor: ";
-    cin >> inputNumeros;
-    vendedor = Empleados.Leer(inputNumeros);
-
-    cout << "Seleccione el cliente (ID - Nombre):" << endl;
-    for (int i = 0; i < Clientes.CantidadRegistros(); i++) {
-        registroCliente = Clientes.Leer(i);
-        cout << "ID: " << registroCliente.getID() << " - Nombre: " << registroCliente.getNombre() << endl;
-    }
-    cout << "Ingrese el ID del cliente: ";
-    cin >> inputNumeros;
 
     cout << "Seleccione forma de pago:" << endl << "1. Efectivo\n2. Debito\n3. Credito" << endl << "Opcion: " ;
     cin >> inputNumeros;

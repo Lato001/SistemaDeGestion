@@ -69,24 +69,37 @@ void Producto::cargarProducto()
     cout << "Ingrese el ID del Producto: ";
     cin >> inputProductoID;
     setProductoID(inputProductoID);
+    system("pause");
+    system("cls");
+
 
     cout << "Ingrese el nombre del Producto: ";
     cin >> inputNombreProducto;
     setNombre(inputNombreProducto);
+    system("pause");
+    system("cls");
 
-    cout << "Ingrese la categor¡a del Producto: ";
+    cout << "Ingrese la categoria del Producto: ";
     cin >> inputCategoriaProducto;
     setCategoriaProducto(inputCategoriaProducto);
+    system("pause");
+    system("cls");
 
     cout << "Ingrese el precio del Producto: ";
     cin >> inputPrecioUnitario;
     setPrecioUnitario(inputPrecioUnitario);
+    system("pause");
+    system("cls");
 
     cout << "Ingrese el stock del Producto: ";
     cin >> inputStock;
     setStock(inputStock);
+    system("pause");
+    system("cls");
 
-    cout << "El producto ha sido cargado con ‚xito." << endl;
+    cout << "El producto ha sido cargado con exito." << endl;
+    system("pause");
+    system("cls");
 }
 
 
