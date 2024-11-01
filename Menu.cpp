@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdio>
 #include <algorithm>
+#include <cstring>
 
 #include "ArchivoClientes.h"
 #include "ArchivoEmpleados.h"
@@ -290,22 +291,27 @@ void Menu::listarEmpleadosxOrdenAlfabetico()
         {
             registro[i] = Empleados.Leer(i);
         }
-        for (int i = 0; i <= cantRegistros - 1; i++)
+        for (int i = 0; i <= cantRegistros ; i++)
         {
-            for (int j = 0; j <= cantRegistros - i - 1; j++)
+            for (int j = 0; j <= cantRegistros ; j++)
             {
-                if (registro[j].getNombre() > registro[j + 1].getNombre())
+                if (strcmp (registro[j].getNombre(),registro[i].getNombre()) > 0)
                 {
-                    Empleado temp = registro[j];
-                    registro[j] = registro[j + 1];
-                    registro[j + 1] = temp;
+                    Empleado temp = registro[i];
+                    registro[i] = registro[j];
+                    registro[j] = temp;
                 }
-                    registro[i].mostrarEmpleado();
-
             }
+        }
+        for ( int i = 0 ; i <=cantRegistros ; i++ )
+        {
+        registro[i].mostrarEmpleado();
         }
     }
     delete[] registro;
+        system("pause");
+        system("cls");
+        MenulistarEmpleados();
 }
 
 void Menu::listarEmpleadosxName()
