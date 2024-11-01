@@ -18,7 +18,6 @@ private:
         Empleado Leer(int posicion);
         int CantidadRegistros();
         void Leer(int CantidadRegistros, Empleado *vector);
-        Empleado BuscarPorNombre(const string& nombre);
 };
 
 #endif // ARCHIVOEMPLEADOS_H_INCLUDED

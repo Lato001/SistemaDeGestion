@@ -36,7 +36,7 @@
 	"Fecha.h"
 	"Persona.h"
 
-1730484610 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.cpp
+1730492874 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.cpp
 	<iostream>
 	<cstring>
 	"Fecha.h"
@@ -77,7 +77,7 @@
 	"Cliente.h"
 	"DetalleVenta.h"
 
-1730490699 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
+1730494110 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
 	<iostream>
 	<cstdio>
 	<algorithm>
@@ -539,14 +539,14 @@
 	"ArchivoVentas.h"
 	"Venta.h"
 
-1730489238 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.cpp
+1730491364 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.cpp
 	<string>
 	<cstring>
 	<iostream>
 	"ArchivoEmpleados.h"
 	"Empleado.h"
 
-1730489207 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.h
+1730491364 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.h
 	"Persona.h"
 	"Empleado.h"
 

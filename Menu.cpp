@@ -208,14 +208,15 @@ void Menu::MenulistarEmpleados()
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Por Nombre"<<endl;
-        cout<<"2. Por ID"<<endl;
-        cout<<"3. Por Fecha de Ingreso"<<endl;
-        cout<<"4. Listar todos"<<endl;
+        cout<<"2. Por Orden Alfabetico"<<endl;
+        cout<<"3. Por ID"<<endl;
+        cout<<"4. Por Fecha de Ingreso"<<endl;
+        cout<<"5. Listar todos"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
         system("cls");
-        if(op>0 && op<5)
+        if(op>0 && op<6)
         {
             opcionValida=true;
         }
@@ -225,12 +226,15 @@ void Menu::MenulistarEmpleados()
             listarEmpleadosxName();
             break;
         case 2:
-            listarEmpleadosxID();
+            listarEmpleadosxOrdenAlfabetico();
             break;
         case 3:
-            listarEmpleadosxFecha();
+            listarEmpleadosxID();
             break;
         case 4:
+            listarEmpleadosxFecha();
+            break;
+        case 5:
             listarEmpleadosAll();
             break;
         case 0:
@@ -272,8 +276,8 @@ void Menu::listarEmpleadosAll()
 void Menu::listarEmpleadosxOrdenAlfabetico()
 {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
-    Empleado registro;
     int cantRegistros = Empleados.CantidadRegistros();
+    Empleado* registro = new Empleado[cantRegistros];
 
     if(cantRegistros == 0)
     {
@@ -284,12 +288,26 @@ void Menu::listarEmpleadosxOrdenAlfabetico()
 
         for (int i = 0; i < cantRegistros; i++ )
         {
-            registro = Empleados.Leer(i);
-
-                registro.mostrarEmpleado();
-            cout<<endl;
+            registro[i] = Empleados.Leer(i);
+        }
+        for (int i = 0; i <= cantRegistros - 1; i++)
+        {
+            for (int j = 0; j <= cantRegistros - i - 1; j++)
+            {
+                if (registro[j].getNombre() > registro[j + 1].getNombre())
+                {
+                    Empleado temp = registro[j];
+                    registro[j] = registro[j + 1];
+                    registro[j + 1] = temp;
+                }
+                for (int i= 0; i <= cantRegistros ; i++ )
+                {
+                    registro[i].mostrarEmpleado();
+                }
+            }
         }
     }
+    delete[] registro;
 }
 
 void Menu::listarEmpleadosxName()
@@ -312,19 +330,17 @@ void Menu::listarEmpleadosxName()
     for (int i = 0; i < cantRegistros; i++)
     {
         registro = Empleados.Leer(i);
-        Empleados.BuscarPorNombre(nombreBuscado);
-        if (registro.getID() != -1)
+        if (registro.getNombre() == nombreBuscado)
         {
-            encontrado = true;
             registro.mostrarEmpleado();
+            encontrado = true;
         }
 
+    }
         if (!encontrado)
         {
             cout << "No se encontraron empleados con el nombre: " << nombreBuscado << endl;
         }
-    }
-    encontrado = false;
 }
 void Menu::listarEmpleadosxID()
 {}
