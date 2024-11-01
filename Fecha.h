@@ -11,11 +11,19 @@ class Fecha{
     int getDia();
     int getMes();
     int getAnio();
+
     void setDia(int _dia);
     void setMes(int _mes);
     void setAnio(int _anio);
+
+    bool validar();
+    void AgregarDia();
+    void RestarDia();
+    bool esBisiesto();
+
     void cargarFecha();
     void mostrarFecha();
+
     char* toString();
 };
 

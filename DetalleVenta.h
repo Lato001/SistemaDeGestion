@@ -25,7 +25,7 @@ public:
     void setIdVenta(int _idVenta);
     void setIdLinea(int _idLinea);
     void setIdProducto(int _idProducto);
-    void setCantidadProducto( int _cantidadProducto);
+    void setCantidadProducto(int _cantidadProducto);
     void setImporte(float _importe);
     void setEstado(bool _estado);
 

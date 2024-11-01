@@ -222,7 +222,7 @@ void listarClientes()
     }
 
 }
-}
+
 void Venta::mostrarVenta()
 {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
