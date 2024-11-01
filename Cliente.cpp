@@ -1,5 +1,5 @@
 #include <iostream>
-#include "rlutil.h"  // Incluimos rlutil.h
+#include "rlutil.h"
 
 using namespace std;
 
@@ -25,23 +25,23 @@ void Cliente::setClienteID(int _clienteID) {
 }
 
 void Cliente::mostrarCliente() {
-    rlutil::setColor(rlutil::CYAN); // Establece el color cyan para mostrar el ID del cliente
+    rlutil::setColor(rlutil::CYAN);
     cout << "////////////////// ID CLIENTE: " << getID() << " //////////////////" << endl;
-    rlutil::setColor(rlutil::WHITE); // Establece el color blanco para mostrar la información
+    rlutil::setColor(rlutil::WHITE);
     mostrarPersona();
 }
 
 void Cliente::cargarCliente() {
     ArchivoClientes Clientes("ArchivoClientes.dat");
 
-    rlutil::setColor(rlutil::BLACK); // Establece el color negro para la entrada de datos
+    rlutil::setColor(rlutil::BLACK);
     cout << "Ingrese los datos del cliente:" << endl;
 
     cargarPersona();
     clienteID = (Clientes.CantidadRegistros() + 1);
 
-    rlutil::setColor(rlutil::GREEN); // Establece el color verde para el mensaje de éxito
+    rlutil::setColor(rlutil::GREEN);
     cout << "Cliente cargado correctamente con ID: " << clienteID << endl;
 
-    rlutil::setColor(rlutil::WHITE); // Restablece el color a blanco
+    rlutil::setColor(rlutil::WHITE);
 }

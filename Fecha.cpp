@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstring>
-#include "rlutil.h"  // Incluimos rlutil.h
+#include "rlutil.h"
 using namespace std;
 
 #include "Fecha.h"
@@ -45,9 +45,9 @@ void Fecha::cargarFecha() {
     bool validacion = false;
     while (!validacion) {
         int input;
-        rlutil::setColor(rlutil::BLACK); // Establece el color negro para la entrada de datos
+        rlutil::setColor(rlutil::BLACK);
         cout << "Ingrese el dia: ";
-        rlutil::setColor(rlutil::WHITE); // Establece el color blanco para el texto
+        rlutil::setColor(rlutil::WHITE);
         cin >> input;
         dia = input;
         rlutil::setColor(rlutil::BLACK);
@@ -62,13 +62,13 @@ void Fecha::cargarFecha() {
         anio = input;
         validacion = validar();
         if (validacion) {
-            rlutil::setColor(rlutil::GREEN); // Establece el color verde para el mensaje de éxito
+            rlutil::setColor(rlutil::GREEN);
             cout << "La fecha se guardo correctamente" << endl;
         } else {
-            rlutil::setColor(rlutil::RED); // Establece el color rojo para el mensaje de error
+            rlutil::setColor(rlutil::RED);
             cout << "Error, Ingrese una fecha real" << endl;
         }
-        rlutil::setColor(rlutil::WHITE); // Restablece el color a blanco
+        rlutil::setColor(rlutil::WHITE);
     }
 }
 
@@ -117,9 +117,9 @@ void Fecha::RestarDia() {
 }
 
 void Fecha::mostrarFecha() {
-    rlutil::setColor(rlutil::CYAN); // Establece el color cyan para mostrar la fecha
+    rlutil::setColor(rlutil::CYAN);
     cout << dia << "/" << mes << "/" << anio << endl;
-    rlutil::setColor(rlutil::WHITE); // Restablece el color a blanco
+    rlutil::setColor(rlutil::WHITE);
 }
 
 char* Fecha::toString() {

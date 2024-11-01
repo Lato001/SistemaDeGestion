@@ -120,7 +120,7 @@ void Venta::cargarVenta() {
     rlutil::cls();
 
     while (!formaDePagoValida) {
-        rlutil::setColor(rlutil::DARKGREY);
+        rlutil::setColor(rlutil::BLACK);
         cout << "Seleccione forma de pago:" << endl;
         cout << "1. Efectivo\n2. Debito\n3. Credito" << endl << "Opcion: ";
         rlutil::setColor(rlutil::WHITE);
@@ -129,7 +129,7 @@ void Venta::cargarVenta() {
 
         if (formaDePago > 0 && formaDePago < 4) {
             formaDePagoValida = true;
-            rlutil::setColor(rlutil::BLUE);
+            rlutil::setColor(rlutil::BLACK);
             switch (formaDePago) {
                 case 1: cout << "Metodo de pago seleccionado: Efectivo" << endl; break;
                 case 2: cout << "Metodo de pago seleccionado: Debito" << endl; break;
@@ -203,7 +203,14 @@ void Venta::mostrarVenta() {
     cout << "COMPRADOR: " << endl;
     Clientes.Buscar(getIdCliente()).mostrarCliente();
     cout << endl;
-    cout << "FORMA DE PAGO: " << getFormaDePago() << endl << endl;
+    rlutil::setColor(rlutil::BLACK);
+    cout << "FORMA DE PAGO: ";
+    switch (getFormaDePago()) {
+        case 1: cout << "Efectivo" << endl; break;
+        case 2: cout << "Debito" << endl; break;
+        case 3: cout << "Credito" << endl; break;
+    }
+    cout << endl;
     rlutil::setColor(rlutil::DARKGREY);
     cout << "--------------- DETALLE DE VENTA --------------------" << endl;
     cout << "---------------------------------------------------" << endl;
