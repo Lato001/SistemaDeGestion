@@ -223,7 +223,7 @@ void Menu::MenulistarClientes()
         switch (op)
         {
         case 1:
-            Menu::listarClientesxName();
+            listarClientesxName();
             break;
         case 2:
             listarClientesxOrdenAlfabetico();
@@ -427,23 +427,84 @@ void Menu::listarClientesAll()
     }
 
 }
-    void listarClientesxName()
+void Menu::listarClientesxName()
+{
+
+    ArchivoClientes Clientes ("ArchivoClientes.dat");
+    Cliente registro;
+    bool encontrado = false;
+    string nombreBuscado;
+    int cantRegistros = Clientes.CantidadRegistros();
+
+    if (cantRegistros == 0)
+    {
+        cout << "No se han encontrado empleados registrados" << endl;
+        return;
+    }
+
+    cout << "Ingrese el nombre del empleado a buscar: ";
+    cin >> nombreBuscado;
+
+    for (int i = 0; i < cantRegistros; i++)
+    {
+        registro = Clientes.Leer(i);
+        if (registro.getNombre() == nombreBuscado)
+        {
+            registro.mostrarCliente();
+            encontrado = true;
+        }
+
+    }
+    if (!encontrado)
+    {
+        cout << "No se encontraron empleados con el nombre: " << nombreBuscado << endl;
+    }
+
+}
+void Menu::listarClientesxOrdenAlfabetico()
+{
+    ArchivoClientes Clientes ("ArchivoClientes.dat");
+    int cantRegistros = Clientes.CantidadRegistros();
+    Cliente* registro = new Cliente[cantRegistros];
+
+    if(cantRegistros == 0)
+    {
+        cout<< "No se han encontrado empleados registrados" << endl;
+    }
+    else
+    {
+
+        for (int i = 0; i < cantRegistros; i++ )
+        {
+            registro[i] = Clientes.Leer(i);
+        }
+        for (int i = 0; i <= cantRegistros ; i++)
+        {
+            for (int j = 0; j <= cantRegistros ; j++)
+            {
+                if (strcmp (registro[j].getNombre(),registro[i].getNombre()) > 0)
+                {
+                    Cliente temp = registro[i];
+                    registro[i] = registro[j];
+                    registro[j] = temp;
+                }
+            }
+        }
+        for ( int i = 0 ; i <=cantRegistros ; i++ )
+        {
+            registro[i].mostrarCliente();
+        }
+    }
+    delete[] registro;
+    system("pause");
+    system("cls");
+    MenulistarClientes();
+}
+    void Menu::listarClientesxID()
     {
 
     }
-    void listarClientesxOrdenAlfabetico()
-    {
-
-    }
-    void listarClientesxID()
-    {
-
-    }
-    void listarClientesxFecha()
-    {
-
-    }
-    void listarClientesAll()
+    void Menu::listarClientesxFecha()
     {
 
     }
