@@ -36,9 +36,10 @@
 	"Fecha.h"
 	"Persona.h"
 
-1730492874 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.cpp
+1730494914 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.cpp
 	<iostream>
 	<cstring>
+	"rlutil.h"
 	"Fecha.h"
 
 1730432368 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.h
@@ -48,19 +49,21 @@
 	"Menu.h"
 	"rlutil.h"
 
-1730488104 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.h
+1730499874 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.h
 	"Cliente.h"
 	"Empleado.h"
 
 1730386634 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.h
 
-1730386664 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.cpp
+1730494914 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.cpp
 	<iostream>
 	<cstring>
+	"rlutil.h"
 	"Persona.h"
 
-1730425440 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.cpp
+1730494914 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.cpp
 	<iostream>
+	"rlutil.h"
 	"Fecha.h"
 	"Empleado.h"
 	"Cliente.h"
@@ -200,9 +203,10 @@
 	"Persona.h"
 	"Fecha.h"
 
-1730404321 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.cpp
+1730494914 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.cpp
 	<iostream>
 	<string>
+	"rlutil.h"
 	"Empleado.h"
 	"Persona.h"
 	"Fecha.h"
@@ -221,8 +225,9 @@
 	"Persona.h"
 	"Cliente.h"
 
-1730341598 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\cliente.cpp
+1730494914 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\cliente.cpp
 	<iostream>
+	"rlutil.h"
 	"Persona.h"
 	"Cliente.h"
 	"ArchivoClientes.h"
@@ -275,16 +280,18 @@
 
 1730321588 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\producto.h
 
-1730409943 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.cpp
+1730494914 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.cpp
 	<iostream>
+	"rlutil.h"
 	"DetalleVenta.h"
 	"ArchivoProductos.h"
 
 1730426704 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.h
 
-1730406458 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.cpp
+1730494914 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.cpp
 	<iostream>
 	<cstring>
+	"rlutil.h"
 	"Producto.h"
 	"ArchivoProductos.h"
 

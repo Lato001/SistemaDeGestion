@@ -96,7 +96,7 @@ void Menu::listar()
             MenulistarEmpleados();
             break;
         case 4:
-            listarClientes();
+            MenulistarClientes();
             break;
         case 0:
             getMainMenu();
@@ -197,7 +197,60 @@ void Menu::registrar()
     while(!opcionValida);
     registrar();
 }
+void Menu::MenulistarClientes()
+{
+    int op=0;
+    bool opcionValida=false;
 
+    do
+    {
+
+        cout<<"----------------------------------"<<endl;
+        cout<<"Elija la opcion que desee realizar"<<endl;
+        cout<<"1. Por Nombre"<<endl;
+        cout<<"2. Por Orden Alfabetico"<<endl;
+        cout<<"3. Por ID"<<endl;
+        cout<<"4. Por Fecha de Ingreso"<<endl;
+        cout<<"5. Listar todos"<<endl;
+        cout<<"0. Volver al menu principal"<<endl;
+        cout<<"==================================="<<endl;
+        cin>>op;
+        system("cls");
+        if(op>0 && op<6)
+        {
+            opcionValida=true;
+        }
+        switch (op)
+        {
+        case 1:
+            Menu::listarClientesxName();
+            break;
+        case 2:
+            listarClientesxOrdenAlfabetico();
+            break;
+        case 3:
+            listarClientesxID();
+            break;
+        case 4:
+            listarClientesxFecha();
+            break;
+        case 5:
+            listarClientesAll();
+            break;
+        case 0:
+            getMainMenu();
+        default:
+            cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
+        }
+        system("pause");
+        system("cls");
+
+
+
+    }
+    while(!opcionValida);
+    MenulistarClientes();
+}
 void Menu::MenulistarEmpleados()
 {
     int op=0;
@@ -350,7 +403,9 @@ void Menu::listarEmpleadosxID()
 {}
 void Menu::listarEmpleadosxFecha()
 {}
-void Menu::listarClientes()
+
+
+void Menu::listarClientesAll()
 {
     ArchivoClientes Clientes("ArchivoClientes.dat");
     Cliente registro;
@@ -372,6 +427,26 @@ void Menu::listarClientes()
     }
 
 }
+    void listarClientesxName()
+    {
+
+    }
+    void listarClientesxOrdenAlfabetico()
+    {
+
+    }
+    void listarClientesxID()
+    {
+
+    }
+    void listarClientesxFecha()
+    {
+
+    }
+    void listarClientesAll()
+    {
+
+    }
 
 void Menu::listarVentas()
 {
