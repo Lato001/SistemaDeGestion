@@ -11,9 +11,20 @@ public:
     void registrar();
 
     ///LISTADOS DE CLASES
-    void listarEmpleados();
+    void MenulistarEmpleados();
+
+    void listarEmpleadosxName();
+    void listarEmpleadosxOrdenAlfabetico();
+    void listarEmpleadosxID();
+    void listarEmpleadosxFecha();
+    void listarEmpleadosAll();
+
     void listarClientes();
+
+
     void listarVentas();
+
+
     void listarProductos();
 
     ///FUNCIONES PARA CREACION DE OBJETOS

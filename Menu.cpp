@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstdio>
-
+#include <algorithm>
 
 #include "ArchivoClientes.h"
 #include "ArchivoEmpleados.h"
@@ -92,7 +92,7 @@ void Menu::listar()
             listarProductos();
             break;
         case 3:
-            listarEmpleados();
+            MenulistarEmpleados();
             break;
         case 4:
             listarClientes();
@@ -197,7 +197,57 @@ void Menu::registrar()
     registrar();
 }
 
-void Menu::listarEmpleados()
+void Menu::MenulistarEmpleados()
+{
+    int op=0;
+    bool opcionValida=false;
+
+    do
+    {
+
+        cout<<"----------------------------------"<<endl;
+        cout<<"Elija la opcion que desee realizar"<<endl;
+        cout<<"1. Por Nombre"<<endl;
+        cout<<"2. Por ID"<<endl;
+        cout<<"3. Por Fecha de Ingreso"<<endl;
+        cout<<"4. Listar todos"<<endl;
+        cout<<"0. Volver al menu principal"<<endl;
+        cout<<"==================================="<<endl;
+        cin>>op;
+        system("cls");
+        if(op>0 && op<5)
+        {
+            opcionValida=true;
+        }
+        switch (op)
+        {
+        case 1:
+            listarEmpleadosxName();
+            break;
+        case 2:
+            listarEmpleadosxID();
+            break;
+        case 3:
+            listarEmpleadosxFecha();
+            break;
+        case 4:
+            listarEmpleadosAll();
+            break;
+        case 0:
+            getMainMenu();
+        default:
+            cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
+        }
+        system("pause");
+        system("cls");
+
+
+
+    }
+    while(!opcionValida);
+    MenulistarEmpleados();
+}
+void Menu::listarEmpleadosAll()
 {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     Empleado registro;
@@ -217,10 +267,69 @@ void Menu::listarEmpleados()
             cout<<endl;
         }
     }
-
-
 }
 
+void Menu::listarEmpleadosxOrdenAlfabetico()
+{
+    ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
+    Empleado registro;
+    int cantRegistros = Empleados.CantidadRegistros();
+
+    if(cantRegistros == 0)
+    {
+        cout<< "No se han encontrado empleados registrados" << endl;
+    }
+    else
+    {
+
+        for (int i = 0; i < cantRegistros; i++ )
+        {
+            registro = Empleados.Leer(i);
+
+                registro.mostrarEmpleado();
+            cout<<endl;
+        }
+    }
+}
+
+void Menu::listarEmpleadosxName()
+{
+    ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
+    Empleado registro;
+    bool encontrado = false;
+    string nombreBuscado;
+    int cantRegistros = Empleados.CantidadRegistros();
+
+    if (cantRegistros == 0)
+    {
+        cout << "No se han encontrado empleados registrados" << endl;
+        return;
+    }
+
+    cout << "Ingrese el nombre del empleado a buscar: ";
+    cin >> nombreBuscado;
+
+    for (int i = 0; i < cantRegistros; i++)
+    {
+        registro = Empleados.Leer(i);
+        Empleados.BuscarPorNombre(nombreBuscado);
+        if (registro.getID() != -1)
+        {
+            encontrado = true;
+            registro.mostrarEmpleado();
+        }
+
+        if (!encontrado)
+        {
+            cout << "No se encontraron empleados con el nombre: " << nombreBuscado << endl;
+        }
+    }
+    encontrado = false;
+}
+void Menu::listarEmpleadosxID()
+{}
+void Menu::listarEmpleadosxFecha()
+{}
 void Menu::listarClientes()
 {
     ArchivoClientes Clientes("ArchivoClientes.dat");

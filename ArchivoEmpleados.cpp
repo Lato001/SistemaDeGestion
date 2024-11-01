@@ -49,12 +49,6 @@ Empleado ArchivoEmpleados::Buscar(int empleadoID){
     fclose(registro);
     return fallo;
 }
-
-
-
-
-
-
 Empleado ArchivoEmpleados::Leer(int posicion){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     if(registro == NULL){
@@ -88,6 +82,24 @@ void ArchivoEmpleados::Leer(int cantidadRegistros, Empleado *vector){
         fread(&vector[i], sizeof(Empleado), 1, registro);
     }
     fclose(registro);
+}
+Empleado ArchivoEmpleados::BuscarPorNombre(const string& nombre) {
+    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    Empleado empleado;
+
+    if (registro == NULL) {
+        return empleado;
+    }
+
+    while (fread(&empleado, sizeof(Empleado), 1, registro)) {
+        if (empleado.getNombre() == nombre) {
+            fclose(registro);
+            return empleado;
+        }
+    }
+
+    fclose(registro);
+    return empleado;
 }
 /*
 bool ArchivoEmpleados::eliminar(int ID) {

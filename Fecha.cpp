@@ -65,6 +65,9 @@ void Fecha::cargarFecha(){
 }
 bool Fecha::validar()
 {
+    if (anio<2025)
+    {
+
         if (mes<1 || mes>12)
         {
             return false;
@@ -87,11 +90,15 @@ bool Fecha::validar()
             return (dia>=1 && dia <=30);
 
         case 2:
-            return (dia=28);
+            return (dia<=29);
 
         default:
             return false;
         }
+    }
+    else{
+        return false;
+    }
 }
 
 
