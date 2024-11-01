@@ -300,10 +300,8 @@ void Menu::listarEmpleadosxOrdenAlfabetico()
                     registro[j] = registro[j + 1];
                     registro[j + 1] = temp;
                 }
-                for (int i= 0; i <= cantRegistros ; i++ )
-                {
                     registro[i].mostrarEmpleado();
-                }
+
             }
         }
     }
