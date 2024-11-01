@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "rlutil.h"
 using namespace std;
 
 #include "Empleado.h"
@@ -17,10 +18,10 @@ Empleado::Empleado()
 }
 Empleado::Empleado(int _DNI, const char* _nombre,const char* _apellido,const char* _email, int _nTelefono, const char* _localidad, Fecha _fechaDeIngreso, int _empleadoID, int _asistencias, bool _vacacionesActivas) : Persona(_DNI, _nombre, _apellido, _email, _nTelefono, _localidad)
 {
-fechaDeIngreso = _fechaDeIngreso;
-empleadoID = _empleadoID;
-asistencias = _asistencias;
-vacacionesActivas = _vacacionesActivas;
+    fechaDeIngreso = _fechaDeIngreso;
+    empleadoID = _empleadoID;
+    asistencias = _asistencias;
+    vacacionesActivas = _vacacionesActivas;
 }
 int Empleado::getID(){return empleadoID;}
 int Empleado::getAsistencias() {return asistencias;}
@@ -60,11 +61,12 @@ void Empleado::cargarEmpleado(){
     cout<<"Esta en vacaciones S/N ? "<<endl;
     cin >> inputLetra;
     while(inputLetra != 'S' && inputLetra != 'N' ){
+        rlutil::setColor(rlutil::RED);
         cout<<"Opcion invalida" << endl;
+        rlutil::setColor(rlutil::WHITE);
         system("pause");
         system("cls");
-    cin >> inputLetra;
-
+        cin >> inputLetra;
     }
     if(inputLetra == 'S'){
         vacacionesActivas = true;
