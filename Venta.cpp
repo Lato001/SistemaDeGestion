@@ -1,59 +1,53 @@
 #include <iostream>
-
+#include "rlutil.h"
 #include "Fecha.h"
-///CLIENTES Y EMPLEADOS
 #include "Empleado.h"
 #include "Cliente.h"
 #include "ArchivoEmpleados.h"
 #include "ArchivoClientes.h"
-///VENTA
 #include "Venta.h"
 #include "ArchivoVentas.h"
-///DETALLES DE VENTA
 #include "ArchivoDetalleVentas.h"
 #include "DetalleVenta.h"
 
-
 using namespace std;
 
-Venta::Venta()
-{
+Venta::Venta() {
     idVenta = 0;
     idEmpleado = 0;
     idCliente = 0;
-    fecha;
     formaDePago = 0;
     importeTotal = 0;
     estado = false;
 }
-Venta::Venta(int _idVenta,  int _idEmpleado, int _idCliente, Fecha _fecha, int _formaDePago, float _importeTotal, bool _estado)
-{
+
+Venta::Venta(int _idVenta, int _idEmpleado, int _idCliente, Fecha _fecha, int _formaDePago, float _importeTotal, bool _estado) {
     idVenta = _idVenta;
     idEmpleado = _idEmpleado;
     idCliente = _idCliente;
     fecha = _fecha;
     formaDePago = _formaDePago;
     importeTotal = _importeTotal;
+    estado = _estado;
 }
 
-int Venta::getIdVenta(){return idVenta;}
-int  Venta::getIdEmpleado(){return idEmpleado;}
-int  Venta::getIdCliente(){return idCliente;}
-Fecha  Venta::getFecha(){return fecha;}
-int  Venta::getFormaDePago(){return formaDePago;}
-float  Venta::getImporteTotal(){return importeTotal;}
-bool  Venta::getEstado(){return estado;}
+int Venta::getIdVenta() { return idVenta; }
+int Venta::getIdEmpleado() { return idEmpleado; }
+int Venta::getIdCliente() { return idCliente; }
+Fecha Venta::getFecha() { return fecha; }
+int Venta::getFormaDePago() { return formaDePago; }
+float Venta::getImporteTotal() { return importeTotal; }
+bool Venta::getEstado() { return estado; }
 
-void Venta::setidVenta(int _idVenta){idVenta = _idVenta;}
-void Venta::setFecha(Fecha _fecha){fecha = _fecha;}
-void Venta::setFormaDePago(int _formaDePago){formaDePago = _formaDePago;}
-void Venta::setidEmpleado(int _idEmpleado){idEmpleado = _idEmpleado;}
-void Venta::setidCliente(int _idCliente){idCliente = _idCliente;}
-void Venta::setImporteTotal(float _importeTotal){importeTotal = _importeTotal;}
-void Venta::setEstado(bool _estado){estado = _estado;}
+void Venta::setidVenta(int _idVenta) { idVenta = _idVenta; }
+void Venta::setFecha(Fecha _fecha) { fecha = _fecha; }
+void Venta::setFormaDePago(int _formaDePago) { formaDePago = _formaDePago; }
+void Venta::setidEmpleado(int _idEmpleado) { idEmpleado = _idEmpleado; }
+void Venta::setidCliente(int _idCliente) { idCliente = _idCliente; }
+void Venta::setImporteTotal(float _importeTotal) { importeTotal = _importeTotal; }
+void Venta::setEstado(bool _estado) { estado = _estado; }
 
-void Venta::cargarVenta()
-{
+void Venta::cargarVenta() {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     ArchivoClientes Clientes("ArchivoClientes.dat");
     ArchivoVentas Ventas("ArchivoVentas.dat");
@@ -62,188 +56,155 @@ void Venta::cargarVenta()
     Cliente registroCliente;
     DetalleVenta registroDetalle;
     float montoTotalVenta;
-    idVenta = Ventas.CantidadRegistros()+1;
+    idVenta = Ventas.CantidadRegistros() + 1;
     int input = 0;
     char inputChar = 'n';
-    bool vendedorValido= false, clienteValido = false, formaDePagoValida = false;
+    bool vendedorValido = false, clienteValido = false, formaDePagoValida = false;
 
-    cout << "Ingrese la fecha de la venta: " << endl;
+    rlutil::cls();
+    rlutil::setColor(rlutil::BLACK);
+    cout << "Ingrese la fecha de la venta:" << endl;
+    rlutil::setColor(rlutil::DARKGREY);
     fecha.cargarFecha();
-    system("pause");
-    system("cls");
+    rlutil::anykey();
+    rlutil::cls();
 
-    while (!vendedorValido)
-    {
+    while (!vendedorValido) {
+        rlutil::setColor(rlutil::DARKGREY);
         cout << "Seleccione el vendedor (ID - Nombre):" << endl;
-        for (int i = 0; i < Empleados.CantidadRegistros(); i++)
-        {
+        rlutil::setColor(rlutil::WHITE);
+        for (int i = 0; i < Empleados.CantidadRegistros(); i++) {
             registroEmpleado = Empleados.Leer(i);
             cout << "ID: " << registroEmpleado.getID() << " - Nombre: " << registroEmpleado.getNombre() << endl;
         }
         cout << "Ingrese el ID del vendedor: ";
         cin >> input;
 
-        if (input > 0 && input <= Empleados.CantidadRegistros())
-        {
+        if (input > 0 && input <= Empleados.CantidadRegistros()) {
             idEmpleado = input;
             vendedorValido = true;
-        }
-        else
-        {
+        } else {
+            rlutil::setColor(rlutil::RED);
             cout << "ID invalido. Intente nuevamente." << endl;
-            system("pause");
-            system("cls");
+            rlutil::setColor(rlutil::WHITE);
+            rlutil::anykey();
+            rlutil::cls();
         }
     }
-    system("pause");
-    system("cls");
+    rlutil::anykey();
+    rlutil::cls();
 
-
-    while (!clienteValido)
-    {
+    while (!clienteValido) {
+        rlutil::setColor(rlutil::DARKGREY);
         cout << "Seleccione el cliente (ID - Nombre):" << endl;
-        for (int i = 0; i < Clientes.CantidadRegistros(); i++)
-        {
+        rlutil::setColor(rlutil::WHITE);
+        for (int i = 0; i < Clientes.CantidadRegistros(); i++) {
             registroCliente = Clientes.Leer(i);
             cout << "ID: " << registroCliente.getID() << " - Nombre: " << registroCliente.getNombre() << endl;
         }
         cout << "Ingrese el ID del cliente: ";
         cin >> input;
 
-        if (input > 0 && input <= Clientes.CantidadRegistros())
-        {
+        if (input > 0 && input <= Clientes.CantidadRegistros()) {
             idCliente = input;
             clienteValido = true;
-        }
-        else
-        {
+        } else {
+            rlutil::setColor(rlutil::RED);
             cout << "ID invalido. Intente nuevamente." << endl;
-            system("pause");
-            system("cls");
+            rlutil::setColor(rlutil::WHITE);
+            rlutil::anykey();
+            rlutil::cls();
         }
     }
-    system("pause");
-    system("cls");
+    rlutil::anykey();
+    rlutil::cls();
 
-
-    while(!formaDePagoValida)
-    {
-
-        cout << "Seleccione forma de pago:" << endl << "1. Efectivo\n2. Debito\n3. Credito" << endl << "Opcion: " ;
+    while (!formaDePagoValida) {
+        rlutil::setColor(rlutil::DARKGREY);
+        cout << "Seleccione forma de pago:" << endl;
+        cout << "1. Efectivo\n2. Debito\n3. Credito" << endl << "Opcion: ";
+        rlutil::setColor(rlutil::WHITE);
         cin >> input;
         formaDePago = input;
 
-        if(formaDePago > 0 && formaDePago < 4)
-        {
+        if (formaDePago > 0 && formaDePago < 4) {
             formaDePagoValida = true;
-            switch (formaDePago)
-            {
-            case 1:
-                cout << "Metodo de pago seleccionado: Efectivo" << endl;
-                break;
-            case 2:
-                cout << "Metodo de pago seleccionado: Debito" << endl;
-                break;
-            case 3:
-                cout << "Metodo de pago seleccionado: Credito" << endl;
-                break;
+            rlutil::setColor(rlutil::BLUE);
+            switch (formaDePago) {
+                case 1: cout << "Metodo de pago seleccionado: Efectivo" << endl; break;
+                case 2: cout << "Metodo de pago seleccionado: Debito" << endl; break;
+                case 3: cout << "Metodo de pago seleccionado: Credito" << endl; break;
             }
-        }
-        else
-        {
+            rlutil::setColor(rlutil::WHITE);
+        } else {
+            rlutil::setColor(rlutil::RED);
             cout << "Metodo de pago no valido." << endl;
+            rlutil::setColor(rlutil::WHITE);
         }
     }
-    system("pause");
-    system("cls");
-
+    rlutil::anykey();
+    rlutil::cls();
 
     bool validacionDetalles = false;
-    while(!validacionDetalles)
-    {
-
+    while (!validacionDetalles) {
+        rlutil::setColor(rlutil::DARKGREY);
         cout << "--------------- DETALLE DE VENTA --------------------" << endl;
-        ///CREAR LOGICA PARA PODER CARGAR LOGICA DE DETALLE DE VENTA EN ARCHIVO DETALLE DE VENTAS
+        rlutil::setColor(rlutil::WHITE);
         registroDetalle.cargarDetalleDeVenta();
-        if(DetalleVentas.Guardar(registroDetalle))
-        {
-            cout<< "El detalle de venta se ha registrado correctamente"<<endl;
+        if (DetalleVentas.Guardar(registroDetalle)) {
+            rlutil::setColor(rlutil::GREEN);
+            cout << "El detalle de venta se ha registrado correctamente" << endl;
+            rlutil::setColor(rlutil::WHITE);
         }
 
         cout << "-----------------------------------------------------" << endl;
-        while(inputChar != 'S' && inputChar != 'N')
-        {
-            cout<< "Desea registrar otro producto para esta venta? S/N: ";
+        while (inputChar != 'S' && inputChar != 'N') {
+            cout << "Desea registrar otro producto para esta venta? S/N: ";
             cin >> inputChar;
-            if(inputChar != 'S' && inputChar != 'N')
-            {
-                cout << "Opcion invalida! Vuelva a intentarlo";
+            if (inputChar != 'S' && inputChar != 'N') {
+                rlutil::setColor(rlutil::RED);
+                cout << "Opcion invalida! Vuelva a intentarlo" << endl;
+                rlutil::setColor(rlutil::WHITE);
             }
         }
-        if(inputChar == 'N')
-        {
-
+        if (inputChar == 'N') {
             validacionDetalles = true;
         }
-/*
-Hacer esto una vez que se haya validado si hay un detalle de venta anterior al que se quiere registrar.
-  else
-        {
-
-            validacionDetalles = true;
-        }
-*/
-
-        system("pause");
-        system("cls");
-        /*
-
-
-        cout << "TOTAL DE LA VENTA REALIZADA: " << DetalleVentas.Buscar(getIdVenta()).getImporte()<<endl;
-        ///CREAR LA LOGICA PARA EL TOTAL DE LA VENTA REALIZADA
-
-
-        */
-        cout << "-----------------------------------" << endl;
+        rlutil::anykey();
+        rlutil::cls();
     }
 }
 
-
-void listarClientes()
-{
+void listarClientes() {
     ArchivoClientes Clientes("ArchivoClientes.dat");
     Cliente registroCliente;
 
+    rlutil::setColor(rlutil::DARKGREY);
     cout << "Lista de Clientes (ID - Nombre): " << endl;
-    for (int i = 0; i < Clientes.CantidadRegistros(); i++)
-    {
+    rlutil::setColor(rlutil::WHITE);
+    for (int i = 0; i < Clientes.CantidadRegistros(); i++) {
         registroCliente = Clientes.Leer(i);
         cout << "ID: " << registroCliente.getID() << " - Nombre: " << registroCliente.getNombre() << endl;
     }
-
 }
 
-void Venta::mostrarVenta()
-{
+void Venta::mostrarVenta() {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     ArchivoClientes Clientes("ArchivoClientes.dat");
 
-    cout <<"------------" << "Nro DE VENTA: " << getIdVenta() << "------------------------" << endl;
-
+    rlutil::setColor(rlutil::DARKGREY);
+    cout << "------------ Nro DE VENTA: " << getIdVenta() << " ------------------------" << endl;
+    rlutil::setColor(rlutil::WHITE);
     cout << "FECHA: ";
     getFecha().mostrarFecha();
-    cout << "VENDEDOR: "<<endl;
+    cout << "VENDEDOR: " << endl;
     Empleados.Buscar(getIdEmpleado()).mostrarEmpleado();
-    cout<< endl;
-    cout << "COMPRADOR: "<<endl;
+    cout << endl;
+    cout << "COMPRADOR: " << endl;
     Clientes.Buscar(getIdCliente()).mostrarCliente();
-    cout<< endl;
-    cout << "FORMA DE PAGO: " << getFormaDePago() << endl<<endl;
-    cout << "---------------DETALLE DE VENTA--------------------" << endl;
+    cout << endl;
+    cout << "FORMA DE PAGO: " << getFormaDePago() << endl << endl;
+    rlutil::setColor(rlutil::DARKGREY);
+    cout << "--------------- DETALLE DE VENTA --------------------" << endl;
     cout << "---------------------------------------------------" << endl;
-    cout << "TOTAL DE VENTA: " << getImporteTotal()<<endl;
-    cout << "---------------------------------------------------" << endl;
-
 }
-
-
