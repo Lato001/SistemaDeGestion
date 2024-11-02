@@ -48,6 +48,46 @@ DetalleVenta ArchivoDetalleVentas::Buscar(int idVenta){
     fclose(registro);
     return fallo;
 }
+DetalleVenta ArchivoDetalleVentas::BuscarPorLinea(int idVenta, int idLinea){
+    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    DetalleVenta detalleVenta, fallo;
+    fallo.setIdVenta(-1);
+    if(registro == NULL){
+        return fallo;
+    }
+    while(fread(&detalleVenta, sizeof(detalleVenta), 1, registro)){
+        if(detalleVenta.getIdVenta() == idVenta && detalleVenta.getIdLinea() == idLinea){
+            fclose(registro);
+            return detalleVenta;
+        }
+    }
+    fclose(registro);
+    return fallo;
+}
+int ArchivoDetalleVentas::ContLineas(int idVenta) {
+    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    if (registro == NULL) {
+        return 0;
+    }
+
+    DetalleVenta detalleVenta;
+    int cont = 0;
+
+    // Iterar por la cantidad de registros en el archivo
+    for (int i = 0; i < CantidadRegistros(); i++) {
+        if (fread(&detalleVenta, sizeof(detalleVenta), 1, registro) == 1) { // Corrección aquí
+            if (detalleVenta.getIdVenta() == idVenta) {
+                cont++;
+            }
+        } else {
+            fclose(registro);
+            return -1; // Indica error en la lectura
+        }
+    }
+
+    fclose(registro);
+    return cont;
+}
 DetalleVenta ArchivoDetalleVentas::Leer(int posicion){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     if(registro == NULL){
