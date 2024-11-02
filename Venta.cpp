@@ -7,8 +7,8 @@
 #include "ArchivoClientes.h"
 #include "Venta.h"
 #include "ArchivoVentas.h"
-#include "ArchivoProductos.h"
-#include "Producto.h"
+#include "ArchivoDetalleVentas.h"
+#include "DetalleVenta.h"
 
 using namespace std;
 
@@ -52,10 +52,10 @@ void Venta::cargarVenta() {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     ArchivoClientes Clientes("ArchivoClientes.dat");
     ArchivoVentas Ventas("ArchivoVentas.dat");
-    ArchivoProductos DetalleVentas("ArchivoDetalleVentas.dat");
+    ArchivoDetalleVentas DetalleVentas("ArchivoDetalleVentas.dat");
     Empleado registroEmpleado;
     Cliente registroCliente;
-    Producto registroDetalle;
+    DetalleVenta registroDetalle;
     float montoTotalVenta;
     idVenta = Ventas.CantidadRegistros() + 1;
     int input = 0;
@@ -72,13 +72,13 @@ void Venta::cargarVenta() {
 
     while (!vendedorValido) {
         rlutil::setColor(rlutil::BLACK);
-        cout << "Seleccione el Empleado (ID - Nombre):" << endl;
+        cout << "Seleccione el vendedor (ID - Nombre):" << endl;
 
         for (int i = 0; i < Empleados.CantidadRegistros(); i++) {
             registroEmpleado = Empleados.Leer(i);
             cout << "ID: " << registroEmpleado.getID() << " - Nombre: " << registroEmpleado.getNombre() << endl;
         }
-        cout << "Ingrese el ID del cliente: ";
+        cout << "Ingrese el ID del vendedor: ";
            rlutil::setColor(rlutil::WHITE);
         cin >> input;
 
@@ -191,8 +191,7 @@ void Venta::cargarVenta() {
 void Venta::mostrarVenta() {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     ArchivoClientes Clientes("ArchivoClientes.dat");
-    ArchivoProductos DetallesVentas("ArchivoDetalleVentas.dat");
-    Venta saldo;
+    ArchivoDetalleVentas DetallesVentas("ArchivoDetalleVentas.dat");
     cout << "------------ Nro DE VENTA: " << getIdVenta() << " ------------------------" << endl;
     cout << "FECHA: ";
     getFecha().mostrarFecha();
@@ -210,14 +209,8 @@ void Venta::mostrarVenta() {
         case 3: cout << "Credito" << endl; break;
     }
     cout << endl;
-
     cout << "--------------- DETALLE DE VENTA --------------------" << endl;
-    cout<< "ARTICULOS COMPRADOS: " << DetallesVentas.ContLineas(getIdVenta())<<endl<<endl;
-            for(int i = 0 ; i <DetallesVentas.ContLineas(idVenta) ; i++ )
-    {
-        saldo.importeTotal += DetallesVentas.BuscarPorLinea(idVenta,i).getImporte();
-    }
+    cout<< "ARTICULOS COMPRADOS: " << DetallesVentas.ContLineas(getIdVenta())<<endl;
     DetallesVentas.Buscar(getIdVenta()).mostrarDetalleDeVenta();
-    cout<<"Importe TOTAL de la Venta: "<< saldo.getImporteTotal();
     cout << "---------------------------------------------------" << endl;
 }

@@ -3,13 +3,11 @@
 
 using namespace std;
 
-#include "Producto.h"
+#include "DetalleVenta.h"
 #include "ArchivoProductos.h"
-#include "ArchivoProductos.h"
-#include "Venta.h"
+#include "ArchivoDetalleVentas.h"
 
-
-Producto::Producto() {
+DetalleVenta::DetalleVenta() {
     idVenta = 0;
     idLinea = 0;
     idProducto = 0;
@@ -18,7 +16,7 @@ Producto::Producto() {
     estado = false;
 }
 
-Producto::Producto(int _idVenta, int _idLinea, int _idProducto, int _cantidadProducto, float _importe, bool _estado) {
+DetalleVenta::DetalleVenta(int _idVenta, int _idLinea, int _idProducto, int _cantidadProducto, float _importe, bool _estado) {
     idVenta = _idVenta;
     idLinea = _idLinea;
     idProducto = _idProducto;
@@ -27,33 +25,57 @@ Producto::Producto(int _idVenta, int _idLinea, int _idProducto, int _cantidadPro
     estado = _estado;
 }
 
-int Producto::getIdVenta() {return idVenta;}
+int DetalleVenta::getIdVenta() {
+    return idVenta;
+}
 
-int Producto::getIdLinea() {return idLinea;}
+int DetalleVenta::getIdLinea() {
+    return idLinea;
+}
 
-int Producto::getIdProducto() {return idProducto;}
+int DetalleVenta::getIdProducto() {
+    return idProducto;
+}
 
-int Producto::getCantidadProducto() {return cantidadProducto;}
+int DetalleVenta::getCantidadProducto() {
+    return cantidadProducto;
+}
 
-float Producto::getImporte() {return importe;}
+float DetalleVenta::getImporte() {
+    return importe;
+}
 
-bool Producto::getEstado() {return estado;}
+bool DetalleVenta::getEstado() {
+    return estado;
+}
 
-void Producto::setIdVenta(int _idVenta) {idVenta = _idVenta;}
-
-void Producto::setIdLinea(int _idLinea) {idLinea = _idLinea;}
-
-void Producto::setIdProducto(int _idProducto) {idProducto = _idProducto;}
-
-void Producto::setCantidadProducto(int _cantidadProducto) {cantidadProducto = _cantidadProducto;}
-
-void Producto::setImporte(float _importe) {importe = _importe;}
-
-void Producto::setEstado(bool _estado) {estado = _estado;}
-
-void Producto::cargarDetalleDeVenta(int _idVenta) {
+void DetalleVenta::setIdVenta(int _idVenta) {
     idVenta = _idVenta;
-    ArchivoProductos DetalleVentas("ArchivoDetalleVentas.dat");
+}
+
+void DetalleVenta::setIdLinea(int _idLinea) {
+    idLinea = _idLinea;
+}
+
+void DetalleVenta::setIdProducto(int _idProducto) {
+    idProducto = _idProducto;
+}
+
+void DetalleVenta::setCantidadProducto(int _cantidadProducto) {
+    cantidadProducto = _cantidadProducto;
+}
+
+void DetalleVenta::setImporte(float _importe) {
+    importe = _importe;
+}
+
+void DetalleVenta::setEstado(bool _estado) {
+    estado = _estado;
+}
+
+void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
+    idVenta = _idVenta;
+    ArchivoDetalleVentas DetalleVentas("ArchivoDetalleVentas.dat");
 
     if(DetalleVentas.ContLineas(idVenta) > 0){
         idLinea = DetalleVentas.ContLineas(idVenta) + 1;
@@ -74,10 +96,10 @@ void Producto::cargarDetalleDeVenta(int _idVenta) {
             registro.mostrarProducto();
             cout << endl;
         }
-         rlutil::setColor(rlutil::WHITE);
+         rlutil::setColor(rlutil::BLACK);
         cout << "Ingrese la opcion deseada: ";
 
-         rlutil::setColor(rlutil::BLACK);
+         rlutil::setColor(rlutil::WHITE);
         cin >> input;
 
         if (Productos.Buscar(input).getProductoID() != -1) {
@@ -94,10 +116,10 @@ void Producto::cargarDetalleDeVenta(int _idVenta) {
 
     opcionValida = false;
     while (!opcionValida) {
-        rlutil::setColor(rlutil::WHITE);
+        rlutil::setColor(rlutil::BLACK);
         cout << "Stock Disponible: " << Productos.Buscar(idProducto).getStock() << endl << endl;
         cout << "Ingrese la cantidad comprada del producto: " << endl;
-        rlutil::setColor(rlutil::BLACK);
+        rlutil::setColor(rlutil::WHITE);
         cin >> input;
 
         if (input <= Productos.Buscar(idProducto).getStock()) {
@@ -115,20 +137,15 @@ void Producto::cargarDetalleDeVenta(int _idVenta) {
     }
 }
 
-void Producto::mostrarDetalleDeVenta() {
+void DetalleVenta::mostrarDetalleDeVenta() {
 
-    ArchivoProductos DetalleVentas("ArchivoDetalleVentas.dat");
-    ArchivoProductos Productos ("ArchivoProductos.dat");
-    Venta venta;
+    ArchivoDetalleVentas DetalleVentas("ArchivoDetalleVentas.dat");
     for (int i =1; i<= DetalleVentas.ContLineas(idVenta);i++ ){
     rlutil::setColor(rlutil::CYAN);
     cout << "ID DEL PRODUCTO: " << DetalleVentas.BuscarPorLinea(idVenta,i).getIdProducto()<< endl;
     rlutil::setColor(rlutil::WHITE);
-    cout << "PRECIO UNITARIO: " << Productos.Buscar(idProducto).getPrecioUnitario() << endl;
     cout << "CANTIDAD DEL PRODUCTO: " << DetalleVentas.BuscarPorLinea(idVenta,i).getCantidadProducto() << endl;
     cout<< "IMPORTE: $" << DetalleVentas.BuscarPorLinea(idVenta,i).getImporte()<<endl;
-    cout<<endl;
-    cout<<endl;
     }
 }
 
