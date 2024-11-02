@@ -152,7 +152,7 @@ void Venta::cargarVenta() {
         rlutil::setColor(rlutil::BLACK);
         cout << "--------------- DETALLE DE VENTA --------------------" << endl;
         rlutil::setColor(rlutil::WHITE);
-        registroDetalle.cargarDetalleDeVenta();
+        registroDetalle.cargarDetalleDeVenta(getIdVenta());
         if (DetalleVentas.Guardar(registroDetalle)) {
             rlutil::setColor(rlutil::GREEN);
             cout << "El detalle de venta se ha registrado correctamente" << endl;
@@ -179,23 +179,12 @@ void Venta::cargarVenta() {
     }
 }
 
-void listarClientes() {
-    ArchivoClientes Clientes("ArchivoClientes.dat");
-    Cliente registroCliente;
 
-    rlutil::setColor(rlutil::BLACK);
-    cout << "Lista de Clientes (ID - Nombre): " << endl;
-    rlutil::setColor(rlutil::WHITE);
-    for (int i = 0; i < Clientes.CantidadRegistros(); i++) {
-        registroCliente = Clientes.Leer(i);
-        cout << "ID: " << registroCliente.getID() << " - Nombre: " << registroCliente.getNombre() << endl;
-    }
-}
 
 void Venta::mostrarVenta() {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     ArchivoClientes Clientes("ArchivoClientes.dat");
-
+    ArchivoDetalleVentas DetallesVentas("ArchivoDetalleVentas");
     rlutil::setColor(rlutil::BLACK);
     cout << "------------ Nro DE VENTA: " << getIdVenta() << " ------------------------" << endl;
        rlutil::setColor(rlutil::BLACK);
@@ -220,5 +209,6 @@ void Venta::mostrarVenta() {
     cout << endl;
     rlutil::setColor(rlutil::BLACK);
     cout << "--------------- DETALLE DE VENTA --------------------" << endl;
+    DetallesVentas.Buscar(getIdVenta()).mostrarDetalleDeVenta();
     cout << "---------------------------------------------------" << endl;
 }

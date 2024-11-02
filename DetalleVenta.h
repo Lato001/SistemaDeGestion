@@ -29,7 +29,7 @@ public:
     void setImporte(float _importe);
     void setEstado(bool _estado);
 
-    void cargarDetalleDeVenta();
+    void cargarDetalleDeVenta(int _idVenta);
     void mostrarDetalleDeVenta();
 
 };

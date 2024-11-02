@@ -23,7 +23,6 @@ void Menu::getMainMenu()
 
     do
     {
- rlutil::setColor(rlutil::BLACK);
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Listar"<<endl;
@@ -32,7 +31,6 @@ void Menu::getMainMenu()
         cout<<"0. Salir"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
-         rlutil::setColor(rlutil::WHITE);
         system("cls");
         if(op> (0) && op<4)
         {
@@ -72,7 +70,6 @@ void Menu::listar()
 
     do
     {
- rlutil::setColor(rlutil::BLACK);
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Listar Ventas"<<endl;
@@ -82,7 +79,6 @@ void Menu::listar()
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
-          rlutil::setColor(rlutil::WHITE);
         system("cls");
         if(op>0 && op<5)
         {
@@ -125,7 +121,6 @@ void Menu::crear()
 
     do
     {
- rlutil::setColor(rlutil::BLACK);
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Crear Empleado"<<endl;

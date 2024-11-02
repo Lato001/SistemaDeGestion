@@ -72,7 +72,8 @@ void DetalleVenta::setEstado(bool _estado) {
     estado = _estado;
 }
 
-void DetalleVenta::cargarDetalleDeVenta() {
+void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {\
+    idVenta = _idVenta;
     ArchivoProductos Productos("ArchivoProductos.dat");
     Producto registro;
     int input;
@@ -131,5 +132,6 @@ void DetalleVenta::mostrarDetalleDeVenta() {
     cout << "ID DEL PRODUCTO: " << getIdProducto() << endl;
     rlutil::setColor(rlutil::WHITE);
     cout << "CANTIDAD DEL PRODUCTO: " << getCantidadProducto() << endl;
+    cout<< "IMPORTE: $" << importe<<endl;
 }
 
