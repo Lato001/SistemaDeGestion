@@ -112,56 +112,65 @@
 1728935867 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivo.h
 	"Persona.h"
 
-1730170226 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\persona.h
+1730389562 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\persona.h
 
-1730197177 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\fecha.cpp
+1730518451 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\fecha.cpp
 	<iostream>
 	<cstring>
+	"rlutil.h"
 	"Fecha.h"
 
-1729785115 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\fecha.h
+1730433110 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\fecha.h
 
-1730317939 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\persona.cpp
+1730518168 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\persona.cpp
 	<iostream>
 	<cstring>
+	"rlutil.h"
 	"Persona.h"
 
-1730255316 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.cpp
+1730531575 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.cpp
 	<iostream>
-	"Venta.h"
+	"rlutil.h"
 	"Fecha.h"
-	"Persona.h"
 	"Empleado.h"
+	"Cliente.h"
 	"ArchivoEmpleados.h"
 	"ArchivoClientes.h"
+	"Venta.h"
 	"ArchivoVentas.h"
+	"ArchivoDetalleVentas.h"
+	"DetalleVenta.h"
 
-1730321684 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.h
+1730433110 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.h
 	"Fecha.h"
-	"Persona.h"
+	"Empleado.h"
 	"Cliente.h"
 	"DetalleVenta.h"
 
-1729782615 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\main.cpp
+1730404060 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\main.cpp
 	<iostream>
 	"Menu.h"
+	"rlutil.h"
 
-1730197830 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\menu.h
-	"Persona.h"
+1730519464 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\menu.h
 	"Cliente.h"
 	"Empleado.h"
 
-1730321588 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\menu.cpp
+1730520664 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\menu.cpp
 	<iostream>
 	<cstdio>
-	"ArchivoPersonas.h"
+	<algorithm>
+	<cstring>
 	"ArchivoClientes.h"
 	"ArchivoEmpleados.h"
+	"ArchivoVentas.h"
+	"ArchivoProductos.h"
 	"Menu.h"
-	"Persona.h"
 	"Cliente.h"
 	"Empleado.h"
 	"Venta.h"
+	"Producto.h"
+	"rlutil.h"
 
 1729782649 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivopersonas.h
 	"Persona.h"
@@ -234,51 +243,58 @@
 
 1729802069 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\tareas.cpp
 
-1729782649 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoclientes.cpp
+1730392829 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoclientes.cpp
 	<string>
 	<cstring>
 	"ArchivoClientes.h"
 	"Cliente.h"
 
-1729782649 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoclientes.h
+1730392454 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoclientes.h
 	"Persona.h"
 	"Cliente.h"
 
-1730196002 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\cliente.h
+1730433110 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\cliente.h
 	"persona.h"
 
-1730317840 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\cliente.cpp
+1730518168 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\cliente.cpp
 	<iostream>
+	"rlutil.h"
 	"Persona.h"
 	"Cliente.h"
 	"ArchivoClientes.h"
 
-1730317828 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\empleado.cpp
+1730531483 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\empleado.cpp
 	<iostream>
 	<string>
+	"rlutil.h"
 	"Empleado.h"
 	"Persona.h"
 	"Fecha.h"
 	"ArchivoEmpleados.h"
 
-1730196561 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\empleado.h
+1730394997 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\empleado.h
 	"Persona.h"
 	"Fecha.h"
 
 1730167789 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\tareas.cpp
 
-1730253466 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\detalleventa.cpp
+1730531105 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\detalleventa.cpp
 	<iostream>
+	"rlutil.h"
 	"DetalleVenta.h"
+	"ArchivoProductos.h"
+	"ArchivoDetalleVentas.h"
 
-1730321588 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\detalleventa.h
+1730523523 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\detalleventa.h
 
-1730167789 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\producto.cpp
+1730518168 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\producto.cpp
 	<iostream>
 	<cstring>
+	"rlutil.h"
 	"Producto.h"
+	"ArchivoProductos.h"
 
-1730321588 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\producto.h
+1730389562 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\producto.h
 
 1730494914 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.cpp
 	<iostream>
@@ -396,23 +412,24 @@
 
 1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\tareas.cpp
 
-1730197699 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoempleados.cpp
+1730518168 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoempleados.cpp
 	<string>
 	<cstring>
+	<iostream>
 	"ArchivoEmpleados.h"
 	"Empleado.h"
 
-1730251489 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoempleados.h
+1730391911 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoempleados.h
 	"Persona.h"
 	"Empleado.h"
 
-1730251705 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoventas.cpp
+1730522451 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoventas.cpp
 	<string>
 	<cstring>
 	"ArchivoVentas.h"
 	"Venta.h"
 
-1730251659 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoventas.h
+1730404991 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoventas.h
 	"Venta.h"
 	"Cliente.h"
 	"Fecha.h"
@@ -767,4 +784,36 @@
 	"ArchivoVentas.h"
 	"ArchivoDetalleVentas.h"
 	"DetalleVenta.h"
+
+1730530328 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivodetalleventas.cpp
+	<string>
+	<cstring>
+	"ArchivoDetalleVentas.h"
+	"DetalleVenta.h"
+
+1730530217 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivodetalleventas.h
+	"DetalleVenta.h"
+
+1730396827 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoproductos.cpp
+	<string>
+	<cstring>
+	"ArchivoProductos.h"
+	"Producto.h"
+
+1730396815 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoproductos.h
+	"Producto.h"
+
+1730341581 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
 

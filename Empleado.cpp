@@ -39,15 +39,21 @@ void Empleado::mostrarEmpleado()
        rlutil::setColor(rlutil::CYAN);
     cout << "////////////////// ID EMPLEADO: "<< getID() <<" //////////////////"<<endl;
     mostrarPersona();
-    rlutil::setColor(rlutil::BLUE);
+    rlutil::setColor(rlutil::CYAN);
     cout<<"////////////////// Detalles en la empresa: "<<" //////////////////" <<endl;
-       rlutil::setColor(rlutil::BLACK);
+    rlutil::setColor(rlutil::WHITE);
     cout << "              Fecha de Ingreso: ";
-    getFechaIngreso().mostrarFecha();
-      rlutil::setColor(rlutil::BLACK);
-    cout << "              Asistencias: " << getAsistencias() << endl;
-      rlutil::setColor(rlutil::BLACK);
-    cout << "              Vacaciones Activas: " << getIsVacaciones() <<endl;
+    rlutil::setColor(rlutil::BLACK);
+    getFechaIngreso().mostrarFecha();;
+    rlutil::setColor(rlutil::WHITE);
+    cout << "              Asistencias: ";
+    rlutil::setColor(rlutil::BLACK);
+    cout<< getAsistencias() << endl;
+    rlutil::setColor(rlutil::WHITE);
+    cout << "              Vacaciones Activas: ";
+    rlutil::setColor(rlutil::BLACK);
+    cout<<getIsVacaciones() <<endl;
+    rlutil::setColor(rlutil::WHITE);
    //     rlutil::setColor(rlutil::CYAN);
   //  cout <<"//////////////////////////////////////////////////////////////"<< endl;
 
