@@ -73,7 +73,7 @@ void Fecha::cargarFecha() {
 }
 
 bool Fecha::validar() {
-    if (anio < 2025) {
+    if (anio > 1800 && anio < 2025) {
         if (mes < 1 || mes > 12) {
             return false;
         }
