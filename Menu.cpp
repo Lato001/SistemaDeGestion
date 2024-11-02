@@ -310,9 +310,7 @@ void Menu::MenulistarEmpleados()
         case 0:
             getMainMenu();
         default:
-                rlutil::setColor(rlutil::RED);
-            cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
-                rlutil::setColor(rlutil::WHITE);
+            mensajeDeError("Opcion invalida!, vuelva a intentarlo");
         }
         system("pause");
         system("cls");
@@ -330,9 +328,7 @@ void Menu::listarEmpleadosAll()
     int cantRegistros = Empleados.CantidadRegistros();
     if(cantRegistros == 0)
     {
-            rlutil::setColor(rlutil::RED);
-        cout<< "No se han encontrado empleados registrados" << endl;
-            rlutil::setColor(rlutil::WHITE);
+        mensajeDeError("No se han encontrado empleados registrados" );
     }
     else
     {
@@ -439,13 +435,12 @@ void Menu::listarClientesAll()
     int cantRegistros = Clientes.CantidadRegistros();
     if(cantRegistros == 0)
     {
-            rlutil::setColor(rlutil::RED);
-        cout<< "No se han encontrado clientes registrados" << endl;
-            rlutil::setColor(rlutil::WHITE);
+        mensajeDeError("No se han encontrado clientes registrados");
     }
     else
     {
-    rlutil::setColor(rlutil::GREEN);
+
+        rlutil::setColor(rlutil::GREEN);
         cout<< "TOTAL DE CLIENTES: " << cantRegistros << endl;
             rlutil::setColor(rlutil::WHITE);
         for (int i = 0; i < cantRegistros; i++ )
@@ -468,14 +463,10 @@ void Menu::listarClientesxName()
 
     if (cantRegistros == 0)
     {
-            rlutil::setColor(rlutil::RED);
-        cout << "No se han encontrado empleados registrados" << endl;
-            rlutil::setColor(rlutil::WHITE);
+           mensajeDeError("No se han encontrado clientes registrados");
         return;
     }
-    rlutil::setColor(rlutil::BLACK);
-    cout << "Ingrese el nombre del empleado a buscar: ";
-        rlutil::setColor(rlutil::WHITE);
+    mensajeDeError("Ingrese el nombre del cliente a buscar: ");
     cin >> nombreBuscado;
 
     for (int i = 0; i < cantRegistros; i++)
@@ -490,12 +481,13 @@ void Menu::listarClientesxName()
     }
     if (!encontrado)
     {
-            rlutil::setColor(rlutil::RED);
-        cout << "No se encontraron empleados con el nombre: " << nombreBuscado << endl;
-            rlutil::setColor(rlutil::WHITE);
+            mensajeDeError("No se encontraron clientes con el nombre ingresado: ");
     }
 
 }
+
+
+
 void Menu::listarClientesxOrdenAlfabetico()
 {
     ArchivoClientes Clientes ("ArchivoClientes.dat");
@@ -642,9 +634,7 @@ void Menu::crearCliente()
     }
     else
     {
-            rlutil::setColor(rlutil::RED);
-        cout << "Error al guardar el cliente." << endl;
-            rlutil::setColor(rlutil::WHITE);
+            mensajeDeError("Error al guardar el cliente.");
     }
 }
 
@@ -664,9 +654,7 @@ void Menu::registrarVenta()
     }
     else
     {
-            rlutil::setColor(rlutil::RED);
-        cout << "Error al registrar la venta." << endl;
-            rlutil::setColor(rlutil::WHITE);
+        mensajeDeError("Error al registrar la venta.");
     }
 
 }
@@ -684,11 +672,15 @@ void Menu::registrarProducto()
     }
     else
     {
-            rlutil::setColor(rlutil::RED);
-        cout << "Error al registrar el producto." << endl;
-            rlutil::setColor(rlutil::WHITE);
+            mensajeDeError("Error al registrar el producto.");
     }
 
+}
+
+void Menu::mensajeDeError(string mensaje){
+rlutil::setColor(rlutil::RED);
+cout<<mensaje<<endl;
+ rlutil::setColor(rlutil::WHITE);
 }
 
 

@@ -2,6 +2,7 @@
 #define MENU_H_INCLUDED
 #include "Cliente.h"
 #include "Empleado.h"
+using namespace std;
 class Menu{
 public:
     ///FUNCIONES DE MANEJO DE MENU
@@ -39,6 +40,10 @@ public:
     ///REGISTRACIONES DE VENTAS Y NUEVOS PRODUCTOS
     void registrarVenta();
     void registrarProducto();
+
+
+    ///FUNCIONES PARA INTERFAZ
+    void mensajeDeError(string mensaje);
 
 };
 
