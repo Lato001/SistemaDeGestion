@@ -154,7 +154,6 @@ void Venta::cargarVenta() {
         cout << "--------------- DETALLE DE VENTA --------------------" << endl;
         rlutil::setColor(rlutil::WHITE);
         registroDetalle.cargarDetalleDeVenta(getIdVenta());
-        registroDetalle.mostrarDetalleDeVenta();
         rlutil::anykey();
         if (DetalleVentas.Guardar(registroDetalle)) {
             rlutil::setColor(rlutil::GREEN);
