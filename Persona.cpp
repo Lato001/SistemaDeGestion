@@ -62,9 +62,8 @@ void Persona::setLocalidad(const char* _localidad) {
 }
 
 void Persona::mostrarPersona() {
-    rlutil::setColor(rlutil::GREEN);
+    rlutil::setColor(rlutil::BLACK);
     cout << "              DNI: " << getDNI() << endl;
-    rlutil::setColor(rlutil::WHITE);
     cout << "              Nombre: " << getNombre() << endl;
     cout << "              Apellido: " << getApellido() << endl;
     cout << "              Email: " << getEmail() << endl;
@@ -77,29 +76,40 @@ void Persona::cargarPersona() {
     int inputNumeros;
     char inputLetras[50];
 
-    rlutil::setColor(rlutil::WHITE);
+    rlutil::setColor(rlutil::BLACK);
     cout << "Ingrese el DNI:" << endl;
+       rlutil::setColor(rlutil::WHITE);
     cin >> inputNumeros;
     setDNI(inputNumeros);
 
+   rlutil::setColor(rlutil::BLACK);
     cout << "Ingrese el Nombre:" << endl;
+       rlutil::setColor(rlutil::WHITE);
     cin.ignore();
     cin.getline(inputLetras, 50);
     setNombre(inputLetras);
 
+   rlutil::setColor(rlutil::BLACK);
     cout << "Ingrese el Apellido:" << endl;
+       rlutil::setColor(rlutil::WHITE);
     cin.getline(inputLetras, 50);
     setApellido(inputLetras);
 
+   rlutil::setColor(rlutil::BLACK);
     cout << "Ingrese el Email:" << endl;
+       rlutil::setColor(rlutil::WHITE);
     cin.getline(inputLetras, 50);
     setEmail(inputLetras);
 
+   rlutil::setColor(rlutil::BLACK);
     cout << "Ingrese el Telefono:" << endl;
+       rlutil::setColor(rlutil::WHITE);
     cin >> inputNumeros;
     setnTelefono(inputNumeros);
 
+   rlutil::setColor(rlutil::BLACK);
     cout << "Ingrese la Localidad:" << endl;
+    rlutil::setColor(rlutil::WHITE);
     cin.ignore();
     cin.getline(inputLetras, 50);
     setLocalidad(inputLetras);

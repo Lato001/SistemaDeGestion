@@ -12,7 +12,7 @@
 #include "Empleado.h"
 #include "Venta.h"
 #include "Producto.h"
-
+#include "rlutil.h"
 
 using namespace std;
 
@@ -23,7 +23,7 @@ void Menu::getMainMenu()
 
     do
     {
-
+ rlutil::setColor(rlutil::BLACK);
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Listar"<<endl;
@@ -32,6 +32,7 @@ void Menu::getMainMenu()
         cout<<"0. Salir"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
+         rlutil::setColor(rlutil::WHITE);
         system("cls");
         if(op> (0) && op<4)
         {
@@ -53,7 +54,9 @@ void Menu::getMainMenu()
             exit(0);
             break;
         default:
+             rlutil::setColor(rlutil::RED);
             cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
+             rlutil::setColor(rlutil::WHITE);
         }
         system("pause");
         system("cls");
@@ -69,7 +72,7 @@ void Menu::listar()
 
     do
     {
-
+ rlutil::setColor(rlutil::BLACK);
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Listar Ventas"<<endl;
@@ -79,6 +82,7 @@ void Menu::listar()
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
+          rlutil::setColor(rlutil::WHITE);
         system("cls");
         if(op>0 && op<5)
         {
@@ -101,7 +105,9 @@ void Menu::listar()
         case 0:
             getMainMenu();
         default:
+             rlutil::setColor(rlutil::RED);
             cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
+              rlutil::setColor(rlutil::WHITE);
         }
         system("pause");
         system("cls");
@@ -119,7 +125,7 @@ void Menu::crear()
 
     do
     {
-
+ rlutil::setColor(rlutil::BLACK);
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Crear Empleado"<<endl;
@@ -127,6 +133,7 @@ void Menu::crear()
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
+         rlutil::setColor(rlutil::WHITE);
         system("cls");
         if(op>0 && op<3)
         {
@@ -144,7 +151,9 @@ void Menu::crear()
             getMainMenu();
             break;
         default:
+                rlutil::setColor(rlutil::RED);
             cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
+                rlutil::setColor(rlutil::WHITE);
         }
         system("pause");
         system("cls");
@@ -162,7 +171,7 @@ void Menu::registrar()
 
     do
     {
-
+    rlutil::setColor(rlutil::BLACK);
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Registrar Venta"<<endl;
@@ -170,6 +179,7 @@ void Menu::registrar()
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
+            rlutil::setColor(rlutil::WHITE);
         system("cls");
         if(op>0 && op<3)
         {
@@ -186,7 +196,9 @@ void Menu::registrar()
         case 0:
             getMainMenu();
         default:
+                rlutil::setColor(rlutil::RED);
             cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
+                rlutil::setColor(rlutil::WHITE);
         }
         system("pause");
         system("cls");
@@ -204,7 +216,7 @@ void Menu::MenulistarClientes()
 
     do
     {
-
+    rlutil::setColor(rlutil::BLACK);
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Por Nombre"<<endl;
@@ -215,6 +227,7 @@ void Menu::MenulistarClientes()
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
+            rlutil::setColor(rlutil::WHITE);
         system("cls");
         if(op>0 && op<6)
         {
@@ -240,7 +253,9 @@ void Menu::MenulistarClientes()
         case 0:
             getMainMenu();
         default:
+                rlutil::setColor(rlutil::RED);
             cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
+                rlutil::setColor(rlutil::WHITE);
         }
         system("pause");
         system("cls");
@@ -258,7 +273,7 @@ void Menu::MenulistarEmpleados()
 
     do
     {
-
+    rlutil::setColor(rlutil::BLACK);
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Por Nombre"<<endl;
@@ -269,6 +284,7 @@ void Menu::MenulistarEmpleados()
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
+            rlutil::setColor(rlutil::WHITE);
         system("cls");
         if(op>0 && op<6)
         {
@@ -294,7 +310,9 @@ void Menu::MenulistarEmpleados()
         case 0:
             getMainMenu();
         default:
+                rlutil::setColor(rlutil::RED);
             cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
+                rlutil::setColor(rlutil::WHITE);
         }
         system("pause");
         system("cls");
@@ -312,12 +330,15 @@ void Menu::listarEmpleadosAll()
     int cantRegistros = Empleados.CantidadRegistros();
     if(cantRegistros == 0)
     {
+            rlutil::setColor(rlutil::RED);
         cout<< "No se han encontrado empleados registrados" << endl;
+            rlutil::setColor(rlutil::WHITE);
     }
     else
     {
-
+    rlutil::setColor(rlutil::GREEN);
         cout<< "TOTAL DE EMPLEADOS: " << cantRegistros << endl;
+            rlutil::setColor(rlutil::WHITE);
         for (int i = 0; i < cantRegistros; i++ )
         {
             registro = Empleados.Leer(i);
@@ -335,7 +356,9 @@ void Menu::listarEmpleadosxOrdenAlfabetico()
 
     if(cantRegistros == 0)
     {
+            rlutil::setColor(rlutil::RED);
         cout<< "No se han encontrado empleados registrados" << endl;
+            rlutil::setColor(rlutil::WHITE);
     }
     else
     {
@@ -377,13 +400,15 @@ void Menu::listarEmpleadosxName()
 
     if (cantRegistros == 0)
     {
+            rlutil::setColor(rlutil::RED);
         cout << "No se han encontrado empleados registrados" << endl;
+            rlutil::setColor(rlutil::WHITE);
         return;
     }
-
+    rlutil::setColor(rlutil::BLACK);
     cout << "Ingrese el nombre del empleado a buscar: ";
+    rlutil::setColor(rlutil::WHITE);
     cin >> nombreBuscado;
-
     for (int i = 0; i < cantRegistros; i++)
     {
         registro = Empleados.Leer(i);
@@ -396,7 +421,9 @@ void Menu::listarEmpleadosxName()
     }
         if (!encontrado)
         {
+                rlutil::setColor(rlutil::RED);
             cout << "No se encontraron empleados con el nombre: " << nombreBuscado << endl;
+                rlutil::setColor(rlutil::WHITE);
         }
 }
 void Menu::listarEmpleadosxID()
@@ -412,12 +439,15 @@ void Menu::listarClientesAll()
     int cantRegistros = Clientes.CantidadRegistros();
     if(cantRegistros == 0)
     {
+            rlutil::setColor(rlutil::RED);
         cout<< "No se han encontrado clientes registrados" << endl;
+            rlutil::setColor(rlutil::WHITE);
     }
     else
     {
-
+    rlutil::setColor(rlutil::GREEN);
         cout<< "TOTAL DE CLIENTES: " << cantRegistros << endl;
+            rlutil::setColor(rlutil::WHITE);
         for (int i = 0; i < cantRegistros; i++ )
         {
             registro = Clientes.Leer(i);
@@ -438,11 +468,14 @@ void Menu::listarClientesxName()
 
     if (cantRegistros == 0)
     {
+            rlutil::setColor(rlutil::RED);
         cout << "No se han encontrado empleados registrados" << endl;
+            rlutil::setColor(rlutil::WHITE);
         return;
     }
-
+    rlutil::setColor(rlutil::BLACK);
     cout << "Ingrese el nombre del empleado a buscar: ";
+        rlutil::setColor(rlutil::WHITE);
     cin >> nombreBuscado;
 
     for (int i = 0; i < cantRegistros; i++)
@@ -457,7 +490,9 @@ void Menu::listarClientesxName()
     }
     if (!encontrado)
     {
+            rlutil::setColor(rlutil::RED);
         cout << "No se encontraron empleados con el nombre: " << nombreBuscado << endl;
+            rlutil::setColor(rlutil::WHITE);
     }
 
 }
@@ -469,7 +504,9 @@ void Menu::listarClientesxOrdenAlfabetico()
 
     if(cantRegistros == 0)
     {
+            rlutil::setColor(rlutil::RED);
         cout<< "No se han encontrado empleados registrados" << endl;
+            rlutil::setColor(rlutil::WHITE);
     }
     else
     {
@@ -517,12 +554,15 @@ void Menu::listarVentas()
 
     if(cantRegistros == 0)
     {
+            rlutil::setColor(rlutil::RED);
         cout<< "No se han encontrado ventas registradas" << endl;
+            rlutil::setColor(rlutil::WHITE);
     }
     else
     {
-
+    rlutil::setColor(rlutil::GREEN);
         cout<< "TOTAL DE VENTAS: " << cantRegistros << endl<<endl;
+            rlutil::setColor(rlutil::WHITE);
         for (int i = 0; i < cantRegistros; i++ )
         {
             registro = Ventas.Leer(i);
@@ -540,13 +580,16 @@ void Menu::listarProductos()
 
     if(cantRegistros == 0)
     {
+            rlutil::setColor(rlutil::RED);
         cout<< "No se han encontrado productos registrados" << endl;
+            rlutil::setColor(rlutil::WHITE);
     }
     else
     {
-
+    rlutil::setColor(rlutil::GREEN);
         cout<< "TOTAL DE PRODUCTOS: " << cantRegistros << endl<<endl;
         for (int i = 0; i < cantRegistros; i++ )
+
         {
             registro = Productos.Leer(i);
             registro.mostrarProducto();
@@ -566,11 +609,15 @@ void Menu::crearEmpleado()
     if ( archivoEmpleados.Guardar(empleado) )
     {
         cout<<endl;
+            rlutil::setColor(rlutil::GREEN);
         cout << "Empleado guardado correctamente." << endl;
+            rlutil::setColor(rlutil::WHITE);
     }
     else
     {
+            rlutil::setColor(rlutil::RED);
         cout << "Error al registrar el Empleado." << endl;
+            rlutil::setColor(rlutil::WHITE);
     }
 }
 
@@ -589,11 +636,15 @@ void Menu::crearCliente()
     if ( archivoClientes.Guardar(cliente) )
     {
         cout<<endl;
+            rlutil::setColor(rlutil::GREEN);
         cout << "Cliente guardado correctamente." << endl;
+            rlutil::setColor(rlutil::WHITE);
     }
     else
     {
+            rlutil::setColor(rlutil::RED);
         cout << "Error al guardar el cliente." << endl;
+            rlutil::setColor(rlutil::WHITE);
     }
 }
 
@@ -607,11 +658,15 @@ void Menu::registrarVenta()
     if ( Ventas.Guardar(venta) )
     {
         cout<<endl;
+            rlutil::setColor(rlutil::GREEN);
         cout << "La venta se ha registrado correctamente." << endl;
+            rlutil::setColor(rlutil::WHITE);
     }
     else
     {
+            rlutil::setColor(rlutil::RED);
         cout << "Error al registrar la venta." << endl;
+            rlutil::setColor(rlutil::WHITE);
     }
 
 }
@@ -623,11 +678,15 @@ void Menu::registrarProducto()
     if ( Productos.Guardar(producto) )
     {
         cout<<endl;
+            rlutil::setColor(rlutil::GREEN);
         cout << "El producto se ha registrado correctamente." << endl;
+            rlutil::setColor(rlutil::WHITE);
     }
     else
     {
+            rlutil::setColor(rlutil::RED);
         cout << "Error al registrar el producto." << endl;
+            rlutil::setColor(rlutil::WHITE);
     }
 
 }

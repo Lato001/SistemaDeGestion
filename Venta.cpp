@@ -64,20 +64,21 @@ void Venta::cargarVenta() {
     rlutil::cls();
     rlutil::setColor(rlutil::BLACK);
     cout << "Ingrese la fecha de la venta:" << endl;
-    rlutil::setColor(rlutil::DARKGREY);
+    rlutil::setColor(rlutil::WHITE);
     fecha.cargarFecha();
     rlutil::anykey();
     rlutil::cls();
 
     while (!vendedorValido) {
-        rlutil::setColor(rlutil::DARKGREY);
+        rlutil::setColor(rlutil::BLACK);
         cout << "Seleccione el vendedor (ID - Nombre):" << endl;
-        rlutil::setColor(rlutil::WHITE);
+
         for (int i = 0; i < Empleados.CantidadRegistros(); i++) {
             registroEmpleado = Empleados.Leer(i);
             cout << "ID: " << registroEmpleado.getID() << " - Nombre: " << registroEmpleado.getNombre() << endl;
         }
         cout << "Ingrese el ID del vendedor: ";
+           rlutil::setColor(rlutil::WHITE);
         cin >> input;
 
         if (input > 0 && input <= Empleados.CantidadRegistros()) {
@@ -95,14 +96,15 @@ void Venta::cargarVenta() {
     rlutil::cls();
 
     while (!clienteValido) {
-        rlutil::setColor(rlutil::DARKGREY);
+        rlutil::setColor(rlutil::BLACK);
         cout << "Seleccione el cliente (ID - Nombre):" << endl;
-        rlutil::setColor(rlutil::WHITE);
+
         for (int i = 0; i < Clientes.CantidadRegistros(); i++) {
             registroCliente = Clientes.Leer(i);
             cout << "ID: " << registroCliente.getID() << " - Nombre: " << registroCliente.getNombre() << endl;
         }
         cout << "Ingrese el ID del cliente: ";
+         rlutil::setColor(rlutil::WHITE);
         cin >> input;
 
         if (input > 0 && input <= Clientes.CantidadRegistros()) {
@@ -129,7 +131,7 @@ void Venta::cargarVenta() {
 
         if (formaDePago > 0 && formaDePago < 4) {
             formaDePagoValida = true;
-            rlutil::setColor(rlutil::BLACK);
+            rlutil::setColor(rlutil::GREEN);
             switch (formaDePago) {
                 case 1: cout << "Metodo de pago seleccionado: Efectivo" << endl; break;
                 case 2: cout << "Metodo de pago seleccionado: Debito" << endl; break;
@@ -147,7 +149,7 @@ void Venta::cargarVenta() {
 
     bool validacionDetalles = false;
     while (!validacionDetalles) {
-        rlutil::setColor(rlutil::DARKGREY);
+        rlutil::setColor(rlutil::BLACK);
         cout << "--------------- DETALLE DE VENTA --------------------" << endl;
         rlutil::setColor(rlutil::WHITE);
         registroDetalle.cargarDetalleDeVenta();
@@ -159,7 +161,9 @@ void Venta::cargarVenta() {
 
         cout << "-----------------------------------------------------" << endl;
         while (inputChar != 'S' && inputChar != 'N') {
+ rlutil::setColor(rlutil::BLACK);
             cout << "Desea registrar otro producto para esta venta? S/N: ";
+             rlutil::setColor(rlutil::WHITE);
             cin >> inputChar;
             if (inputChar != 'S' && inputChar != 'N') {
                 rlutil::setColor(rlutil::RED);
@@ -179,7 +183,7 @@ void listarClientes() {
     ArchivoClientes Clientes("ArchivoClientes.dat");
     Cliente registroCliente;
 
-    rlutil::setColor(rlutil::DARKGREY);
+    rlutil::setColor(rlutil::BLACK);
     cout << "Lista de Clientes (ID - Nombre): " << endl;
     rlutil::setColor(rlutil::WHITE);
     for (int i = 0; i < Clientes.CantidadRegistros(); i++) {
@@ -192,14 +196,17 @@ void Venta::mostrarVenta() {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     ArchivoClientes Clientes("ArchivoClientes.dat");
 
-    rlutil::setColor(rlutil::DARKGREY);
+    rlutil::setColor(rlutil::BLACK);
     cout << "------------ Nro DE VENTA: " << getIdVenta() << " ------------------------" << endl;
-    rlutil::setColor(rlutil::WHITE);
+       rlutil::setColor(rlutil::BLACK);
     cout << "FECHA: ";
     getFecha().mostrarFecha();
+        rlutil::setColor(rlutil::CYAN);
     cout << "VENDEDOR: " << endl;
+    rlutil::setColor(rlutil::WHITE);
     Empleados.Buscar(getIdEmpleado()).mostrarEmpleado();
     cout << endl;
+        rlutil::setColor(rlutil::BLUE);
     cout << "COMPRADOR: " << endl;
     Clientes.Buscar(getIdCliente()).mostrarCliente();
     cout << endl;
@@ -211,7 +218,7 @@ void Venta::mostrarVenta() {
         case 3: cout << "Credito" << endl; break;
     }
     cout << endl;
-    rlutil::setColor(rlutil::DARKGREY);
+    rlutil::setColor(rlutil::BLACK);
     cout << "--------------- DETALLE DE VENTA --------------------" << endl;
     cout << "---------------------------------------------------" << endl;
 }

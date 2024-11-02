@@ -85,15 +85,19 @@ void DetalleVenta::cargarDetalleDeVenta() {
             registro.mostrarProducto();
             cout << endl;
         }
+         rlutil::setColor(rlutil::BLACK);
         cout << "Ingrese la opcion deseada: ";
-        rlutil::setColor(rlutil::BLACK);
+
+         rlutil::setColor(rlutil::WHITE);
         cin >> input;
 
         if (Productos.Buscar(input).getProductoID() != -1) {
             opcionValida = true;
             idProducto = Productos.Buscar(input).getProductoID();
         } else {
+                  rlutil::setColor(rlutil::RED);
             cout << "Opcion invalida, vuelva a intentarlo" << endl;
+                  rlutil::setColor(rlutil::WHITE);
         }
         system("pause");
         system("cls");
@@ -101,10 +105,10 @@ void DetalleVenta::cargarDetalleDeVenta() {
 
     opcionValida = false;
     while (!opcionValida) {
-        rlutil::setColor(rlutil::WHITE);
+        rlutil::setColor(rlutil::BLACK);
         cout << "Stock Disponible: " << Productos.Buscar(idProducto).getStock() << endl << endl;
         cout << "Ingrese la cantidad comprada del producto: " << endl;
-        rlutil::setColor(rlutil::BLACK);
+        rlutil::setColor(rlutil::WHITE);
         cin >> input;
 
         if (input <= Productos.Buscar(idProducto).getStock()) {
@@ -112,7 +116,9 @@ void DetalleVenta::cargarDetalleDeVenta() {
             Productos.Buscar(idProducto).setStock(Productos.Buscar(idProducto).getStock() - input);
             opcionValida = true;
         } else {
+                rlutil::setColor(rlutil::RED);
             cout << "Opcion invalida! Vuelva a intentarlo" << endl;
+               rlutil::setColor(rlutil::WHITE);
             system("pause");
             system("cls");
         }

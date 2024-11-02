@@ -77,36 +77,36 @@ void Producto::cargarProducto()
     productoID = Productos.CantidadRegistros() + 1;
 
     cin.ignore();
-    rlutil::setColor(rlutil::WHITE);
-    cout << "Ingrese el nombre del Producto: ";
     rlutil::setColor(rlutil::BLACK);
+    cout << "Ingrese el nombre del Producto: ";
+    rlutil::setColor(rlutil::WHITE);
     cin.getline(inputNombreProducto, 50);
     setNombre(inputNombreProducto);
     system("pause");
     system("cls");
 
-    rlutil::setColor(rlutil::WHITE);
-    cout << "Ingrese la categoria del Producto: ";
     rlutil::setColor(rlutil::BLACK);
+    cout << "Ingrese la categoria del Producto: ";
+    rlutil::setColor(rlutil::WHITE);
     cin.getline(inputCategoriaProducto, 50);
     setCategoriaProducto(inputCategoriaProducto);
     system("pause");
     system("cls");
 
-    rlutil::setColor(rlutil::WHITE);
-    cout << "Ingrese el precio del Producto: ";
     rlutil::setColor(rlutil::BLACK);
+    cout << "Ingrese el precio del Producto: ";
+    rlutil::setColor(rlutil::WHITE);
     cin >> inputPrecioUnitario;
     setPrecioUnitario(inputPrecioUnitario);
     system("pause");
     system("cls");
 
-    rlutil::setColor(rlutil::WHITE);
-    cout << "Ingrese el stock del Producto: ";
     rlutil::setColor(rlutil::BLACK);
+    cout << "Ingrese el stock del Producto: ";
+    rlutil::setColor(rlutil::WHITE);
     cin >> inputStock;
     setStock(inputStock);
     system("pause");
     system("cls");
-    rlutil::setColor(rlutil::WHITE);
+
 }

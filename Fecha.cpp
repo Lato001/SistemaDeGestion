@@ -117,7 +117,7 @@ void Fecha::RestarDia() {
 }
 
 void Fecha::mostrarFecha() {
-    rlutil::setColor(rlutil::CYAN);
+    rlutil::setColor(rlutil::BLACK);
     cout << dia << "/" << mes << "/" << anio << endl;
     rlutil::setColor(rlutil::WHITE);
 }

@@ -628,14 +628,14 @@
 
 1730490784 c:\users\river\desktop\lato\sistemadegestion\detalleventa.h
 
-1730490843 source:c:\users\river\desktop\lato\sistemadegestion\archivoempleados.cpp
+1730494580 source:c:\users\river\desktop\lato\sistemadegestion\archivoempleados.cpp
 	<string>
 	<cstring>
 	<iostream>
 	"ArchivoEmpleados.h"
 	"Empleado.h"
 
-1730490843 c:\users\river\desktop\lato\sistemadegestion\archivoempleados.h
+1730494580 c:\users\river\desktop\lato\sistemadegestion\archivoempleados.h
 	"Persona.h"
 	"Empleado.h"
 
@@ -675,20 +675,20 @@
 	"Cliente.h"
 	"DetalleVenta.h"
 
-1730492260 source:c:\users\river\desktop\lato\sistemadegestion\cliente.cpp
+1730506234 source:c:\users\river\desktop\lato\sistemadegestion\cliente.cpp
 	<iostream>
 	"rlutil.h"
 	"Persona.h"
 	"Cliente.h"
 	"ArchivoClientes.h"
 
-1730492260 source:c:\users\river\desktop\lato\sistemadegestion\detalleventa.cpp
+1730501994 source:c:\users\river\desktop\lato\sistemadegestion\detalleventa.cpp
 	<iostream>
 	"rlutil.h"
 	"DetalleVenta.h"
 	"ArchivoProductos.h"
 
-1730493210 source:c:\users\river\desktop\lato\sistemadegestion\empleado.cpp
+1730506184 source:c:\users\river\desktop\lato\sistemadegestion\empleado.cpp
 	<iostream>
 	<string>
 	"rlutil.h"
@@ -697,7 +697,7 @@
 	"Fecha.h"
 	"ArchivoEmpleados.h"
 
-1730492260 source:c:\users\river\desktop\lato\sistemadegestion\fecha.cpp
+1730505891 source:c:\users\river\desktop\lato\sistemadegestion\fecha.cpp
 	<iostream>
 	<cstring>
 	"rlutil.h"
@@ -708,7 +708,7 @@
 	"Menu.h"
 	"rlutil.h"
 
-1730490843 c:\users\river\desktop\lato\sistemadegestion\menu.h
+1730500323 c:\users\river\desktop\lato\sistemadegestion\menu.h
 	"Cliente.h"
 	"Empleado.h"
 
@@ -726,10 +726,11 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1730490843 source:c:\users\river\desktop\lato\sistemadegestion\menu.cpp
+1730506075 source:c:\users\river\desktop\lato\sistemadegestion\menu.cpp
 	<iostream>
 	<cstdio>
 	<algorithm>
+	<cstring>
 	"ArchivoClientes.h"
 	"ArchivoEmpleados.h"
 	"ArchivoVentas.h"
@@ -739,21 +740,22 @@
 	"Empleado.h"
 	"Venta.h"
 	"Producto.h"
+	"rlutil.h"
 
-1730494065 source:c:\users\river\desktop\lato\sistemadegestion\persona.cpp
+1730505295 source:c:\users\river\desktop\lato\sistemadegestion\persona.cpp
 	<iostream>
 	<cstring>
 	"rlutil.h"
 	"Persona.h"
 
-1730493950 source:c:\users\river\desktop\lato\sistemadegestion\producto.cpp
+1730505252 source:c:\users\river\desktop\lato\sistemadegestion\producto.cpp
 	<iostream>
 	<cstring>
 	"rlutil.h"
 	"Producto.h"
 	"ArchivoProductos.h"
 
-1730492780 source:c:\users\river\desktop\lato\sistemadegestion\venta.cpp
+1730506011 source:c:\users\river\desktop\lato\sistemadegestion\venta.cpp
 	<iostream>
 	"rlutil.h"
 	"Fecha.h"

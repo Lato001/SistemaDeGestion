@@ -36,13 +36,21 @@ void Empleado::setfechadeingreso (Fecha _fechaDeIngreso){fechaDeIngreso = _fecha
 void Empleado::setSueldo(float _sueldo){sueldo = _sueldo;}
 void Empleado::mostrarEmpleado()
 {
+       rlutil::setColor(rlutil::CYAN);
     cout << "////////////////// ID EMPLEADO: "<< getID() <<" //////////////////"<<endl;
     mostrarPersona();
+    rlutil::setColor(rlutil::BLUE);
     cout<<"////////////////// Detalles en la empresa: "<<" //////////////////" <<endl;
+       rlutil::setColor(rlutil::BLACK);
     cout << "              Fecha de Ingreso: ";
     getFechaIngreso().mostrarFecha();
+      rlutil::setColor(rlutil::BLACK);
     cout << "              Asistencias: " << getAsistencias() << endl;
-    cout << "              Vacaciones Activas: " << getIsVacaciones() <<endl<<"//////////////////////////////////////////////////////////////"<< endl << endl;
+      rlutil::setColor(rlutil::BLACK);
+    cout << "              Vacaciones Activas: " << getIsVacaciones() <<endl;
+   //     rlutil::setColor(rlutil::CYAN);
+  //  cout <<"//////////////////////////////////////////////////////////////"<< endl;
+
 }
 void Empleado::cargarEmpleado(){
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
@@ -51,14 +59,20 @@ void Empleado::cargarEmpleado(){
     Fecha fechaACargar;
 
     cargarPersona();
+       rlutil::setColor(rlutil::BLACK);
     cout<<"Ingrese la Fecha de Ingreso: " <<endl;
+       rlutil::setColor(rlutil::WHITE);
     fechaACargar.cargarFecha();
     fechaDeIngreso = fechaACargar;
     empleadoID = (Empleados.CantidadRegistros()+1);
+       rlutil::setColor(rlutil::BLACK);
     cout<< "Ingrese las asistencias del empleado: " << endl;
+       rlutil::setColor(rlutil::WHITE);
     cin >> inputNumeros;
     asistencias = inputNumeros;
+       rlutil::setColor(rlutil::BLACK);
     cout<<"Esta en vacaciones S/N ? "<<endl;
+       rlutil::setColor(rlutil::WHITE);
     cin >> inputLetra;
     while(inputLetra != 'S' && inputLetra != 'N' ){
         rlutil::setColor(rlutil::RED);
