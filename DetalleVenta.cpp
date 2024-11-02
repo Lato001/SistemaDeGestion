@@ -5,7 +5,6 @@ using namespace std;
 
 #include "DetalleVenta.h"
 #include "ArchivoProductos.h"
-#include "ArchivoDetalleVentas.h"
 
 DetalleVenta::DetalleVenta() {
     idVenta = 0;
@@ -73,18 +72,9 @@ void DetalleVenta::setEstado(bool _estado) {
     estado = _estado;
 }
 
-void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
+void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {\
     idVenta = _idVenta;
-    ArchivoDetalleVentas DetalleVentas("ArchivoDetalleVentas.dat");
-
-    if(DetalleVentas.ContLineas(idVenta) > 0){
-        idLinea = DetalleVentas.ContLineas(idVenta) + 1;
-    }else{
-        idLinea = 1;
-    }
-
     ArchivoProductos Productos("ArchivoProductos.dat");
-
     Producto registro;
     int input;
 
@@ -138,14 +128,10 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
 }
 
 void DetalleVenta::mostrarDetalleDeVenta() {
-
-    ArchivoDetalleVentas DetalleVentas("ArchivoDetalleVentas.dat");
-    for (int i =1; i<= DetalleVentas.ContLineas(idVenta);i++ ){
     rlutil::setColor(rlutil::CYAN);
-    cout << "ID DEL PRODUCTO: " << DetalleVentas.BuscarPorLinea(idVenta,i).getIdProducto()<< endl;
+    cout << "ID DEL PRODUCTO: " << getIdProducto() << endl;
     rlutil::setColor(rlutil::WHITE);
-    cout << "CANTIDAD DEL PRODUCTO: " << DetalleVentas.BuscarPorLinea(idVenta,i).getCantidadProducto() << endl;
-    cout<< "IMPORTE: $" << DetalleVentas.BuscarPorLinea(idVenta,i).getImporte()<<endl;
-    }
+    cout << "CANTIDAD DEL PRODUCTO: " << getCantidadProducto() << endl;
+    cout<< "IMPORTE: $" << importe<<endl;
 }
 

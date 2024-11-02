@@ -16,7 +16,6 @@ Venta::Venta() {
     idVenta = 0;
     idEmpleado = 0;
     idCliente = 0;
-    fecha;
     formaDePago = 0;
     importeTotal = 0;
     estado = false;
@@ -154,8 +153,6 @@ void Venta::cargarVenta() {
         cout << "--------------- DETALLE DE VENTA --------------------" << endl;
         rlutil::setColor(rlutil::WHITE);
         registroDetalle.cargarDetalleDeVenta(getIdVenta());
-        registroDetalle.mostrarDetalleDeVenta();
-        rlutil::anykey();
         if (DetalleVentas.Guardar(registroDetalle)) {
             rlutil::setColor(rlutil::GREEN);
             cout << "El detalle de venta se ha registrado correctamente" << endl;
@@ -163,7 +160,6 @@ void Venta::cargarVenta() {
         }
 
         cout << "-----------------------------------------------------" << endl;
-
         while (inputChar != 'S' && inputChar != 'N') {
  rlutil::setColor(rlutil::BLACK);
             cout << "Desea registrar otro producto para esta venta? S/N: ";
@@ -177,9 +173,6 @@ void Venta::cargarVenta() {
         }
         if (inputChar == 'N') {
             validacionDetalles = true;
-        }else{
-            inputChar = 'n';
-            cout<< "Siguiente detalle!"<<endl;
         }
         rlutil::anykey();
         rlutil::cls();
@@ -191,17 +184,22 @@ void Venta::cargarVenta() {
 void Venta::mostrarVenta() {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     ArchivoClientes Clientes("ArchivoClientes.dat");
-    ArchivoDetalleVentas DetallesVentas("ArchivoDetalleVentas.dat");
+    ArchivoDetalleVentas DetallesVentas("ArchivoDetalleVentas");
+    rlutil::setColor(rlutil::BLACK);
     cout << "------------ Nro DE VENTA: " << getIdVenta() << " ------------------------" << endl;
+       rlutil::setColor(rlutil::BLACK);
     cout << "FECHA: ";
     getFecha().mostrarFecha();
+        rlutil::setColor(rlutil::CYAN);
     cout << "VENDEDOR: " << endl;
-
+    rlutil::setColor(rlutil::WHITE);
     Empleados.Buscar(getIdEmpleado()).mostrarEmpleado();
     cout << endl;
+        rlutil::setColor(rlutil::BLUE);
     cout << "COMPRADOR: " << endl;
     Clientes.Buscar(getIdCliente()).mostrarCliente();
     cout << endl;
+    rlutil::setColor(rlutil::BLACK);
     cout << "FORMA DE PAGO: ";
     switch (getFormaDePago()) {
         case 1: cout << "Efectivo" << endl; break;
@@ -209,8 +207,8 @@ void Venta::mostrarVenta() {
         case 3: cout << "Credito" << endl; break;
     }
     cout << endl;
+    rlutil::setColor(rlutil::BLACK);
     cout << "--------------- DETALLE DE VENTA --------------------" << endl;
-    cout<< "ARTICULOS COMPRADOS: " << DetallesVentas.ContLineas(getIdVenta())<<endl;
     DetallesVentas.Buscar(getIdVenta()).mostrarDetalleDeVenta();
     cout << "---------------------------------------------------" << endl;
 }
