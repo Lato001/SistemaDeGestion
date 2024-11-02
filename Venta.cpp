@@ -9,6 +9,8 @@
 #include "ArchivoVentas.h"
 #include "ArchivoDetalleVentas.h"
 #include "DetalleVenta.h"
+#include "ArchivoProductos.h"
+#include "Producto.h"
 
 using namespace std;
 
@@ -72,13 +74,13 @@ void Venta::cargarVenta() {
 
     while (!vendedorValido) {
         rlutil::setColor(rlutil::BLACK);
-        cout << "Seleccione el vendedor (ID - Nombre):" << endl;
+        cout << "Seleccione el Empleado (ID - Nombre):" << endl;
 
         for (int i = 0; i < Empleados.CantidadRegistros(); i++) {
             registroEmpleado = Empleados.Leer(i);
             cout << "ID: " << registroEmpleado.getID() << " - Nombre: " << registroEmpleado.getNombre() << endl;
         }
-        cout << "Ingrese el ID del vendedor: ";
+        cout << "Ingrese el ID del Empleado: ";
            rlutil::setColor(rlutil::WHITE);
         cin >> input;
 
@@ -191,6 +193,7 @@ void Venta::mostrarVenta() {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     ArchivoClientes Clientes("ArchivoClientes.dat");
     ArchivoDetalleVentas DetallesVentas("ArchivoDetalleVentas.dat");
+    Venta saldo;
     cout << "------------ Nro DE VENTA: " << getIdVenta() << " ------------------------" << endl;
     cout << "FECHA: ";
     getFecha().mostrarFecha();
@@ -208,8 +211,14 @@ void Venta::mostrarVenta() {
         case 3: cout << "Credito" << endl; break;
     }
     cout << endl;
+
     cout << "--------------- DETALLE DE VENTA --------------------" << endl;
-    cout<< "ARTICULOS COMPRADOS: " << DetallesVentas.ContLineas(getIdVenta())<<endl;
+    cout<< "ARTICULOS COMPRADOS: " << DetallesVentas.ContLineas(getIdVenta())<<endl<<endl;
+    for(int i = 0 ; i <DetallesVentas.ContLineas(idVenta) ; i++ )
+    {
+        saldo.importeTotal += DetallesVentas.BuscarPorLinea(idVenta,i).getImporte();
+    }
     DetallesVentas.Buscar(getIdVenta()).mostrarDetalleDeVenta();
+    cout<<"Importe TOTAL de la Venta: "<< saldo.getImporteTotal();
     cout << "---------------------------------------------------" << endl;
 }
