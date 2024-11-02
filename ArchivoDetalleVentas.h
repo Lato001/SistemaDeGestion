@@ -14,6 +14,8 @@ private:
         bool Guardar(DetalleVenta detalleVenta);
         bool Guardar(DetalleVenta detalleVenta, int posicion);
         DetalleVenta Buscar(int idVenta);
+        DetalleVenta BuscarPorLinea(int idVenta, int idLinea);
+        int ContLineas(int idVenta);
         DetalleVenta Leer(int posicion);
         int CantidadRegistros();
         void Leer(int CantidadRegistros, DetalleVenta *vector);
