@@ -63,6 +63,7 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
 
     Producto registro;
     int input;
+    Producto productoActual;
 
     bool opcionValida = false;
     while (!opcionValida) {
@@ -78,9 +79,11 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
          rlutil::setColor(rlutil::BLACK);
         cin >> input;
 
-        if (Productos.Buscar(input).getProductoID() != -1) {
+        productoActual = Productos.Buscar(input);
+
+        if (productoActual.getProductoID() != -1) {
             opcionValida = true;
-            idProducto = Productos.Buscar(input).getProductoID();
+            idProducto = productoActual.getProductoID();
         } else {
                   rlutil::setColor(rlutil::RED);
             cout << "Opcion invalida, vuelva a intentarlo" << endl;
@@ -93,14 +96,16 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
     opcionValida = false;
     while (!opcionValida) {
         rlutil::setColor(rlutil::WHITE);
-        cout << "Stock Disponible: " << Productos.Buscar(idProducto).getStock() << endl << endl;
+        cout << "Stock Disponible: " << productoActual.getStock() << endl << endl;
         cout << "Ingrese la cantidad comprada del producto: " << endl;
         rlutil::setColor(rlutil::BLACK);
         cin >> input;
 
-        if (input <= Productos.Buscar(idProducto).getStock()) {
+        if (input <= productoActual.getStock()) {
             cantidadProducto = input;
-            Productos.Buscar(idProducto).setStock(Productos.Buscar(idProducto).getStock() - input);
+
+            productoActual.setStock(productoActual.getStock() - input);
+            Productos.Guardar(productoActual, Productos.BuscarPos(idProducto));
             opcionValida = true;
         } else {
                 rlutil::setColor(rlutil::RED);

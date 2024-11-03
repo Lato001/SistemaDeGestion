@@ -48,6 +48,27 @@ Producto ArchivoProductos::Buscar(int productoID){
     fclose(registro);
     return fallo;
 }
+
+    int ArchivoProductos::BuscarPos(int productoID){
+    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    Producto producto;
+    int posicion = 0;
+
+    if (registro == NULL) {
+    return -1;
+    }
+
+    while (fread(&producto, sizeof(producto), 1, registro)) {
+    if (producto.getProductoID() == productoID) {
+    fclose(registro);
+    return posicion;
+    }
+    posicion++;
+    }
+    fclose(registro);
+    return -1;
+}
+
 Producto ArchivoProductos::BuscarPorLinea(int ID, int idLineaP){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     Producto producto, fallo;
