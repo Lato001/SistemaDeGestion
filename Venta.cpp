@@ -214,11 +214,11 @@ void Venta::mostrarVenta() {
 
     cout << "--------------- DETALLE DE VENTA --------------------" << endl;
     cout<< "ARTICULOS COMPRADOS: " << DetallesVentas.ContLineas(getIdVenta())<<endl<<endl;
-    for(int i = 0 ; i <DetallesVentas.ContLineas(idVenta) ; i++ )
+    for(int i = 0 ; i <= DetallesVentas.ContLineas(idVenta) ; i++ )
     {
         saldo.importeTotal += DetallesVentas.BuscarPorLinea(idVenta,i).getImporte();
     }
     DetallesVentas.Buscar(getIdVenta()).mostrarDetalleDeVenta();
-    cout<<"Importe TOTAL de la Venta: "<< saldo.getImporteTotal();
+    cout<<"Importe TOTAL de la Venta: $"<< saldo.getImporteTotal();
     cout << "---------------------------------------------------" << endl;
 }

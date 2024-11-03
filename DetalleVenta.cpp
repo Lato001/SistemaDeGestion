@@ -113,22 +113,25 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
     }
 }
 
-void DetalleVenta::mostrarDetalleDeVenta() {
+void DetalleVenta::mostrarDetalleDeVenta()
+{
 
     ArchivoDetalleVentas DetalleVentas("ArchivoDetalleVentas.dat");
     ArchivoProductos Productos("ArchivoProductos.dat");
     Venta venta;
-    for (int i =1; i<= DetalleVentas.ContLineas(idVenta);i++ ){
+    for (int i =1; i<= DetalleVentas.ContLineas(idVenta); i++ )
+    {
+        rlutil::setColor(rlutil::CYAN);
+        cout << "ID DEL PRODUCTO: " << DetalleVentas.BuscarPorLinea(idVenta,i).getIdProducto()<< endl;
 
-    rlutil::setColor(rlutil::CYAN);
-    cout << "ID DEL PRODUCTO: " << DetalleVentas.BuscarPorLinea(idVenta,i).getIdProducto()<< endl;
+        rlutil::setColor(rlutil::WHITE);
 
-    rlutil::setColor(rlutil::WHITE);
-    cout << "PRECIO UNITARIO: " << Productos.Buscar(idProducto).getPrecioUnitario() << endl;
-    cout << "CANTIDAD DEL PRODUCTO: " << DetalleVentas.BuscarPorLinea(idVenta,i).getCantidadProducto() << endl;
-    cout<< "IMPORTE: $" << DetalleVentas.BuscarPorLinea(idVenta,i).getImporte()<<endl;
-    cout<<endl;
-    cout<<endl;
+        cout << "PRECIO UNITARIO: " << Productos.Buscar(idProducto).getPrecioUnitario() << endl;
+
+        cout << "CANTIDAD DEL PRODUCTO: " << DetalleVentas.BuscarPorLinea(idVenta,i).getCantidadProducto() << endl;
+        cout<< "IMPORTE: $" << DetalleVentas.BuscarPorLinea(idVenta,i).getImporte()<<endl;
+        cout<<endl;
+        cout<<endl;
     }
 }
 
