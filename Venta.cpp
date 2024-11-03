@@ -222,3 +222,9 @@ void Venta::mostrarVenta() {
     cout<<"Importe TOTAL de la Venta: $"<< saldo.getImporteTotal();
     cout << "---------------------------------------------------" << endl;
 }
+
+
+
+
+
+
