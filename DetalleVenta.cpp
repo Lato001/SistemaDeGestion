@@ -107,7 +107,7 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
             cantidadProducto = input;
 
             productoActual.setStock(productoActual.getStock() - input);
-            Productos.Guardar(productoActual, Productos.BuscarPos(idProducto));
+            Productos.Guardar(productoActual, Productos.BuscarPos(idProducto)); ///??? PARA QUE SIRVE
             opcionValida = true;
         } else {
                 rlutil::setColor(rlutil::RED);
@@ -115,9 +115,11 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
                rlutil::setColor(rlutil::WHITE);
             system("pause");
             system("cls");
-        importe = Productos.Buscar(idProducto).getPrecioUnitario() * cantidadProducto;
+
         }
     }
+        importe = Productos.Buscar(idProducto).getPrecioUnitario() * cantidadProducto;
+        cout<< importe;
 }
 
 void DetalleVenta::mostrarDetalleDeVenta()
@@ -125,7 +127,6 @@ void DetalleVenta::mostrarDetalleDeVenta()
 
     ArchivoDetalleVentas DetalleVentas("ArchivoDetalleVentas.dat");
     ArchivoProductos Productos("ArchivoProductos.dat");
-    Venta venta;
     Producto producto;
     for (int i =1; i<= DetalleVentas.ContLineas(idVenta); i++ )
     {

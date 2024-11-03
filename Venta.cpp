@@ -185,6 +185,10 @@ void Venta::cargarVenta() {
         rlutil::anykey();
         rlutil::cls();
     }
+    for (int i = 1; i< DetalleVentas.ContLineas(idVenta) ;i++ ){
+        montoTotalVenta += DetalleVentas.BuscarPorLinea(idVenta,i).getImporte();
+    }
+    importeTotal = montoTotalVenta;
 }
 
 
