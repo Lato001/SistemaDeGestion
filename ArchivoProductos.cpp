@@ -69,46 +69,6 @@ Producto ArchivoProductos::Buscar(int productoID){
     return -1;
 }
 
-Producto ArchivoProductos::BuscarPorLinea(int ID, int idLineaP){
-    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
-    Producto producto, fallo;
-    fallo.setProductoID(-1);
-    if(registro == NULL){
-        return fallo;
-    }
-    while(fread(&producto, sizeof(producto), 1, registro)){
-        if(producto.getProductoID() == ID && producto.getIdLineaP() == idLineaP){
-            fclose(registro);
-            return producto;
-        }
-    }
-    fclose(registro);
-    return fallo;
-}
-
-int ArchivoProductos::ContLineas(int ID) {
-    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
-    if (registro == NULL) {
-        return 0;
-    }
-
-    Producto producto;
-    int cont = 0;
-
-    for (int i = 0; i < CantidadRegistros(); i++) {
-        if (fread(&producto, sizeof(producto), 1, registro) == 1) {
-            if (producto.getProductoID() == ID) {
-                cont++;
-            }
-        } else {
-            fclose(registro);
-            return -1;
-        }
-    }
-
-    fclose(registro);
-    return cont;
-}
 
 Producto ArchivoProductos::Leer(int posicion){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
