@@ -3,6 +3,7 @@
 #include "rlutil.h"
 using namespace std;
 
+#include "DetalleVenta.h"
 #include "Producto.h"
 #include "ArchivoProductos.h"
 
@@ -14,10 +15,13 @@ Producto::Producto()
     categoriaProducto[0] = '\0';
     precioUnitario = 0;
     stock = 0;
+    ID=0;
 }
 
-Producto::Producto(int _productoID, int _idLineaP, const char* _nombreProducto, float _precioUnitario, int _stock, const char* _categoriaProducto)
+Producto::Producto(int _idVenta, int _idLinea, int _idProducto, int _cantidadProducto, float _importe, bool _estado, int _productoID, int _idLineaP, const char* _nombreProducto, float _precioUnitario, int _stock, const char* _categoriaProducto, int _ID) : DetalleVenta(_idVenta, _idLinea, _idProducto, _cantidadProducto, _importe, _estado)
 {
+    ID = _ID;
+
     productoID = _productoID;
 
     idLineaP = _idLineaP;
@@ -29,7 +33,10 @@ Producto::Producto(int _productoID, int _idLineaP, const char* _nombreProducto, 
     categoriaProducto[sizeof(categoriaProducto) - 1] = '\0';
 
     precioUnitario = _precioUnitario;
+
     stock = _stock;
+
+    ID = _ID;
 }
 
 int Producto::getProductoID() { return productoID; }
@@ -38,6 +45,7 @@ const char* Producto::getNombre() { return nombreProducto; }
 const char* Producto::getCategoriaProducto() { return categoriaProducto; }
 float Producto::getPrecioUnitario() { return precioUnitario; }
 int Producto::getStock() { return stock; }
+int Producto::getID() { return ID; }
 
 void Producto::setProductoID(int _productoID) { productoID = _productoID; }
 
@@ -57,6 +65,7 @@ void Producto::setPrecioUnitario(float _PrecioUnitario) { precioUnitario = _Prec
 
 void Producto::setStock(int _stock) { stock = _stock; }
 
+void Producto::setID(int _ID) { ID = _ID; }
 
 void Producto::cargarProducto()
 {

@@ -14,7 +14,6 @@ public:
     void setClienteID (int _clienteID);
     Persona getPersona();
 
-  //  void crearCliente(); Crear MenuCliente y luego llamar desde Menu.cpp a crearCliente que estará en MenuCliente
     void cargarCliente();
     void mostrarCliente();
 };

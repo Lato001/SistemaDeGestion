@@ -1,7 +1,9 @@
 #ifndef PRODUCTO_H_INCLUDED
 #define PRODUCTO_H_INCLUDED
 
-class Producto{
+#include "DetalleVenta.h"
+
+class Producto : public DetalleVenta {
 private:
     int productoID;
     int idLineaP;
@@ -9,10 +11,11 @@ private:
     float precioUnitario;
     int stock;
     char categoriaProducto[50];
+    int ID;
 
 public:
     Producto();
-    Producto(int productoID, int _idLineaP, const char* nombreProducto, float precioUnitario, int stock, const char* categoriaProducto);
+    Producto(int, int, int, int, float, bool, int _productoID, int _idLineaP, const char* _nombreProducto, float _precioUnitario, int _stock, const char* _categoriaProducto, int _ID); //Constructor de la clase Producto
 
     int getProductoID();
     int getIdLineaP();
@@ -20,6 +23,7 @@ public:
     float getPrecioUnitario();
     const char* getCategoriaProducto();
     int getStock();
+    int getID();
 
     void setProductoID(int _productoID);
     void setIdLineaP (int _idLineaP);
@@ -27,6 +31,10 @@ public:
     void setPrecioUnitario(float _precioUnitario);
     void setCategoriaProducto(const char* _categoriaProducto);
     void setStock(int _stock);
+
+    void setID(int _ID);
+
+    DetalleVenta getDetalleVenta();
 
     void cargarProducto();
     void mostrarProducto();

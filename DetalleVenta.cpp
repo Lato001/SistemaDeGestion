@@ -4,9 +4,11 @@
 using namespace std;
 
 #include "DetalleVenta.h"
-#include "ArchivoProductos.h"
 #include "ArchivoDetalleVentas.h"
 #include "Venta.h"
+#include "Producto.h"
+#include "ArchivoProductos.h"
+
 DetalleVenta::DetalleVenta() {
     idVenta = 0;
     idLinea = 0;
@@ -113,8 +115,8 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
                rlutil::setColor(rlutil::WHITE);
             system("pause");
             system("cls");
-        }
         importe = Productos.Buscar(idProducto).getPrecioUnitario() * cantidadProducto;
+        }
     }
 }
 
@@ -130,9 +132,11 @@ void DetalleVenta::mostrarDetalleDeVenta()
         rlutil::setColor(rlutil::CYAN);
         cout << "ID DEL PRODUCTO: " << DetalleVentas.BuscarPorLinea(idVenta,i).getIdProducto()<< endl;
 
+        idProducto=getIdProducto();
+
         rlutil::setColor(rlutil::WHITE);
 
-        cout << "PRECIO UNITARIO: " << producto.getPrecioUnitario() << endl;
+        cout << "PRECIO UNITARIO: " /*<<*/ << endl; //llamar al precio unitario que traeria desde producto asociado a DetalleVentas por herencia
 
         cout << "CANTIDAD DEL PRODUCTO: " << DetalleVentas.BuscarPorLinea(idVenta,i).getCantidadProducto() << endl;
         cout<< "IMPORTE: $" << DetalleVentas.BuscarPorLinea(idVenta,i).getImporte()<<endl;
