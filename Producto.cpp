@@ -9,15 +9,18 @@ using namespace std;
 Producto::Producto()
 {
     productoID = 0;
+    idLineaP = 0;
     nombreProducto[0] = '\0';
     categoriaProducto[0] = '\0';
     precioUnitario = 0;
     stock = 0;
 }
 
-Producto::Producto(int _productoID, const char* _nombreProducto, float _precioUnitario, int _stock, const char* _categoriaProducto)
+Producto::Producto(int _productoID, int _idLineaP, const char* _nombreProducto, float _precioUnitario, int _stock, const char* _categoriaProducto)
 {
     productoID = _productoID;
+
+    idLineaP = _idLineaP;
 
     strncpy(nombreProducto, _nombreProducto, sizeof(nombreProducto) - 1);
     nombreProducto[sizeof(nombreProducto) - 1] = '\0';
@@ -30,12 +33,15 @@ Producto::Producto(int _productoID, const char* _nombreProducto, float _precioUn
 }
 
 int Producto::getProductoID() { return productoID; }
+int Producto::getIdLineaP() { return idLineaP; }
 const char* Producto::getNombre() { return nombreProducto; }
 const char* Producto::getCategoriaProducto() { return categoriaProducto; }
 float Producto::getPrecioUnitario() { return precioUnitario; }
 int Producto::getStock() { return stock; }
 
 void Producto::setProductoID(int _productoID) { productoID = _productoID; }
+
+void Producto::setIdLineaP(int _idLineaP) { idLineaP = _idLineaP; }
 
 void Producto::setNombre(const char* _nombreProducto) {
     strncpy(nombreProducto, _nombreProducto, sizeof(nombreProducto) - 1);
@@ -51,18 +57,6 @@ void Producto::setPrecioUnitario(float _PrecioUnitario) { precioUnitario = _Prec
 
 void Producto::setStock(int _stock) { stock = _stock; }
 
-void Producto::mostrarProducto()
-{
-    rlutil::setColor(rlutil::CYAN);
-    cout << "////////////////// ID PRODUCTO: " << getProductoID() << " //////////////////" << endl;
-   rlutil::setColor(rlutil::BLACK);
-    cout << "Nombre del Producto: " << getNombre() << endl;
-    cout << "Categoría del Producto: " << getCategoriaProducto() << endl;
-    cout << "Precio Unitario: " << getPrecioUnitario() << endl;
-    cout << "Stock: " << getStock() << endl;
-    cout << "////////////////////////////////////////////////////" << endl << endl;
-    rlutil::setColor(rlutil::WHITE);
-}
 
 void Producto::cargarProducto()
 {
@@ -109,4 +103,16 @@ void Producto::cargarProducto()
     system("pause");
     system("cls");
 
+}
+void Producto::mostrarProducto()
+{
+    rlutil::setColor(rlutil::CYAN);
+    cout << "////////////////// ID PRODUCTO: " << getProductoID() << " //////////////////" << endl;
+   rlutil::setColor(rlutil::BLACK);
+    cout << "Nombre del Producto: " << getNombre() << endl;
+    cout << "Categoría del Producto: " << getCategoriaProducto() << endl;
+    cout << "Precio Unitario: " << getPrecioUnitario() << endl;
+    cout << "Stock: " << getStock() << endl;
+    cout << "////////////////////////////////////////////////////" << endl << endl;
+    rlutil::setColor(rlutil::WHITE);
 }

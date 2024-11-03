@@ -13,6 +13,8 @@ private:
         bool Guardar(Producto producto);
         bool Guardar(Producto prodcuto, int posicion);
         Producto Buscar(int ID);
+        Producto BuscarPorLinea(int ID, int idLineaP);
+        int ContLineas(int ID);
         Producto Leer(int posicion);
         int CantidadRegistros();
         void Leer(int cantidadRegistros, Producto *vector);

@@ -119,6 +119,7 @@ void DetalleVenta::mostrarDetalleDeVenta()
     ArchivoDetalleVentas DetalleVentas("ArchivoDetalleVentas.dat");
     ArchivoProductos Productos("ArchivoProductos.dat");
     Venta venta;
+    Producto producto;
     for (int i =1; i<= DetalleVentas.ContLineas(idVenta); i++ )
     {
         rlutil::setColor(rlutil::CYAN);
@@ -126,7 +127,7 @@ void DetalleVenta::mostrarDetalleDeVenta()
 
         rlutil::setColor(rlutil::WHITE);
 
-        cout << "PRECIO UNITARIO: " << Productos.Buscar(idProducto).getPrecioUnitario() << endl;
+        cout << "PRECIO UNITARIO: " << producto.getPrecioUnitario() << endl;
 
         cout << "CANTIDAD DEL PRODUCTO: " << DetalleVentas.BuscarPorLinea(idVenta,i).getCantidadProducto() << endl;
         cout<< "IMPORTE: $" << DetalleVentas.BuscarPorLinea(idVenta,i).getImporte()<<endl;
@@ -134,4 +135,3 @@ void DetalleVenta::mostrarDetalleDeVenta()
         cout<<endl;
     }
 }
-

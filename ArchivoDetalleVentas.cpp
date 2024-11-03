@@ -73,15 +73,14 @@ int ArchivoDetalleVentas::ContLineas(int idVenta) {
     DetalleVenta detalleVenta;
     int cont = 0;
 
-    // Iterar por la cantidad de registros en el archivo
     for (int i = 0; i < CantidadRegistros(); i++) {
-        if (fread(&detalleVenta, sizeof(detalleVenta), 1, registro) == 1) { // Corrección aquí
+        if (fread(&detalleVenta, sizeof(detalleVenta), 1, registro) == 1) {
             if (detalleVenta.getIdVenta() == idVenta) {
                 cont++;
             }
         } else {
             fclose(registro);
-            return -1; // Indica error en la lectura
+            return -1;
         }
     }
 
