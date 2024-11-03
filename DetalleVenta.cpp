@@ -136,7 +136,7 @@ void DetalleVenta::mostrarDetalleDeVenta()
 
         rlutil::setColor(rlutil::WHITE);
 
-        cout << "PRECIO UNITARIO: " /*<<*/ << endl; //llamar al precio unitario que traeria desde producto asociado a DetalleVentas por herencia
+        cout << "PRECIO UNITARIO: " << Productos.Buscar(DetalleVentas.BuscarPorLinea(idVenta, i).getIdProducto()).getPrecioUnitario() << endl; //llamar al precio unitario que traeria desde producto asociado a DetalleVentas por herencia
 
         cout << "CANTIDAD DEL PRODUCTO: " << DetalleVentas.BuscarPorLinea(idVenta,i).getCantidadProducto() << endl;
         cout<< "IMPORTE: $" << DetalleVentas.BuscarPorLinea(idVenta,i).getImporte()<<endl;
