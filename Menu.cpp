@@ -7,6 +7,7 @@
 #include "ArchivoEmpleados.h"
 #include "ArchivoVentas.h"
 #include "ArchivoProductos.h"
+#include "ArchivoDetalleVentas.h"
 #include "Menu.h"
 #include "Cliente.h"
 #include "Empleado.h"
@@ -28,6 +29,7 @@ void Menu::getMainMenu()
         cout<<"1. Listar"<<endl;
         cout<<"2. Crear (Empleado / Usuario)"<<endl;
         cout<<"3. Registrar (Ventas / Productos)"<<endl;
+        cout<<"4. Modificar Registros"<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
@@ -47,6 +49,9 @@ void Menu::getMainMenu()
             break;
         case 3:
             registrar();
+            break;
+        case 4:
+            modificar();
             break;
         case 0:
             exit(0);
@@ -203,6 +208,142 @@ void Menu::registrar()
     }
     while(!opcionValida);
     registrar();
+}
+void Menu::modificar()
+{
+    int op=0;
+    bool opcionValida=false;
+
+    do
+    {
+        cout<<"----------------------------------"<<endl;
+        cout<<"Elija la opcion que desee realizar"<<endl;
+        cout<<"1. Modificar Venta"<<endl;
+        cout<<"2. Modificar Producto"<<endl;
+        cout<<"3. Modificar Cliente"<<endl;
+        cout<<"4. Modificar Empleado"<<endl;
+        cout<<"5. Modificar Detalle de Venta"<<endl;
+        cout<<"0. Volver al menu principal"<<endl;
+        cout<<"==================================="<<endl;
+        cin>>op;
+        system("cls");
+        if(op>0 && op<6)
+        {
+            opcionValida=true;
+        }
+        switch (op)
+        {
+        case 1:
+            modificarRegistroVenta();
+            break;
+        case 2:
+            registrarProducto();
+            break;
+        case 0:
+            getMainMenu();
+        default:
+            rlutil::setColor(rlutil::RED);
+            mensajeDeError("Opcion invalida!, vuelva a intentarlo");
+        }
+        system("pause");
+        system("cls");
+
+
+
+    }
+    while(!opcionValida);
+    modificar();
+}
+
+void Menu::modificarRegistroVenta()
+{
+
+    int input;
+    ArchivoVentas Ventas("ArchivoVentas.dat");
+    ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
+    ArchivoClientes Clientes("ArchivoClientes.dat");
+    ArchivoDetalleVentas DetalleVentas("ArchivoDetalleVentas.dat");
+    Venta venta;
+    bool opcionValida = false;
+    listarVentas();
+    cout<< "Seleccione el ID de la venta a modificar: ";
+    cin >> input;
+
+    if( Ventas.Buscar(input).getIdVenta() !=  -1)
+    {
+        while(!opcionValida)
+        {
+            venta = Ventas.Buscar(input);
+            cout<<"Elija el atributo a modificar" << endl;
+            cout<<"1. Fecha: ";
+            venta.getFecha().mostrarFecha();
+            cout<<"2. Empleado: " <<Empleados.Buscar(venta.getIdVenta()).getNombre()<< " " <<Empleados.Buscar(venta.getIdVenta()).getApellido() <<endl;
+            cout<<"3. Cliente: " << Clientes.Buscar(venta.getIdVenta()).getNombre()<< " " <<Clientes.Buscar(venta.getIdVenta()).getApellido() <<endl;
+            cout<< "4. Detalle de venta"<<endl;
+            cout<< "0. Volver al menu principal"<<endl;
+            cout<< "Seleccione una opcion: ";
+            cin >> input;
+            opcionValida = (input> 0 && input< 5);
+            if(!opcionValida)
+            {
+                if(input != 0)
+                {
+
+                    mensajeDeError("Opcion invalida");
+                    system("pause");
+                }
+                else
+                {
+                    system("cls");
+                    getMainMenu();
+                }
+            }
+        }
+    }
+    else
+    {
+        mensajeDeError("No existe venta con este ID, vuelva a intentarlo");
+        modificar();
+    }
+
+    switch (input)
+    {
+    case 1:{
+        Fecha nuevaFecha;
+        cout<<"Nueva fecha a cargar"<<endl;
+        nuevaFecha.cargarFecha();
+        nuevaFecha.mostrarFecha();
+        system("pause");
+        Ventas.Buscar(venta.getIdVenta()).setFecha(nuevaFecha);
+        cout<< "Nueva fecha cargada: ";
+        ///NUEVA FECHA CARGADA
+        Ventas.Buscar(venta.getIdVenta()).getFecha().mostrarFecha();
+        system("pause");
+        system("cls");
+
+
+    }
+        break;
+    case 2:
+        {
+        cout<<"Empleado que efectuo la venta"<<endl;
+        listarEmpleadosAll();
+        cout<< "Seleccione el ID del empleado que efectuo la venta:";
+        cin >> input;
+        if(Empleados.Buscar(input).getID() != -1)
+        {
+            Ventas.Buscar(venta.getIdVenta()).setidEmpleado(input);
+            cout<< "Nuevo Empleado : " <<Ventas.Buscar(venta.getIdVenta()).getIdEmpleado();
+        }
+
+        }
+        break;
+    default:
+        break;
+    }
+
+
+
 }
 void Menu::MenulistarClientes()
 {

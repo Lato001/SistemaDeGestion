@@ -10,6 +10,7 @@ public:
     void listar();
     void crear();
     void registrar();
+    void modificar();
 
     ///LISTADOS DE CLASES
     void MenulistarEmpleados();
@@ -40,6 +41,9 @@ public:
     ///REGISTRACIONES DE VENTAS Y NUEVOS PRODUCTOS
     void registrarVenta();
     void registrarProducto();
+
+    ///MODIFICACIONES DE VENTAS
+    void modificarRegistroVenta();
 
 
     ///FUNCIONES PARA INTERFAZ

@@ -18,7 +18,7 @@ private:
         ArchivoVentas(string nombreArchivo);
         bool Guardar(Venta venta);
         bool Guardar(Venta venta, int posicion);
-        int Buscar(int nDeVenta);
+        Venta Buscar(int _idVenta);
         Venta Leer(int posicion);
         int CantidadRegistros();
         void Leer(int CantidadRegistros, Venta *vector);

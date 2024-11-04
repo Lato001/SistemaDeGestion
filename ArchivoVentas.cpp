@@ -32,22 +32,21 @@ bool ArchivoVentas::Guardar(Venta venta, int posicion){
     return ok;
 }
 
-int ArchivoVentas::Buscar(int idVenta){
+Venta ArchivoVentas::Buscar(int idVenta){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    Venta venta,fallo;
+    fallo.setidVenta(-1);
     if(registro == NULL){
-        return -1;
+        return fallo;
     }
-    Venta venta;
-    int i = 0;
     while(fread(&venta, sizeof(venta), 1, registro)){
         if(venta.getIdVenta() == idVenta){
             fclose(registro);
-            return i;
+            return venta;
         }
-        i++;
     }
     fclose(registro);
-    return -1;
+    return fallo;
 }
 Venta ArchivoVentas::Leer(int posicion){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
