@@ -21,15 +21,14 @@ public:
     void listarEmpleadosxID();
     void listarEmpleadosxFecha();
     void listarEmpleadosxAsistencias();
-    void listarEmpleadosAll();
     void listarEmpleadosxVacaciones();
+    void listarEmpleadosAll();
 
     void MenulistarClientes();
 
     void listarClientesxName();
     void listarClientesxOrdenAlfabetico();
     void listarClientesxID();
-    void listarClientesxFecha();
     void listarClientesAll();
 
     void listarVentas();

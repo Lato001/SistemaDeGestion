@@ -17,7 +17,9 @@ private:
         Empleado Buscar(int empleadoID);
         void FiltrarEmpleados();
         void FiltrarPorNombre(string _nombre);
+        void FiltrarPorOrdenAlfabetico();
         void FiltrarPorID(int _ID);
+        void FiltrarPorFecha();
         void FiltrarPorAsistencias();
         void FiltrarPorVacacionesActivas(bool _vacaciones);
         Empleado Leer(int posicion);

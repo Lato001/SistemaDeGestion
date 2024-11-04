@@ -358,14 +358,13 @@ void Menu::MenulistarClientes()
         cout<<"1. Por Nombre"<<endl;
         cout<<"2. Por Orden Alfabetico"<<endl;
         cout<<"3. Por ID"<<endl;
-        cout<<"4. Por Fecha de Ingreso"<<endl;
-        cout<<"5. Listar todos"<<endl;
+        cout<<"4. Listar todos"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
 
         system("cls");
-        if(op>0 && op<6)
+        if(op>0 && op<5)
         {
             opcionValida=true;
         }
@@ -381,9 +380,6 @@ void Menu::MenulistarClientes()
             listarClientesxID();
             break;
         case 4:
-            listarClientesxFecha();
-            break;
-        case 5:
             listarClientesAll();
             break;
         case 0:
@@ -395,9 +391,6 @@ void Menu::MenulistarClientes()
         }
         system("pause");
         system("cls");
-
-
-
     }
     while(!opcionValida);
     MenulistarClientes();
@@ -522,14 +515,14 @@ void Menu::listarEmpleadosxName()
 {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     cout<<"Ingrese el nombre del empleado a filtrar: ";
-     setColor(0);
+    setColor(0);
     string nombre;
     cin >> nombre;
     Empleados.FiltrarPorNombre(nombre);
-     setColor(7);
+    setColor(7);
     system("pause");
-system("cls");
-MenulistarEmpleados();
+    system("cls");
+    MenulistarEmpleados();
 }
 void Menu::listarEmpleadosxID()
 {
@@ -595,74 +588,34 @@ while (op!=0 || op !=1)
     }
     MenulistarEmpleados();
 }
-MenulistarEmpleados()
-{
-
-}
 void Menu::listarEmpleadosxFecha()
 {
+
 }
 void Menu::listarClientesAll()
 {
     ArchivoClientes Clientes("ArchivoClientes.dat");
     Cliente registro;
-    int cantRegistros = Clientes.CantidadRegistros();
-    if(cantRegistros == 0)
-    {
-        mensajeDeError("No se han encontrado clientes registrados");
-    }
-    else
-    {
-
-        setColor(2);
-        cout<< "TOTAL DE CLIENTES: " << cantRegistros << endl;
-            setColor(7);
-        for (int i = 0; i < cantRegistros; i++ )
-        {
-            registro = Clientes.Leer(i);
-            registro.mostrarCliente();
-            cout<<endl;
-        }
-    }
+    Clientes.FiltrarClientes();
+    system("pause");
+    system("cls");
+    MenulistarClientes();
 
 }
 void Menu::listarClientesxName()
 {
 
     ArchivoClientes Clientes ("ArchivoClientes.dat");
-    Cliente registro;
-    bool encontrado = false;
-    string nombreBuscado;
-    int cantRegistros = Clientes.CantidadRegistros();
-
-    if (cantRegistros == 0)
-    {
-           mensajeDeError("No se han encontrado clientes registrados");
-        return;
-    }
-    cout << ("Ingrese el nombre del cliente a buscar: ");
+    cout<<"Ingrese el nombre del clientes a filtrar: ";
     setColor(0);
-    cin >> nombreBuscado;
+    string nombre;
+    cin >> nombre;
+    Clientes.FiltrarPorNombre(nombre);
     setColor(7);
-
-    for (int i = 0; i < cantRegistros; i++)
-    {
-        registro = Clientes.Leer(i);
-        if (registro.getNombre() == nombreBuscado)
-        {
-            registro.mostrarCliente();
-            encontrado = true;
-        }
-
-    }
-    if (!encontrado)
-    {
-            mensajeDeError("No se encontraron clientes con el nombre ingresado ");
-    }
-
+    system("pause");
+    system("cls");
+    MenulistarClientes();
 }
-
-
 
 void Menu::listarClientesxOrdenAlfabetico()
 {
@@ -673,7 +626,7 @@ void Menu::listarClientesxOrdenAlfabetico()
     if(cantRegistros == 0)
     {
             setColor(4);
-        cout<< "No se han encontrado empleados registrados" << endl;
+        cout<< "No se han encontrado clientes registrados" << endl;
             setColor(7);
     }
     else
@@ -697,22 +650,24 @@ void Menu::listarClientesxOrdenAlfabetico()
         }
         for ( int i = 0 ; i <=cantRegistros ; i++ )
         {
-            registro[i].mostrarCliente();
+        registro[i].mostrarCliente();
         }
     }
     delete[] registro;
-    system("pause");
-    system("cls");
-    MenulistarClientes();
+        system("pause");
+        system("cls");
+        MenulistarClientes();
 }
     void Menu::listarClientesxID()
-    {
-
-    }
-    void Menu::listarClientesxFecha()
-    {
-
-    }
+{
+    ArchivoClientes Clientes("ArchivoClientes.dat");
+    cout<<"Ingrese el ID del Cliente a filtrar: ";
+    setColor(0);
+    int id;
+    cin >> id;
+    Clientes.FiltrarPorID(id);
+    setColor(7);
+}
 
 void Menu::listarVentas()
 {

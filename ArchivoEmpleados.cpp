@@ -2,8 +2,10 @@
 #include <string>
 #include <cstring>
 #include <iostream>
+
 #include "ArchivoEmpleados.h"
 #include "Empleado.h"
+
 using namespace std;
 
 
@@ -94,6 +96,12 @@ FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     fclose(registro);
 
 }
+
+void ArchivoEmpleados::FiltrarPorOrdenAlfabetico()
+{
+
+}
+
 void ArchivoEmpleados::FiltrarPorID(int _ID){
 
 FILE *registro = fopen(_nombreArchivo.c_str(), "rb");

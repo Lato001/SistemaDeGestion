@@ -50,7 +50,7 @@
 	"Menu.h"
 	"rlutil.h"
 
-1730739527 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.h
+1730750338 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.h
 	"Cliente.h"
 	"Empleado.h"
 	"rlutil.h"
@@ -86,7 +86,7 @@
 	"Cliente.h"
 	"DetalleVenta.h"
 
-1730745196 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
+1730750518 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
 	<iostream>
 	<cstdio>
 	<algorithm>
@@ -221,7 +221,7 @@
 	"Persona.h"
 	"Fecha.h"
 
-1730742272 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.cpp
+1730750170 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.cpp
 	<iostream>
 	<string>
 	"rlutil.h"
@@ -234,13 +234,14 @@
 1730737722 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\cliente.h
 	"persona.h"
 
-1730737722 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoclientes.cpp
+1730749010 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoclientes.cpp
 	<string>
 	<cstring>
+	<iostream>
 	"ArchivoClientes.h"
 	"Cliente.h"
 
-1730737722 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoclientes.h
+1730748449 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoclientes.h
 	"Persona.h"
 	"Cliente.h"
 
@@ -581,14 +582,14 @@
 	"ArchivoVentas.h"
 	"Venta.h"
 
-1730745175 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.cpp
+1730748341 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.cpp
 	<string>
 	<cstring>
 	<iostream>
 	"ArchivoEmpleados.h"
 	"Empleado.h"
 
-1730737722 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.h
+1730750654 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.h
 	"Persona.h"
 	"Empleado.h"
 

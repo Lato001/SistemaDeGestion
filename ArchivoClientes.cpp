@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <cstring>
+#include <iostream>
 
 #include "ArchivoClientes.h"
 #include "Cliente.h"
@@ -51,6 +52,74 @@ Cliente ArchivoClientes::Buscar(int clienteID){
     fclose(registro);
     return fallo;
 }
+void ArchivoClientes::FiltrarClientes(){
+   FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    Cliente cliente;
+    int cont = 0;
+
+    if (registro == nullptr) {
+        cout << "No se encontraron clientes." << endl;
+        return;
+    }
+    while (fread(&cliente, sizeof(cliente), 1, registro)) {
+        cont++;
+        cout << cont << ". ";
+        cliente.mostrarCliente();
+    }
+
+    if (cont == 0) {
+        cout << "No se encontraron clientes en el archivo." << endl;
+    }
+
+    fclose(registro);
+
+
+}
+void ArchivoClientes::FiltrarPorNombre(string _nombre){
+
+FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    Cliente cliente;
+    int cont = 0;
+    if (registro == nullptr) {
+        cout << "No se encontraron clientes." << endl;
+        return;
+    }
+    while(fread(&cliente, sizeof(cliente), 1, registro)){
+        if(cliente.getNombre() == _nombre){
+            fclose(registro);
+            cliente.mostrarCliente();
+            cont++;
+        }
+    }
+    if(cont == 0){
+        cout<< "No se encontraron clientes con el nombre: " << _nombre<<endl;
+    }
+    fclose(registro);
+
+}
+void ArchivoClientes::FiltrarPorID(int _ID){
+
+FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    Cliente cliente;
+    int cont = 0;
+    if (registro == nullptr) {
+        cout << "No se encontraron clientes." << endl;
+        return;
+    }
+    while(fread(&cliente, sizeof(cliente), 1, registro)){
+        if(cliente.getID() == _ID){
+            fclose(registro);
+            cliente.mostrarCliente();
+            cont++;
+        }
+    }
+    if(cont == 0){
+        cout<< "No se encontraron clientes con el ID: " << _ID<<endl;
+    }
+    fclose(registro);
+
+}
+
 Cliente ArchivoClientes::Leer(int posicion){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     if(registro == NULL){

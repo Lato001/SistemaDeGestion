@@ -53,7 +53,13 @@ void Empleado::mostrarEmpleado()
     Menu::setColor(7);
     cout << "              Vacaciones Activas: ";
     Menu::setColor(0);
-    cout<<getIsVacaciones() <<endl;
+    if (getIsVacaciones() == 1 )
+    {
+    cout<<"Si " <<endl;
+    }
+    else{
+        cout<<"No "<<endl;
+    }
     Menu::setColor(7);
   //      Menu::setColor(3);
 //    cout <<"//////////////////////////////////////////////////////////////"<< endl<<endl;
