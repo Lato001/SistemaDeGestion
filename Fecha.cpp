@@ -43,22 +43,23 @@ void Fecha::setAnio(int _anio) {
 }
 
 void Fecha::cargarFecha() {
+    Menu menu;
     bool validacion = false;
     while (!validacion) {
         int input;
-        Menu::setColor(0);
-        cout << "Ingrese el dia: ";
         Menu::setColor(7);
+        cout << "Ingrese el dia: ";
+        Menu::setColor(0);
         cin >> input;
         dia = input;
-        Menu::setColor(0);
-        cout << "Ingrese el mes: ";
         Menu::setColor(7);
+        cout << "Ingrese el mes: ";
+        Menu::setColor(0);
         cin >> input;
         mes = input;
-        Menu::setColor(0);
-        cout << "Ingrese el anio: ";
         Menu::setColor(7);
+        cout << "Ingrese el anio: ";
+        Menu::setColor(0);
         cin >> input;
         anio = input;
         validacion = validar();
@@ -66,8 +67,8 @@ void Fecha::cargarFecha() {
             Menu::setColor(2);
             cout << "La fecha se guardo correctamente" << endl;
         } else {
-            Menu::setColor(4);
-            cout << "Error, Ingrese una fecha real" << endl;
+
+            menu.mensajeDeError("Error, Ingrese una fecha real");
         }
         Menu::setColor(7);
     }

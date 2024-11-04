@@ -66,31 +66,33 @@ void Empleado::mostrarEmpleado()
 
 }
 void Empleado::cargarEmpleado(){
+    Menu menu;
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     int inputNumeros;
     char inputLetra;
     Fecha fechaACargar;
 
     cargarPersona();
-       Menu::setColor(0);
-    cout<<"Ingrese la Fecha de Ingreso: " <<endl;
        Menu::setColor(7);
+    cout<<"Ingrese la Fecha de Ingreso: " <<endl;
+       Menu::setColor(0);
     fechaACargar.cargarFecha();
     fechaDeIngreso = fechaACargar;
     empleadoID = (Empleados.CantidadRegistros()+1);
-       Menu::setColor(0);
-    cout<< "Ingrese las asistencias del empleado: " << endl;
        Menu::setColor(7);
+    cout<< "Ingrese las asistencias del empleado: " << endl;
+       Menu::setColor(0);
     cin >> inputNumeros;
     asistencias = inputNumeros;
-       Menu::setColor(0);
+       Menu::setColor(7);
     cout<<"Esta en vacaciones S/N ? "<<endl;
-      Menu::setColor(7);
+      Menu::setColor(0);
     cin >> inputLetra;
-    while(inputLetra != 'S' && inputLetra != 'N' ){
-        Menu::setColor(4);
-        cout<<"Opcion invalida" << endl;
-        Menu::setColor(7);
+    while(inputLetra != 'S' && inputLetra != 'N' )
+        Menu::setColor(7);{
+
+        menu.mensajeDeError("Opcion invalida");
+
         system("pause");
         system("cls");
         cin >> inputLetra;

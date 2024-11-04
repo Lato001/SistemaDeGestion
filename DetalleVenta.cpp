@@ -53,6 +53,7 @@ void DetalleVenta::setImporte(float _importe) {importe = _importe;}
 void DetalleVenta::setEstado(bool _estado) {estado = _estado;}
 
 void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
+    Menu menu;
     idVenta = _idVenta;
     ArchivoDetalleVentas DetalleVentas("ArchivoDetalleVentas.dat");
 
@@ -88,9 +89,9 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
             opcionValida = true;
             idProducto = productoActual.getProductoID();
         } else {
-                  Menu::setColor(4);
-            cout << "Opcion invalida, vuelva a intentarlo" << endl;
-                  Menu::setColor(7);
+
+           menu.mensajeDeError("Opcion invalida, vuelva a intentarlo");
+
         }
         system("pause");
         system("cls");
@@ -111,9 +112,9 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
             Productos.Guardar(productoActual, Productos.BuscarPos(idProducto)); ///??? PARA QUE SIRVE
             opcionValida = true;
         } else {
-                Menu::setColor(4);
-            cout << "Opcion invalida! Vuelva a intentarlo" << endl;
-               Menu::setColor(7);
+
+            menu.mensajeDeError("Opcion invalida! Vuelva a intentarlo") ;
+
             system("pause");
             system("cls");
 
