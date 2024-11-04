@@ -36,7 +36,7 @@ void Cliente::mostrarCliente() {
 void Cliente::cargarCliente() {
     ArchivoClientes Clientes("ArchivoClientes.dat");
 
-    Menu::setColor(0);
+    Menu::setColor(7);
     cout << "Ingrese los datos del cliente:" << endl;
 
     cargarPersona();

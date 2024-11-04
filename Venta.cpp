@@ -77,7 +77,7 @@ void Venta::cargarVenta() {
     while (!vendedorValido) {
         Menu::setColor(7);
         cout << "Seleccione el Empleado (ID - Nombre):" << endl;
-        Menu::setColor(0);
+        Menu::setColor(7);
 
         for (int i = 0; i < Empleados.CantidadRegistros(); i++) {
             registroEmpleado = Empleados.Leer(i);

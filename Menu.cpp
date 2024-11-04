@@ -607,7 +607,8 @@ void Menu::listarClientesxName()
 {
 
     ArchivoClientes Clientes ("ArchivoClientes.dat");
-    cout<<"Ingrese el nombre del clientes a filtrar: ";
+    setColor(7);
+    cout<<"Ingrese el nombre del cliente a filtrar: ";
     setColor(0);
     string nombre;
     cin >> nombre;
