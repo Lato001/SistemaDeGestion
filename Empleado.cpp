@@ -55,8 +55,8 @@ void Empleado::mostrarEmpleado()
     Menu::setColor(0);
     cout<<getIsVacaciones() <<endl;
     Menu::setColor(7);
-   //     rlutil::setColor(rlutil::CYAN);
-  //  cout <<"//////////////////////////////////////////////////////////////"<< endl;
+  //      Menu::setColor(3);
+//    cout <<"//////////////////////////////////////////////////////////////"<< endl<<endl;
 
 }
 void Empleado::cargarEmpleado(){

@@ -520,7 +520,6 @@ void Menu::listarEmpleadosxOrdenAlfabetico()
 
 void Menu::listarEmpleadosxName()
 {
-
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     cout<<"Ingrese el nombre del empleado a filtrar: ";
      setColor(0);
@@ -540,7 +539,9 @@ ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     int id;
     cin >> id;
     Empleados.FiltrarPorID(id);
-     setColor(7);}
+     setColor(7);
+}
+
 void Menu::listarEmpleadosxAsistencias(){
 ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
 Empleados.FiltrarPorAsistencias();
@@ -550,34 +551,57 @@ MenulistarEmpleados();
 
 
 }
-void Menu::listarEmpleadosxVacaciones(){
+void Menu::listarEmpleadosxVacaciones()
+{
 ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
 int op = -1;
-while (op!=0 || op !=1){
-    cout<< "0.Filtrar Empleados de Vacaciones \n1.Filtrar Empleados Trabajando"<<endl;
-     setColor(0);
+int m = -1;
+bool opcionValida=false;
+
+while (op!=0 || op !=1)
+    {
+    cout << "0.Filtrar Empleados de Vacaciones "<<endl;
+    cout << "1.Filtrar Empleados Trabajando "<<endl;
+    cout << "2.Volver al menu principal "<<endl;
     cin >> op;
-    if(op!=0 || op !=1){
-    Empleados.FiltrarPorVacacionesActivas(op);
+    system ("cls");
+    if(op!=0 || op !=1)
+    {
+        if (op==2)
+        {
+            system ("cls");
+            setColor(7);
+            getMainMenu();
+        }
+        else{
+        Empleados.FiltrarPorVacacionesActivas(op);
+        setColor(0);
+        if(op==0 || op==1)
+        {
+            opcionValida=true;
+        }
+        if (opcionValida==false)
+        {
+
+            setColor(4);
+            cout<<"Opcion invalida! vuelva a intentarlo" << endl;
+            setColor(7);
+        }
+        }
+    }
     system("pause");
     system("cls");
- setColor(7);
-    }else{
-     cout<<"opcion invalida!";
-        system("pause");
-        system("cls");
+    setColor(7);
     }
-
+    MenulistarEmpleados();
 }
-MenulistarEmpleados();
-
+MenulistarEmpleados()
+{
 
 }
 void Menu::listarEmpleadosxFecha()
 {
 }
-
-
 void Menu::listarClientesAll()
 {
     ArchivoClientes Clientes("ArchivoClientes.dat");
