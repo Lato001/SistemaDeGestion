@@ -472,40 +472,7 @@ MenulistarEmpleados();
 void Menu::listarEmpleadosxOrdenAlfabetico()
 {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
-    int cantRegistros = Empleados.CantidadRegistros();
-    Empleado* registro = new Empleado[cantRegistros];
-
-    if(cantRegistros == 0)
-    {
-            setColor(4);
-        cout<< "No se han encontrado empleados registrados" << endl;
-            setColor(7);
-    }
-    else
-    {
-
-        for (int i = 0; i < cantRegistros; i++ )
-        {
-            registro[i] = Empleados.Leer(i);
-        }
-        for (int i = 0; i <= cantRegistros ; i++)
-        {
-            for (int j = 0; j <= cantRegistros ; j++)
-            {
-                if (strcmp (registro[j].getNombre(),registro[i].getNombre()) > 0)
-                {
-                    Empleado temp = registro[i];
-                    registro[i] = registro[j];
-                    registro[j] = temp;
-                }
-            }
-        }
-        for ( int i = 0 ; i <=cantRegistros ; i++ )
-        {
-        registro[i].mostrarEmpleado();
-        }
-    }
-    delete[] registro;
+    Empleados.FiltrarPorOrdenAlfabetico();
         system("pause");
         system("cls");
         MenulistarEmpleados();
@@ -619,41 +586,9 @@ void Menu::listarClientesxName()
 
 void Menu::listarClientesxOrdenAlfabetico()
 {
-    ArchivoClientes Clientes ("ArchivoClientes.dat");
-    int cantRegistros = Clientes.CantidadRegistros();
-    Cliente* registro = new Cliente[cantRegistros];
 
-    if(cantRegistros == 0)
-    {
-            setColor(4);
-        cout<< "No se han encontrado clientes registrados" << endl;
-            setColor(7);
-    }
-    else
-    {
-
-        for (int i = 0; i < cantRegistros; i++ )
-        {
-            registro[i] = Clientes.Leer(i);
-        }
-        for (int i = 0; i <= cantRegistros ; i++)
-        {
-            for (int j = 0; j <= cantRegistros ; j++)
-            {
-                if (strcmp (registro[j].getNombre(),registro[i].getNombre()) > 0)
-                {
-                    Cliente temp = registro[i];
-                    registro[i] = registro[j];
-                    registro[j] = temp;
-                }
-            }
-        }
-        for ( int i = 0 ; i <=cantRegistros ; i++ )
-        {
-        registro[i].mostrarCliente();
-        }
-    }
-    delete[] registro;
+    ArchivoClientes Clientes("ArchivoClientes.dat");
+    Clientes.FiltrarPorOrdenAlfabetico();
         system("pause");
         system("cls");
         MenulistarClientes();

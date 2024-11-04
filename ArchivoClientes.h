@@ -17,6 +17,7 @@ private:
         Cliente Buscar(int clienteID);
         void FiltrarClientes();
         void FiltrarPorNombre(string _nombre);
+        void FiltrarPorOrdenAlfabetico();
         void FiltrarPorID(int _ID);
         Cliente Leer(int posicion);
         int CantidadRegistros();

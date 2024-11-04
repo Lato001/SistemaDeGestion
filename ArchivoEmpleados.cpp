@@ -5,6 +5,7 @@
 
 #include "ArchivoEmpleados.h"
 #include "Empleado.h"
+#include "Menu.h"
 
 using namespace std;
 
@@ -83,7 +84,8 @@ FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
         cout << "No se encontraron empleados." << endl;
         return;
     }
-    while(fread(&empleado, sizeof(empleado), 1, registro)){
+    while(fread(&empleado, sizeof(empleado), 1, registro))
+    {
         if(empleado.getNombre() == _nombre){
             fclose(registro);
             empleado.mostrarEmpleado();
@@ -99,7 +101,45 @@ FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
 
 void ArchivoEmpleados::FiltrarPorOrdenAlfabetico()
 {
+    FILE *registroA = fopen(_nombreArchivo.c_str(), "rb");
+    int cantRegistros = ArchivoEmpleados::CantidadRegistros();
+    Empleado* registro = new Empleado[cantRegistros];
 
+    Empleado empleado;
+    Menu menu;
+
+    if(registroA == nullptr)
+    {
+        menu.setColor(4);
+        cout<< "No se han encontrado empleados registrados" << endl;
+        menu.setColor(7);
+        return;
+    }
+        if (cantRegistros != 0)
+        {
+            for (int i = 0; i < cantRegistros; i++ )
+            {
+                registro[i] = ArchivoEmpleados::Leer(i);
+            }
+            for (int i = 0; i <= cantRegistros ; i++)
+            {
+                for (int j = 0; j <= cantRegistros ; j++)
+                {
+                    if (strcmp (registro[j].getNombre(),registro[i].getNombre()) > 0)
+                    {
+                        Empleado temp = registro[i];
+                        registro[i] = registro[j];
+                        registro[j] = temp;
+                    }
+                }
+            }
+            for ( int i = 0 ; i <=cantRegistros ; i++ )
+            {
+                registro[i].mostrarEmpleado();
+            }
+        }
+    delete[] registro;
+    fclose(registroA);
 }
 
 void ArchivoEmpleados::FiltrarPorID(int _ID){

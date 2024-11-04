@@ -5,6 +5,7 @@
 
 #include "ArchivoClientes.h"
 #include "Cliente.h"
+#include "Menu.h"
 
 using namespace std;
 
@@ -97,6 +98,49 @@ FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     fclose(registro);
 
 }
+void ArchivoClientes::FiltrarPorOrdenAlfabetico()
+{
+    FILE *registroA = fopen(_nombreArchivo.c_str(), "rb");
+    int cantRegistros = ArchivoClientes::CantidadRegistros();
+    Cliente* registro = new Cliente[cantRegistros];
+
+    Cliente cliente;
+    Menu menu;
+
+    if(registroA == nullptr)
+    {
+            menu.setColor(4);
+        cout<< "No se han encontrado clientes registrados" << endl;
+            menu.setColor(7);
+            return;
+    }
+    if (cantRegistros != 0)
+    {
+        for (int i = 0; i < cantRegistros; i++ )
+        {
+            registro[i] = ArchivoClientes::Leer(i);
+        }
+        for (int i = 0; i <= cantRegistros ; i++)
+        {
+            for (int j = 0; j <= cantRegistros ; j++)
+            {
+                if (strcmp (registro[j].getNombre(),registro[i].getNombre()) > 0)
+                {
+                    Cliente temp = registro[i];
+                    registro[i] = registro[j];
+                    registro[j] = temp;
+                }
+            }
+        }
+        for ( int i = 0 ; i <=cantRegistros ; i++ )
+        {
+        registro[i].mostrarCliente();
+        }
+    }
+    delete[] registro;
+    fclose(registroA);
+}
+
 void ArchivoClientes::FiltrarPorID(int _ID){
 
 FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
