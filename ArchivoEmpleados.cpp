@@ -156,8 +156,8 @@ FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
         return;
     }
     while(fread(&empleado, sizeof(empleado), 1, registro)){
-        if(empleado.getID() == _ID){
-            fclose(registro);
+        if(empleado.getID() == _ID)
+        {
             empleado.mostrarEmpleado();
             cont++;
         }
@@ -169,6 +169,55 @@ FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     fclose(registro);
 
 }
+void ArchivoEmpleados::FiltrarPorFecha()
+{
+    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    int cantRegistros = ArchivoEmpleados::CantidadRegistros();
+    Empleado* empleado = new Empleado [cantRegistros];
+    Menu menu;
+    Fecha fecha;
+    int cont = 0;
+    if (registro == nullptr)
+    {
+        menu.mensajeDeError("No se encontraron empleados." );
+        return;
+    }
+    if (cantRegistros != 0)
+    {
+        for (int i = 0; i < cantRegistros; i++ )
+        {
+            empleado[i] = ArchivoEmpleados::Leer(i);
+        }
+        for (int i = 0; i < cantRegistros - 1; i++)
+        {
+            for (int j = 0; j < cantRegistros - i - 1; j++)
+            {
+                Fecha fechaA = empleado[j].getFechaIngreso();
+                Fecha fechaB = empleado[j + 1].getFechaIngreso();
+
+                if (fechaA.getAnio() > fechaB.getAnio() ||
+                        (fechaA.getAnio() == fechaB.getAnio() && fechaA.getMes() > fechaB.getMes()) ||
+                        (fechaA.getAnio() == fechaB.getAnio() && fechaA.getMes() == fechaB.getMes() && fechaA.getDia() > fechaB.getDia()))
+                {
+                    Empleado temp = empleado[j];
+                    empleado[j] = empleado[j + 1];
+                    empleado[j + 1] = temp;
+                }
+            }
+        }
+        for (int i = 0; i < cantRegistros; i++)
+        {
+            empleado[i].mostrarEmpleado();
+        }
+    }
+    else
+    {
+        menu.mensajeDeError("No se encontraron empleados");
+    }
+
+    fclose(registro);
+}
+
 void ArchivoEmpleados::FiltrarPorAsistencias(){
 
  FILE *registro = fopen(_nombreArchivo.c_str(), "rb");

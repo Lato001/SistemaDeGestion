@@ -12,6 +12,7 @@ class Fecha{
     int getMes();
     int getAnio();
 
+
     void setDia(int _dia);
     void setMes(int _mes);
     void setAnio(int _anio);

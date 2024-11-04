@@ -1,6 +1,10 @@
 #include <iostream>
 #include <cstring>
+#include <tuple>
+#include <string>
+
 #include "rlutil.h"
+
 using namespace std;
 
 #include "Fecha.h"

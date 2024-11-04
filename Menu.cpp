@@ -584,7 +584,13 @@ while (op!=0 || op !=1)
 }
 void Menu::listarEmpleadosxFecha()
 {
+    ArchivoEmpleados Empleados ("ArchivoEmpleados.dat");
+    Empleado registro;
+    Empleados.FiltrarPorFecha();
+    system ("pause");
+    system ("cls");
 
+    MenulistarEmpleados();
 }
 void Menu::listarClientesAll()
 {
