@@ -640,13 +640,15 @@
 	"ArchivoDetalleVentas.h"
 	"DetalleVenta.h"
 
-1730490784 source:c:\users\river\desktop\lato\sistemadegestion\archivoclientes.cpp
+1730753793 source:c:\users\river\desktop\lato\sistemadegestion\archivoclientes.cpp
 	<string>
 	<cstring>
+	<iostream>
 	"ArchivoClientes.h"
 	"Cliente.h"
+	"Menu.h"
 
-1730490784 c:\users\river\desktop\lato\sistemadegestion\archivoclientes.h
+1730753793 c:\users\river\desktop\lato\sistemadegestion\archivoclientes.h
 	"Persona.h"
 	"Cliente.h"
 
@@ -666,7 +668,7 @@
 
 1730731381 c:\users\river\desktop\lato\sistemadegestion\detalleventa.h
 
-1730748502 source:c:\users\river\desktop\lato\sistemadegestion\archivoempleados.cpp
+1730754668 source:c:\users\river\desktop\lato\sistemadegestion\archivoempleados.cpp
 	<string>
 	<cstring>
 	<iostream>
@@ -674,7 +676,7 @@
 	"Empleado.h"
 	"Menu.h"
 
-1730731381 c:\users\river\desktop\lato\sistemadegestion\archivoempleados.h
+1730753793 c:\users\river\desktop\lato\sistemadegestion\archivoempleados.h
 	"Persona.h"
 	"Empleado.h"
 
@@ -733,7 +735,7 @@
 	"ArchivoProductos.h"
 	"Menu.h"
 
-1730749155 source:c:\users\river\desktop\lato\sistemadegestion\empleado.cpp
+1730753793 source:c:\users\river\desktop\lato\sistemadegestion\empleado.cpp
 	<iostream>
 	<string>
 	"rlutil.h"
@@ -755,7 +757,7 @@
 	"Menu.h"
 	"rlutil.h"
 
-1730735274 c:\users\river\desktop\lato\sistemadegestion\menu.h
+1730753793 c:\users\river\desktop\lato\sistemadegestion\menu.h
 	"Cliente.h"
 	"Empleado.h"
 	"rlutil.h"
@@ -807,7 +809,7 @@
 	"ArchivoProductos.h"
 	"Menu.h"
 
-1730737902 source:c:\users\river\desktop\lato\sistemadegestion\venta.cpp
+1730749173 source:c:\users\river\desktop\lato\sistemadegestion\venta.cpp
 	<iostream>
 	"rlutil.h"
 	"Fecha.h"

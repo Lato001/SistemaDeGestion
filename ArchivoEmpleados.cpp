@@ -55,10 +55,11 @@ Empleado ArchivoEmpleados::Buscar(int empleadoID){
 void ArchivoEmpleados::FiltrarEmpleados(){
    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     Empleado empleado;
+    Menu menu;
     int cont = 0;
 
     if (registro == nullptr) {
-        cout << "No se encontraron empleados." << endl;
+        menu.mensajeDeError("No se encontraron empleados.");
         return;
     }
     while (fread(&empleado, sizeof(empleado), 1, registro)) {
@@ -68,7 +69,7 @@ void ArchivoEmpleados::FiltrarEmpleados(){
     }
 
     if (cont == 0) {
-        cout << "No se encontraron empleados en el archivo." << endl;
+        menu.mensajeDeError("No se encontraron empleados en el archivo.");
     }
 
     fclose(registro);
@@ -79,9 +80,10 @@ void ArchivoEmpleados::FiltrarPorNombre(string _nombre){
 
 FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     Empleado empleado;
+    Menu menu;
     int cont = 0;
     if (registro == nullptr) {
-        cout << "No se encontraron empleados." << endl;
+        menu.mensajeDeError("No se encontraron empleados." );
         return;
     }
     while(fread(&empleado, sizeof(empleado), 1, registro))
@@ -93,7 +95,8 @@ FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
         }
     }
     if(cont == 0){
-        cout<< "No se encontraron empleados con el nombre: " << _nombre<<endl;
+        menu.mensajeDeError("No se encontraron empleados con el nombre: ");
+        cout << _nombre<<endl;
     }
     fclose(registro);
 
@@ -110,9 +113,9 @@ void ArchivoEmpleados::FiltrarPorOrdenAlfabetico()
 
     if(registroA == nullptr)
     {
-        menu.setColor(4);
-        cout<< "No se han encontrado empleados registrados" << endl;
-        menu.setColor(7);
+
+        menu.mensajeDeError("No se han encontrado empleados registrados");
+
         return;
     }
         if (cantRegistros != 0)
@@ -146,9 +149,10 @@ void ArchivoEmpleados::FiltrarPorID(int _ID){
 
 FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     Empleado empleado;
+    Menu menu;
     int cont = 0;
     if (registro == nullptr) {
-        cout << "No se encontraron empleados." << endl;
+        menu.mensajeDeError("No se encontraron empleados." );
         return;
     }
     while(fread(&empleado, sizeof(empleado), 1, registro)){
@@ -159,7 +163,8 @@ FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
         }
     }
     if(cont == 0){
-        cout<< "No se encontraron empleados con el ID: " << _ID<<endl;
+        menu.mensajeDeError("No se encontraron empleados con el ID: ");
+        cout<< _ID<<endl;
     }
     fclose(registro);
 
@@ -170,9 +175,10 @@ void ArchivoEmpleados::FiltrarPorAsistencias(){
 
     Empleado empleadoArr[40];
     Empleado empleado;
+    Menu menu;
     int cont = 0;
     if (registro == nullptr) {
-        cout << "No se encontraron empleados." << endl;
+       menu.mensajeDeError("No se encontraron empleados.");
         return;
     }
 
@@ -205,9 +211,10 @@ void ArchivoEmpleados::FiltrarPorVacacionesActivas(bool _vacaciones){
 
 FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     Empleado empleado;
+    Menu menu;
     int cont = 0;
     if (registro == nullptr) {
-        cout << "No se encontraron empleados." << endl;
+        menu.mensajeDeError("No se encontraron empleados.");
         return;
     }
     while (fread(&empleado, sizeof(empleado), 1, registro)) {
@@ -218,9 +225,9 @@ FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     }
 
     if(cont==0 && _vacaciones){
-        cout<< "No se encontraron empleados con vacaciones activas";
+       menu.mensajeDeError("No se encontraron empleados con vacaciones activas");
     }else if(cont ==0 && !_vacaciones){
-    cout<< "No se encontraron empleados con vacaciones inactivas";
+    menu.mensajeDeError("No se encontraron empleados con vacaciones inactivas");
     }
 
 

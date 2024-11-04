@@ -19,11 +19,13 @@ using namespace std;
 
 void Menu::getMainMenu()
 {
+    Menu menu;
     int op=0;
     bool opcionValida=false;
 
     do
     {
+        setColor(7);
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Listar"<<endl;
@@ -32,6 +34,7 @@ void Menu::getMainMenu()
         cout<<"4. Modificar Registros"<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"==================================="<<endl;
+        setColor(0);
         cin>>op;
         system("cls");
         if(op> (0) && op<4)
@@ -57,9 +60,9 @@ void Menu::getMainMenu()
             exit(0);
             break;
         default:
-             setColor(4);
-            cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
-             setColor(7);
+
+            menu.mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
+
         }
         system("pause");
         system("cls");
@@ -70,11 +73,13 @@ void Menu::getMainMenu()
 }
 void Menu::listar()
 {
+    Menu menu;
     int op=0;
     bool opcionValida=false;
 
     do
     {
+        setColor(7);
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Listar Ventas"<<endl;
@@ -83,6 +88,8 @@ void Menu::listar()
         cout<<"4. Listar Clientes"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
+        setColor(0);
+
         cin>>op;
         system("cls");
         if(op>0 && op<5)
@@ -106,8 +113,7 @@ void Menu::listar()
         case 0:
             getMainMenu();
         default:
-             setColor(4);
-            cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
+            menu.mensajeDeError("Opcion invalida!, vuelva a intentarlo");
               setColor(7);
         }
         system("pause");
@@ -121,21 +127,24 @@ void Menu::listar()
 }
 void Menu::crear()
 {
+    Menu menu;
     int op=0;
     bool opcionValida=false;
 
     do
     {
+
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Crear Empleado"<<endl;
         cout<<"2. Crear Cliente"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
+         setColor(0);
         cin>>op;
-         setColor(7);
         system("cls");
         if(op>0 && op<3)
+
         {
             opcionValida=true;
         }
@@ -151,9 +160,9 @@ void Menu::crear()
             getMainMenu();
             break;
         default:
-                setColor(4);
-            cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
-               setColor(7);
+
+           menu.mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
+
         }
         system("pause");
         system("cls");
@@ -166,12 +175,13 @@ void Menu::crear()
 }
 void Menu::registrar()
 {
+    Menu menu;
     int op=0;
     bool opcionValida=false;
 
     do
     {
-    rlutil::setColor(rlutil::BLACK);
+    setColor(7);
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Registrar Venta"<<endl;
@@ -179,7 +189,7 @@ void Menu::registrar()
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
-            setColor(7);
+            setColor(0);
         system("cls");
         if(op>0 && op<3)
         {
@@ -196,9 +206,9 @@ void Menu::registrar()
         case 0:
             getMainMenu();
         default:
-                setColor(4);
-            cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
-                setColor(7);
+
+            menu.mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
+
         }
         system("pause");
         system("cls");
@@ -216,6 +226,7 @@ void Menu::modificar()
 
     do
     {
+        setColor(7);
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Modificar Venta"<<endl;
@@ -225,6 +236,8 @@ void Menu::modificar()
         cout<<"5. Modificar Detalle de Venta"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
+        setColor(0);
+
         cin>>op;
         system("cls");
         if(op>0 && op<6)
@@ -242,7 +255,7 @@ void Menu::modificar()
         case 0:
             getMainMenu();
         default:
-            rlutil::setColor(rlutil::RED);
+
             mensajeDeError("Opcion invalida!, vuelva a intentarlo");
         }
         system("pause");
@@ -266,14 +279,16 @@ void Menu::modificarRegistroVenta()
     Venta venta;
     bool opcionValida = false;
     listarVentas();
+    setColor(7);
     cout<< "Seleccione el ID de la venta a modificar: ";
-    cin >> input;
+    setColor(0);    cin >> input;
 
     if( Ventas.Buscar(input).getIdVenta() !=  -1)
     {
         while(!opcionValida)
         {
             venta = Ventas.Buscar(input);
+    setColor(7);
             cout<<"Elija el atributo a modificar" << endl;
             cout<<"1. Fecha: ";
             venta.getFecha().mostrarFecha();
@@ -282,6 +297,7 @@ void Menu::modificarRegistroVenta()
             cout<< "4. Detalle de venta"<<endl;
             cout<< "0. Volver al menu principal"<<endl;
             cout<< "Seleccione una opcion: ";
+    setColor(0);
             cin >> input;
             opcionValida = (input> 0 && input< 5);
             if(!opcionValida)
@@ -309,6 +325,7 @@ void Menu::modificarRegistroVenta()
     switch (input)
     {
     case 1:{
+        setColor(2);
         Fecha nuevaFecha;
         cout<<"Nueva fecha a cargar"<<endl;
         nuevaFecha.cargarFecha();
@@ -326,13 +343,16 @@ void Menu::modificarRegistroVenta()
         break;
     case 2:
         {
+            setColor(7);
         cout<<"Empleado que efectuo la venta"<<endl;
         listarEmpleadosAll();
         cout<< "Seleccione el ID del empleado que efectuo la venta:";
+            setColor(0);
         cin >> input;
         if(Empleados.Buscar(input).getID() != -1)
         {
             Ventas.Buscar(venta.getIdVenta()).setidEmpleado(input);
+            setColor(7);
             cout<< "Nuevo Empleado : " <<Ventas.Buscar(venta.getIdVenta()).getIdEmpleado();
         }
 
@@ -347,6 +367,7 @@ void Menu::modificarRegistroVenta()
 }
 void Menu::MenulistarClientes()
 {
+    Menu menu;
     int op=0;
     bool opcionValida=false;
 
@@ -361,6 +382,7 @@ void Menu::MenulistarClientes()
         cout<<"4. Listar todos"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
+    setColor(0);
         cin>>op;
 
         system("cls");
@@ -385,9 +407,9 @@ void Menu::MenulistarClientes()
         case 0:
             getMainMenu();
         default:
-                setColor(4);
-            cout<<"Opcion invalida!, vuelva a intentarlo" << endl;
-                setColor(7);
+
+            menu.mensajeDeError("Opcion invalida!, vuelva a intentarlo");
+
         }
         system("pause");
         system("cls");
@@ -414,6 +436,7 @@ void Menu::MenulistarEmpleados()
         cout<<"7. Listar por Vacaciones Activas SI/NO"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
+   setColor(0);
         cin>>op;
 
         system("cls");
@@ -481,6 +504,7 @@ void Menu::listarEmpleadosxOrdenAlfabetico()
 void Menu::listarEmpleadosxName()
 {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
+    setColor(7);
     cout<<"Ingrese el nombre del empleado a filtrar: ";
     setColor(0);
     string nombre;
@@ -494,6 +518,7 @@ void Menu::listarEmpleadosxName()
 void Menu::listarEmpleadosxID()
 {
 ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
+     setColor(7);
     cout<<"Ingrese el ID del empleado a filtrar: ";
      setColor(0);
     int id;
@@ -513,6 +538,7 @@ MenulistarEmpleados();
 }
 void Menu::listarEmpleadosxVacaciones()
 {
+    Menu menu;
 ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
 int op = -1;
 int m = -1;
@@ -523,6 +549,7 @@ while (op!=0 || op !=1)
     cout << "0.Filtrar Empleados de Vacaciones "<<endl;
     cout << "1.Filtrar Empleados Trabajando "<<endl;
     cout << "2.Volver al menu principal "<<endl;
+     setColor(0);
     cin >> op;
     system ("cls");
     if(op!=0 || op !=1)
@@ -543,9 +570,9 @@ while (op!=0 || op !=1)
         if (opcionValida==false)
         {
 
-            setColor(4);
-            cout<<"Opcion invalida! vuelva a intentarlo" << endl;
-            setColor(7);
+
+            menu.mensajeDeError("Opcion invalida! vuelva a intentarlo");
+
         }
         }
     }
@@ -586,7 +613,7 @@ void Menu::listarClientesxName()
 
 void Menu::listarClientesxOrdenAlfabetico()
 {
-
+Menu menu;
     ArchivoClientes Clientes("ArchivoClientes.dat");
     Clientes.FiltrarPorOrdenAlfabetico();
         system("pause");
@@ -606,15 +633,16 @@ void Menu::listarClientesxOrdenAlfabetico()
 
 void Menu::listarVentas()
 {
+    Menu menu;
     ArchivoVentas Ventas("ArchivoVentas.dat");
     Venta registro;
     int cantRegistros = Ventas.CantidadRegistros();
 
     if(cantRegistros == 0)
     {
-            setColor(4);
-        cout<< "No se han encontrado ventas registradas" << endl;
-            setColor(7);
+
+       menu.mensajeDeError("No se han encontrado ventas registradas" );
+
     }
     else
     {
@@ -632,15 +660,16 @@ void Menu::listarVentas()
 }
 void Menu::listarProductos()
 {
+    Menu menu;
     ArchivoProductos Productos("ArchivoProductos.dat");
     Producto registro;
     int cantRegistros = Productos.CantidadRegistros();
 
     if(cantRegistros == 0)
     {
-            setColor(4);
-        cout<< "No se han encontrado productos registrados" << endl;
-            setColor(7);
+
+       menu.mensajeDeError("No se han encontrado productos registrados");
+
     }
     else
     {
@@ -658,10 +687,12 @@ void Menu::listarProductos()
 
 void Menu::crearEmpleado()
 {
+
     ArchivoEmpleados archivoEmpleados("ArchivoEmpleados.dat");
 
 
     Empleado empleado;
+    Menu menu;
     empleado.cargarEmpleado();
     empleado.mostrarEmpleado();
     if ( archivoEmpleados.Guardar(empleado) )
@@ -673,9 +704,9 @@ void Menu::crearEmpleado()
     }
     else
     {
-            setColor(4);
-        cout << "Error al registrar el Empleado." << endl;
-            setColor(7);
+
+        menu.mensajeDeError("Error al registrar el Empleado." );
+
     }
 }
 
