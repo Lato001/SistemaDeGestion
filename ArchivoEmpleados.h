@@ -15,6 +15,11 @@ private:
         bool Guardar(Empleado empleado);
         bool Guardar(Empleado empleado, int posicion);
         Empleado Buscar(int empleadoID);
+        void FiltrarEmpleados();
+        void FiltrarPorNombre(string _nombre);
+        void FiltrarPorID(int _ID);
+        void FiltrarPorAsistencias();
+        void FiltrarPorVacacionesActivas(bool _vacaciones);
         Empleado Leer(int posicion);
         int CantidadRegistros();
         void Leer(int CantidadRegistros, Empleado *vector);

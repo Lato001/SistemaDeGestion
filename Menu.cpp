@@ -417,12 +417,14 @@ void Menu::MenulistarEmpleados()
         cout<<"3. Por ID"<<endl;
         cout<<"4. Por Fecha de Ingreso"<<endl;
         cout<<"5. Listar todos"<<endl;
+        cout<<"6. Listar por asistencias"<<endl;
+        cout<<"7. Listar por Vacaciones Activas SI/NO"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
             setColor(7);
         system("cls");
-        if(op>0 && op<6)
+        if(op>0 && op<8)
         {
             opcionValida=true;
         }
@@ -443,6 +445,12 @@ void Menu::MenulistarEmpleados()
         case 5:
             listarEmpleadosAll();
             break;
+        case 6:
+            listarEmpleadosxAsistencias();
+            break;
+        case 7:
+            listarEmpleadosxVacaciones();
+            break;
         case 0:
             getMainMenu();
         default:
@@ -461,23 +469,11 @@ void Menu::listarEmpleadosAll()
 {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     Empleado registro;
-    int cantRegistros = Empleados.CantidadRegistros();
-    if(cantRegistros == 0)
-    {
-        mensajeDeError("No se han encontrado empleados registrados" );
-    }
-    else
-    {
-    setColor(2);
-        cout<< "TOTAL DE EMPLEADOS: " << cantRegistros << endl;
-            setColor(7);
-        for (int i = 0; i < cantRegistros; i++ )
-        {
-            registro = Empleados.Leer(i);
-            registro.mostrarEmpleado();
-            cout<<endl;
-        }
-    }
+
+    Empleados.FiltrarEmpleados();
+    system("pause");
+system("cls");
+MenulistarEmpleados();
 }
 
 void Menu::listarEmpleadosxOrdenAlfabetico()
@@ -524,44 +520,57 @@ void Menu::listarEmpleadosxOrdenAlfabetico()
 
 void Menu::listarEmpleadosxName()
 {
+
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
-    Empleado registro;
-    bool encontrado = false;
-    string nombreBuscado;
-    int cantRegistros = Empleados.CantidadRegistros();
-
-    if (cantRegistros == 0)
-    {
-            setColor(4);
-        cout << "No se han encontrado empleados registrados" << endl;
-           setColor(7);
-        return;
-    }
-    setColor(0);
-    cout << "Ingrese el nombre del empleado a buscar: ";
-    setColor(7);
-    cin >> nombreBuscado;
-    for (int i = 0; i < cantRegistros; i++)
-    {
-        registro = Empleados.Leer(i);
-        if (registro.getNombre() == nombreBuscado)
-        {
-            registro.mostrarEmpleado();
-            encontrado = true;
-        }
-
-    }
-        if (!encontrado)
-        {
-                setColor(4);
-            cout << "No se encontraron empleados con el nombre: " << nombreBuscado << endl;
-                setColor(7);
-        }
+    cout<<"Ingrese el nombre del empleado a filtrar: ";
+    string nombre;
+    cin >> nombre;
+    Empleados.FiltrarPorNombre(nombre);
+    system("pause");
+system("cls");
+MenulistarEmpleados();
 }
 void Menu::listarEmpleadosxID()
-{}
+{
+ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
+    cout<<"Ingrese el ID del empleado a filtrar: ";
+    int id;
+    cin >> id;
+    Empleados.FiltrarPorID(id);}
+void Menu::listarEmpleadosxAsistencias(){
+ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
+Empleados.FiltrarPorAsistencias();
+system("pause");
+system("cls");
+MenulistarEmpleados();
+
+
+}
+void Menu::listarEmpleadosxVacaciones(){
+ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
+int op = -1;
+while (op!=0 || op !=1){
+    cout<< "0.Filtrar Empleados de Vacaciones \n1.Filtrar Empleados Trabajando"<<endl;
+    cin >> op;
+    if(op!=0 || op !=1){
+    Empleados.FiltrarPorVacacionesActivas(op);
+    system("pause");
+    system("cls");
+
+    }else{
+        cout<<"opcion invalida!";
+        system("pause");
+        system("cls");
+    }
+
+}
+MenulistarEmpleados();
+
+
+}
 void Menu::listarEmpleadosxFecha()
-{}
+{
+}
 
 
 void Menu::listarClientesAll()

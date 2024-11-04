@@ -19,7 +19,9 @@ public:
     void listarEmpleadosxOrdenAlfabetico();
     void listarEmpleadosxID();
     void listarEmpleadosxFecha();
+    void listarEmpleadosxAsistencias();
     void listarEmpleadosAll();
+    void listarEmpleadosxVacaciones();
 
     void MenulistarClientes();
 
