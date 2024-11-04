@@ -72,33 +72,33 @@ void Producto::cargarProducto()
     productoID = Productos.CantidadRegistros() + 1;
 
     cin.ignore();
-    Menu::setColor(0);
-    cout << "Ingrese el nombre del Producto: ";
     Menu::setColor(7);
+    cout << "Ingrese el nombre del Producto: ";
+    Menu::setColor(0);
     cin.getline(inputNombreProducto, 50);
     setNombre(inputNombreProducto);
     system("pause");
     system("cls");
 
-    Menu::setColor(0);
-    cout << "Ingrese la categoria del Producto: ";
     Menu::setColor(7);
+    cout << "Ingrese la categoria del Producto: ";
+    Menu::setColor(0);
     cin.getline(inputCategoriaProducto, 50);
     setCategoriaProducto(inputCategoriaProducto);
     system("pause");
     system("cls");
 
-    Menu::setColor(0);
-    cout << "Ingrese el precio del Producto: ";
     Menu::setColor(7);
+    cout << "Ingrese el precio del Producto: ";
+    Menu::setColor(0);
     cin >> inputPrecioUnitario;
     setPrecioUnitario(inputPrecioUnitario);
     system("pause");
     system("cls");
 
-    Menu::setColor(0);
-    cout << "Ingrese el stock del Producto: ";
     Menu::setColor(7);
+    cout << "Ingrese el stock del Producto: ";
+    Menu::setColor(0);
     cin >> inputStock;
     setStock(inputStock);
     system("pause");
@@ -107,13 +107,26 @@ void Producto::cargarProducto()
 }
 void Producto::mostrarProducto()
 {
+    Menu menu;
     Menu::setColor(3);
     cout << "////////////////// ID PRODUCTO: " << getProductoID() << " //////////////////" << endl;
-   Menu::setColor(0);
-    cout << "Nombre del Producto: " << getNombre() << endl;
-    cout << "Categoría del Producto: " << getCategoriaProducto() << endl;
-    cout << "Precio Unitario: " << getPrecioUnitario() << endl;
-    cout << "Stock: " << getStock() << endl;
+   Menu::setColor(7);
+    cout << "Nombre del Producto: ";
+    menu.setColor(0);
+    cout<< getNombre() << endl;
+    menu.setColor(7);
+    cout << "Categoría del Producto: ";
+    menu.setColor(0);
+    cout << getCategoriaProducto() << endl;
+    menu.setColor(7);
+    cout << "Precio Unitario: ";
+    menu.setColor(0);
+    cout << getPrecioUnitario() << endl;
+    menu.setColor(7);
+    cout << "Stock: ";
+    menu.setColor(0);
+    cout << getStock() << endl;
+    menu.setColor(3);
     cout << "////////////////////////////////////////////////////" << endl << endl;
     Menu::setColor(7);
 }

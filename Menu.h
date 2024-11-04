@@ -2,6 +2,7 @@
 #define MENU_H_INCLUDED
 #include "Cliente.h"
 #include "Empleado.h"
+#include "rlutil.h"
 using namespace std;
 class Menu{
 public:
@@ -52,6 +53,8 @@ public:
     void mensajeDeError(string mensaje);
     static void setColor(int color);
 
+
 };
+
 
 #endif // MENU_H_INCLUDED

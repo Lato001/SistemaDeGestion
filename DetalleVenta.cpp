@@ -125,7 +125,7 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
 
 void DetalleVenta::mostrarDetalleDeVenta()
 {
-
+Menu menu;
     ArchivoDetalleVentas DetalleVentas("ArchivoDetalleVentas.dat");
     ArchivoProductos Productos("ArchivoProductos.dat");
     Producto producto;
@@ -138,10 +138,19 @@ void DetalleVenta::mostrarDetalleDeVenta()
 
         Menu::setColor(7);
 
-        cout << "PRECIO UNITARIO: " << Productos.Buscar(DetalleVentas.BuscarPorLinea(idVenta, i).getIdProducto()).getPrecioUnitario() << endl; //llamar al precio unitario que traeria desde producto asociado a DetalleVentas por herencia
-
-        cout << "CANTIDAD DEL PRODUCTO: " << DetalleVentas.BuscarPorLinea(idVenta,i).getCantidadProducto() << endl;
-        cout<< "IMPORTE: $" << DetalleVentas.BuscarPorLinea(idVenta,i).getImporte()<<endl;
+        cout << "PRECIO UNITARIO: ";
+        menu.setColor(0);
+        cout << Productos.Buscar(DetalleVentas.BuscarPorLinea(idVenta, i).getIdProducto()).getPrecioUnitario() << endl; //llamar al precio unitario que traeria desde producto asociado a DetalleVentas por herencia
+menu.setColor(7);
+        cout << "CANTIDAD DEL PRODUCTO: ";
+        menu.setColor(0);
+        cout << DetalleVentas.BuscarPorLinea(idVenta,i).getCantidadProducto() << endl;
+        menu.setColor(7);
+        cout<< "IMPORTE: ";
+        menu.setColor(0);
+        cout << "$";
+        cout << DetalleVentas.BuscarPorLinea(idVenta,i).getImporte()<<endl;
+        menu.setColor(7);
         cout<<endl;
         cout<<endl;
     }

@@ -352,7 +352,7 @@ void Menu::MenulistarClientes()
 
     do
     {
-    setColor(0);
+    setColor(7);
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Por Nombre"<<endl;
@@ -363,7 +363,7 @@ void Menu::MenulistarClientes()
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
-            setColor(7);
+
         system("cls");
         if(op>0 && op<6)
         {
@@ -409,7 +409,7 @@ void Menu::MenulistarEmpleados()
 
     do
     {
-    rlutil::setColor(rlutil::BLACK);
+   setColor(7);
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Por Nombre"<<endl;
@@ -422,7 +422,7 @@ void Menu::MenulistarEmpleados()
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         cin>>op;
-            setColor(7);
+
         system("cls");
         if(op>0 && op<8)
         {
@@ -523,9 +523,11 @@ void Menu::listarEmpleadosxName()
 
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     cout<<"Ingrese el nombre del empleado a filtrar: ";
+     setColor(0);
     string nombre;
     cin >> nombre;
     Empleados.FiltrarPorNombre(nombre);
+     setColor(7);
     system("pause");
 system("cls");
 MenulistarEmpleados();
@@ -534,9 +536,11 @@ void Menu::listarEmpleadosxID()
 {
 ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     cout<<"Ingrese el ID del empleado a filtrar: ";
+     setColor(0);
     int id;
     cin >> id;
-    Empleados.FiltrarPorID(id);}
+    Empleados.FiltrarPorID(id);
+     setColor(7);}
 void Menu::listarEmpleadosxAsistencias(){
 ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
 Empleados.FiltrarPorAsistencias();
@@ -551,14 +555,15 @@ ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
 int op = -1;
 while (op!=0 || op !=1){
     cout<< "0.Filtrar Empleados de Vacaciones \n1.Filtrar Empleados Trabajando"<<endl;
+     setColor(0);
     cin >> op;
     if(op!=0 || op !=1){
     Empleados.FiltrarPorVacacionesActivas(op);
     system("pause");
     system("cls");
-
+ setColor(7);
     }else{
-        cout<<"opcion invalida!";
+     cout<<"opcion invalida!";
         system("pause");
         system("cls");
     }
@@ -611,8 +616,10 @@ void Menu::listarClientesxName()
            mensajeDeError("No se han encontrado clientes registrados");
         return;
     }
-    mensajeDeError("Ingrese el nombre del cliente a buscar: ");
+    cout << ("Ingrese el nombre del cliente a buscar: ");
+    setColor(0);
     cin >> nombreBuscado;
+    setColor(7);
 
     for (int i = 0; i < cantRegistros; i++)
     {
@@ -626,7 +633,7 @@ void Menu::listarClientesxName()
     }
     if (!encontrado)
     {
-            mensajeDeError("No se encontraron clientes con el nombre ingresado: ");
+            mensajeDeError("No se encontraron clientes con el nombre ingresado ");
     }
 
 }
@@ -831,6 +838,7 @@ setColor(4);
 cout<<mensaje<<endl;
 setColor(7);
 }
+
 
 
 

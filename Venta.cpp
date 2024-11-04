@@ -198,6 +198,7 @@ void Venta::mostrarVenta() {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     ArchivoClientes Clientes("ArchivoClientes.dat");
     ArchivoDetalleVentas DetallesVentas("ArchivoDetalleVentas.dat");
+    Menu menu;
     Venta saldo;
     cout << "------------ Nro DE VENTA: " << getIdVenta() << " ------------------------" << endl;
     cout << "FECHA: ";
@@ -210,21 +211,31 @@ void Venta::mostrarVenta() {
     Clientes.Buscar(getIdCliente()).mostrarCliente();
     cout << endl;
     cout << "FORMA DE PAGO: ";
+    menu.setColor(0);
     switch (getFormaDePago()) {
         case 1: cout << "Efectivo" << endl; break;
         case 2: cout << "Debito" << endl; break;
         case 3: cout << "Credito" << endl; break;
+        menu.setColor(7);
     }
     cout << endl;
-
+    menu.setColor(7);
     cout << "--------------- DETALLE DE VENTA --------------------" << endl;
-    cout<< "ARTICULOS COMPRADOS: " << DetallesVentas.ContLineas(getIdVenta())<<endl<<endl;
+    cout<< "ARTICULOS COMPRADOS: ";
+    menu.setColor(0);
+    cout << DetallesVentas.ContLineas(getIdVenta())<<endl<<endl;
+    menu.setColor(7);
     for(int i = 0 ; i <= DetallesVentas.ContLineas(idVenta) ; i++ )
     {
         saldo.importeTotal += DetallesVentas.BuscarPorLinea(idVenta,i).getImporte();
     }
     DetallesVentas.Buscar(getIdVenta()).mostrarDetalleDeVenta();
-    cout<<"Importe TOTAL de la Venta: $"<< saldo.getImporteTotal();
+    cout<<"Importe TOTAL de la Venta: ";
+    menu.setColor(0);
+    cout <<"$";
+    cout<< saldo.getImporteTotal();
+    menu.setColor(7);
+    cout << endl;
     cout << "---------------------------------------------------" << endl;
 }
 

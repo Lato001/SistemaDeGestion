@@ -63,54 +63,72 @@ void Persona::setLocalidad(const char* _localidad) {
 }
 
 void Persona::mostrarPersona() {
-    Menu::setColor(0);
-    cout << "              DNI: " << getDNI() << endl;
-    cout << "              Nombre: " << getNombre() << endl;
-    cout << "              Apellido: " << getApellido() << endl;
-    cout << "              Email: " << getEmail() << endl;
-    cout << "              N Telefono: " << getnTelefono() << endl;
-    cout << "              Localidad: " << getLocalidad() << endl;
-    Menu::setColor(7);
+    Menu menu;
+   menu.setColor(7);
+    cout << "              DNI: ";
+    menu.setColor(0);
+    cout << getDNI() << endl;
+    menu.setColor(7);
+    cout << "              Nombre: ";
+    menu.setColor(0);
+    cout << getNombre() << endl;
+    menu.setColor(7);
+    cout << "              Apellido: ";
+    menu.setColor(0);
+    cout << getApellido() << endl;
+    menu.setColor(7);
+    cout << "              Email: ";
+    menu.setColor(0);
+    cout << getEmail() << endl;
+    menu.setColor(7);
+    cout << "              N Telefono: ";
+    menu.setColor(0);
+    cout << getnTelefono() << endl;
+    menu.setColor(7);
+    cout << "              Localidad: ";
+    menu.setColor(0);
+    cout << getLocalidad() << endl;
+    menu.setColor(7);
 }
 
 void Persona::cargarPersona() {
     int inputNumeros;
     char inputLetras[50];
 
-    Menu::setColor(0);
-    cout << "Ingrese el DNI:" << endl;
     Menu::setColor(7);
+    cout << "Ingrese el DNI:" << endl;
+    Menu::setColor(0);
     cin >> inputNumeros;
     setDNI(inputNumeros);
 
-   Menu::setColor(0);
+   Menu::setColor(7);
     cout << "Ingrese el Nombre:" << endl;
-    Menu::setColor(7);
+    Menu::setColor(0);
     cin.ignore();
     cin.getline(inputLetras, 50);
     setNombre(inputLetras);
 
-   Menu::setColor(0);
+   Menu::setColor(7);
     cout << "Ingrese el Apellido:" << endl;
-    Menu::setColor(7);
+    Menu::setColor(0);
     cin.getline(inputLetras, 50);
     setApellido(inputLetras);
 
-   Menu::setColor(0);
+   Menu::setColor(7);
     cout << "Ingrese el Email:" << endl;
-    Menu::setColor(7);
+    Menu::setColor(0);
     cin.getline(inputLetras, 50);
     setEmail(inputLetras);
 
-   Menu::setColor(0);
-    cout << "Ingrese el Telefono:" << endl;
    Menu::setColor(7);
+    cout << "Ingrese el Telefono:" << endl;
+   Menu::setColor(0);
     cin >> inputNumeros;
     setnTelefono(inputNumeros);
 
-   Menu::setColor(0);
-    cout << "Ingrese la Localidad:" << endl;
    Menu::setColor(7);
+    cout << "Ingrese la Localidad:" << endl;
+   Menu::setColor(0);
     cin.ignore();
     cin.getline(inputLetras, 50);
     setLocalidad(inputLetras);
