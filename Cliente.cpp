@@ -1,11 +1,13 @@
 #include <iostream>
 #include "rlutil.h"
 
+
 using namespace std;
 
 #include "Persona.h"
 #include "Cliente.h"
 #include "ArchivoClientes.h"
+#include "Menu.h"
 
 Cliente::Cliente() {
     clienteID = 0;
@@ -25,23 +27,23 @@ void Cliente::setClienteID(int _clienteID) {
 }
 
 void Cliente::mostrarCliente() {
-    rlutil::setColor(rlutil::CYAN);
+    Menu::setColor(3);
     cout << "////////////////// ID CLIENTE: " << getID() << " //////////////////" << endl;
-    rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
     mostrarPersona();
 }
 
 void Cliente::cargarCliente() {
     ArchivoClientes Clientes("ArchivoClientes.dat");
 
-    rlutil::setColor(rlutil::BLACK);
+    Menu::setColor(0);
     cout << "Ingrese los datos del cliente:" << endl;
 
     cargarPersona();
     clienteID = (Clientes.CantidadRegistros() + 1);
 
-    rlutil::setColor(rlutil::GREEN);
+    Menu::setColor(2);
     cout << "Cliente cargado correctamente con ID: " << clienteID << endl;
 
-    rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
 }

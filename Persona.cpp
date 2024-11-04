@@ -4,6 +4,7 @@
 using namespace std;
 
 #include "Persona.h"
+#include "Menu.h"
 
 Persona::Persona() {
     DNI = 0;
@@ -62,54 +63,54 @@ void Persona::setLocalidad(const char* _localidad) {
 }
 
 void Persona::mostrarPersona() {
-    rlutil::setColor(rlutil::BLACK);
+    Menu::setColor(0);
     cout << "              DNI: " << getDNI() << endl;
     cout << "              Nombre: " << getNombre() << endl;
     cout << "              Apellido: " << getApellido() << endl;
     cout << "              Email: " << getEmail() << endl;
     cout << "              N Telefono: " << getnTelefono() << endl;
     cout << "              Localidad: " << getLocalidad() << endl;
-    rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
 }
 
 void Persona::cargarPersona() {
     int inputNumeros;
     char inputLetras[50];
 
-    rlutil::setColor(rlutil::BLACK);
+    Menu::setColor(0);
     cout << "Ingrese el DNI:" << endl;
-       rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
     cin >> inputNumeros;
     setDNI(inputNumeros);
 
-   rlutil::setColor(rlutil::BLACK);
+   Menu::setColor(0);
     cout << "Ingrese el Nombre:" << endl;
-       rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
     cin.ignore();
     cin.getline(inputLetras, 50);
     setNombre(inputLetras);
 
-   rlutil::setColor(rlutil::BLACK);
+   Menu::setColor(0);
     cout << "Ingrese el Apellido:" << endl;
-       rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
     cin.getline(inputLetras, 50);
     setApellido(inputLetras);
 
-   rlutil::setColor(rlutil::BLACK);
+   Menu::setColor(0);
     cout << "Ingrese el Email:" << endl;
-       rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
     cin.getline(inputLetras, 50);
     setEmail(inputLetras);
 
-   rlutil::setColor(rlutil::BLACK);
+   Menu::setColor(0);
     cout << "Ingrese el Telefono:" << endl;
-       rlutil::setColor(rlutil::WHITE);
+   Menu::setColor(7);
     cin >> inputNumeros;
     setnTelefono(inputNumeros);
 
-   rlutil::setColor(rlutil::BLACK);
+   Menu::setColor(0);
     cout << "Ingrese la Localidad:" << endl;
-    rlutil::setColor(rlutil::WHITE);
+   Menu::setColor(7);
     cin.ignore();
     cin.getline(inputLetras, 50);
     setLocalidad(inputLetras);

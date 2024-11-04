@@ -7,7 +7,7 @@ void cambiarFondo(int color);
 int main()
 {
     rlutil::setBackgroundColor(rlutil::DARKGREY);
-    rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
     system("cls");
 
     Menu menu;

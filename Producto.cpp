@@ -6,6 +6,7 @@ using namespace std;
 #include "DetalleVenta.h"
 #include "Producto.h"
 #include "ArchivoProductos.h"
+#include "Menu.h"
 
 Producto::Producto()
 {
@@ -71,33 +72,33 @@ void Producto::cargarProducto()
     productoID = Productos.CantidadRegistros() + 1;
 
     cin.ignore();
-    rlutil::setColor(rlutil::BLACK);
+    Menu::setColor(0);
     cout << "Ingrese el nombre del Producto: ";
-    rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
     cin.getline(inputNombreProducto, 50);
     setNombre(inputNombreProducto);
     system("pause");
     system("cls");
 
-    rlutil::setColor(rlutil::BLACK);
+    Menu::setColor(0);
     cout << "Ingrese la categoria del Producto: ";
-    rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
     cin.getline(inputCategoriaProducto, 50);
     setCategoriaProducto(inputCategoriaProducto);
     system("pause");
     system("cls");
 
-    rlutil::setColor(rlutil::BLACK);
+    Menu::setColor(0);
     cout << "Ingrese el precio del Producto: ";
-    rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
     cin >> inputPrecioUnitario;
     setPrecioUnitario(inputPrecioUnitario);
     system("pause");
     system("cls");
 
-    rlutil::setColor(rlutil::BLACK);
+    Menu::setColor(0);
     cout << "Ingrese el stock del Producto: ";
-    rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
     cin >> inputStock;
     setStock(inputStock);
     system("pause");
@@ -106,13 +107,13 @@ void Producto::cargarProducto()
 }
 void Producto::mostrarProducto()
 {
-    rlutil::setColor(rlutil::CYAN);
+    Menu::setColor(3);
     cout << "////////////////// ID PRODUCTO: " << getProductoID() << " //////////////////" << endl;
-   rlutil::setColor(rlutil::BLACK);
+   Menu::setColor(0);
     cout << "Nombre del Producto: " << getNombre() << endl;
     cout << "Categoría del Producto: " << getCategoriaProducto() << endl;
     cout << "Precio Unitario: " << getPrecioUnitario() << endl;
     cout << "Stock: " << getStock() << endl;
     cout << "////////////////////////////////////////////////////" << endl << endl;
-    rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
 }

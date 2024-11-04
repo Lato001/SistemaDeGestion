@@ -8,6 +8,7 @@ using namespace std;
 #include "Venta.h"
 #include "Producto.h"
 #include "ArchivoProductos.h"
+#include "Menu.h"
 
 DetalleVenta::DetalleVenta() {
     idVenta = 0;
@@ -69,16 +70,16 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
 
     bool opcionValida = false;
     while (!opcionValida) {
-        rlutil::setColor(rlutil::WHITE);
+        Menu::setColor(7);
         for (int i = 0; i < Productos.CantidadRegistros(); i++) {
             registro = Productos.Leer(i);
             registro.mostrarProducto();
             cout << endl;
         }
-         rlutil::setColor(rlutil::WHITE);
+         Menu::setColor(7);
         cout << "Ingrese la opcion deseada: ";
 
-         rlutil::setColor(rlutil::BLACK);
+         Menu::setColor(0);
         cin >> input;
 
         productoActual = Productos.Buscar(input);
@@ -87,9 +88,9 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
             opcionValida = true;
             idProducto = productoActual.getProductoID();
         } else {
-                  rlutil::setColor(rlutil::RED);
+                  Menu::setColor(4);
             cout << "Opcion invalida, vuelva a intentarlo" << endl;
-                  rlutil::setColor(rlutil::WHITE);
+                  Menu::setColor(7);
         }
         system("pause");
         system("cls");
@@ -97,10 +98,10 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
 
     opcionValida = false;
     while (!opcionValida) {
-        rlutil::setColor(rlutil::WHITE);
+        Menu::setColor(7);
         cout << "Stock Disponible: " << productoActual.getStock() << endl << endl;
         cout << "Ingrese la cantidad comprada del producto: " << endl;
-        rlutil::setColor(rlutil::BLACK);
+        Menu::setColor(0);
         cin >> input;
 
         if (input <= productoActual.getStock()) {
@@ -110,9 +111,9 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
             Productos.Guardar(productoActual, Productos.BuscarPos(idProducto)); ///??? PARA QUE SIRVE
             opcionValida = true;
         } else {
-                rlutil::setColor(rlutil::RED);
+                Menu::setColor(4);
             cout << "Opcion invalida! Vuelva a intentarlo" << endl;
-               rlutil::setColor(rlutil::WHITE);
+               Menu::setColor(7);
             system("pause");
             system("cls");
 
@@ -130,12 +131,12 @@ void DetalleVenta::mostrarDetalleDeVenta()
     Producto producto;
     for (int i =1; i<= DetalleVentas.ContLineas(idVenta); i++ )
     {
-        rlutil::setColor(rlutil::CYAN);
+        Menu::setColor(3);
         cout << "ID DEL PRODUCTO: " << DetalleVentas.BuscarPorLinea(idVenta,i).getIdProducto()<< endl;
 
         idProducto=getIdProducto();
 
-        rlutil::setColor(rlutil::WHITE);
+        Menu::setColor(7);
 
         cout << "PRECIO UNITARIO: " << Productos.Buscar(DetalleVentas.BuscarPorLinea(idVenta, i).getIdProducto()).getPrecioUnitario() << endl; //llamar al precio unitario que traeria desde producto asociado a DetalleVentas por herencia
 

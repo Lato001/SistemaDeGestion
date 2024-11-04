@@ -44,6 +44,7 @@ public:
 
     ///FUNCIONES PARA INTERFAZ
     void mensajeDeError(string mensaje);
+    static void setColor(int color);
 
 };
 

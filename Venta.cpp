@@ -11,6 +11,7 @@
 #include "DetalleVenta.h"
 #include "ArchivoProductos.h"
 #include "Producto.h"
+#include "Menu.h"
 
 using namespace std;
 
@@ -65,15 +66,15 @@ void Venta::cargarVenta() {
     bool vendedorValido = false, clienteValido = false, formaDePagoValida = false;
 
     rlutil::cls();
-    rlutil::setColor(rlutil::BLACK);
+    Menu::setColor(0);
     cout << "Ingrese la fecha de la venta:" << endl;
-    rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
     fecha.cargarFecha();
     rlutil::anykey();
     rlutil::cls();
 
     while (!vendedorValido) {
-        rlutil::setColor(rlutil::BLACK);
+        Menu::setColor(0);
         cout << "Seleccione el Empleado (ID - Nombre):" << endl;
 
         for (int i = 0; i < Empleados.CantidadRegistros(); i++) {
@@ -81,16 +82,16 @@ void Venta::cargarVenta() {
             cout << "ID: " << registroEmpleado.getID() << " - Nombre: " << registroEmpleado.getNombre() << endl;
         }
         cout << "Ingrese el ID del Empleado: ";
-           rlutil::setColor(rlutil::WHITE);
+           Menu::setColor(7);
         cin >> input;
 
         if (input > 0 && input <= Empleados.CantidadRegistros()) {
             idEmpleado = input;
             vendedorValido = true;
         } else {
-            rlutil::setColor(rlutil::RED);
+            Menu::setColor(4);
             cout << "ID invalido. Intente nuevamente." << endl;
-            rlutil::setColor(rlutil::WHITE);
+            Menu::setColor(7);
             rlutil::anykey();
             rlutil::cls();
         }
@@ -99,7 +100,7 @@ void Venta::cargarVenta() {
     rlutil::cls();
 
     while (!clienteValido) {
-        rlutil::setColor(rlutil::BLACK);
+        Menu::setColor(0);
         cout << "Seleccione el cliente (ID - Nombre):" << endl;
 
         for (int i = 0; i < Clientes.CantidadRegistros(); i++) {
@@ -107,16 +108,16 @@ void Venta::cargarVenta() {
             cout << "ID: " << registroCliente.getID() << " - Nombre: " << registroCliente.getNombre() << endl;
         }
         cout << "Ingrese el ID del cliente: ";
-         rlutil::setColor(rlutil::WHITE);
+         Menu::setColor(7);
         cin >> input;
 
         if (input > 0 && input <= Clientes.CantidadRegistros()) {
             idCliente = input;
             clienteValido = true;
         } else {
-            rlutil::setColor(rlutil::RED);
+            Menu::setColor(4);
             cout << "ID invalido. Intente nuevamente." << endl;
-            rlutil::setColor(rlutil::WHITE);
+            Menu::setColor(7);
             rlutil::anykey();
             rlutil::cls();
         }
@@ -125,26 +126,26 @@ void Venta::cargarVenta() {
     rlutil::cls();
 
     while (!formaDePagoValida) {
-        rlutil::setColor(rlutil::BLACK);
+        Menu::setColor(0);
         cout << "Seleccione forma de pago:" << endl;
         cout << "1. Efectivo\n2. Debito\n3. Credito" << endl << "Opcion: ";
-        rlutil::setColor(rlutil::WHITE);
+        Menu::setColor(7);
         cin >> input;
         formaDePago = input;
 
         if (formaDePago > 0 && formaDePago < 4) {
             formaDePagoValida = true;
-            rlutil::setColor(rlutil::GREEN);
+            Menu::setColor(2);
             switch (formaDePago) {
                 case 1: cout << "Metodo de pago seleccionado: Efectivo" << endl; break;
                 case 2: cout << "Metodo de pago seleccionado: Debito" << endl; break;
                 case 3: cout << "Metodo de pago seleccionado: Credito" << endl; break;
             }
-            rlutil::setColor(rlutil::WHITE);
+            Menu::setColor(7);
         } else {
-            rlutil::setColor(rlutil::RED);
+            Menu::setColor(4);
             cout << "Metodo de pago no valido." << endl;
-            rlutil::setColor(rlutil::WHITE);
+            Menu::setColor(7);
         }
     }
     rlutil::anykey();
@@ -152,28 +153,28 @@ void Venta::cargarVenta() {
 
     bool validacionDetalles = false;
     while (!validacionDetalles) {
-        rlutil::setColor(rlutil::BLACK);
+        Menu::setColor(0);
         cout << "--------------- DETALLE DE VENTA --------------------" << endl;
-        rlutil::setColor(rlutil::WHITE);
+        Menu::setColor(7);
         registroDetalle.cargarDetalleDeVenta(getIdVenta());
         rlutil::anykey();
         if (DetalleVentas.Guardar(registroDetalle)) {
-            rlutil::setColor(rlutil::GREEN);
+            Menu::setColor(2);
             cout << "El detalle de venta se ha registrado correctamente" << endl;
-            rlutil::setColor(rlutil::WHITE);
+            Menu::setColor(7);
         }
 
         cout << "-----------------------------------------------------" << endl;
 
         while (inputChar != 'S' && inputChar != 'N') {
- rlutil::setColor(rlutil::BLACK);
+            Menu::setColor(0);
             cout << "Desea registrar otro producto para esta venta? S/N: ";
-             rlutil::setColor(rlutil::WHITE);
+            Menu::setColor(7);
             cin >> inputChar;
             if (inputChar != 'S' && inputChar != 'N') {
-                rlutil::setColor(rlutil::RED);
+                Menu::setColor(4);
                 cout << "Opcion invalida! Vuelva a intentarlo" << endl;
-                rlutil::setColor(rlutil::WHITE);
+                Menu::setColor(7);
             }
         }
         if (inputChar == 'N') {

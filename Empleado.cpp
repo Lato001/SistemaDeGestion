@@ -7,6 +7,7 @@ using namespace std;
 #include "Persona.h"
 #include "Fecha.h"
 #include "ArchivoEmpleados.h"
+#include "Menu.h"
 
 Empleado::Empleado()
 {
@@ -36,24 +37,24 @@ void Empleado::setfechadeingreso (Fecha _fechaDeIngreso){fechaDeIngreso = _fecha
 void Empleado::setSueldo(float _sueldo){sueldo = _sueldo;}
 void Empleado::mostrarEmpleado()
 {
-       rlutil::setColor(rlutil::CYAN);
+       Menu::setColor(3);
     cout << "////////////////// ID EMPLEADO: "<< getID() <<" //////////////////"<<endl;
     mostrarPersona();
-    rlutil::setColor(rlutil::CYAN);
+    Menu::setColor(3);
     cout<<"////////////////// Detalles en la empresa: "<<" //////////////////" <<endl;
-    rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
     cout << "              Fecha de Ingreso: ";
-    rlutil::setColor(rlutil::BLACK);
+    Menu::setColor(0);
     getFechaIngreso().mostrarFecha();;
-    rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
     cout << "              Asistencias: ";
-    rlutil::setColor(rlutil::BLACK);
+    Menu::setColor(0);
     cout<< getAsistencias() << endl;
-    rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
     cout << "              Vacaciones Activas: ";
-    rlutil::setColor(rlutil::BLACK);
+    Menu::setColor(0);
     cout<<getIsVacaciones() <<endl;
-    rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
    //     rlutil::setColor(rlutil::CYAN);
   //  cout <<"//////////////////////////////////////////////////////////////"<< endl;
 
@@ -65,25 +66,25 @@ void Empleado::cargarEmpleado(){
     Fecha fechaACargar;
 
     cargarPersona();
-       rlutil::setColor(rlutil::BLACK);
+       Menu::setColor(0);
     cout<<"Ingrese la Fecha de Ingreso: " <<endl;
-       rlutil::setColor(rlutil::WHITE);
+       Menu::setColor(7);
     fechaACargar.cargarFecha();
     fechaDeIngreso = fechaACargar;
     empleadoID = (Empleados.CantidadRegistros()+1);
-       rlutil::setColor(rlutil::BLACK);
+       Menu::setColor(0);
     cout<< "Ingrese las asistencias del empleado: " << endl;
-       rlutil::setColor(rlutil::WHITE);
+       Menu::setColor(7);
     cin >> inputNumeros;
     asistencias = inputNumeros;
-       rlutil::setColor(rlutil::BLACK);
+       Menu::setColor(0);
     cout<<"Esta en vacaciones S/N ? "<<endl;
-       rlutil::setColor(rlutil::WHITE);
+      Menu::setColor(7);
     cin >> inputLetra;
     while(inputLetra != 'S' && inputLetra != 'N' ){
-        rlutil::setColor(rlutil::RED);
+        Menu::setColor(4);
         cout<<"Opcion invalida" << endl;
-        rlutil::setColor(rlutil::WHITE);
+        Menu::setColor(7);
         system("pause");
         system("cls");
         cin >> inputLetra;

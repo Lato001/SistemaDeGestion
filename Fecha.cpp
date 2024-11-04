@@ -4,6 +4,7 @@
 using namespace std;
 
 #include "Fecha.h"
+#include "Menu.h"
 
 Fecha::Fecha() {
     dia = 0;
@@ -45,30 +46,30 @@ void Fecha::cargarFecha() {
     bool validacion = false;
     while (!validacion) {
         int input;
-        rlutil::setColor(rlutil::BLACK);
+        Menu::setColor(0);
         cout << "Ingrese el dia: ";
-        rlutil::setColor(rlutil::WHITE);
+        Menu::setColor(7);
         cin >> input;
         dia = input;
-        rlutil::setColor(rlutil::BLACK);
+        Menu::setColor(0);
         cout << "Ingrese el mes: ";
-        rlutil::setColor(rlutil::WHITE);
+        Menu::setColor(7);
         cin >> input;
         mes = input;
-        rlutil::setColor(rlutil::BLACK);
+        Menu::setColor(0);
         cout << "Ingrese el anio: ";
-        rlutil::setColor(rlutil::WHITE);
+        Menu::setColor(7);
         cin >> input;
         anio = input;
         validacion = validar();
         if (validacion) {
-            rlutil::setColor(rlutil::GREEN);
+            Menu::setColor(2);
             cout << "La fecha se guardo correctamente" << endl;
         } else {
-            rlutil::setColor(rlutil::RED);
+            Menu::setColor(4);
             cout << "Error, Ingrese una fecha real" << endl;
         }
-        rlutil::setColor(rlutil::WHITE);
+        Menu::setColor(7);
     }
 }
 
@@ -117,9 +118,9 @@ void Fecha::RestarDia() {
 }
 
 void Fecha::mostrarFecha() {
-    rlutil::setColor(rlutil::BLACK);
+    Menu::setColor(0);
     cout << dia << "/" << mes << "/" << anio << endl;
-    rlutil::setColor(rlutil::WHITE);
+    Menu::setColor(7);
 }
 
 char* Fecha::toString() {
