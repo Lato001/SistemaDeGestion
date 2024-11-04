@@ -134,6 +134,7 @@ void Menu::crear()
     do
     {
 
+              setColor(7);
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Crear Empleado"<<endl;
@@ -629,6 +630,7 @@ Menu menu;
     void Menu::listarClientesxID()
 {
     ArchivoClientes Clientes("ArchivoClientes.dat");
+    setColor(7);
     cout<<"Ingrese el ID del Cliente a filtrar: ";
     setColor(0);
     int id;

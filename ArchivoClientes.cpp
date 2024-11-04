@@ -56,10 +56,11 @@ Cliente ArchivoClientes::Buscar(int clienteID){
 void ArchivoClientes::FiltrarClientes(){
    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     Cliente cliente;
+    Menu menu;
     int cont = 0;
 
     if (registro == nullptr) {
-        cout << "No se encontraron clientes." << endl;
+        menu.mensajeDeError("No se encontraron clientes." );
         return;
     }
     while (fread(&cliente, sizeof(cliente), 1, registro)) {
@@ -69,7 +70,7 @@ void ArchivoClientes::FiltrarClientes(){
     }
 
     if (cont == 0) {
-        cout << "No se encontraron clientes en el archivo." << endl;
+        menu.mensajeDeError("No se encontraron clientes en el archivo.");
     }
 
     fclose(registro);
@@ -80,9 +81,10 @@ void ArchivoClientes::FiltrarPorNombre(string _nombre){
 
 FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     Cliente cliente;
+    Menu menu;
     int cont = 0;
     if (registro == nullptr) {
-        cout << "No se encontraron clientes." << endl;
+        menu.mensajeDeError("No se encontraron clientes." );
         return;
     }
     while(fread(&cliente, sizeof(cliente), 1, registro)){
@@ -93,8 +95,10 @@ FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
         }
     }
     if(cont == 0){
-        cout<< "No se encontraron clientes con el nombre: " << _nombre<<endl;
-    }
+        menu.mensajeDeError("No se encontraron clientes con el nombre: ");
+        Menu::setColor(0);
+        cout << _nombre<<endl;
+        Menu::setColor(7);    }
     fclose(registro);
 
 }
@@ -109,9 +113,9 @@ void ArchivoClientes::FiltrarPorOrdenAlfabetico()
 
     if(registroA == nullptr)
     {
-            menu.setColor(4);
-        cout<< "No se han encontrado clientes registrados" << endl;
-            menu.setColor(7);
+
+       menu.mensajeDeError("No se han encontrado clientes registrados");
+
             return;
     }
     if (cantRegistros != 0)
@@ -145,9 +149,10 @@ void ArchivoClientes::FiltrarPorID(int _ID){
 
 FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     Cliente cliente;
+    Menu menu;
     int cont = 0;
     if (registro == nullptr) {
-        cout << "No se encontraron clientes." << endl;
+       menu.mensajeDeError("No se encontraron clientes.") ;
         return;
     }
     while(fread(&cliente, sizeof(cliente), 1, registro)){
@@ -158,7 +163,10 @@ FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
         }
     }
     if(cont == 0){
-        cout<< "No se encontraron clientes con el ID: " << _ID<<endl;
+       menu.mensajeDeError("No se encontraron clientes con el ID: ");
+       Menu::setColor(0);
+    cout << _ID<<endl;
+       Menu::setColor(7);
     }
     fclose(registro);
 
