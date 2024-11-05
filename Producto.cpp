@@ -115,7 +115,7 @@ void Producto::mostrarProducto()
     menu.setColor(0);
     cout<< getNombre() << endl;
     menu.setColor(7);
-    cout << "Categoría del Producto: ";
+    cout << "Categoria del Producto: ";
     menu.setColor(0);
     cout << getCategoriaProducto() << endl;
     menu.setColor(7);
