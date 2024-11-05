@@ -782,27 +782,9 @@ void Menu::listarProductos()
 {
     Menu menu;
     ArchivoProductos Productos("ArchivoProductos.dat");
-    Producto registro;
-    int cantRegistros = Productos.CantidadRegistros();
-
-    if(cantRegistros == 0)
-    {
-
-       menu.mensajeDeError("No se han encontrado productos registrados");
-
-    }
-    else
-    {
-    setColor(2);
-        cout<< "TOTAL DE PRODUCTOS: " << cantRegistros << endl<<endl;
-        for (int i = 0; i < cantRegistros; i++ )
-
-        {
-            registro = Productos.Leer(i);
-            registro.mostrarProducto();
-            cout<<endl;
-        }
-    }
+    Productos.FiltrarProductos();
+    system("pause");
+    system("cls");
 }
 
 void Menu::crearEmpleado()

@@ -4,6 +4,7 @@
 
 #include "ArchivoProductos.h"
 #include "Producto.h"
+#include "Menu.h"
 using namespace std;
 
 
@@ -48,6 +49,28 @@ Producto ArchivoProductos::Buscar(int productoID){
     fclose(registro);
     return fallo;
 }
+
+void ArchivoProductos::FiltrarProductos(){
+    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    Producto producto;
+    Menu menu;
+    int cont = 0;
+
+    if (registro == nullptr) {
+        menu.mensajeDeError("No se encontraron empleados.");
+        return;
+    }
+    while (fread(&producto, sizeof(producto), 1, registro)) {
+        cont++;
+        producto.mostrarProducto();
+    }
+
+    if (cont == 0) {
+        menu.mensajeDeError("No se encontraron productos en el archivo.");
+    }
+
+    fclose(registro);
+    }
 
     int ArchivoProductos::BuscarPos(int productoID){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");

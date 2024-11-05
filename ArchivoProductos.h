@@ -13,6 +13,7 @@ private:
         bool Guardar(Producto producto);
         bool Guardar(Producto prodcuto, int posicion);
         Producto Buscar(int ID);
+        void FiltrarProductos();
         int BuscarPos(int productoID);
         int ContLineas(int ID);
         Producto Leer(int posicion);
