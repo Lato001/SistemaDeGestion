@@ -14,6 +14,9 @@ private:
         bool Guardar(Producto prodcuto, int posicion);
         Producto Buscar(int ID);
         void FiltrarProductos();
+        void FiltrarPorNombre(string _nombre);
+        void FiltrarPorID(int productoID);
+        void FiltrarPorCategoria (string _categoria);
         int BuscarPos(int productoID);
         int ContLineas(int ID);
         Producto Leer(int posicion);

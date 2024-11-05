@@ -35,8 +35,12 @@ public:
 
     void listarVentas();
 
+    void MenulistarProductos();
 
-    void listarProductos();
+    void listarProductosxName();
+    void listarProductosxID();
+    void listarProductosxCategoria();
+    void listarProductosAll();
 
     ///FUNCIONES PARA CREACION DE OBJETOS
     void crearEmpleado();

@@ -50,43 +50,124 @@ Producto ArchivoProductos::Buscar(int productoID){
     return fallo;
 }
 
-void ArchivoProductos::FiltrarProductos(){
+void ArchivoProductos::FiltrarProductos()
+{
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     Producto producto;
     Menu menu;
     int cont = 0;
 
-    if (registro == nullptr) {
+    if (registro == nullptr)
+    {
         menu.mensajeDeError("No se encontraron empleados.");
         return;
     }
-    while (fread(&producto, sizeof(producto), 1, registro)) {
+    while (fread(&producto, sizeof(producto), 1, registro))
+    {
         cont++;
         producto.mostrarProducto();
     }
 
-    if (cont == 0) {
+    if (cont == 0)
+    {
         menu.mensajeDeError("No se encontraron productos en el archivo.");
     }
 
     fclose(registro);
-    }
+}
+void ArchivoProductos::FiltrarPorNombre(string _nombre){
 
-    int ArchivoProductos::BuscarPos(int productoID){
+FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    Producto producto;
+    Menu menu;
+    int cont = 0;
+    if (registro == nullptr) {
+        menu.mensajeDeError("No se encontraron productos." );
+        return;
+    }
+    while(fread(&producto, sizeof(producto), 1, registro))
+    {
+        if(producto.getNombre() == _nombre){
+            fclose(registro);
+            producto.mostrarProducto();
+            cont++;
+        }
+    }
+    if(cont == 0){
+        menu.mensajeDeError("No se encontraron productos con el nombre: ");
+        cout << _nombre<<endl;
+    }
+    fclose(registro);
+
+}
+
+void ArchivoProductos::FiltrarPorID(int _productoID)
+{
+FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    Producto producto;
+    Menu menu;
+    int cont = 0;
+    if (registro == nullptr) {
+        menu.mensajeDeError("No se encontraron empleados." );
+        return;
+    }
+    while(fread(&producto, sizeof(producto), 1, registro)){
+        if(producto.getProductoID() == _productoID)
+        {
+            producto.mostrarProducto();
+            cont++;
+        }
+    }
+    if(cont == 0){
+        menu.mensajeDeError("No se encontraron empleados con el ID: ");
+        cout<< _productoID<<endl;
+    }
+    fclose(registro);
+}
+
+void ArchivoProductos::FiltrarPorCategoria (string _categoria)
+{
+    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    Producto producto;
+    Menu menu;
+    int cont = 0;
+    if (registro == nullptr) {
+        menu.mensajeDeError("No se encontraron categorias de productos" );
+        return;
+    }
+    while(fread(&producto, sizeof(producto), 1, registro)){
+        if(producto.getCategoriaProducto() == _categoria)
+        {
+            producto.mostrarProducto();
+            cont++;
+        }
+    }
+    if(cont == 0){
+        menu.mensajeDeError("No se encontro esa categoria. ");
+        cout<< _categoria<<endl;
+    }
+    fclose(registro);
+}
+
+int ArchivoProductos::BuscarPos(int productoID)
+{
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     Producto producto;
     int posicion = 0;
 
-    if (registro == NULL) {
-    return -1;
+    if (registro == NULL)
+    {
+        return -1;
     }
 
-    while (fread(&producto, sizeof(producto), 1, registro)) {
-    if (producto.getProductoID() == productoID) {
-    fclose(registro);
-    return posicion;
-    }
-    posicion++;
+    while (fread(&producto, sizeof(producto), 1, registro))
+    {
+        if (producto.getProductoID() == productoID)
+        {
+            fclose(registro);
+            return posicion;
+        }
+        posicion++;
     }
     fclose(registro);
     return -1;

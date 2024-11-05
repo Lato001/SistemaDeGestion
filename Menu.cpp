@@ -107,7 +107,7 @@ void Menu::listar()
             listarVentas();
             break;
         case 2:
-            listarProductos();
+            MenulistarProductos();
             break;
         case 3:
             MenulistarEmpleados();
@@ -787,13 +787,104 @@ void Menu::listarVentas()
     }
 
 }
-void Menu::listarProductos()
+void Menu::MenulistarProductos()
+{
+ Menu menu;
+    int op=0;
+    bool opcionValida=false;
+
+    do
+    {
+        setColor(7);
+        cout<<"----------------------------------"<<endl;
+        cout<<"Elija la opcion que desee realizar"<<endl;
+        cout<<"1. Listar por Nombre"<<endl;
+        cout<<"2. Listar por ID"<<endl;
+        cout<<"3. Listar por Categoria"<<endl;
+        cout<<"4. Listar Todos"<<endl;
+        cout<<"0. Volver al menu principal"<<endl;
+        cout<<"==================================="<<endl;
+        setColor(0);
+
+        cin>>op;
+        system("cls");
+        if(op>0 && op<5)
+        {
+            opcionValida=true;
+        }
+        switch (op)
+        {
+        case 1:
+            listarProductosxName();
+            break;
+        case 2:
+            listarProductosxID();
+            break;
+        case 3:
+            listarProductosxCategoria();
+            break;
+        case 4:
+            listarProductosAll();
+            break;
+        case 0:
+            getMainMenu();
+        default:
+            menu.mensajeDeError("Opcion invalida!, vuelva a intentarlo");
+              setColor(7);
+        }
+        system("pause");
+        system("cls");
+
+
+
+    }
+    while(!opcionValida);
+    MenulistarProductos();
+}
+
+void Menu::listarProductosAll()
 {
     Menu menu;
     ArchivoProductos Productos("ArchivoProductos.dat");
     Productos.FiltrarProductos();
     system("pause");
     system("cls");
+}
+void Menu::listarProductosxName()
+{
+    ArchivoProductos Productos ("ArchivoProductos.dat");
+    setColor(7);
+    cout<<"Ingrese el nombre del producto a filtrar: ";
+    setColor(0);
+    string nombre;
+    cin >> nombre;
+    Productos.FiltrarPorNombre(nombre);
+    setColor(7);
+    system("pause");
+    system("cls");
+    MenulistarProductos();
+}
+void Menu::listarProductosxID()
+{
+    ArchivoProductos Productos("ArchivoProductos.dat");
+    setColor(7);
+    cout<<"Ingrese el ID del Producto a filtrar: ";
+    setColor(0);
+    int id;
+    cin >> id;
+    Productos.FiltrarPorID(id);
+    setColor(7);
+}
+void Menu::listarProductosxCategoria()
+{
+    ArchivoProductos Productos("ArchivoProductos.dat");
+    setColor(7);
+    cout<<"Ingrese la categoria del Producto a filtrar: ";
+    setColor(0);
+    string categoria;
+    cin >> categoria;
+    Productos.FiltrarPorCategoria(categoria);
+    setColor(7);
 }
 
 void Menu::crearEmpleado()
