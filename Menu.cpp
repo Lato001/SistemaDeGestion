@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cstdio>
-#include <algorithm>
 #include <cstring>
+#include <fstream>
+#include <conio.h>
 
 #include "ArchivoClientes.h"
 #include "ArchivoEmpleados.h"
@@ -29,9 +30,10 @@ void Menu::getMainMenu()
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Listar"<<endl;
-        cout<<"2. Crear (Empleado / Usuario)"<<endl;
+        cout<<"2. Crear (Empleado / Cliente)"<<endl;
         cout<<"3. Registrar (Ventas / Productos)"<<endl;
         cout<<"4. Modificar Registros"<<endl;
+        cout<<"5. Eliminar Registros"<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"==================================="<<endl;
         setColor(0);
@@ -55,6 +57,9 @@ void Menu::getMainMenu()
             break;
         case 4:
             modificar();
+            break;
+        case 5:
+            eliminar();
             break;
         case 0:
             exit(0);
@@ -268,7 +273,113 @@ void Menu::modificar()
     while(!opcionValida);
     modificar();
 }
+void Menu::eliminar()
+{
+    Menu menu;
+    int op=0;
+    bool opcionValida=false;
 
+    do
+    {
+        setColor(7);
+        cout<<"----------------------------------"<<endl;
+        cout<<"Elija la opcion que desee realizar"<<endl;
+        cout<<"1. Empleados"<<endl;
+        cout<<"2. Clientes"<<endl;
+        cout<<"3. Ventas"<<endl;
+        cout<<"4. Productos"<<endl;
+        cout<<"0. Salir"<<endl;
+        cout<<"==================================="<<endl;
+        setColor(0);
+        cin>>op;
+        system("cls");
+        if(op> (0) && op<4)
+        {
+            opcionValida=true;
+        }
+
+        switch (op)
+        {
+        case 1:
+            eliminarEmpleado();
+            break;
+        case 2:
+            eliminarCliente();
+            break;
+        case 3:
+            eliminarVenta();
+            break;
+        case 4:
+            eliminarProducto();
+            break;
+        case 0:
+            getMainMenu();
+            break;
+        default:
+
+            menu.mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
+
+        }
+        system("pause");
+        system("cls");
+
+        opcionValida = false;
+    }
+    while(!opcionValida);
+}
+void Menu::eliminarEmpleado()
+{
+/*
+    setColor(7);
+    string nombre, aux;
+    int localid;
+    ifstream salida;
+    salida.open("empleados.txt", ios::in);
+    ofstream entrada;
+    entrada.open("temp.txt", ios::out);
+
+    if (salida.fail())
+    {
+        cout << "Hubo un error al abrir el archivo empleados.txt" << endl;
+        cin.get();
+        exit(0);
+    }
+    else
+    {
+        cout << "Introduzca el nombre: ";
+        cin >> aux;
+
+        while (salida >> nombre >> localid) // Leer nombre y localid directamente
+        {
+            if (aux == nombre)    // Comparar cadenas
+            {
+                cout << "El registro ha sido eliminado." << endl;
+            }
+            else
+            {
+                entrada << nombre << " " << localid << endl;  // Escribir en el archivo temporal
+            }
+        }
+
+        salida.close();
+        entrada.close();
+
+        remove("empleados.txt");  // Eliminar el archivo original
+        rename("temp.txt", "empleados.txt");  // Renombrar el archivo temporal a "empleados.txt"
+    }
+    */
+}
+
+void Menu::eliminarCliente()
+{
+
+}void Menu::eliminarVenta()
+{
+
+}void Menu::eliminarProducto()
+{
+
+}
 void Menu::modificarRegistroVenta()
 {
 
@@ -743,8 +854,6 @@ void Menu::crearCliente()
             mensajeDeError("Error al guardar el cliente.");
     }
 }
-
-
 
 void Menu::registrarVenta()
 {

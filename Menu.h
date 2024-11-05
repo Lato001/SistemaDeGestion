@@ -12,6 +12,7 @@ public:
     void crear();
     void registrar();
     void modificar();
+    void eliminar();
 
     ///LISTADOS DE CLASES
     void MenulistarEmpleados();
@@ -47,6 +48,11 @@ public:
     ///MODIFICACIONES DE VENTAS
     void modificarRegistroVenta();
 
+    //ELIMINAR REGISTROS
+    void eliminarEmpleado();
+    void eliminarCliente();
+    void eliminarVenta();
+    void eliminarProducto();
 
     ///FUNCIONES PARA INTERFAZ
     void mensajeDeError(string mensaje);
