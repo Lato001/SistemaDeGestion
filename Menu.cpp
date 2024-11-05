@@ -718,6 +718,7 @@ bool opcionValida=false;
 
 while (op!=0 || op !=1)
     {
+            setColor(7);
     cout << "0.Filtrar Empleados de Vacaciones "<<endl;
     cout << "1.Filtrar Empleados Trabajando "<<endl;
     cout << "2.Volver al menu principal "<<endl;

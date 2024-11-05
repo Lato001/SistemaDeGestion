@@ -104,7 +104,7 @@ void Venta::cargarVenta() {
     while (!clienteValido) {
         Menu::setColor(7);
         cout << "Seleccione el cliente (ID - Nombre):" << endl;
-        Menu::setColor(0);
+        Menu::setColor(7);
 
         for (int i = 0; i < Clientes.CantidadRegistros(); i++) {
             registroCliente = Clientes.Leer(i);

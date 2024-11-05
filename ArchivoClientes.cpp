@@ -209,8 +209,11 @@ void ArchivoClientes::FiltrarPorNComprasRealizadas(){
     for (int i = 0; i < nClientes; i++) {
         if (clientesContNComprasArr[i] > 0) {
             Cliente cliente = clientes.Leer(i);
+       Menu::setColor(7);
             cout << "El cliente: ";
+       Menu::setColor(0);
             cliente.mostrarCliente();
+       Menu::setColor(7);
             cout<<"ha realizado: " << clientesContNComprasArr[i] << " compras." << endl;
         }
     }
