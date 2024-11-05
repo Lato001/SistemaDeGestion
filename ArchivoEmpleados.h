@@ -25,7 +25,8 @@ private:
         void FiltrarPorAsistencias();
         void FiltrarPorVacacionesActivas(bool _vacaciones);
 
-        void eliminarRegistroEmpleado();
+        void eliminarArchivoEmpleados();
+        void eliminarRegistroEmpleado(int empleadoID);
         Empleado Leer(int posicion);
         int CantidadRegistros();
         void Leer(int CantidadRegistros, Empleado *vector);

@@ -2,6 +2,8 @@
 #include <string>
 #include <cstring>
 #include <iostream>
+#include <fstream>
+#include <conio.h>
 
 #include "ArchivoEmpleados.h"
 #include "Empleado.h"
@@ -283,13 +285,50 @@ FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     fclose(registro);
 
 }
-void ArchivoEmpleados::eliminarRegistroEmpleado()
+void ArchivoEmpleados::eliminarArchivoEmpleados()
+{
+    Menu menu;
+    menu.setColor(7);
+    string nombre, aux;
+    int localid;
+    ifstream salida;
+    salida.open("ArchivoEmpleados.dat", ios::in);
+    ofstream entrada;
+    entrada.open("temp.dat", ios::out);
+
+    if (salida.fail())
+    {
+        cout << "Hubo un error al abrir el archivo ArchivoEmpleados.dat" << endl;
+        cin.get();
+        exit(0);
+    }
+    else
+    {
+        cout << "Introduzca el nombre: ";
+        cin >> aux;
+
+        while (salida >> nombre >> localid)
+        {
+            if (aux == nombre)
+            {
+                cout << "El registro ha sido eliminado." << endl;
+            }
+            else
+            {
+                entrada << nombre << " " << localid << endl;
+            }
+        }
+
+        salida.close();
+        entrada.close();
+
+        remove("ArchivoEmpleados.dat");  // Eliminar el archivo original
+        rename("temp.dat", "ArchivoEmpleados.dat");  // Renombrar el archivo temporal a "ArchivoEmpleados.dat"
+    }
+}
+void ArchivoEmpleados::eliminarRegistroEmpleado(int empleadoID)
 {
 string nombreEmpleado;
-    cout << "Ingrese el nombre del empleado que desea eliminar: ";
-    cin.ignore();
-    getline(cin, nombreEmpleado);
-
     FILE* archivoOriginal = fopen(_nombreArchivo.c_str(), "rb");
     if (archivoOriginal == nullptr)
     {
@@ -311,13 +350,14 @@ string nombreEmpleado;
 
     while (fread(&empleado, sizeof(Empleado), 1, archivoOriginal))
     {
-        if (empleado.getNombre() != nombreEmpleado)
+        if (empleado.getID() != empleadoID)
         {
 
             fwrite(&empleado, sizeof(Empleado), 1, archivoTemporal);
         }
         else
         {
+            nombreEmpleado = empleado.getNombre();
             encontrado = true;
         }
     }
@@ -331,13 +371,13 @@ string nombreEmpleado;
     {
         remove(_nombreArchivo.c_str());
         rename("empleados_temp.dat", _nombreArchivo.c_str());
-        cout << "Empleado con nombre " << nombreEmpleado << " eliminado correctamente." << endl;
+        cout << "Empleado con ID " << empleadoID <<" y con nombre" << nombreEmpleado << " eliminado correctamente." << endl;
     }
     else
     {
 
         remove("empleados_temp.dat");
-        cout << "Empleado con ID " << nombreEmpleado << " no encontrado." << endl;
+        cout << "Empleado con ID " << empleadoID << " no encontrado." << endl;
     }
 }
 

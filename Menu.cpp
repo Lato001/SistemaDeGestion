@@ -1,8 +1,6 @@
 #include <iostream>
 #include <cstdio>
 #include <cstring>
-#include <fstream>
-#include <conio.h>
 
 #include "ArchivoClientes.h"
 #include "ArchivoEmpleados.h"
@@ -329,51 +327,24 @@ void Menu::eliminar()
 }
 void Menu::eliminarArchivoEmpleados()
 {
+    ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
+    Empleado empleado;
 
-    setColor(7);
-    string nombre, aux;
-    int localid;
-    ifstream salida;
-    salida.open("ArchivoEmpleados.dat", ios::in);
-    ofstream entrada;
-    entrada.open("temp.dat", ios::out);
-
-    if (salida.fail())
-    {
-        cout << "Hubo un error al abrir el archivo ArchivoEmpleados.dat" << endl;
-        cin.get();
-        exit(0);
-    }
-    else
-    {
-        cout << "Introduzca el nombre: ";
-        cin >> aux;
-
-        while (salida >> nombre >> localid)
-        {
-            if (aux == nombre)
-            {
-                cout << "El registro ha sido eliminado." << endl;
-            }
-            else
-            {
-                entrada << nombre << " " << localid << endl;
-            }
-        }
-
-        salida.close();
-        entrada.close();
-
-        remove("ArchivoEmpleados.dat");  // Eliminar el archivo original
-        rename("temp.dat", "ArchivoEmpleados.dat");  // Renombrar el archivo temporal a "ArchivoEmpleados.dat"
-    }
-
+    Empleados.eliminarArchivoEmpleados();
+    system("pause");
+    system("cls");
+    menuEliminarEmpleados();
 }
 void Menu::eliminarRegistro()
 {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     Empleado empleado;
-    Empleados.eliminarRegistroEmpleado();
+
+    int empleadoID;
+    cout << "Ingrese el ID del empleado que desea eliminar: ";
+    cin>>empleadoID;
+
+    Empleados.eliminarRegistroEmpleado(empleadoID);
     system("pause");
     system("cls");
     menuEliminarEmpleados();
