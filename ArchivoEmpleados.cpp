@@ -283,6 +283,63 @@ FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     fclose(registro);
 
 }
+void ArchivoEmpleados::eliminarRegistroEmpleado()
+{
+string nombreEmpleado;
+    cout << "Ingrese el nombre del empleado que desea eliminar: ";
+    cin.ignore();
+    getline(cin, nombreEmpleado);
+
+    FILE* archivoOriginal = fopen(_nombreArchivo.c_str(), "rb");
+    if (archivoOriginal == nullptr)
+    {
+        cout << "Error al abrir el archivo para lectura." << endl;
+        return;
+    }
+
+    FILE* archivoTemporal = fopen("empleados_temp.dat", "wb");
+    if (archivoTemporal == nullptr)
+    {
+        cout << "Error al crear archivo temporal." << endl;
+        fclose(archivoOriginal);
+        return;
+    }
+
+    Empleado empleado;
+    bool encontrado = false;
+
+
+    while (fread(&empleado, sizeof(Empleado), 1, archivoOriginal))
+    {
+        if (empleado.getNombre() != nombreEmpleado)
+        {
+
+            fwrite(&empleado, sizeof(Empleado), 1, archivoTemporal);
+        }
+        else
+        {
+            encontrado = true;
+        }
+    }
+
+
+    fclose(archivoOriginal);
+    fclose(archivoTemporal);
+
+
+    if (encontrado)
+    {
+        remove(_nombreArchivo.c_str());
+        rename("empleados_temp.dat", _nombreArchivo.c_str());
+        cout << "Empleado con nombre " << nombreEmpleado << " eliminado correctamente." << endl;
+    }
+    else
+    {
+
+        remove("empleados_temp.dat");
+        cout << "Empleado con ID " << nombreEmpleado << " no encontrado." << endl;
+    }
+}
 
 Empleado ArchivoEmpleados::Leer(int posicion){
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");

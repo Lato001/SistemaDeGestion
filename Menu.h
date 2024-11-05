@@ -1,9 +1,12 @@
 #ifndef MENU_H_INCLUDED
 #define MENU_H_INCLUDED
+
 #include "Cliente.h"
 #include "Empleado.h"
 #include "rlutil.h"
+
 using namespace std;
+
 class Menu{
 public:
     ///FUNCIONES DE MANEJO DE MENU
@@ -54,16 +57,28 @@ public:
     void modificarRegistroVenta();
 
     //ELIMINAR REGISTROS
-    void eliminarEmpleado();
-    void eliminarCliente();
-    void eliminarVenta();
-    void eliminarProducto();
+
+    void menuEliminarEmpleados();
+
+    void eliminarArchivoEmpleados();
+    void eliminarRegistro();
+
+
+    void menuEliminarClientes();
+
+
+
+    void menuEliminarVentas();
+
+
+
+    void menuEliminarPrudctos();
 
     ///FUNCIONES PARA INTERFAZ
     void mensajeDeError(string mensaje);
     static void setColor(int color);
 
-
+//Funciones listar / Listados
 };
 
 

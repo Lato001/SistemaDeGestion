@@ -301,16 +301,16 @@ void Menu::eliminar()
         switch (op)
         {
         case 1:
-            eliminarEmpleado();
+            menuEliminarEmpleados();
             break;
         case 2:
-            eliminarCliente();
+            menuEliminarClientes();
             break;
         case 3:
-            eliminarVenta();
+            menuEliminarVentas();
             break;
         case 4:
-            eliminarProducto();
+            menuEliminarPrudctos();
             break;
         case 0:
             getMainMenu();
@@ -327,20 +327,20 @@ void Menu::eliminar()
     }
     while(!opcionValida);
 }
-void Menu::eliminarEmpleado()
+void Menu::eliminarArchivoEmpleados()
 {
-/*
+
     setColor(7);
     string nombre, aux;
     int localid;
     ifstream salida;
-    salida.open("empleados.txt", ios::in);
+    salida.open("ArchivoEmpleados.dat", ios::in);
     ofstream entrada;
-    entrada.open("temp.txt", ios::out);
+    entrada.open("temp.dat", ios::out);
 
     if (salida.fail())
     {
-        cout << "Hubo un error al abrir el archivo empleados.txt" << endl;
+        cout << "Hubo un error al abrir el archivo ArchivoEmpleados.dat" << endl;
         cin.get();
         exit(0);
     }
@@ -349,34 +349,91 @@ void Menu::eliminarEmpleado()
         cout << "Introduzca el nombre: ";
         cin >> aux;
 
-        while (salida >> nombre >> localid) // Leer nombre y localid directamente
+        while (salida >> nombre >> localid)
         {
-            if (aux == nombre)    // Comparar cadenas
+            if (aux == nombre)
             {
                 cout << "El registro ha sido eliminado." << endl;
             }
             else
             {
-                entrada << nombre << " " << localid << endl;  // Escribir en el archivo temporal
+                entrada << nombre << " " << localid << endl;
             }
         }
 
         salida.close();
         entrada.close();
 
-        remove("empleados.txt");  // Eliminar el archivo original
-        rename("temp.txt", "empleados.txt");  // Renombrar el archivo temporal a "empleados.txt"
+        remove("ArchivoEmpleados.dat");  // Eliminar el archivo original
+        rename("temp.dat", "ArchivoEmpleados.dat");  // Renombrar el archivo temporal a "ArchivoEmpleados.dat"
     }
-    */
+
+}
+void Menu::eliminarRegistro()
+{
+    ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
+    Empleado empleado;
+    Empleados.eliminarRegistroEmpleado();
+    system("pause");
+    system("cls");
+    menuEliminarEmpleados();
 }
 
-void Menu::eliminarCliente()
+void Menu::menuEliminarEmpleados()
+{
+   Menu menu;
+    int op=0;
+    bool opcionValida=false;
+
+    do
+    {
+        setColor(7);
+        cout<<"----------------------------------"<<endl;
+        cout<<"Elija la opcion que desee realizar"<<endl;
+        cout<<"1. Eliminar un registro"<<endl;
+        cout<<"2. Eliminar archivo"<<endl;
+        cout<<"0. Salir"<<endl;
+        cout<<"==================================="<<endl;
+        setColor(0);
+        cin>>op;
+        system("cls");
+        if(op> (0) && op<4)
+        {
+            opcionValida=true;
+        }
+
+        switch (op)
+        {
+        case 1:
+            eliminarRegistro();
+            break;
+        case 2:
+            eliminarArchivoEmpleados();
+            break;
+        case 0:
+            getMainMenu();
+            break;
+        default:
+
+            menu.mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
+
+        }
+        system("pause");
+        system("cls");
+
+        opcionValida = false;
+    }
+    while(!opcionValida);
+}
+
+
+void Menu::menuEliminarClientes()
 {
 
-}void Menu::eliminarVenta()
+}void Menu::menuEliminarVentas()
 {
 
-}void Menu::eliminarProducto()
+}void Menu::menuEliminarPrudctos()
 {
 
 }
