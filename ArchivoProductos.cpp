@@ -59,7 +59,7 @@ void ArchivoProductos::FiltrarProductos()
 
     if (registro == nullptr)
     {
-        menu.mensajeDeError("No se encontraron empleados.");
+        menu.mensajeDeError("No se encontraron productos.");
         return;
     }
     while (fread(&producto, sizeof(producto), 1, registro))
@@ -108,7 +108,7 @@ FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     Menu menu;
     int cont = 0;
     if (registro == nullptr) {
-        menu.mensajeDeError("No se encontraron empleados." );
+        menu.mensajeDeError("No se encontraron productos." );
         return;
     }
     while(fread(&producto, sizeof(producto), 1, registro)){
@@ -119,7 +119,7 @@ FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
         }
     }
     if(cont == 0){
-        menu.mensajeDeError("No se encontraron empleados con el ID: ");
+        menu.mensajeDeError("No se encontraron productos con el ID: ");
         cout<< _productoID<<endl;
     }
     fclose(registro);

@@ -195,14 +195,13 @@ void ArchivoClientes::FiltrarPorNComprasRealizadas(){
 
     const int nClientes = clientes.CantidadRegistros();
 
-    // Vector para contar el número de compras por cliente, inicializado en 0
     vector<int> clientesContNComprasArr(nClientes, 0);
 
     for (int i = 0; i < ventas.CantidadRegistros(); i++) {
         Venta venta = ventas.Leer(i);
         int posCliente = clientes.BuscarPosRegistro(venta.getIdCliente());
 
-        if (posCliente >= 0 && posCliente < nClientes) { // Validamos el índice
+        if (posCliente >= 0 && posCliente < nClientes) {
             clientesContNComprasArr[posCliente]++;
         }
     }

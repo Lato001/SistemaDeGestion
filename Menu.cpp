@@ -862,7 +862,7 @@ void Menu::listarProductosxName()
     setColor(7);
     system("pause");
     system("cls");
-    MenulistarProductos();
+
 }
 void Menu::listarProductosxID()
 {

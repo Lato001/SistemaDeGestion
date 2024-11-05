@@ -1,4 +1,5 @@
 #include <iostream>
+
 #include "rlutil.h"
 
 using namespace std;
@@ -52,66 +53,111 @@ void DetalleVenta::setImporte(float _importe) {importe = _importe;}
 
 void DetalleVenta::setEstado(bool _estado) {estado = _estado;}
 
-void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
+void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
+{
     Menu menu;
     idVenta = _idVenta;
     ArchivoDetalleVentas DetalleVentas("ArchivoDetalleVentas.dat");
 
-    if(DetalleVentas.ContLineas(idVenta) > 0){
+    if(DetalleVentas.ContLineas(idVenta) > 0)
+    {
         idLinea = DetalleVentas.ContLineas(idVenta) + 1;
-    }else{
+    }
+    else
+    {
         idLinea = 1;
     }
 
     ArchivoProductos Productos("ArchivoProductos.dat");
 
     Producto registro;
-    int input;
+    int input, opcion;
     Producto productoActual;
 
     bool opcionValida = false;
-    while (!opcionValida) {
+    while (!opcionValida)
+    {
         Menu::setColor(7);
-        for (int i = 0; i < Productos.CantidadRegistros(); i++) {
-            registro = Productos.Leer(i);
-            registro.mostrarProducto();
-            cout << endl;
-        }
-         Menu::setColor(7);
-        cout << "Ingrese la opcion deseada: ";
 
-         Menu::setColor(0);
+        cout<<"----------------------------------"<<endl;
+        cout<<"Como desea listar los productos"<<endl;
+        cout<<"1. Listar por Nombre"<<endl;
+        cout<<"2. Listar por Categoria"<<endl;
+        cout<<"3. Listar Todos"<<endl;
+        cout<<"==================================="<<endl;
+        cin>>opcion;
+        if (opcion > 0 && opcion < 4 )
+        {
+            opcionValida = true;
+            switch (opcion)
+            {
+            case 1:
+                menu.listarProductosxName();
+            break;
+            case 2:
+                menu.listarProductosxCategoria();
+            break;
+            case 3:
+                for (int i = 0; i < Productos.CantidadRegistros(); i++)
+                {
+                    registro = Productos.Leer(i);
+                    registro.mostrarProducto();
+                    cout << endl;
+                }
+            break;
+            default:
+                menu.mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
+
+            }
+
+        }
+    }
+    opcionValida = false;
+    while (!opcionValida)
+    {
+        Menu::setColor(7);
+        cout << "Ingrese el -ID- de la opcion deseada: ";
+
+        Menu::setColor(0);
         cin >> input;
 
         productoActual = Productos.Buscar(input);
 
-        if (productoActual.getProductoID() != -1) {
+        if (productoActual.getProductoID() != -1)
+        {
             opcionValida = true;
             idProducto = productoActual.getProductoID();
-        } else {
+        }
+        else
+        {
 
-           menu.mensajeDeError("Opcion invalida, vuelva a intentarlo");
+            menu.mensajeDeError("Opcion invalida, vuelva a intentarlo");
 
         }
         system("pause");
         system("cls");
+
     }
 
     opcionValida = false;
-    while (!opcionValida) {
+    while (!opcionValida)
+    {
         Menu::setColor(7);
         cout << "Stock Disponible: " << productoActual.getStock() << endl << endl;
         cout << "Ingrese la cantidad comprada del producto: " << endl;
         Menu::setColor(0);
         cin >> input;
 
-        if (input <= productoActual.getStock()) {
+        if (input <= productoActual.getStock())
+        {
             cantidadProducto = input;
 
             productoActual.setStock(productoActual.getStock() - input);
             Productos.Guardar(productoActual, Productos.BuscarPos(idProducto)); ///??? PARA QUE SIRVE
             opcionValida = true;
-        } else {
+        }
+        else
+        {
 
             menu.mensajeDeError("Opcion invalida! Vuelva a intentarlo") ;
 
@@ -120,8 +166,8 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta) {
 
         }
     }
-        importe = Productos.Buscar(idProducto).getPrecioUnitario() * cantidadProducto;
-        cout<< importe;
+    importe = Productos.Buscar(idProducto).getPrecioUnitario() * cantidadProducto;
+    cout<< importe;
 }
 
 void DetalleVenta::mostrarDetalleDeVenta()
