@@ -30,6 +30,7 @@ public:
     void listarClientesxName();
     void listarClientesxOrdenAlfabetico();
     void listarClientesxID();
+    void listarClientesxComprasRealizadas();
     void listarClientesAll();
 
     void listarVentas();

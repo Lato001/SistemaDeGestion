@@ -15,10 +15,12 @@ private:
         bool Guardar(Cliente cliente);
         bool Guardar(Cliente cliente, int posicion);
         Cliente Buscar(int clienteID);
+        int BuscarPosRegistro(int clienteID);
         void FiltrarClientes();
         void FiltrarPorNombre(string _nombre);
         void FiltrarPorOrdenAlfabetico();
         void FiltrarPorID(int _ID);
+        void FiltrarPorNComprasRealizadas();
         Cliente Leer(int posicion);
         int CantidadRegistros();
         void Leer(int CantidadRegistros, Cliente *vector);

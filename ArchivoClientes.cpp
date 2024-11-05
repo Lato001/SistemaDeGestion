@@ -2,8 +2,9 @@
 #include <string>
 #include <cstring>
 #include <iostream>
-
+#include <vector>
 #include "ArchivoClientes.h"
+#include "ArchivoVentas.h"
 #include "Cliente.h"
 #include "Menu.h"
 
@@ -42,16 +43,31 @@ Cliente ArchivoClientes::Buscar(int clienteID){
     if(registro == NULL){
         return fallo;
     }
-    int i = 0;
     while(fread(&cliente, sizeof(cliente), 1, registro) == 1){
         if(cliente.getID() == clienteID){
             fclose(registro);
             return cliente;
         }
-        i++;
     }
     fclose(registro);
     return fallo;
+}
+int ArchivoClientes::BuscarPosRegistro(int clienteID){
+    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    Cliente cliente;
+    if(registro == NULL){
+        return -1;
+    }
+    int i = 0;
+    while(fread(&cliente, sizeof(cliente), 1, registro) == 1){
+        if(cliente.getID() == clienteID){
+            fclose(registro);
+            return i;
+        }
+        i++;
+    }
+    fclose(registro);
+    return -1;
 }
 void ArchivoClientes::FiltrarClientes(){
    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
@@ -169,6 +185,36 @@ FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
        Menu::setColor(7);
     }
     fclose(registro);
+
+}
+void ArchivoClientes::FiltrarPorNComprasRealizadas(){
+
+  ArchivoVentas ventas("ArchivoVentas.dat");
+    ArchivoClientes clientes("ArchivoClientes.dat");
+    Menu menu;
+
+    const int nClientes = clientes.CantidadRegistros();
+
+    // Vector para contar el número de compras por cliente, inicializado en 0
+    vector<int> clientesContNComprasArr(nClientes, 0);
+
+    for (int i = 0; i < ventas.CantidadRegistros(); i++) {
+        Venta venta = ventas.Leer(i);
+        int posCliente = clientes.BuscarPosRegistro(venta.getIdCliente());
+
+        if (posCliente >= 0 && posCliente < nClientes) { // Validamos el índice
+            clientesContNComprasArr[posCliente]++;
+        }
+    }
+
+    for (int i = 0; i < nClientes; i++) {
+        if (clientesContNComprasArr[i] > 0) {
+            Cliente cliente = clientes.Leer(i);
+            cout << "El cliente: ";
+            cliente.mostrarCliente();
+            cout<<"ha realizado: " << clientesContNComprasArr[i] << " compras." << endl;
+        }
+    }
 
 }
 

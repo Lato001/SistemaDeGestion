@@ -492,13 +492,14 @@ void Menu::MenulistarClientes()
         cout<<"2. Por Orden Alfabetico"<<endl;
         cout<<"3. Por ID"<<endl;
         cout<<"4. Listar todos"<<endl;
+        cout<<"5. Listar Por Nro de Compras Realizadas"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
     setColor(0);
         cin>>op;
 
         system("cls");
-        if(op>0 && op<5)
+        if(op>0 && op<6)
         {
             opcionValida=true;
         }
@@ -516,6 +517,8 @@ void Menu::MenulistarClientes()
         case 4:
             listarClientesAll();
             break;
+        case 5:
+            listarClientesxComprasRealizadas();
         case 0:
             getMainMenu();
         default:
@@ -749,6 +752,12 @@ Menu menu;
     cin >> id;
     Clientes.FiltrarPorID(id);
     setColor(7);
+}
+void Menu::listarClientesxComprasRealizadas(){
+    ArchivoClientes Clientes("ArchivoClientes.dat");
+    Clientes.FiltrarPorNComprasRealizadas();
+    system("pause");
+    system("cls");
 }
 
 void Menu::listarVentas()
