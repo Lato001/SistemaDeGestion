@@ -61,6 +61,13 @@ void Venta::cargarVenta() {
     Cliente registroCliente;
     DetalleVenta registroDetalle;
     float montoTotalVenta;
+
+    if(Ventas.CantidadRegistros() == 0){
+        idVenta = 1;
+    }else{
+        idVenta = Ventas.Leer((Ventas.CantidadRegistros()-1)).getIdVenta() + 1;
+    }
+
     idVenta = Ventas.CantidadRegistros() + 1;
     int input = 0;
     char inputChar = 'n';
@@ -87,19 +94,25 @@ void Venta::cargarVenta() {
         cout << "Ingrese el ID del Empleado: ";
            Menu::setColor(0);        cin >> input;
 
-        if (input > 0 && input <= Empleados.CantidadRegistros()) {
+        if (Empleados.Buscar(input).getID() != -1) {
             idEmpleado = input;
             vendedorValido = true;
         } else {
 
            menu.mensajeDeError("ID invalido. Intente nuevamente." );
             Menu::setColor(7);
-            rlutil::anykey();
-            rlutil::cls();
+            system("pause");
+            system("cls");
+
         }
     }
-    rlutil::anykey();
-    rlutil::cls();
+    menu.setColor(7);
+    cout<<"EMPLEADO ELEGIDO: "<<endl;
+    Empleados.Buscar(idEmpleado).mostrarEmpleado();
+    cout<<endl;
+
+    system("pause");
+    system("cls");
 
     while (!clienteValido) {
         Menu::setColor(7);
@@ -114,15 +127,15 @@ void Venta::cargarVenta() {
         cout << "Ingrese el ID del cliente: ";
          Menu::setColor(0);        cin >> input;
 
-        if (input > 0 && input <= Clientes.CantidadRegistros()) {
+        if (Clientes.Buscar(input).getID() != -1) {
             idCliente = input;
             clienteValido = true;
         } else {
 
             menu.mensajeDeError("ID invalido. Intente nuevamente.");
-
-            rlutil::anykey();
-            rlutil::cls();
+            Menu::setColor(7);
+            system("pause");
+            system("cls");
         }
     }
     rlutil::anykey();
@@ -204,7 +217,8 @@ void Venta::mostrarVenta() {
     ArchivoDetalleVentas DetallesVentas("ArchivoDetalleVentas.dat");
     Menu menu;
     Venta saldo;
-    cout << "------------ Nro DE VENTA: " << getIdVenta() << " ------------------------" << endl;
+    menu.setColor(7);
+    cout << "------------ ID DE VENTA: " << getIdVenta() << " ------------------------" << endl;
     cout << "FECHA: ";
     getFecha().mostrarFecha();
     cout << "VENDEDOR: " << endl;
