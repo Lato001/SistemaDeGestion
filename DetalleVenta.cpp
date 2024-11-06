@@ -10,7 +10,7 @@ using namespace std;
 #include "Producto.h"
 #include "ArchivoProductos.h"
 #include "Menu.h"
-
+#include "Listados.h"
 DetalleVenta::DetalleVenta() {
     idVenta = 0;
     idLinea = 0;
@@ -56,6 +56,7 @@ void DetalleVenta::setEstado(bool _estado) {estado = _estado;}
 void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
 {
     Menu menu;
+    Listados listados;
     idVenta = _idVenta;
     ArchivoDetalleVentas DetalleVentas("ArchivoDetalleVentas.dat");
 
@@ -78,7 +79,7 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
     bool opcionValida = false;
     while (!opcionValida)
     {
-        menu.MenuListarProductosDetalleVentas();
+        listados.MenuListarProductosDetalleVentas();
         Menu::setColor(7);
         cout << "Ingrese el -ID- de la opcion deseada: ";
 
@@ -87,10 +88,10 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
 
         productoActual = Productos.Buscar(input);
 
-        if (productoActual.getProductoID() != -1 && productoActual.getStock() > 0)
+        if (productoActual.getID() != -1 && productoActual.getStock() > 0)
         {
             opcionValida = true;
-            idProducto = productoActual.getProductoID();
+            idProducto = productoActual.getID();
         }else{
             cout<<"Opcion invalida";
             if(!productoActual.getStock() >0){
@@ -145,10 +146,12 @@ Menu menu;
     Producto producto;
     for (int i =1; i<= DetalleVentas.ContLineas(idVenta); i++ )
     {
-        Menu::setColor(2);
-        cout << "NOMBRE DEL PRODUCTO: " <<Productos.Buscar(DetalleVentas.BuscarPorLinea(idVenta,i).getIdProducto()).getNombre()<< endl;
+        Menu::setColor(7);
+        cout << "NOMBRE DEL PRODUCTO: ";
+        Menu::setColor(0);
 
-        idProducto=getIdProducto();
+        cout<< Productos.Buscar(DetalleVentas.BuscarPorLinea(idVenta,i).getIdProducto()).getNombre()<< endl;
+
 
         Menu::setColor(7);
 
