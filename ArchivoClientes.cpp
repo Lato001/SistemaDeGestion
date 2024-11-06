@@ -220,7 +220,11 @@ void ArchivoClientes::FiltrarPorNComprasRealizadas(){
        Menu::setColor(0);
             cliente.mostrarCliente();
        Menu::setColor(7);
-            cout<<"ha realizado: " << clientesContNComprasArr[i] << " compras." << endl;
+            cout<<"ha realizado: ";
+       Menu::setColor(0);
+            cout << clientesContNComprasArr[i] ;
+       Menu::setColor(7);
+            cout << " compras." << endl;
         }
     }
 
@@ -262,10 +266,11 @@ void ArchivoClientes::Leer(int CantidadRegistros, Cliente *vector){
 }
 
 void ArchivoClientes::ModificarCliente(int clienteID) {
+    Menu menu;
     int pos = BuscarPosRegistro(clienteID);
     if (pos == -1) {
-           Menu::setColor(4);
-        cout << "Cliente no encontrado." << endl;
+
+        menu.mensajeDeError("Cliente no encontrado.");
         return;
         }
     Cliente cliente = Leer(pos);
@@ -276,8 +281,8 @@ void ArchivoClientes::ModificarCliente(int clienteID) {
             Menu::setColor(7);
         cout << "Datos del cliente actualizados." << endl;
     } else {
-        Menu::setColor(4);
-        cout << "Error al actualizar los datos del cliente." << endl;
+
+        menu.mensajeDeError("Error al actualizar los datos del cliente.");
     }
 }
 void ArchivoClientes::eliminarArchivoClientes()
@@ -292,20 +297,24 @@ void ArchivoClientes::eliminarArchivoClientes()
 
     if (salida.fail())
     {
-        cout << "Hubo un error al abrir el archivo ArchivoClientes.dat" << endl;
+        menu.mensajeDeError("Hubo un error al abrir el archivo ArchivoClientes.dat");
         cin.get();
         exit(0);
     }
     else
     {
+        Menu::setColor(7);
         cout << "Introduzca el nombre: ";
+        Menu::setColor(0);
         cin >> aux;
 
         while (salida >> nombre)
         {
             if (aux == nombre)
             {
+        Menu::setColor(2);
                 cout << "El registro ha sido eliminado." << endl;
+        Menu::setColor(7);
             }
             else
             {
@@ -322,18 +331,19 @@ void ArchivoClientes::eliminarArchivoClientes()
 }
 void ArchivoClientes::eliminarRegistroCliente(int clienteID)
 {
+    Menu menu;
 string nombreCliente;
     FILE* archivoOriginal = fopen(_nombreArchivo.c_str(), "rb");
     if (archivoOriginal == nullptr)
     {
-        cout << "Error al abrir el archivo para lectura." << endl;
+        menu.mensajeDeError("Error al abrir el archivo para lectura.");
         return;
     }
 
     FILE* archivoTemporal = fopen("clientes_temp.dat", "wb");
     if (archivoTemporal == nullptr)
     {
-        cout << "Error al crear archivo temporal." << endl;
+        menu.mensajeDeError("Error al crear archivo temporal.");
         fclose(archivoOriginal);
         return;
     }
@@ -365,13 +375,25 @@ string nombreCliente;
     {
         remove(_nombreArchivo.c_str());
         rename("clientes_temp.dat", _nombreArchivo.c_str());
-        cout << "Cliente con ID: " << clienteID <<" y con nombre: " << nombreCliente << " eliminado correctamente." << endl;
+        Menu::setColor(7);
+        cout << "Cliente con ID: " ;
+        Menu::setColor(0);
+        cout << clienteID ;
+        Menu::setColor(7);        cout <<" y con nombre: ";
+        Menu::setColor(0);
+        cout << nombreCliente ;
+        Menu::setColor(7);
+        cout << " eliminado correctamente." << endl;
     }
     else
     {
 
         remove("clientes_temp.dat");
-        cout << "Cliente con ID " << clienteID << " no encontrado." << endl;
+        cout << "Cliente con ID " ;
+        Menu::setColor(0);
+        cout<< clienteID ;
+        Menu::setColor(7);
+        cout<< " no encontrado." << endl;
     }
 }
 

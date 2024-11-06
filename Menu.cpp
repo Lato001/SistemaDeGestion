@@ -392,7 +392,9 @@ void Menu::eliminarRegistroEmpleado()
     Empleado empleado;
 
     int empleadoID;
+    setColor(7);
     cout << "Ingrese el ID del empleado que desea eliminar: ";
+    setColor(0);
     cin>>empleadoID;
 
     Empleados.eliminarRegistroEmpleado(empleadoID);
@@ -509,7 +511,9 @@ void Menu::eliminarRegistroCliente()
     Cliente cliente;
 
     int clienteID;
+    setColor(7);
     cout << "Ingrese el ID del cliente que desea eliminar: ";
+    setColor(0);
     cin>>clienteID;
 
     Clientes.eliminarRegistroCliente(clienteID);
@@ -533,7 +537,9 @@ void Menu::eliminarRegistroVenta()
     Venta venta;
 
     int ventaID;
+    setColor(7);
     cout << "Ingrese el ID de la venta que desea eliminar: ";
+    setColor(0);
     cin>>ventaID;
 
     Ventas.eliminarRegistroVenta(ventaID);
@@ -640,7 +646,9 @@ void Menu::eliminarRegistroProducto()
     Producto producto;
 
     int productoID;
+    setColor(7);
     cout << "Ingrese el ID del producto que desea eliminar: ";
+    setColor(0);
     cin>>productoID;
 
     Productos.eliminarRegistroProducto(productoID);

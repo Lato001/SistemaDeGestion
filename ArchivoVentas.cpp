@@ -109,8 +109,9 @@ int ArchivoVentas::BuscarPosRegistro(int idVenta){
 void ArchivoVentas::ModificarVenta(int idVenta) {
     int pos = BuscarPosRegistro(idVenta);
     if (pos == -1) {
-            Menu::setColor(4);
-        cout << "Venta no encontrada." << endl;
+
+         menu.mensajeDeError("Venta no encontrada.");
+         cout  << endl;
         return;
         }
     Venta venta = Leer(pos);
@@ -118,11 +119,13 @@ void ArchivoVentas::ModificarVenta(int idVenta) {
     venta.cargarVenta();
     venta.setidVenta(idOriginal);
     if (Guardar(venta, pos)) {
-            Menu::setColor(7);
+            Menu::setColor(2);
         cout << "Datos de la venta actualizados." << endl;
+            Menu::setColor(7);
     } else {
-        Menu::setColor(4);
-        cout << "Error al actualizar los datos de la venta." << endl;
+
+         menu.mensajeDeError("Error al actualizar los datos de la venta." );
+         cout<< endl;
     }
 }
 
@@ -138,20 +141,25 @@ void ArchivoVentas::eliminarArchivoVentas()
 
     if (salida.fail())
     {
-        cout << "Hubo un error al abrir el archivo ArchivoVentas.dat" << endl;
+       Menu::setColor(7);"Hubo un error al abrir el archivo ArchivoVentas.dat");
+       cout  << endl;
         cin.get();
         exit(0);
     }
     else
     {
+        Menu::setColor(7);
         cout << "Introduzca el ID: ";
+        Menu::setColor(0);
         cin >> aux;
 
         while (salida >> id)
         {
             if (id == aux)
             {
+                Menu::setColor(2);
                 cout << "El registro ha sido eliminado." << endl;
+                Menu::setColor(7);
             }
             else
             {
@@ -172,14 +180,16 @@ void ArchivoVentas::eliminarRegistroVenta(int ventaID)
     FILE* archivoOriginal = fopen(_nombreArchivo.c_str(), "rb");
     if (archivoOriginal == nullptr)
     {
-        cout << "Error al abrir el archivo para lectura." << endl;
+         menu.mensajeDeError("Error al abrir el archivo para lectura." );
+        cout<< endl;
         return;
     }
 
     FILE* archivoTemporal = fopen("ventas_temp.dat", "wb");
     if (archivoTemporal == nullptr)
     {
-        cout << "Error al crear archivo temporal." << endl;
+         menu.mensajeDeError("Error al crear archivo temporal.");
+         cout << endl;
         fclose(archivoOriginal);
         return;
     }
@@ -211,13 +221,23 @@ void ArchivoVentas::eliminarRegistroVenta(int ventaID)
     {
         remove(_nombreArchivo.c_str());
         rename("ventas_temp.dat", _nombreArchivo.c_str());
-        cout << "Venta con ID " << idVenta <<" eliminado correctamente." << endl;
+         Menu::setColor(7);
+        cout << "Venta con ID " ;
+         Menu::setColor(0);
+        cout<< idVenta ;
+         Menu::setColor(7);
+        cout<<" eliminado correctamente." << endl;
     }
     else
     {
 
         remove("ventas_temp.dat");
-        cout << "Venta con ID " << idVenta << " no encontrado." << endl;
+         Menu::setColor(7);
+        cout << "Venta con ID ";
+         Menu::setColor(0);
+        cout << idVenta;
+         Menu::setColor(7);
+        cout<< " no encontrado." << endl;
     }
 }
 

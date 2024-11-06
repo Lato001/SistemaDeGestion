@@ -105,6 +105,7 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
         system("cls");
 
 
+
     }
 
     opcionValida = false;

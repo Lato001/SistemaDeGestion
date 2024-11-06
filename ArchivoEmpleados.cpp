@@ -303,20 +303,25 @@ void ArchivoEmpleados::eliminarArchivoEmpleados()
 
     if (salida.fail())
     {
-        cout << "Hubo un error al abrir el archivo ArchivoEmpleados.dat" << endl;
+         menu.mensajeDeError("Hubo un error al abrir el archivo ArchivoEmpleados.dat");
+         cout << endl;
         cin.get();
         exit(0);
     }
     else
     {
+                Menu::setColor(7);
         cout << "Introduzca el nombre: ";
+                Menu::setColor(0);
         cin >> aux;
 
         while (salida >> nombre)
         {
             if (aux == nombre)
             {
+                Menu::setColor(2);
                 cout << "El registro ha sido eliminado." << endl;
+                Menu::setColor(7);
             }
             else
             {
@@ -333,18 +338,21 @@ void ArchivoEmpleados::eliminarArchivoEmpleados()
 }
 void ArchivoEmpleados::eliminarRegistroEmpleado(int empleadoID)
 {
+    Menu menu;
     string nombreEmpleado;
     FILE* archivoOriginal = fopen(_nombreArchivo.c_str(), "rb");
     if (archivoOriginal == nullptr)
     {
-        cout << "Error al abrir el archivo para lectura." << endl;
+         menu.mensajeDeError("Error al abrir el archivo para lectura.");
+         cout << endl;
         return;
     }
 
     FILE* archivoTemporal = fopen("empleados_temp.dat", "wb");
     if (archivoTemporal == nullptr)
     {
-        cout << "Error al crear archivo temporal." << endl;
+        menu.mensajeDeError("Error al crear archivo temporal.");
+        cout << endl;
         fclose(archivoOriginal);
         return;
     }
@@ -376,13 +384,26 @@ void ArchivoEmpleados::eliminarRegistroEmpleado(int empleadoID)
     {
         remove(_nombreArchivo.c_str());
         rename("empleados_temp.dat", _nombreArchivo.c_str());
-        cout << "Empleado con ID " << empleadoID <<" y con nombre " << nombreEmpleado << " eliminado correctamente." << endl;
+        Menu::setColor(7);
+        cout << "Empleado con ID " ;
+        Menu::setColor(0);        cout<< empleadoID ;
+        Menu::setColor(7);
+        cout<<" y con nombre ";
+        Menu::setColor(0);
+        cout<< nombreEmpleado;
+        Menu::setColor(7);
+        cout<< " eliminado correctamente." << endl;
     }
     else
     {
 
         remove("empleados_temp.dat");
-        cout << "Empleado con ID " << empleadoID << " no encontrado." << endl;
+        Menu::setColor(7);
+        cout << "Empleado con ID " ;
+        Menu::setColor(0);
+        cout << empleadoID;
+        Menu::setColor(7);
+        cout << " no encontrado." << endl;
     }
 }
 
@@ -422,10 +443,12 @@ void ArchivoEmpleados::Leer(int cantidadRegistros, Empleado *vector){
 }
 
 void ArchivoEmpleados::ModificarEmpleado(int empleadoID) {
+    Menu menu;
     int pos = BuscarPosRegistro(empleadoID);
     if (pos == -1) {
-            Menu::setColor(4);
-        cout << "Empleado no encontrado." << endl;
+
+        menu.mensajeDeError("Empleado no encontrado." );
+                            cout << endl;
         return;
         }
     Empleado empleado = Leer(pos);
@@ -433,11 +456,13 @@ void ArchivoEmpleados::ModificarEmpleado(int empleadoID) {
     empleado.cargarEmpleado();
     empleado.setempleadoID(idOriginal);
     if (Guardar(empleado, pos)) {
-            Menu::setColor(7);
+            Menu::setColor(2);
         cout << "Datos del empleado actualizados." << endl;
+            Menu::setColor(7);
     } else {
-        Menu::setColor(4);
-        cout << "Error al actualizar los datos del empleado." << endl;
+
+        menu.mensajeDeError("Error al actualizar los datos del empleado.");
+                            cout << endl;
     }
 }
 
