@@ -107,6 +107,7 @@ int ArchivoVentas::BuscarPosRegistro(int idVenta){
 }
 
 void ArchivoVentas::ModificarVenta(int idVenta) {
+    Menu menu;
     int pos = BuscarPosRegistro(idVenta);
     if (pos == -1) {
 
@@ -141,7 +142,7 @@ void ArchivoVentas::eliminarArchivoVentas()
 
     if (salida.fail())
     {
-       Menu::setColor(7);"Hubo un error al abrir el archivo ArchivoVentas.dat");
+        menu.mensajeDeError("Hubo un error al abrir el archivo ArchivoVentas.dat");
        cout  << endl;
         cin.get();
         exit(0);
@@ -176,6 +177,7 @@ void ArchivoVentas::eliminarArchivoVentas()
 }
 void ArchivoVentas::eliminarRegistroVenta(int ventaID)
 {
+    Menu menu;
     int idVenta;
     FILE* archivoOriginal = fopen(_nombreArchivo.c_str(), "rb");
     if (archivoOriginal == nullptr)
