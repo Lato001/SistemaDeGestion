@@ -791,7 +791,7 @@ Listados listados;
         cout<<"1. Clientes MAS+ activos"<<endl;
         cout<<"2. Clientes MENOS- activos"<<endl;
         cout<<"3. Empleados con MAS+ ventas"<<endl;
-        cout<<"4. Empleados con Mejores Asistencias"<<endl;
+        cout<<"4. Empleados con Mejores Asistencias (FALTA TERMINAR)"<<endl;
         cout<<"5. Formas de pago MAS+ utilizadas"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;

@@ -50,6 +50,8 @@
 		<Unit filename="Empleado.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
+		<Unit filename="Listados.cpp" />
+		<Unit filename="Listados.h" />
 		<Unit filename="Menu.cpp" />
 		<Unit filename="Menu.h" />
 		<Unit filename="Persona.cpp" />
