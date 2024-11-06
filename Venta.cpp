@@ -78,8 +78,8 @@ void Venta::cargarVenta() {
     cout << "Ingrese la fecha de la venta:" << endl;
     Menu::setColor(0);
     fecha.cargarFecha();
-    rlutil::anykey();
-    rlutil::cls();
+    system("pause");
+    system("cls");
 
     while (!vendedorValido) {
         Menu::setColor(7);
@@ -138,8 +138,8 @@ void Venta::cargarVenta() {
             system("cls");
         }
     }
-    rlutil::anykey();
-    rlutil::cls();
+    system("pause");
+    system("cls");
 
     while (!formaDePagoValida) {
         Menu::setColor(7);
@@ -164,8 +164,8 @@ void Venta::cargarVenta() {
 
         }
     }
-    rlutil::anykey();
-    rlutil::cls();
+    system("pause");
+    system("cls");
 
     bool validacionDetalles = false;
     while (!validacionDetalles) {
@@ -200,8 +200,8 @@ void Venta::cargarVenta() {
             inputChar = 'n';
             Menu::setColor(7);            cout<< "Siguiente detalle!"<<endl;
         }
-        rlutil::anykey();
-        rlutil::cls();
+        system("pause");
+    system("cls");
     }
     for (int i = 1; i< DetalleVentas.ContLineas(idVenta) ;i++ ){
         montoTotalVenta += DetalleVentas.BuscarPorLinea(idVenta,i).getImporte();

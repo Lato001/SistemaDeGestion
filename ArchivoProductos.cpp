@@ -45,7 +45,7 @@ Producto ArchivoProductos::Buscar(int productoID){
         return fallo;
     }
     while(fread(&producto, sizeof(producto), 1, registro)){
-        if(producto.getProductoID() == productoID){
+        if(producto.getID() == productoID){
             fclose(registro);
             return producto;
         }
@@ -116,7 +116,7 @@ FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
         return;
     }
     while(fread(&producto, sizeof(producto), 1, registro)){
-        if(producto.getProductoID() == _productoID)
+        if(producto.getID() == _productoID)
         {
             producto.mostrarProducto();
             cont++;
@@ -165,7 +165,7 @@ int ArchivoProductos::BuscarPos(int productoID)
 
     while (fread(&producto, sizeof(producto), 1, registro))
     {
-        if (producto.getProductoID() == productoID)
+        if (producto.getID() == productoID)
         {
             fclose(registro);
             return posicion;
@@ -220,7 +220,7 @@ void ArchivoProductos::ModificarProducto(int productoID) {
         return;
         }
     Producto producto = Leer(pos);
-    int idOriginal = producto.getProductoID();
+    int idOriginal = producto.getID();
     producto.cargarProducto();
     producto.setProductoID(idOriginal);
     if (Guardar(producto, pos)) {
@@ -296,7 +296,7 @@ void ArchivoProductos::eliminarRegistroProducto(int productoID)
 
     while (fread(&producto, sizeof(Producto), 1, archivoOriginal))
     {
-        if (producto.getProductoID() != productoID)
+        if (producto.getID() != productoID)
         {
 
             fwrite(&producto, sizeof(Producto), 1, archivoTemporal);
