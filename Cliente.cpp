@@ -27,7 +27,7 @@ void Cliente::setClienteID(int _clienteID) {
 }
 
 void Cliente::mostrarCliente() {
-    cout << "ID CLIENTE: " << getID()<< endl;
+    cout << "      ID CLIENTE: " << getID()<< endl;
     Menu::setColor(7);
     mostrarPersona();
 }
@@ -39,7 +39,11 @@ void Cliente::cargarCliente() {
     cout << "Ingrese los datos del cliente:" << endl;
 
     cargarPersona();
-    clienteID = (Clientes.CantidadRegistros() + 1);
+    if(Clientes.CantidadRegistros() == 0){
+        clienteID = 1;
+    }else{
+        clienteID = Clientes.Leer((Clientes.CantidadRegistros()-1)).getID() + 1;
+    }
 
     Menu::setColor(2);
     cout << "Cliente cargado correctamente con ID: " << clienteID << endl;
