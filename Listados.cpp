@@ -398,6 +398,7 @@ int opcion;
         cout<<"2. Listar por Categoria"<<endl;
         cout<<"3. Listar Productos Disponibles"<<endl;
         cout<<"==================================="<<endl;
+        Menu::setColor(0);
         cin>>opcion;
         if (opcion > 0 && opcion < 4 )
         {

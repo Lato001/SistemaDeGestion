@@ -96,7 +96,6 @@ void Menu::listar()
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         setColor(0);
-
         cin>>op;
         system("cls");
         if(op>0 && op<5)
@@ -195,8 +194,8 @@ void Menu::registrar()
         cout<<"2. Registrar Producto"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
-        cin>>op;
             setColor(0);
+        cin>>op;
         system("cls");
         if(op>0 && op<3)
         {
@@ -259,6 +258,7 @@ void Menu::modificar()
             int idVenta;
             setColor(7);
             cout << "Ingrese el ID de la venta que desea modificar: ";
+            setColor(0);
             cin >> idVenta;
             archivoVentas.ModificarVenta(idVenta);
             break;
@@ -281,6 +281,7 @@ void Menu::modificar()
             int empleadoID;
             setColor(7);
             cout << "Ingrese el ID del empleado que desea modificar: ";
+            setColor(0);
             cin >> empleadoID;
             archivoEmpleados.ModificarEmpleado(empleadoID);
             break;
@@ -291,6 +292,7 @@ void Menu::modificar()
             int clienteID;
             setColor(7);
             cout << "Ingrese el ID del cliente que desea modificar: ";
+            setColor(0);
             cin >> clienteID;
             archivoClientes.ModificarCliente(clienteID);
             break;
@@ -301,6 +303,7 @@ void Menu::modificar()
             int idVenta;
             setColor(7);
             cout << "Ingrese el ID de la venta que desea modificar: ";
+            setColor(0);
             cin >> idVenta;
             archivoDetalleVentas.ModificarDetalleVenta(idVenta);
             break;

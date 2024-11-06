@@ -92,11 +92,12 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
         {
             opcionValida = true;
             idProducto = productoActual.getID();
-        }else{
-            cout<<"Opcion invalida";
-            if(!productoActual.getStock() >0){
-                cout<< ", no hay suficiente stock";
-            }
+        }
+        else
+        {
+            menu.mensajeDeError("Opcion invalida, no hay suficiente stock");
+            if(!productoActual.getStock() >0)
+
             cout<<endl;
             system("pause");
 
@@ -135,7 +136,11 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
     }
 
     importe = Productos.Buscar(idProducto).getPrecioUnitario() * cantidadProducto;
-    cout<<"TOTAL DE VENTA REGISTRADA: $"<<importe <<endl;
+    Menu::setColor(7);
+    cout<<"TOTAL DE VENTA REGISTRADA: $";
+    Menu::setColor(0);
+    cout <<importe <<endl;
+
 }
 
 void DetalleVenta::mostrarDetalleDeVenta()

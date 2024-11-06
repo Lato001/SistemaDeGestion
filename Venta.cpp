@@ -138,6 +138,7 @@ void Venta::cargarVenta() {
             system("cls");
         }
     }
+            Menu::setColor(7);
     system("pause");
     system("cls");
 
