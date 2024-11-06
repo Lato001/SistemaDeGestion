@@ -3,7 +3,7 @@
 
 class Listados {
 public:
-void MenulistarEmpleados();
+    void MenulistarEmpleados();
 
     void listarEmpleadosxName();
     void listarEmpleadosxOrdenAlfabetico();

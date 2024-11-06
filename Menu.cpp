@@ -8,14 +8,16 @@
 #include "ArchivoVentas.h"
 #include "ArchivoProductos.h"
 #include "ArchivoDetalleVentas.h"
+
 #include "Menu.h"
 #include "Listados.h"
+#include "Eliminados.h"
+
 #include "Cliente.h"
 #include "Empleado.h"
 #include "Venta.h"
 #include "Producto.h"
 #include "rlutil.h"
-
 using namespace std;
 
 void Menu::getMainMenu()
@@ -254,13 +256,7 @@ void Menu::modificar()
         {
         case 1:
             {
-            ArchivoVentas archivoVentas("ArchivoVentas.dat");
-            int idVenta;
-            setColor(7);
-            cout << "Ingrese el ID de la venta que desea modificar: ";
-            setColor(0);
-            cin >> idVenta;
-            archivoVentas.ModificarVenta(idVenta);
+            modificarRegistroVenta();
             break;
              }
             break;
@@ -325,6 +321,7 @@ void Menu::modificar()
 }
 void Menu::eliminar()
 {
+    Eliminados eliminados;
     int op=0;
     bool opcionValida=false;
 
@@ -350,16 +347,16 @@ void Menu::eliminar()
         switch (op)
         {
         case 1:
-            menuEliminarEmpleados();
+            eliminados.menuEliminarEmpleados();
             break;
         case 2:
-            menuEliminarClientes();
+            eliminados.menuEliminarClientes();
             break;
         case 3:
-            menuEliminarVentas();
+            eliminados.menuEliminarVentas();
             break;
         case 4:
-            menuEliminarProductos();
+            eliminados.menuEliminarProductos();
             break;
         case 0:
             getMainMenu();
@@ -375,297 +372,6 @@ void Menu::eliminar()
         opcionValida = false;
     }
     while(!opcionValida);
-}
-void Menu::eliminarArchivoEmpleados()
-{
-    ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
-    Empleado empleado;
-
-    Empleados.eliminarArchivoEmpleados();
-    system("pause");
-    system("cls");
-    menuEliminarEmpleados();
-}
-void Menu::eliminarRegistroEmpleado()
-{
-    ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
-    Empleado empleado;
-
-    int empleadoID;
-    setColor(7);
-    cout << "Ingrese el ID del empleado que desea eliminar: ";
-    setColor(0);
-    cin>>empleadoID;
-
-    Empleados.eliminarRegistroEmpleado(empleadoID);
-    system("pause");
-    system("cls");
-    menuEliminarEmpleados();
-}
-
-void Menu::menuEliminarEmpleados()
-{
-    int op=0;
-    bool opcionValida=false;
-
-    do
-    {
-        setColor(7);
-        cout<<"----------------------------------"<<endl;
-        cout<<"Elija la opcion que desee realizar"<<endl;
-        cout<<"1. Eliminar un registro"<<endl;
-        cout<<"2. Eliminar archivo"<<endl;
-        cout<<"0. Salir"<<endl;
-        cout<<"==================================="<<endl;
-        setColor(0);
-        cin>>op;
-        system("cls");
-        if(op> (0) && op<4)
-        {
-            opcionValida=true;
-        }
-
-        switch (op)
-        {
-        case 1:
-            eliminarRegistroEmpleado();
-            break;
-        case 2:
-            eliminarArchivoEmpleados();
-            break;
-        case 0:
-            getMainMenu();
-            break;
-        default:
-
-            mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
-
-        }
-        system("pause");
-        system("cls");
-
-        opcionValida = false;
-    }
-    while(!opcionValida);
-}
-
-void Menu::menuEliminarClientes()
-{
-    int op=0;
-    bool opcionValida=false;
-
-    do
-    {
-        setColor(7);
-        cout<<"----------------------------------"<<endl;
-        cout<<"Elija la opcion que desee realizar"<<endl;
-        cout<<"1. Eliminar un registro"<<endl;
-        cout<<"2. Eliminar archivo"<<endl;
-        cout<<"0. Salir"<<endl;
-        cout<<"==================================="<<endl;
-        setColor(0);
-        cin>>op;
-        system("cls");
-        if(op> (0) && op<4)
-        {
-            opcionValida=true;
-        }
-
-        switch (op)
-        {
-        case 1:
-            eliminarRegistroCliente();
-            break;
-        case 2:
-            eliminarArchivoClientes();
-            break;
-        case 0:
-            getMainMenu();
-            break;
-        default:
-
-            mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
-
-        }
-        system("pause");
-        system("cls");
-
-        opcionValida = false;
-    }
-    while(!opcionValida);
-
-}
-void Menu::eliminarArchivoClientes()
-{
-    ArchivoClientes Clientes("ArchivoClientes.dat");
-    Cliente cliente;
-
-    Clientes.eliminarArchivoClientes();
-    system("pause");
-    system("cls");
-    menuEliminarClientes();
-}
-void Menu::eliminarRegistroCliente()
-{
-    ArchivoClientes Clientes("ArchivoClientes.dat");
-    Cliente cliente;
-
-    int clienteID;
-    setColor(7);
-    cout << "Ingrese el ID del cliente que desea eliminar: ";
-    setColor(0);
-    cin>>clienteID;
-
-    Clientes.eliminarRegistroCliente(clienteID);
-    system("pause");
-    system("cls");
-    menuEliminarClientes();
-}
-void Menu::eliminarArchivoVentas()
-{
-    ArchivoVentas Ventas("ArchivoVentas.dat");
-    Venta venta;
-
-    Ventas.eliminarArchivoVentas();
-    system("pause");
-    system("cls");
-    menuEliminarVentas();
-}
-void Menu::eliminarRegistroVenta()
-{
-    ArchivoVentas Ventas("ArchivoVentas.dat");
-    Venta venta;
-
-    int ventaID;
-    setColor(7);
-    cout << "Ingrese el ID de la venta que desea eliminar: ";
-    setColor(0);
-    cin>>ventaID;
-
-    Ventas.eliminarRegistroVenta(ventaID);
-    system("pause");
-    system("cls");
-    menuEliminarVentas();
-}
-
-void Menu::menuEliminarVentas()
-{
-    int op=0;
-    bool opcionValida=false;
-
-    do
-    {
-        setColor(7);
-        cout<<"----------------------------------"<<endl;
-        cout<<"Elija la opcion que desee realizar"<<endl;
-        cout<<"1. Eliminar un registro"<<endl;
-        cout<<"2. Eliminar archivo"<<endl;
-        cout<<"0. Salir"<<endl;
-        cout<<"==================================="<<endl;
-        setColor(0);
-        cin>>op;
-        system("cls");
-        if(op> (0) && op<4)
-        {
-            opcionValida=true;
-        }
-
-        switch (op)
-        {
-        case 1:
-            eliminarRegistroVenta();
-            break;
-        case 2:
-            eliminarArchivoVentas();
-            break;
-        case 0:
-            getMainMenu();
-            break;
-        default:
-
-            mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
-
-        }
-        system("pause");
-        system("cls");
-
-        opcionValida = false;
-    }
-    while(!opcionValida);
-}
-void Menu::menuEliminarProductos()
-{
-
-    int op=0;
-    bool opcionValida=false;
-
-    do
-    {
-        setColor(7);
-        cout<<"----------------------------------"<<endl;
-        cout<<"Elija la opcion que desee realizar"<<endl;
-        cout<<"1. Eliminar un registro"<<endl;
-        cout<<"2. Eliminar archivo"<<endl;
-        cout<<"0. Salir"<<endl;
-        cout<<"==================================="<<endl;
-        setColor(0);
-        cin>>op;
-        system("cls");
-        if(op> (0) && op<4)
-        {
-            opcionValida=true;
-        }
-
-        switch (op)
-        {
-        case 1:
-            eliminarRegistroProducto();
-            break;
-        case 2:
-            eliminarArchivoProductos();
-            break;
-        case 0:
-            getMainMenu();
-            break;
-        default:
-
-            mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
-
-        }
-        system("pause");
-        system("cls");
-
-        opcionValida = false;
-    }
-    while(!opcionValida);
-}
-
-void Menu::eliminarRegistroProducto()
-{
-    ArchivoProductos Productos("ArchivoProductos.dat");
-    Producto producto;
-
-    int productoID;
-    setColor(7);
-    cout << "Ingrese el ID del producto que desea eliminar: ";
-    setColor(0);
-    cin>>productoID;
-
-    Productos.eliminarRegistroProducto(productoID);
-    system("pause");
-    system("cls");
-
-}
-
-void Menu::eliminarArchivoProductos()
-{
-    ArchivoProductos Productos("ArchivoProductos.dat");
-    Producto producto;
-
-    Productos.eliminarArchivoProductos();
-    system("pause");
-    system("cls");
-    menuEliminarProductos();
 }
 
 void Menu::modificarRegistroVenta()
@@ -681,14 +387,15 @@ void Menu::modificarRegistroVenta()
     listados.listarVentas();
     setColor(7);
     cout<< "Seleccione el ID de la venta a modificar: ";
-    setColor(0);    cin >> input;
+    setColor(0);
+    cin >> input;
 
     if( Ventas.Buscar(input).getIdVenta() !=  -1)
     {
         while(!opcionValida)
         {
             venta = Ventas.Buscar(input);
-    setColor(7);
+            setColor(7);
             cout<<"Elija el atributo a modificar" << endl;
             cout<<"1. Fecha: ";
             venta.getFecha().mostrarFecha();
@@ -697,7 +404,7 @@ void Menu::modificarRegistroVenta()
             cout<< "4. Detalle de venta"<<endl;
             cout<< "0. Volver al menu principal"<<endl;
             cout<< "Seleccione una opcion: ";
-    setColor(0);
+            setColor(0);
             cin >> input;
             opcionValida = (input> 0 && input< 5);
             if(!opcionValida)
@@ -724,7 +431,8 @@ void Menu::modificarRegistroVenta()
 
     switch (input)
     {
-    case 1:{
+    case 1:
+    {
         setColor(2);
         Fecha nuevaFecha;
         cout<<"Nueva fecha a cargar"<<endl;
@@ -740,14 +448,14 @@ void Menu::modificarRegistroVenta()
 
 
     }
-        break;
+    break;
     case 2:
-        {
-            setColor(7);
+    {
+        setColor(7);
         cout<<"Empleado que efectuo la venta"<<endl;
         listados.listarEmpleadosAll();
         cout<< "Seleccione el ID del empleado que efectuo la venta:";
-            setColor(0);
+        setColor(0);
         cin >> input;
         if(Empleados.Buscar(input).getID() != -1)
         {
@@ -756,14 +464,11 @@ void Menu::modificarRegistroVenta()
             cout<< "Nuevo Empleado : " <<Ventas.Buscar(venta.getIdVenta()).getIdEmpleado();
         }
 
-        }
-        break;
+    }
+    break;
     default:
         break;
     }
-
-
-
 }
 
 void Menu::crearEmpleado()

@@ -28,30 +28,6 @@ public:
     ///MODIFICACIONES DE VENTAS
     void modificarRegistroVenta();
 
-    //ELIMINAR REGISTROS
-
-    void menuEliminarEmpleados();
-
-    void eliminarArchivoEmpleados();
-    void eliminarRegistroEmpleado();
-
-
-    void menuEliminarClientes();
-
-    void eliminarArchivoClientes();
-    void eliminarRegistroCliente();
-
-    void menuEliminarVentas();
-
-    void eliminarArchivoVentas();
-    void eliminarRegistroVenta();
-
-    void menuEliminarProductos();
-
-    void eliminarArchivoProductos();
-    void eliminarRegistroProducto();
-
-
     ///INFORMES
     void menuInformes();
     void clientesMasActivos();
