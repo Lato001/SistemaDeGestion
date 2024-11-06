@@ -155,7 +155,9 @@ void ArchivoVentas::eliminarArchivoVentas()
 
         remove("ArchivoVentas.dat");  // Eliminar el archivo original
         rename("temp.dat", "ArchivoVentas.dat");  // Renombrar el archivo temporal a "ArchivoEmpleados.dat"
+        Menu::setColor(2);
         cout<<"Registros del archivo eliminados"<<endl;
+        Menu::setColor(7);
     }
 }
 void ArchivoVentas::eliminarRegistroVenta(int ventaID)
