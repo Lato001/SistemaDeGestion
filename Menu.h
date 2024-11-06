@@ -43,7 +43,8 @@ public:
 
     void menuEliminarVentas();
 
-
+    void eliminarArchivoVentas();
+    void eliminarRegistroVenta();
 
     void menuEliminarProductos();
 

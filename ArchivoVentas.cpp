@@ -2,6 +2,8 @@
 #include <string>
 #include <cstring>
 #include <iostream>
+#include <fstream>
+#include <conio.h>
 
 #include "ArchivoVentas.h"
 #include "Venta.h"
@@ -121,5 +123,100 @@ void ArchivoVentas::ModificarVenta(int idVenta) {
     } else {
         Menu::setColor(4);
         cout << "Error al actualizar los datos de la venta." << endl;
+    }
+}
+
+void ArchivoVentas::eliminarArchivoVentas()
+{
+    Menu menu;
+    menu.setColor(7);
+    string nombre, aux;
+    ifstream salida;
+    salida.open("ArchivoVentas.dat", ios::in);
+    ofstream entrada;
+    entrada.open("temp.dat", ios::out);
+
+    if (salida.fail())
+    {
+        cout << "Hubo un error al abrir el archivo ArchivoVentas.dat" << endl;
+        cin.get();
+        exit(0);
+    }
+    else
+    {
+        cout << "Introduzca el nombre: ";
+        cin >> aux;
+
+        while (salida >> nombre)
+        {
+            if (aux == nombre)
+            {
+                cout << "El registro ha sido eliminado." << endl;
+            }
+            else
+            {
+                entrada << nombre << " " << endl;
+            }
+        }
+
+        salida.close();
+        entrada.close();
+
+        remove("ArchivoVentas.dat");  // Eliminar el archivo original
+        rename("temp.dat", "ArchivoVentas.dat");  // Renombrar el archivo temporal a "ArchivoEmpleados.dat"
+    }
+}
+void ArchivoVentas::eliminarRegistroVenta(int ventaID)
+{
+    string nombreVenta;
+    FILE* archivoOriginal = fopen(_nombreArchivo.c_str(), "rb");
+    if (archivoOriginal == nullptr)
+    {
+        cout << "Error al abrir el archivo para lectura." << endl;
+        return;
+    }
+
+    FILE* archivoTemporal = fopen("empleados_temp.dat", "wb");
+    if (archivoTemporal == nullptr)
+    {
+        cout << "Error al crear archivo temporal." << endl;
+        fclose(archivoOriginal);
+        return;
+    }
+
+    Venta venta;
+    bool encontrado = false;
+
+
+    while (fread(&venta, sizeof(Venta), 1, archivoOriginal))
+    {
+        if (venta.getIdVenta() != ventaID)
+        {
+
+            fwrite(&venta, sizeof(Venta), 1, archivoTemporal);
+        }
+        else
+        {
+            nombreVenta = venta.getIdVenta();
+            encontrado = true;
+        }
+    }
+
+
+    fclose(archivoOriginal);
+    fclose(archivoTemporal);
+
+
+    if (encontrado)
+    {
+        remove(_nombreArchivo.c_str());
+        rename("ventas_temp.dat", _nombreArchivo.c_str());
+        cout << "Venta con ID " << ventaID <<" eliminado correctamente." << endl;
+    }
+    else
+    {
+
+        remove("ventas_temp.dat");
+        cout << "Venta con ID " << ventaID << " no encontrado." << endl;
     }
 }

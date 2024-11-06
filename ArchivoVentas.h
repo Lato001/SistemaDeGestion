@@ -18,8 +18,12 @@ private:
         ArchivoVentas(string nombreArchivo);
         bool Guardar(Venta venta);
         bool Guardar(Venta venta, int posicion);
+
         int BuscarPosRegistro(int idVenta);
         void ModificarVenta(int idVenta);
+        void eliminarArchivoVentas();
+        void eliminarRegistroVenta(int VentaID);
+
         Venta Buscar(int _idVenta);
         Venta Leer(int posicion);
         int CantidadRegistros();

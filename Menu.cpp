@@ -517,9 +517,75 @@ void Menu::eliminarRegistroCliente()
     system("cls");
     menuEliminarClientes();
 }
+void Menu::eliminarArchivoVentas()
+{
+    ArchivoVentas Ventas("ArchivoVentas.dat");
+    Venta venta;
+
+    Ventas.eliminarArchivoVentas();
+    system("pause");
+    system("cls");
+    menuEliminarVentas();
+}
+void Menu::eliminarRegistroVenta()
+{
+    ArchivoVentas Ventas("ArchivoVentas.dat");
+    Venta venta;
+
+    int ventaID;
+    cout << "Ingrese el ID de la venta que desea eliminar: ";
+    cin>>ventaID;
+
+    Ventas.eliminarRegistroVenta(ventaID);
+    system("pause");
+    system("cls");
+    menuEliminarVentas();
+}
+
 void Menu::menuEliminarVentas()
 {
+    int op=0;
+    bool opcionValida=false;
 
+    do
+    {
+        setColor(7);
+        cout<<"----------------------------------"<<endl;
+        cout<<"Elija la opcion que desee realizar"<<endl;
+        cout<<"1. Eliminar un registro"<<endl;
+        cout<<"2. Eliminar archivo"<<endl;
+        cout<<"0. Salir"<<endl;
+        cout<<"==================================="<<endl;
+        setColor(0);
+        cin>>op;
+        system("cls");
+        if(op> (0) && op<4)
+        {
+            opcionValida=true;
+        }
+
+        switch (op)
+        {
+        case 1:
+            eliminarRegistroVenta();
+            break;
+        case 2:
+            eliminarArchivoVentas();
+            break;
+        case 0:
+            getMainMenu();
+            break;
+        default:
+
+            mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
+
+        }
+        system("pause");
+        system("cls");
+
+        opcionValida = false;
+    }
+    while(!opcionValida);
 }
 void Menu::menuEliminarProductos()
 {
