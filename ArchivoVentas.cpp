@@ -143,36 +143,19 @@ void ArchivoVentas::eliminarArchivoVentas()
     if (salida.fail())
     {
         menu.mensajeDeError("Hubo un error al abrir el archivo ArchivoVentas.dat");
-       cout  << endl;
+       cout << endl;
         cin.get();
         exit(0);
     }
     else
     {
-        Menu::setColor(7);
-        cout << "Introduzca el ID: ";
-        Menu::setColor(0);
-        cin >> aux;
-
-        while (salida >> id)
-        {
-            if (id == aux)
-            {
-                Menu::setColor(2);
-                cout << "El registro ha sido eliminado." << endl;
-                Menu::setColor(7);
-            }
-            else
-            {
-                entrada << id << " " << endl;
-            }
-        }
 
         salida.close();
         entrada.close();
 
         remove("ArchivoVentas.dat");  // Eliminar el archivo original
         rename("temp.dat", "ArchivoVentas.dat");  // Renombrar el archivo temporal a "ArchivoEmpleados.dat"
+        cout<<"Registros del archivo eliminados"<<endl;
     }
 }
 void ArchivoVentas::eliminarRegistroVenta(int ventaID)

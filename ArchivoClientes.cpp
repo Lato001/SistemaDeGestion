@@ -298,35 +298,19 @@ void ArchivoClientes::eliminarArchivoClientes()
     if (salida.fail())
     {
         menu.mensajeDeError("Hubo un error al abrir el archivo ArchivoClientes.dat");
+        cout << endl;
         cin.get();
         exit(0);
     }
     else
     {
-        Menu::setColor(7);
-        cout << "Introduzca el nombre: ";
-        Menu::setColor(0);
-        cin >> aux;
-
-        while (salida >> nombre)
-        {
-            if (aux == nombre)
-            {
-        Menu::setColor(2);
-                cout << "El registro ha sido eliminado." << endl;
-        Menu::setColor(7);
-            }
-            else
-            {
-                entrada << nombre << " " << endl;
-            }
-        }
 
         salida.close();
         entrada.close();
 
         remove("ArchivoClientes.dat");  // Eliminar el archivo original
         rename("temp.dat", "ArchivoClientes.dat");  // Renombrar el archivo temporal a "ArchivoEmpleados.dat"
+        cout<<"Registros del archivo eliminados"<<endl;
     }
 }
 void ArchivoClientes::eliminarRegistroCliente(int clienteID)

@@ -310,30 +310,12 @@ void ArchivoEmpleados::eliminarArchivoEmpleados()
     }
     else
     {
-                Menu::setColor(7);
-        cout << "Introduzca el nombre: ";
-                Menu::setColor(0);
-        cin >> aux;
-
-        while (salida >> nombre)
-        {
-            if (aux == nombre)
-            {
-                Menu::setColor(2);
-                cout << "El registro ha sido eliminado." << endl;
-                Menu::setColor(7);
-            }
-            else
-            {
-                entrada << nombre << " " << endl;
-            }
-        }
-
         salida.close();
         entrada.close();
 
         remove("ArchivoEmpleados.dat");  // Eliminar el archivo original
         rename("temp.dat", "ArchivoEmpleados.dat");  // Renombrar el archivo temporal a "ArchivoEmpleados.dat"
+        cout<<"Registros del archivo eliminados"<<endl;
     }
 }
 void ArchivoEmpleados::eliminarRegistroEmpleado(int empleadoID)
