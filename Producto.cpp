@@ -112,7 +112,7 @@ void Producto::cargarProducto()
 void Producto::mostrarProducto()
 {
     Menu menu;
-    Menu::setColor(3);
+    Menu::setColor(1);
     cout << "////////////////// ID PRODUCTO: " << getID() << " //////////////////" << endl;
    Menu::setColor(7);
     cout << "Nombre del Producto: ";
@@ -130,7 +130,7 @@ void Producto::mostrarProducto()
     cout << "Stock: ";
     menu.setColor(0);
     cout << getStock() << endl;
-    menu.setColor(3);
+    menu.setColor(1);
     cout << "////////////////////////////////////////////////////" << endl << endl;
     Menu::setColor(7);
 }

@@ -218,8 +218,13 @@ void Venta::mostrarVenta() {
     ArchivoDetalleVentas DetallesVentas("ArchivoDetalleVentas.dat");
     Menu menu;
     Venta saldo;
+    menu.setColor(1);
+    cout << endl<<endl;
+    cout << "======================================================================" << endl;
+    cout << "=========================== ID DE VENTA: " << getIdVenta() << " ===========================" << endl;
+    cout << "======================================================================" << endl;
+    cout << endl<<endl<<endl;
     menu.setColor(7);
-    cout << "------------ ID DE VENTA: " << getIdVenta() << " ------------------------" << endl;
     cout << "FECHA: ";
     getFecha().mostrarFecha();
     cout << "VENDEDOR: " << endl;
@@ -238,8 +243,13 @@ void Venta::mostrarVenta() {
         menu.setColor(7);
     }
     cout << endl;
+    menu.setColor(5);
+    cout << endl<<endl<<endl;
+    cout << "======================================================================" << endl;
+    cout << "========================== DETALLE DE VENTA ==========================" << endl;
+    cout << "======================================================================" << endl;
+   cout << endl<<endl<<endl;
     menu.setColor(7);
-    cout << "--------------- DETALLE DE VENTA --------------------" << endl;
     cout<< "ARTICULOS COMPRADOS: ";
     menu.setColor(0);
     cout << DetallesVentas.ContLineas(getIdVenta())<<endl<<endl;
@@ -255,7 +265,7 @@ void Venta::mostrarVenta() {
     cout<< saldo.getImporteTotal();
     menu.setColor(7);
     cout << endl;
-    cout << "---------------------------------------------------" << endl;
+
 }
 
 

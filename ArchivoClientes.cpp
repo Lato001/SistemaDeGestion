@@ -310,7 +310,9 @@ void ArchivoClientes::eliminarArchivoClientes()
 
         remove("ArchivoClientes.dat");  // Eliminar el archivo original
         rename("temp.dat", "ArchivoClientes.dat");  // Renombrar el archivo temporal a "ArchivoEmpleados.dat"
+        Menu::setColor(2);
         cout<<"Registros del archivo eliminados"<<endl;
+        Menu::setColor(7);
     }
 }
 void ArchivoClientes::eliminarRegistroCliente(int clienteID)
