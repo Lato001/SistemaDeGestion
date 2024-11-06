@@ -33,12 +33,13 @@ public:
     void menuEliminarEmpleados();
 
     void eliminarArchivoEmpleados();
-    void eliminarRegistro();
+    void eliminarRegistroEmpleado();
 
 
     void menuEliminarClientes();
 
-
+    void eliminarArchivoClientes();
+    void eliminarRegistroCliente();
 
     void menuEliminarVentas();
 

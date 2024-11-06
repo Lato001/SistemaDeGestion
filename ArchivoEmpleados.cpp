@@ -1,4 +1,5 @@
 #pragma once
+
 #include <string>
 #include <cstring>
 #include <iostream>
@@ -295,7 +296,6 @@ void ArchivoEmpleados::eliminarArchivoEmpleados()
     Menu menu;
     menu.setColor(7);
     string nombre, aux;
-    int localid;
     ifstream salida;
     salida.open("ArchivoEmpleados.dat", ios::in);
     ofstream entrada;
@@ -312,7 +312,7 @@ void ArchivoEmpleados::eliminarArchivoEmpleados()
         cout << "Introduzca el nombre: ";
         cin >> aux;
 
-        while (salida >> nombre >> localid)
+        while (salida >> nombre)
         {
             if (aux == nombre)
             {
@@ -320,7 +320,7 @@ void ArchivoEmpleados::eliminarArchivoEmpleados()
             }
             else
             {
-                entrada << nombre << " " << localid << endl;
+                entrada << nombre << " " << endl;
             }
         }
 
@@ -333,7 +333,7 @@ void ArchivoEmpleados::eliminarArchivoEmpleados()
 }
 void ArchivoEmpleados::eliminarRegistroEmpleado(int empleadoID)
 {
-string nombreEmpleado;
+    string nombreEmpleado;
     FILE* archivoOriginal = fopen(_nombreArchivo.c_str(), "rb");
     if (archivoOriginal == nullptr)
     {

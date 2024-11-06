@@ -383,7 +383,7 @@ void Menu::eliminarArchivoEmpleados()
     system("cls");
     menuEliminarEmpleados();
 }
-void Menu::eliminarRegistro()
+void Menu::eliminarRegistroEmpleado()
 {
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     Empleado empleado;
@@ -424,7 +424,7 @@ void Menu::menuEliminarEmpleados()
         switch (op)
         {
         case 1:
-            eliminarRegistro();
+            eliminarRegistroEmpleado();
             break;
         case 2:
             eliminarArchivoEmpleados();
@@ -447,8 +447,76 @@ void Menu::menuEliminarEmpleados()
 
 void Menu::menuEliminarClientes()
 {
+   Menu menu;
+    int op=0;
+    bool opcionValida=false;
 
-}void Menu::menuEliminarVentas()
+    do
+    {
+        setColor(7);
+        cout<<"----------------------------------"<<endl;
+        cout<<"Elija la opcion que desee realizar"<<endl;
+        cout<<"1. Eliminar un registro"<<endl;
+        cout<<"2. Eliminar archivo"<<endl;
+        cout<<"0. Salir"<<endl;
+        cout<<"==================================="<<endl;
+        setColor(0);
+        cin>>op;
+        system("cls");
+        if(op> (0) && op<4)
+        {
+            opcionValida=true;
+        }
+
+        switch (op)
+        {
+        case 1:
+            eliminarRegistroCliente();
+            break;
+        case 2:
+            eliminarArchivoClientes();
+            break;
+        case 0:
+            getMainMenu();
+            break;
+        default:
+
+            menu.mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
+
+        }
+        system("pause");
+        system("cls");
+
+        opcionValida = false;
+    }
+    while(!opcionValida);
+
+}
+void Menu::eliminarArchivoClientes()
+{
+    ArchivoClientes Clientes("ArchivoClientes.dat");
+    Cliente cliente;
+
+    Clientes.eliminarArchivoClientes();
+    system("pause");
+    system("cls");
+    menuEliminarClientes();
+}
+void Menu::eliminarRegistroCliente()
+{
+    ArchivoClientes Clientes("ArchivoClientes.dat");
+    Cliente cliente;
+
+    int clienteID;
+    cout << "Ingrese el ID del cliente que desea eliminar: ";
+    cin>>clienteID;
+
+    Clientes.eliminarRegistroCliente(clienteID);
+    system("pause");
+    system("cls");
+    menuEliminarClientes();
+}
+void Menu::menuEliminarVentas()
 {
 
 }void Menu::menuEliminarPrudctos()

@@ -1,13 +1,18 @@
 #pragma once
+
 #include <string>
 #include <cstring>
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <conio.h>
+
 #include "ArchivoClientes.h"
 #include "ArchivoVentas.h"
 #include "Cliente.h"
-#include "Menu.h"
 #include "rlutil.h"
+
+#include "Menu.h"
 
 using namespace std;
 
@@ -273,5 +278,99 @@ void ArchivoClientes::ModificarCliente(int clienteID) {
     } else {
         Menu::setColor(4);
         cout << "Error al actualizar los datos del cliente." << endl;
+    }
+}
+void ArchivoClientes::eliminarArchivoClientes()
+{
+    Menu menu;
+    menu.setColor(7);
+    string nombre, aux;
+    ifstream salida;
+    salida.open("ArchivoClientes.dat", ios::in);
+    ofstream entrada;
+    entrada.open("temp.dat", ios::out);
+
+    if (salida.fail())
+    {
+        cout << "Hubo un error al abrir el archivo ArchivoClientes.dat" << endl;
+        cin.get();
+        exit(0);
+    }
+    else
+    {
+        cout << "Introduzca el nombre: ";
+        cin >> aux;
+
+        while (salida >> nombre)
+        {
+            if (aux == nombre)
+            {
+                cout << "El registro ha sido eliminado." << endl;
+            }
+            else
+            {
+                entrada << nombre << " " << endl;
+            }
+        }
+
+        salida.close();
+        entrada.close();
+
+        remove("ArchivoClientes.dat");  // Eliminar el archivo original
+        rename("temp.dat", "ArchivoClientes.dat");  // Renombrar el archivo temporal a "ArchivoEmpleados.dat"
+    }
+}
+void ArchivoClientes::eliminarRegistroCliente(int clienteID)
+{
+string nombreCliente;
+    FILE* archivoOriginal = fopen(_nombreArchivo.c_str(), "rb");
+    if (archivoOriginal == nullptr)
+    {
+        cout << "Error al abrir el archivo para lectura." << endl;
+        return;
+    }
+
+    FILE* archivoTemporal = fopen("clientes_temp.dat", "wb");
+    if (archivoTemporal == nullptr)
+    {
+        cout << "Error al crear archivo temporal." << endl;
+        fclose(archivoOriginal);
+        return;
+    }
+
+    Cliente cliente;
+    bool encontrado = false;
+
+
+    while (fread(&cliente, sizeof(Cliente), 1, archivoOriginal))
+    {
+        if (cliente.getID() != clienteID)
+        {
+
+            fwrite(&cliente, sizeof(Cliente), 1, archivoTemporal);
+        }
+        else
+        {
+            nombreCliente = cliente.getNombre();
+            encontrado = true;
+        }
+    }
+
+
+    fclose(archivoOriginal);
+    fclose(archivoTemporal);
+
+
+    if (encontrado)
+    {
+        remove(_nombreArchivo.c_str());
+        rename("clientes_temp.dat", _nombreArchivo.c_str());
+        cout << "Cliente con ID: " << clienteID <<" y con nombre: " << nombreCliente << " eliminado correctamente." << endl;
+    }
+    else
+    {
+
+        remove("clientes_temp.dat");
+        cout << "Cliente con ID " << clienteID << " no encontrado." << endl;
     }
 }
