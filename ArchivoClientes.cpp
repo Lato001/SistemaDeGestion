@@ -7,6 +7,7 @@
 #include "ArchivoVentas.h"
 #include "Cliente.h"
 #include "Menu.h"
+#include "rlutil.h"
 
 using namespace std;
 
@@ -255,3 +256,22 @@ void ArchivoClientes::Leer(int CantidadRegistros, Cliente *vector){
     fclose(registro);
 }
 
+void ArchivoClientes::ModificarCliente(int clienteID) {
+    int pos = BuscarPosRegistro(clienteID);
+    if (pos == -1) {
+           Menu::setColor(4);
+        cout << "Cliente no encontrado." << endl;
+        return;
+        }
+    Cliente cliente = Leer(pos);
+    int idOriginal = cliente.getID();
+    cliente.cargarCliente();
+    cliente.setClienteID(idOriginal);
+    if (Guardar(cliente, pos)) {
+            Menu::setColor(7);
+        cout << "Datos del cliente actualizados." << endl;
+    } else {
+        Menu::setColor(4);
+        cout << "Error al actualizar los datos del cliente." << endl;
+    }
+}

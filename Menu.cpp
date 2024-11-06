@@ -235,8 +235,8 @@ void Menu::modificar()
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Modificar Venta"<<endl;
         cout<<"2. Modificar Producto"<<endl;
-        cout<<"3. Modificar Cliente"<<endl;
-        cout<<"4. Modificar Empleado"<<endl;
+        cout<<"3. Modificar Empleado"<<endl;
+        cout<<"4. Modificar Cliente"<<endl;
         cout<<"5. Modificar Detalle de Venta"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
@@ -251,15 +251,61 @@ void Menu::modificar()
         switch (op)
         {
         case 1:
-            modificarRegistroVenta();
+            {
+            ArchivoVentas archivoVentas("ArchivoVentas.dat");
+            int idVenta;
+            setColor(7);
+            cout << "Ingrese el ID de la venta que desea modificar: ";
+            cin >> idVenta;
+            archivoVentas.ModificarVenta(idVenta);
+            break;
+             }
             break;
         case 2:
-            registrarProducto();
+            {
+            ArchivoProductos archivoProductos("ArchivoProductos.dat");
+            int productoID;
+            setColor(7);
+            cout << "Ingrese el ID del producto que desea modificar: ";
+            cin >> productoID;
+            archivoProductos.ModificarProducto(productoID);
             break;
+             }
+            break;
+        case 3:
+             {
+           ArchivoEmpleados archivoEmpleados("ArchivoEmpleados.dat");
+            int empleadoID;
+            setColor(7);
+            cout << "Ingrese el ID del empleado que desea modificar: ";
+            cin >> empleadoID;
+            archivoEmpleados.ModificarEmpleado(empleadoID);
+            break;
+             }
+        case 4:
+             {
+            ArchivoClientes archivoClientes("ArchivoClientes.dat");
+            int clienteID;
+            setColor(7);
+            cout << "Ingrese el ID del cliente que desea modificar: ";
+            cin >> clienteID;
+            archivoClientes.ModificarCliente(clienteID);
+            break;
+             }
+        case 5:
+            {
+            ArchivoDetalleVentas archivoDetalleVentas("ArchivoDetalleVentas.dat");
+            int idVenta;
+            setColor(7);
+            cout << "Ingrese el ID de la venta que desea modificar: ";
+            cin >> idVenta;
+            archivoDetalleVentas.ModificarDetalleVenta(idVenta);
+            break;
+             }
         case 0:
             getMainMenu();
         default:
-
+            setColor(4);
             mensajeDeError("Opcion invalida!, vuelva a intentarlo");
         }
         system("pause");

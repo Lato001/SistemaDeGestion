@@ -21,6 +21,7 @@ private:
         void FiltrarPorOrdenAlfabetico();
         void FiltrarPorID(int _ID);
         void FiltrarPorNComprasRealizadas();
+        void ModificarCliente(int clienteID);
         Cliente Leer(int posicion);
         int CantidadRegistros();
         void Leer(int CantidadRegistros, Cliente *vector);

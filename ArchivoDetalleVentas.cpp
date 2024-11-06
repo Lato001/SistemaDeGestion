@@ -1,9 +1,12 @@
 #pragma once
 #include <string>
 #include <cstring>
+#include <iostream>
 
 #include "ArchivoDetalleVentas.h"
 #include "DetalleVenta.h"
+#include "rlutil.h"
+#include "Menu.h"
 using namespace std;
 
 
@@ -121,3 +124,42 @@ void ArchivoDetalleVentas::Leer(int cantidadRegistros, DetalleVenta *vector){
     }
     fclose(registro);
 }
+
+int ArchivoDetalleVentas::BuscarPosRegistro(int idVenta){
+    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    DetalleVenta detalleVenta;
+    if(registro == NULL){
+        return -1;
+    }
+    int i = 0;
+    while(fread(&detalleVenta, sizeof(detalleVenta), 1, registro) == 1){
+        if(detalleVenta.getIdVenta() == idVenta){
+            fclose(registro);
+            return i;
+        }
+        i++;
+    }
+    fclose(registro);
+    return -1;
+}
+
+void ArchivoDetalleVentas::ModificarDetalleVenta(int idVenta) {
+    int pos = BuscarPosRegistro(idVenta);
+    if (pos == -1) {
+            Menu::setColor(4);
+        cout << "Detalle de Venta no encontrada." << endl;
+        return;
+        }
+    DetalleVenta detalleVenta = Leer(pos);
+    int idOriginal = detalleVenta.getIdVenta();
+    detalleVenta.cargarDetalleDeVenta(idOriginal);
+    detalleVenta.setIdVenta(idOriginal);
+    if (Guardar(detalleVenta, pos)) {
+            Menu::setColor(7);
+        cout << "Datos del detalle venta actualizados." << endl;
+    } else {
+        Menu::setColor(4);
+        cout << "Error al actualizar los datos del detalle de venta." << endl;
+    }
+}
+

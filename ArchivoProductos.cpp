@@ -4,6 +4,7 @@
 
 #include "ArchivoProductos.h"
 #include "Producto.h"
+#include "rlutil.h"
 #include "Menu.h"
 using namespace std;
 
@@ -207,5 +208,25 @@ void ArchivoProductos::Leer(int cantidadRegistros, Producto *vector){
         fread(&vector[i], sizeof(Producto), 1, registro);
     }
     fclose(registro);
+}
+
+void ArchivoProductos::ModificarProducto(int productoID) {
+    int pos = BuscarPos(productoID);
+    if (pos == -1) {
+            Menu::setColor(4);
+        cout << "Producto no encontrado." << endl;
+        return;
+        }
+    Producto producto = Leer(pos);
+    int idOriginal = producto.getProductoID();
+    producto.cargarProducto();
+    producto.setProductoID(idOriginal);
+    if (Guardar(producto, pos)) {
+            Menu::setColor(7);
+        cout << "Datos del producto actualizados." << endl;
+    } else {
+        Menu::setColor(4);
+        cout << "Error al actualizar los datos del producto." << endl;
+    }
 }
 

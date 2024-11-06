@@ -18,6 +18,8 @@ private:
         int ContLineas(int idVenta);
         DetalleVenta Leer(int posicion);
         int CantidadRegistros();
+        void ModificarDetalleVenta(int idVenta);
+        int BuscarPosRegistro(int idVenta);
         void Leer(int CantidadRegistros, DetalleVenta *vector);
 };
 #endif // ARCHIVODETALLEVENTAS_H_INCLUDED

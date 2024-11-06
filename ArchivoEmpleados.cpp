@@ -8,6 +8,7 @@
 #include "ArchivoEmpleados.h"
 #include "Empleado.h"
 #include "Menu.h"
+#include "rlutil.h"
 
 using namespace std;
 
@@ -415,3 +416,44 @@ void ArchivoEmpleados::Leer(int cantidadRegistros, Empleado *vector){
     }
     fclose(registro);
 }
+
+void ArchivoEmpleados::ModificarEmpleado(int empleadoID) {
+    int pos = BuscarPosRegistro(empleadoID);
+    if (pos == -1) {
+            Menu::setColor(4);
+        cout << "Empleado no encontrado." << endl;
+        return;
+        }
+    Empleado empleado = Leer(pos);
+    int idOriginal = empleado.getID();
+    empleado.cargarEmpleado();
+    empleado.setempleadoID(idOriginal);
+    if (Guardar(empleado, pos)) {
+            Menu::setColor(7);
+        cout << "Datos del empleado actualizados." << endl;
+    } else {
+        Menu::setColor(4);
+        cout << "Error al actualizar los datos del empleado." << endl;
+    }
+}
+
+int ArchivoEmpleados::BuscarPosRegistro(int empleadoID){
+    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    Empleado empleado;
+    if(registro == NULL){
+        return -1;
+    }
+    int i = 0;
+    while(fread(&empleado, sizeof(empleado), 1, registro) == 1){
+        if(empleado.getID() == empleadoID){
+            fclose(registro);
+            return i;
+        }
+        i++;
+    }
+    fclose(registro);
+    return -1;
+}
+
+
+

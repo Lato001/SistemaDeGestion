@@ -16,6 +16,7 @@ private:
         bool Guardar(Empleado empleado, int posicion);
 
         Empleado Buscar(int empleadoID);
+        int BuscarPosRegistro(int empleadoID);
 
         void FiltrarEmpleados();
         void FiltrarPorNombre(string _nombre);
@@ -24,6 +25,7 @@ private:
         void FiltrarPorFecha();
         void FiltrarPorAsistencias();
         void FiltrarPorVacacionesActivas(bool _vacaciones);
+        void ModificarEmpleado(int empleadoID);
 
         void eliminarArchivoEmpleados();
         void eliminarRegistroEmpleado(int empleadoID);
