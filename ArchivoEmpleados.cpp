@@ -55,6 +55,10 @@ Empleado ArchivoEmpleados::Buscar(int empleadoID){
     fclose(registro);
     return fallo;
 }
+
+
+
+
 void ArchivoEmpleados::FiltrarEmpleados(){
    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     Empleado empleado;

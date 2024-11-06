@@ -37,9 +37,9 @@ void Empleado::setfechadeingreso (Fecha _fechaDeIngreso){fechaDeIngreso = _fecha
 void Empleado::setSueldo(float _sueldo){sueldo = _sueldo;}
 void Empleado::mostrarEmpleado()
 {
-    cout << "              ID EMPLEADO: "<< getID()<<endl;
+    cout << "      ID EMPLEADO: "<< getID()<<endl;
     mostrarPersona();
-    cout<<"Detalles en la empresa:"<<endl;
+    cout<<"          Detalles en la empresa:"<<endl;
     Menu::setColor(7);
     cout << "              Fecha de Ingreso: ";
     Menu::setColor(0);
@@ -76,8 +76,14 @@ void Empleado::cargarEmpleado(){
        Menu::setColor(0);
     fechaACargar.cargarFecha();
     fechaDeIngreso = fechaACargar;
-    empleadoID = (Empleados.CantidadRegistros()+1);
-       Menu::setColor(7);
+
+    if(Empleados.CantidadRegistros() == 0){
+        empleadoID = 1;
+    }else{
+
+        empleadoID = Empleados.Leer((Empleados.CantidadRegistros()-1)).getID() + 1;
+    }
+    Menu::setColor(7);
     cout<< "Ingrese las asistencias del empleado: " << endl;
        Menu::setColor(0);
     cin >> inputNumeros;

@@ -145,7 +145,6 @@ void ArchivoProductos::FiltrarPorCategoria (string _categoria)
     }
     if(cont == 0){
         menu.mensajeDeError("No se encontro esa categoria. ");
-        cout<< _categoria<<endl;
     }
     fclose(registro);
 }
