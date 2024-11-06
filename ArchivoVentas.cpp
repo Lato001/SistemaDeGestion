@@ -130,7 +130,7 @@ void ArchivoVentas::eliminarArchivoVentas()
 {
     Menu menu;
     menu.setColor(7);
-    string nombre, aux;
+    int id, aux;
     ifstream salida;
     salida.open("ArchivoVentas.dat", ios::in);
     ofstream entrada;
@@ -144,18 +144,18 @@ void ArchivoVentas::eliminarArchivoVentas()
     }
     else
     {
-        cout << "Introduzca el nombre: ";
+        cout << "Introduzca el ID: ";
         cin >> aux;
 
-        while (salida >> nombre)
+        while (salida >> id)
         {
-            if (aux == nombre)
+            if (id == aux)
             {
                 cout << "El registro ha sido eliminado." << endl;
             }
             else
             {
-                entrada << nombre << " " << endl;
+                entrada << id << " " << endl;
             }
         }
 
@@ -168,7 +168,7 @@ void ArchivoVentas::eliminarArchivoVentas()
 }
 void ArchivoVentas::eliminarRegistroVenta(int ventaID)
 {
-    string nombreVenta;
+    int idVenta;
     FILE* archivoOriginal = fopen(_nombreArchivo.c_str(), "rb");
     if (archivoOriginal == nullptr)
     {
@@ -176,7 +176,7 @@ void ArchivoVentas::eliminarRegistroVenta(int ventaID)
         return;
     }
 
-    FILE* archivoTemporal = fopen("empleados_temp.dat", "wb");
+    FILE* archivoTemporal = fopen("ventas_temp.dat", "wb");
     if (archivoTemporal == nullptr)
     {
         cout << "Error al crear archivo temporal." << endl;
@@ -197,7 +197,7 @@ void ArchivoVentas::eliminarRegistroVenta(int ventaID)
         }
         else
         {
-            nombreVenta = venta.getIdVenta();
+            idVenta = venta.getIdVenta();
             encontrado = true;
         }
     }
@@ -211,12 +211,12 @@ void ArchivoVentas::eliminarRegistroVenta(int ventaID)
     {
         remove(_nombreArchivo.c_str());
         rename("ventas_temp.dat", _nombreArchivo.c_str());
-        cout << "Venta con ID " << ventaID <<" eliminado correctamente." << endl;
+        cout << "Venta con ID " << idVenta <<" eliminado correctamente." << endl;
     }
     else
     {
 
         remove("ventas_temp.dat");
-        cout << "Venta con ID " << ventaID << " no encontrado." << endl;
+        cout << "Venta con ID " << idVenta << " no encontrado." << endl;
     }
 }
