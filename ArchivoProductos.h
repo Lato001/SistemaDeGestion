@@ -13,13 +13,19 @@ private:
         bool Guardar(Producto producto);
         bool Guardar(Producto prodcuto, int posicion);
         Producto Buscar(int ID);
+
         void FiltrarProductos();
         void FiltrarPorNombre(string _nombre);
         void FiltrarPorID(int productoID);
         void FiltrarPorCategoria (string _categoria);
         void ModificarProducto(int productoID);
+
         int BuscarPos(int productoID);
         int ContLineas(int ID);
+
+        void eliminarArchivoProductos();
+        void eliminarRegistroProducto(int productoID);
+
         Producto Leer(int posicion);
         int CantidadRegistros();
         void Leer(int cantidadRegistros, Producto *vector);

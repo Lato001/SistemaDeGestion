@@ -1,6 +1,9 @@
 #pragma once
 #include <string>
 #include <cstring>
+#include <iostream>
+#include <fstream>
+#include <conio.h>
 
 #include "ArchivoProductos.h"
 #include "Producto.h"
@@ -229,3 +232,97 @@ void ArchivoProductos::ModificarProducto(int productoID) {
     }
 }
 
+void ArchivoProductos::eliminarArchivoProductos()
+{
+    Menu menu;
+    menu.setColor(7);
+    string nombre, aux;
+    ifstream salida;
+    salida.open("ArchivoProductos.dat", ios::in);
+    ofstream entrada;
+    entrada.open("temp.dat", ios::out);
+
+    if (salida.fail())
+    {
+        cout << "Hubo un error al abrir el archivo ArchivoProductos.dat" << endl;
+        cin.get();
+        exit(0);
+    }
+    else
+    {
+        cout << "Introduzca el nombre: ";
+        cin >> aux;
+
+        while (salida >> nombre)
+        {
+            if (aux == nombre)
+            {
+                cout << "El registro ha sido eliminado." << endl;
+            }
+            else
+            {
+                entrada << nombre << " " << endl;
+            }
+        }
+
+        salida.close();
+        entrada.close();
+
+        remove("ArchivoProductos.dat");  // Eliminar el archivo original
+        rename("temp.dat", "ArchivoProductos.dat");  // Renombrar el archivo temporal a "ArchivoEmpleados.dat"
+    }
+}
+void ArchivoProductos::eliminarRegistroProducto(int productoID)
+{
+    string nombreProducto;
+    FILE* archivoOriginal = fopen(_nombreArchivo.c_str(), "rb");
+    if (archivoOriginal == nullptr)
+    {
+        cout << "Error al abrir el archivo para lectura." << endl;
+        return;
+    }
+
+    FILE* archivoTemporal = fopen("productos_temp.dat", "wb");
+    if (archivoTemporal == nullptr)
+    {
+        cout << "Error al crear archivo temporal." << endl;
+        fclose(archivoOriginal);
+        return;
+    }
+
+    Producto producto;
+    bool encontrado = false;
+
+
+    while (fread(&producto, sizeof(Producto), 1, archivoOriginal))
+    {
+        if (producto.getProductoID() != productoID)
+        {
+
+            fwrite(&producto, sizeof(Producto), 1, archivoTemporal);
+        }
+        else
+        {
+            nombreProducto = producto.getNombre();
+            encontrado = true;
+        }
+    }
+
+
+    fclose(archivoOriginal);
+    fclose(archivoTemporal);
+
+
+    if (encontrado)
+    {
+        remove(_nombreArchivo.c_str());
+        rename("productos_temp.dat", _nombreArchivo.c_str());
+        cout << "Producto con ID " << productoID <<" y con nombre " << nombreProducto << " eliminado correctamente." << endl;
+    }
+    else
+    {
+
+        remove("productos_temp.dat");
+        cout << "Producto con ID " << productoID << " no encontrado." << endl;
+    }
+}

@@ -356,7 +356,7 @@ void Menu::eliminar()
             menuEliminarVentas();
             break;
         case 4:
-            menuEliminarPrudctos();
+            menuEliminarProductos();
             break;
         case 0:
             getMainMenu();
@@ -519,10 +519,80 @@ void Menu::eliminarRegistroCliente()
 void Menu::menuEliminarVentas()
 {
 
-}void Menu::menuEliminarPrudctos()
+}
+void Menu::menuEliminarProductos()
 {
+    Menu menu;
+    int op=0;
+    bool opcionValida=false;
+
+    do
+    {
+        setColor(7);
+        cout<<"----------------------------------"<<endl;
+        cout<<"Elija la opcion que desee realizar"<<endl;
+        cout<<"1. Eliminar un registro"<<endl;
+        cout<<"2. Eliminar archivo"<<endl;
+        cout<<"0. Salir"<<endl;
+        cout<<"==================================="<<endl;
+        setColor(0);
+        cin>>op;
+        system("cls");
+        if(op> (0) && op<4)
+        {
+            opcionValida=true;
+        }
+
+        switch (op)
+        {
+        case 1:
+            eliminarRegistroProducto();
+            break;
+        case 2:
+            eliminarArchivoProductos();
+            break;
+        case 0:
+            getMainMenu();
+            break;
+        default:
+
+            menu.mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
+
+        }
+        system("pause");
+        system("cls");
+
+        opcionValida = false;
+    }
+    while(!opcionValida);
+}
+
+void Menu::eliminarRegistroProducto()
+{
+    ArchivoProductos Productos("ArchivoProductos.dat");
+    Producto producto;
+
+    int productoID;
+    cout << "Ingrese el ID del producto que desea eliminar: ";
+    cin>>productoID;
+
+    Productos.eliminarRegistroProducto(productoID);
+    system("pause");
+    system("cls");
 
 }
+
+void Menu::eliminarArchivoProductos()
+{
+    ArchivoProductos Productos("ArchivoProductos.dat");
+    Producto producto;
+
+    Productos.eliminarArchivoProductos();
+    system("pause");
+    system("cls");
+    menuEliminarProductos();
+}
+
 void Menu::modificarRegistroVenta()
 {
     Menu menu;

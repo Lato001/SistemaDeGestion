@@ -376,7 +376,7 @@ void ArchivoEmpleados::eliminarRegistroEmpleado(int empleadoID)
     {
         remove(_nombreArchivo.c_str());
         rename("empleados_temp.dat", _nombreArchivo.c_str());
-        cout << "Empleado con ID " << empleadoID <<" y con nombre" << nombreEmpleado << " eliminado correctamente." << endl;
+        cout << "Empleado con ID " << empleadoID <<" y con nombre " << nombreEmpleado << " eliminado correctamente." << endl;
     }
     else
     {

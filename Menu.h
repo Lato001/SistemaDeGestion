@@ -45,7 +45,10 @@ public:
 
 
 
-    void menuEliminarPrudctos();
+    void menuEliminarProductos();
+
+    void eliminarArchivoProductos();
+    void eliminarRegistroProducto();
 
     ///FUNCIONES PARA INTERFAZ
     void mensajeDeError(string mensaje);
