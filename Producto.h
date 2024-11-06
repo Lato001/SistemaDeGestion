@@ -15,12 +15,11 @@ public:
     Producto();
     Producto(int _productoID, const char* _nombreProducto, float _precioUnitario, int _stock, const char* _categoriaProducto); //Constructor de la clase Producto
 
-    int getProductoID();
+    int getID();
     const char* getNombre();
     float getPrecioUnitario();
     const char* getCategoriaProducto();
     int getStock();
-    int getID();
 
     void setProductoID(int _productoID);
     void setNombre(const char* _nombre);

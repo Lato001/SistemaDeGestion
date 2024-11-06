@@ -35,7 +35,7 @@ Producto::Producto(int _productoID, const char* _nombreProducto, float _precioUn
 
 }
 
-int Producto::getProductoID() { return productoID; }
+int Producto::getID() { return productoID; }
 const char* Producto::getNombre() { return nombreProducto; }
 const char* Producto::getCategoriaProducto() { return categoriaProducto; }
 float Producto::getPrecioUnitario() { return precioUnitario; }
@@ -69,7 +69,11 @@ void Producto::cargarProducto()
     float inputPrecioUnitario;
     int inputStock;
 
-    productoID = Productos.CantidadRegistros() + 1;
+    if(Productos.CantidadRegistros() == 0){
+        productoID = 1;
+    }else{
+        productoID = Productos.Leer((Productos.CantidadRegistros()-1)).getID() + 1;
+    }
 
     cin.ignore();
     Menu::setColor(7);
@@ -109,7 +113,7 @@ void Producto::mostrarProducto()
 {
     Menu menu;
     Menu::setColor(3);
-    cout << "////////////////// ID PRODUCTO: " << getProductoID() << " //////////////////" << endl;
+    cout << "////////////////// ID PRODUCTO: " << getID() << " //////////////////" << endl;
    Menu::setColor(7);
     cout << "Nombre del Producto: ";
     menu.setColor(0);
