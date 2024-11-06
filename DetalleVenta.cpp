@@ -70,51 +70,15 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
 
     ArchivoProductos Productos("ArchivoProductos.dat");
 
-    Producto registro;
+
     int input, opcion;
     Producto productoActual;
+
 
     bool opcionValida = false;
     while (!opcionValida)
     {
-        Menu::setColor(7);
-
-        cout<<"----------------------------------"<<endl;
-        cout<<"Como desea listar los productos"<<endl;
-        cout<<"1. Listar por Nombre"<<endl;
-        cout<<"2. Listar por Categoria"<<endl;
-        cout<<"3. Listar Todos"<<endl;
-        cout<<"==================================="<<endl;
-        cin>>opcion;
-        if (opcion > 0 && opcion < 4 )
-        {
-            opcionValida = true;
-            switch (opcion)
-            {
-            case 1:
-                menu.listarProductosxName();
-            break;
-            case 2:
-                menu.listarProductosxCategoria();
-            break;
-            case 3:
-                for (int i = 0; i < Productos.CantidadRegistros(); i++)
-                {
-                    registro = Productos.Leer(i);
-                    registro.mostrarProducto();
-                    cout << endl;
-                }
-            break;
-            default:
-                menu.mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
-
-            }
-
-        }
-    }
-    opcionValida = false;
-    while (!opcionValida)
-    {
+        menu.MenuListarProductosDetalleVentas();
         Menu::setColor(7);
         cout << "Ingrese el -ID- de la opcion deseada: ";
 
@@ -123,19 +87,21 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
 
         productoActual = Productos.Buscar(input);
 
-        if (productoActual.getProductoID() != -1)
+        if (productoActual.getProductoID() != -1 && productoActual.getStock() > 0)
         {
             opcionValida = true;
             idProducto = productoActual.getProductoID();
-        }
-        else
-        {
+        }else{
+            cout<<"Opcion invalida";
+            if(!productoActual.getStock() >0){
+                cout<< ", no hay suficiente stock";
+            }
+            cout<<endl;
+            system("pause");
 
-            menu.mensajeDeError("Opcion invalida, vuelva a intentarlo");
-
         }
-        system("pause");
         system("cls");
+
 
     }
 
@@ -148,7 +114,7 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
         Menu::setColor(0);
         cin >> input;
 
-        if (input <= productoActual.getStock())
+        if (input > 0 && input <= productoActual.getStock())
         {
             cantidadProducto = input;
 
@@ -166,8 +132,9 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
 
         }
     }
+
     importe = Productos.Buscar(idProducto).getPrecioUnitario() * cantidadProducto;
-    cout<< importe;
+    cout<<"TOTAL DE VENTA REGISTRADA: $"<<importe <<endl;
 }
 
 void DetalleVenta::mostrarDetalleDeVenta()
@@ -178,8 +145,8 @@ Menu menu;
     Producto producto;
     for (int i =1; i<= DetalleVentas.ContLineas(idVenta); i++ )
     {
-        Menu::setColor(3);
-        cout << "ID DEL PRODUCTO: " << DetalleVentas.BuscarPorLinea(idVenta,i).getIdProducto()<< endl;
+        Menu::setColor(2);
+        cout << "NOMBRE DEL PRODUCTO: " <<Productos.Buscar(DetalleVentas.BuscarPorLinea(idVenta,i).getIdProducto()).getNombre()<< endl;
 
         idProducto=getIdProducto();
 

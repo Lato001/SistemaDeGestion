@@ -160,7 +160,6 @@ void Venta::cargarVenta() {
         cout << "--------------- DETALLE DE VENTA --------------------" << endl;
         Menu::setColor(0);
         registroDetalle.cargarDetalleDeVenta(getIdVenta());
-        rlutil::anykey();
         if (DetalleVentas.Guardar(registroDetalle)) {
             Menu::setColor(2);
             cout << "El detalle de venta se ha registrado correctamente" << endl;

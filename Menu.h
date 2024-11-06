@@ -39,11 +39,13 @@ public:
     void listarVentas();
 
     void MenulistarProductos();
+    void MenuListarProductosDetalleVentas();
 
     void listarProductosxName();
     void listarProductosxID();
     void listarProductosxCategoria();
     void listarProductosAll();
+    void listarProductosDisponibles();
 
     ///FUNCIONES PARA CREACION DE OBJETOS
     void crearEmpleado();

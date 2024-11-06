@@ -677,8 +677,8 @@ void Menu::listarEmpleadosAll()
 
     Empleados.FiltrarEmpleados();
     system("pause");
-system("cls");
-MenulistarEmpleados();
+    system("cls");
+    MenulistarEmpleados();
 }
 
 void Menu::listarEmpleadosxOrdenAlfabetico()
@@ -850,9 +850,6 @@ void Menu::listarVentas()
     }
     else
     {
-    setColor(2);
-        cout<< "TOTAL DE VENTAS: " << cantRegistros << endl<<endl;
-            setColor(7);
         for (int i = 0; i < cantRegistros; i++ )
         {
             registro = Ventas.Leer(i);
@@ -876,14 +873,15 @@ void Menu::MenulistarProductos()
         cout<<"1. Listar por Nombre"<<endl;
         cout<<"2. Listar por ID"<<endl;
         cout<<"3. Listar por Categoria"<<endl;
-        cout<<"4. Listar Todos"<<endl;
+        cout<<"4. Listar Disponibles"<<endl;
+        cout<<"5. Listar Todos"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         setColor(0);
 
         cin>>op;
         system("cls");
-        if(op>0 && op<5)
+        if(op>0 && op<6)
         {
             opcionValida=true;
         }
@@ -899,22 +897,60 @@ void Menu::MenulistarProductos()
             listarProductosxCategoria();
             break;
         case 4:
+            listarProductosDisponibles();
+            break;
+        case 5:
             listarProductosAll();
             break;
         case 0:
             getMainMenu();
         default:
             menu.mensajeDeError("Opcion invalida!, vuelva a intentarlo");
-              setColor(7);
+            setColor(7);
         }
-        system("pause");
-        system("cls");
 
 
 
     }
     while(!opcionValida);
-    MenulistarProductos();
+}
+void Menu::MenuListarProductosDetalleVentas(){
+
+int opcion;
+    bool opcionValida = false;
+    while (!opcionValida)
+    {
+        Menu::setColor(7);
+
+        cout<<"----------------------------------"<<endl;
+        cout<<"Como desea listar los productos"<<endl;
+        cout<<"1. Listar por Nombre"<<endl;
+        cout<<"2. Listar por Categoria"<<endl;
+        cout<<"3. Listar Productos Disponibles"<<endl;
+        cout<<"==================================="<<endl;
+        cin>>opcion;
+        if (opcion > 0 && opcion < 4 )
+        {
+            opcionValida = true;
+            switch (opcion)
+            {
+            case 1:
+                listarProductosxName();
+            break;
+            case 2:
+                listarProductosxCategoria();
+            break;
+            case 3:
+                listarProductosDisponibles();
+            break;
+            default:
+                mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
+
+            }
+
+        }
+    }
+
 }
 
 void Menu::listarProductosAll()
@@ -922,8 +958,6 @@ void Menu::listarProductosAll()
     Menu menu;
     ArchivoProductos Productos("ArchivoProductos.dat");
     Productos.FiltrarProductos();
-    system("pause");
-    system("cls");
 }
 void Menu::listarProductosxName()
 {
@@ -935,9 +969,6 @@ void Menu::listarProductosxName()
     cin >> nombre;
     Productos.FiltrarPorNombre(nombre);
     setColor(7);
-    system("pause");
-    system("cls");
-
 }
 void Menu::listarProductosxID()
 {
@@ -949,6 +980,20 @@ void Menu::listarProductosxID()
     cin >> id;
     Productos.FiltrarPorID(id);
     setColor(7);
+}
+void Menu::listarProductosDisponibles(){
+    ArchivoProductos Productos("ArchivoProductos.dat");
+    Producto producto;
+ for (int i = 0; i < Productos.CantidadRegistros(); i++)
+                {
+                    producto = Productos.Leer(i);
+                    if(producto.getStock() > 0){
+
+                    producto.mostrarProducto();
+                    }
+                    cout << endl;
+                }
+
 }
 void Menu::listarProductosxCategoria()
 {

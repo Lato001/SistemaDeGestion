@@ -87,7 +87,7 @@ void Persona::mostrarPersona() {
     menu.setColor(7);
     cout << "              Localidad: ";
     menu.setColor(0);
-    cout << getLocalidad() << endl;
+    cout << getLocalidad() << endl<<endl;
     menu.setColor(7);
 }
 
