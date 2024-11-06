@@ -17,36 +17,6 @@ public:
     void modificar();
     void eliminar();
 
-    ///LISTADOS DE CLASES
-    void MenulistarEmpleados();
-
-    void listarEmpleadosxName();
-    void listarEmpleadosxOrdenAlfabetico();
-    void listarEmpleadosxID();
-    void listarEmpleadosxFecha();
-    void listarEmpleadosxAsistencias();
-    void listarEmpleadosxVacaciones();
-    void listarEmpleadosAll();
-
-    void MenulistarClientes();
-
-    void listarClientesxName();
-    void listarClientesxOrdenAlfabetico();
-    void listarClientesxID();
-    void listarClientesxComprasRealizadas();
-    void listarClientesAll();
-
-    void listarVentas();
-
-    void MenulistarProductos();
-    void MenuListarProductosDetalleVentas();
-
-    void listarProductosxName();
-    void listarProductosxID();
-    void listarProductosxCategoria();
-    void listarProductosAll();
-    void listarProductosDisponibles();
-
     ///FUNCIONES PARA CREACION DE OBJETOS
     void crearEmpleado();
     void crearCliente();
@@ -79,8 +49,6 @@ public:
     ///FUNCIONES PARA INTERFAZ
     void mensajeDeError(string mensaje);
     static void setColor(int color);
-
-//Funciones listar / Listados
 };
 
 
