@@ -85,8 +85,8 @@ void ArchivoEmpleados::FiltrarEmpleados(){
 
 
 }
-void ArchivoEmpleados::FiltrarPorNombre(string _nombre){
-
+void ArchivoEmpleados::FiltrarPorNombre(string _nombre)
+{
 FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
     Empleado empleado;
     Menu menu;
@@ -108,7 +108,6 @@ FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
         cout << _nombre<<endl;
     }
     fclose(registro);
-
 }
 
 void ArchivoEmpleados::FiltrarPorOrdenAlfabetico()
@@ -491,15 +490,25 @@ void ArchivoEmpleados::exportarEmpleadosACSV(string nombreArchivoCSV)
     while (fread(&empleado, sizeof(Empleado), 1, registro))
     {
         Menu::setColor(7);
+        archivoCSV <<"ID: "<<empleado.getID() << endl;
+        archivoCSV <<"NOMBRE: "<<empleado.getNombre() << endl;
+        archivoCSV <<"APELLIDO: "<<empleado.getApellido() << endl;
+        archivoCSV <<"EMAIL: "<<empleado.getEmail() << endl;
+        archivoCSV <<"NUMERO DE TELEFONO: "<<empleado.getnTelefono() << endl;
+        archivoCSV <<"LOCALIDAD: "<<empleado.getLocalidad() << endl;
+        archivoCSV << endl;
         archivoCSV << "FECHA DE INGRESO: " << empleado.getFechaIngreso().getDia()<<"/"<<empleado.getFechaIngreso().getMes()<<"/"<<empleado.getFechaIngreso().getAnio()<<endl;
         archivoCSV << "ASISTENCIAS: " <<empleado.getAsistencias() <<endl;
-        archivoCSV << "VACACIONES ACTIVAS: " <<endl;
-        if (empleado.getIsVacaciones()) {
-            cout << "Si"  ;
-        }  else {
-            cout << "No"  ;
-          }
-          cout <<endl;
+        archivoCSV << "VACACIONES ACTIVAS: ";
+        if (empleado.getIsVacaciones() == true)
+        {
+            archivoCSV << "Si";
+        }
+        else
+        {
+            archivoCSV << "No";
+        }
+        archivoCSV<<endl;
         archivoCSV << "SUELDO: " ;
         archivoCSV <<empleado.getSueldo() <<endl;
         archivoCSV << endl;
