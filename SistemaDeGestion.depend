@@ -1,0 +1,901 @@
+# depslib dependency file v1.0
+1728867453 source:c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\main.cpp
+	<iostream>
+	"Menu.h"
+
+1728931390 c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\menu.h
+	"Persona.h"
+
+1728935867 source:c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\menu.cpp
+	<iostream>
+	<cstdio>
+	"Menu.h"
+	"Persona.h"
+
+1728478733 source:c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\fecha.cpp
+	<iostream>
+	"Fecha.h"
+
+1728478295 c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\fecha.h
+
+1728861638 source:c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\persona.cpp
+	<iostream>
+	"Persona.h"
+	<string>
+	<cstring>
+
+1728935867 c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\persona.h
+
+1728489697 source:c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\venta.cpp
+	<iostream>
+	"Venta.h"
+	"Fecha.h"
+	"Persona.h"
+
+1728489680 c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\venta.h
+	"Fecha.h"
+	"Persona.h"
+
+1730760701 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.cpp
+	<iostream>
+	<cstring>
+	<tuple>
+	<string>
+	"rlutil.h"
+	"Fecha.h"
+	"Menu.h"
+
+1730760707 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.h
+
+1730737722 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\main.cpp
+	<iostream>
+	"Menu.h"
+	"rlutil.h"
+
+1730750338 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.h
+	"Cliente.h"
+	"Empleado.h"
+	"rlutil.h"
+
+1730737722 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.h
+
+1730739527 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.cpp
+	<iostream>
+	<cstring>
+	"rlutil.h"
+	"Persona.h"
+	"Menu.h"
+
+1730751111 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.cpp
+	<iostream>
+	"rlutil.h"
+	"Fecha.h"
+	"Empleado.h"
+	"Cliente.h"
+	"ArchivoEmpleados.h"
+	"ArchivoClientes.h"
+	"Venta.h"
+	"ArchivoVentas.h"
+	"ArchivoDetalleVentas.h"
+	"DetalleVenta.h"
+	"ArchivoProductos.h"
+	"Producto.h"
+	"Menu.h"
+
+1730737722 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.h
+	"Fecha.h"
+	"Empleado.h"
+	"Cliente.h"
+	"DetalleVenta.h"
+
+1730757970 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
+	<iostream>
+	<cstdio>
+	<algorithm>
+	<cstring>
+	"ArchivoClientes.h"
+	"ArchivoEmpleados.h"
+	"ArchivoVentas.h"
+	"ArchivoProductos.h"
+	"ArchivoDetalleVentas.h"
+	"Menu.h"
+	"Cliente.h"
+	"Empleado.h"
+	"Venta.h"
+	"Producto.h"
+	"rlutil.h"
+
+1728935867 source:c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\archivo.cpp
+	<string>
+	<cstring>
+	"Archivo.h"
+	"Persona.h"
+
+1728935867 c:\users\winbylato\desktop\tpintegradorprogra2\sistemadegestion\archivo.h
+	"Persona.h"
+
+1728935867 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivo.cpp
+	<string>
+	<cstring>
+	"Archivo.h"
+	"Persona.h"
+
+1728935867 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivo.h
+	"Persona.h"
+
+1730389562 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\persona.h
+
+1730518451 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\fecha.cpp
+	<iostream>
+	<cstring>
+	"rlutil.h"
+	"Fecha.h"
+
+1730433110 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\fecha.h
+
+1730518168 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\persona.cpp
+	<iostream>
+	<cstring>
+	"rlutil.h"
+	"Persona.h"
+
+1730531575 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.cpp
+	<iostream>
+	"rlutil.h"
+	"Fecha.h"
+	"Empleado.h"
+	"Cliente.h"
+	"ArchivoEmpleados.h"
+	"ArchivoClientes.h"
+	"Venta.h"
+	"ArchivoVentas.h"
+	"ArchivoDetalleVentas.h"
+	"DetalleVenta.h"
+
+1730433110 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.h
+	"Fecha.h"
+	"Empleado.h"
+	"Cliente.h"
+	"DetalleVenta.h"
+
+1730404060 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\main.cpp
+	<iostream>
+	"Menu.h"
+	"rlutil.h"
+
+1730519464 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\menu.h
+	"Cliente.h"
+	"Empleado.h"
+
+1730520664 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\menu.cpp
+	<iostream>
+	<cstdio>
+	<algorithm>
+	<cstring>
+	"ArchivoClientes.h"
+	"ArchivoEmpleados.h"
+	"ArchivoVentas.h"
+	"ArchivoProductos.h"
+	"Menu.h"
+	"Cliente.h"
+	"Empleado.h"
+	"Venta.h"
+	"Producto.h"
+	"rlutil.h"
+
+1729782649 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivopersonas.h
+	"Persona.h"
+
+1729782649 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivopersonas.cpp
+	<string>
+	<cstring>
+	"ArchivoPersonas.h"
+	"Persona.h"
+
+1729103180 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivopersonas.cpp
+	<string>
+	<cstring>
+	"ArchivoPersonas.h"
+	"Persona.h"
+
+1729107982 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivopersonas.h
+	"Persona.h"
+
+1729168398 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\comprador.cpp
+	<iostream>
+	"Persona.h"
+	"Comprador.h"
+
+1729170102 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\comprador.h
+	"persona.h"
+
+1729113057 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivocompradores.cpp
+	<string>
+	<cstring>
+	"ArchivoCompradores.h"
+	"Comprador.h"
+
+1729170432 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivocompradores.h
+	"Persona.h"
+	"Comprador.h"
+
+1730737722 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.h
+	"Persona.h"
+	"Fecha.h"
+
+1730751111 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.cpp
+	<iostream>
+	<string>
+	"rlutil.h"
+	"Empleado.h"
+	"Persona.h"
+	"Fecha.h"
+	"ArchivoEmpleados.h"
+	"Menu.h"
+
+1730737722 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\cliente.h
+	"persona.h"
+
+1730753400 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoclientes.cpp
+	<string>
+	<cstring>
+	<iostream>
+	"ArchivoClientes.h"
+	"Cliente.h"
+	"Menu.h"
+
+1730753102 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoclientes.h
+	"Persona.h"
+	"Cliente.h"
+
+1730737722 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\cliente.cpp
+	<iostream>
+	"rlutil.h"
+	"Persona.h"
+	"Cliente.h"
+	"ArchivoClientes.h"
+	"Menu.h"
+
+1729802069 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\tareas.cpp
+
+1730392829 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoclientes.cpp
+	<string>
+	<cstring>
+	"ArchivoClientes.h"
+	"Cliente.h"
+
+1730392454 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoclientes.h
+	"Persona.h"
+	"Cliente.h"
+
+1730433110 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\cliente.h
+	"persona.h"
+
+1730518168 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\cliente.cpp
+	<iostream>
+	"rlutil.h"
+	"Persona.h"
+	"Cliente.h"
+	"ArchivoClientes.h"
+
+1730531483 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\empleado.cpp
+	<iostream>
+	<string>
+	"rlutil.h"
+	"Empleado.h"
+	"Persona.h"
+	"Fecha.h"
+	"ArchivoEmpleados.h"
+
+1730394997 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\empleado.h
+	"Persona.h"
+	"Fecha.h"
+
+1730167789 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\tareas.cpp
+
+1730531105 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\detalleventa.cpp
+	<iostream>
+	"rlutil.h"
+	"DetalleVenta.h"
+	"ArchivoProductos.h"
+	"ArchivoDetalleVentas.h"
+
+1730523523 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\detalleventa.h
+
+1730518168 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\producto.cpp
+	<iostream>
+	<cstring>
+	"rlutil.h"
+	"Producto.h"
+	"ArchivoProductos.h"
+
+1730389562 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\producto.h
+
+1730751111 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.cpp
+	<iostream>
+	"rlutil.h"
+	"DetalleVenta.h"
+	"ArchivoDetalleVentas.h"
+	"Venta.h"
+	"Producto.h"
+	"ArchivoProductos.h"
+	"Menu.h"
+
+1730737722 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.h
+
+1730739527 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.cpp
+	<iostream>
+	<cstring>
+	"rlutil.h"
+	"DetalleVenta.h"
+	"Producto.h"
+	"ArchivoProductos.h"
+	"Menu.h"
+
+1730737722 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.h
+	"DetalleVenta.h"
+
+1729694449 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\archivoclientes.cpp
+	<string>
+	<cstring>
+	"ArchivoClientes.h"
+	"Cliente.h"
+
+1729694449 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\archivoclientes.h
+	"Persona.h"
+	"Cliente.h"
+
+1730157057 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\persona.h
+
+1730157057 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\cliente.h
+	"persona.h"
+
+1729022332 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\archivopersonas.cpp
+	<string>
+	<cstring>
+	"ArchivoPersonas.h"
+	"Persona.h"
+
+1729694449 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\archivopersonas.h
+	"Persona.h"
+
+1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\cliente.cpp
+	<iostream>
+	"Persona.h"
+	"Cliente.h"
+
+1730164109 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\detalleventa.cpp
+	<iostream>
+	"DetalleVenta.h"
+
+1730164066 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\detalleventa.h
+
+1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\empleado.cpp
+	<iostream>
+	<string>
+	"Empleado.h"
+	"Persona.h"
+	"Fecha.h"
+
+1730157057 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\empleado.h
+	"Persona.h"
+	"Fecha.h"
+
+1730157057 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\fecha.h
+
+1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\fecha.cpp
+	<iostream>
+	<cstring>
+	"Fecha.h"
+
+1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\main.cpp
+	<iostream>
+	"Menu.h"
+
+1730157057 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\menu.h
+	"Persona.h"
+	"Cliente.h"
+	"Empleado.h"
+
+1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\menu.cpp
+	<iostream>
+	<cstdio>
+	"Menu.h"
+	"Persona.h"
+	"ArchivoPersonas.h"
+	"Cliente.h"
+	"ArchivoClientes.h"
+	"Empleado.h"
+	"Venta.h"
+
+1730157057 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\venta.h
+	"Fecha.h"
+	"Persona.h"
+	"Cliente.h"
+
+1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\persona.cpp
+	<iostream>
+	<cstring>
+	"Persona.h"
+
+1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\producto.cpp
+	<iostream>
+	<cstring>
+	"Producto.h"
+
+1730164066 c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\producto.h
+
+1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\venta.cpp
+	<iostream>
+	"Venta.h"
+	"Fecha.h"
+	"Persona.h"
+	"Empleado.h"
+
+1730157057 source:c:\users\marcos\desktop\clases progrmacion\proyecto integrador\sistemadegestion\tareas.cpp
+
+1730518168 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoempleados.cpp
+	<string>
+	<cstring>
+	<iostream>
+	"ArchivoEmpleados.h"
+	"Empleado.h"
+
+1730391911 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoempleados.h
+	"Persona.h"
+	"Empleado.h"
+
+1730522451 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoventas.cpp
+	<string>
+	<cstring>
+	"ArchivoVentas.h"
+	"Venta.h"
+
+1730404991 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoventas.h
+	"Venta.h"
+	"Cliente.h"
+	"Fecha.h"
+	"Venta.h"
+	"DetalleVenta.h"
+
+1729993933 source:c:\users\agustin\documents\github\sistemadegestion\archivoclientes.cpp
+	<string>
+	<cstring>
+	"ArchivoClientes.h"
+	"Cliente.h"
+
+1729993933 c:\users\agustin\documents\github\sistemadegestion\archivoclientes.h
+	"Persona.h"
+	"Cliente.h"
+
+1730223134 c:\users\agustin\documents\github\sistemadegestion\persona.h
+
+1730223134 c:\users\agustin\documents\github\sistemadegestion\cliente.h
+	"persona.h"
+
+1729993933 source:c:\users\agustin\documents\github\sistemadegestion\archivopersonas.cpp
+	<string>
+	<cstring>
+	"ArchivoPersonas.h"
+	"Persona.h"
+
+1729993933 c:\users\agustin\documents\github\sistemadegestion\archivopersonas.h
+	"Persona.h"
+
+1730223134 source:c:\users\agustin\documents\github\sistemadegestion\cliente.cpp
+	<iostream>
+	"Persona.h"
+	"Cliente.h"
+	"ArchivoClientes.h"
+
+1730287437 source:c:\users\agustin\documents\github\sistemadegestion\detalleventa.cpp
+	<iostream>
+	"DetalleVenta.h"
+
+1730223134 c:\users\agustin\documents\github\sistemadegestion\detalleventa.h
+
+1730223134 source:c:\users\agustin\documents\github\sistemadegestion\empleado.cpp
+	<iostream>
+	<string>
+	"Empleado.h"
+	"Persona.h"
+	"Fecha.h"
+	"ArchivoEmpleados.h"
+
+1730223134 c:\users\agustin\documents\github\sistemadegestion\empleado.h
+	"Persona.h"
+	"Fecha.h"
+
+1729993933 c:\users\agustin\documents\github\sistemadegestion\fecha.h
+
+1730223134 c:\users\agustin\documents\github\sistemadegestion\archivoempleados.h
+	"Persona.h"
+	"Empleado.h"
+
+1730223134 source:c:\users\agustin\documents\github\sistemadegestion\fecha.cpp
+	<iostream>
+	<cstring>
+	"Fecha.h"
+
+1729993894 source:c:\users\agustin\documents\github\sistemadegestion\main.cpp
+	<iostream>
+	"Menu.h"
+
+1730223134 c:\users\agustin\documents\github\sistemadegestion\menu.h
+	"Persona.h"
+	"Cliente.h"
+	"Empleado.h"
+
+1730287437 source:c:\users\agustin\documents\github\sistemadegestion\menu.cpp
+	<iostream>
+	<cstdio>
+	"ArchivoPersonas.h"
+	"ArchivoClientes.h"
+	"ArchivoEmpleados.h"
+	"Menu.h"
+	"Persona.h"
+	"Cliente.h"
+	"Empleado.h"
+	"Venta.h"
+
+1730287438 c:\users\agustin\documents\github\sistemadegestion\venta.h
+	"Fecha.h"
+	"Persona.h"
+	"Cliente.h"
+	"DetalleVenta.h"
+
+1730223134 source:c:\users\agustin\documents\github\sistemadegestion\persona.cpp
+	<iostream>
+	<cstring>
+	"Persona.h"
+
+1730223134 source:c:\users\agustin\documents\github\sistemadegestion\producto.cpp
+	<iostream>
+	<cstring>
+	"Producto.h"
+
+1730223134 c:\users\agustin\documents\github\sistemadegestion\producto.h
+
+1730287438 source:c:\users\agustin\documents\github\sistemadegestion\venta.cpp
+	<iostream>
+	"Venta.h"
+	"Fecha.h"
+	"Persona.h"
+	"Empleado.h"
+	"ArchivoEmpleados.h"
+	"ArchivoClientes.h"
+	"ArchivoVentas.h"
+
+1730287437 c:\users\agustin\documents\github\sistemadegestion\archivoventas.h
+	"Venta.h"
+	"Cliente.h"
+	"Fecha.h"
+	"Venta.h"
+	"DetalleVenta.h"
+
+1730223134 source:c:\users\agustin\documents\github\sistemadegestion\archivoempleados.cpp
+	<string>
+	<cstring>
+	"ArchivoEmpleados.h"
+	"Empleado.h"
+
+1730287437 source:c:\users\agustin\documents\github\sistemadegestion\archivoventas.cpp
+	<string>
+	<cstring>
+	"ArchivoVentas.h"
+	"Venta.h"
+
+1730760411 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.cpp
+	<string>
+	<cstring>
+	<iostream>
+	"ArchivoEmpleados.h"
+	"Empleado.h"
+	"Menu.h"
+
+1730750654 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.h
+	"Persona.h"
+	"Empleado.h"
+
+1730737722 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoventas.cpp
+	<string>
+	<cstring>
+	"ArchivoVentas.h"
+	"Venta.h"
+
+1730737722 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoventas.h
+	"Venta.h"
+	"Cliente.h"
+	"Fecha.h"
+	"Venta.h"
+	"DetalleVenta.h"
+
+1730737722 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoproductos.h
+	"Producto.h"
+
+1730737722 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1730737722 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoproductos.cpp
+	<string>
+	<cstring>
+	"ArchivoProductos.h"
+	"Producto.h"
+
+1730737722 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivodetalleventas.h
+	"DetalleVenta.h"
+
+1730737722 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivodetalleventas.cpp
+	<string>
+	<cstring>
+	"ArchivoDetalleVentas.h"
+	"DetalleVenta.h"
+
+1730922596 source:c:\users\river\desktop\lato\sistemadegestion\archivoclientes.cpp
+	<string>
+	<cstring>
+	<iostream>
+	<vector>
+	<fstream>
+	<conio.h>
+	"ArchivoClientes.h"
+	"ArchivoVentas.h"
+	"Cliente.h"
+	"rlutil.h"
+	"Menu.h"
+
+1730922596 c:\users\river\desktop\lato\sistemadegestion\archivoclientes.h
+	"Persona.h"
+	"Cliente.h"
+
+1730490784 c:\users\river\desktop\lato\sistemadegestion\persona.h
+
+1730731381 c:\users\river\desktop\lato\sistemadegestion\cliente.h
+	"persona.h"
+
+1730922596 source:c:\users\river\desktop\lato\sistemadegestion\archivodetalleventas.cpp
+	<string>
+	<cstring>
+	<iostream>
+	"ArchivoDetalleVentas.h"
+	"DetalleVenta.h"
+	"rlutil.h"
+	"Menu.h"
+
+1730922596 c:\users\river\desktop\lato\sistemadegestion\archivodetalleventas.h
+	"DetalleVenta.h"
+
+1730731381 c:\users\river\desktop\lato\sistemadegestion\detalleventa.h
+
+1730922596 source:c:\users\river\desktop\lato\sistemadegestion\archivoempleados.cpp
+	<string>
+	<cstring>
+	<iostream>
+	<fstream>
+	<conio.h>
+	"ArchivoEmpleados.h"
+	"Empleado.h"
+	"Menu.h"
+	"rlutil.h"
+
+1730922596 c:\users\river\desktop\lato\sistemadegestion\archivoempleados.h
+	"Persona.h"
+	"Empleado.h"
+
+1730490784 c:\users\river\desktop\lato\sistemadegestion\empleado.h
+	"Persona.h"
+	"Fecha.h"
+
+1730761926 c:\users\river\desktop\lato\sistemadegestion\fecha.h
+
+1730923027 source:c:\users\river\desktop\lato\sistemadegestion\archivoproductos.cpp
+	<string>
+	<cstring>
+	<iostream>
+	<fstream>
+	<conio.h>
+	"ArchivoProductos.h"
+	"Producto.h"
+	"rlutil.h"
+	"Menu.h"
+
+1730922596 c:\users\river\desktop\lato\sistemadegestion\archivoproductos.h
+	"Producto.h"
+
+1730922596 c:\users\river\desktop\lato\sistemadegestion\producto.h
+	"DetalleVenta.h"
+
+1730922596 source:c:\users\river\desktop\lato\sistemadegestion\archivoventas.cpp
+	<string>
+	<cstring>
+	<iostream>
+	"ArchivoVentas.h"
+	"Venta.h"
+	"rlutil.h"
+	"Menu.h"
+
+1730922596 c:\users\river\desktop\lato\sistemadegestion\archivoventas.h
+	"Venta.h"
+	"Cliente.h"
+	"Fecha.h"
+	"Venta.h"
+	"DetalleVenta.h"
+
+1730490784 c:\users\river\desktop\lato\sistemadegestion\venta.h
+	"Fecha.h"
+	"Empleado.h"
+	"Cliente.h"
+	"DetalleVenta.h"
+
+1730922596 source:c:\users\river\desktop\lato\sistemadegestion\cliente.cpp
+	<iostream>
+	"rlutil.h"
+	"Persona.h"
+	"Cliente.h"
+	"ArchivoClientes.h"
+	"Menu.h"
+
+1730922596 source:c:\users\river\desktop\lato\sistemadegestion\detalleventa.cpp
+	<iostream>
+	"rlutil.h"
+	"DetalleVenta.h"
+	"ArchivoDetalleVentas.h"
+	"Venta.h"
+	"Producto.h"
+	"ArchivoProductos.h"
+	"Menu.h"
+	"Listados.h"
+
+1730922596 source:c:\users\river\desktop\lato\sistemadegestion\empleado.cpp
+	<iostream>
+	<string>
+	"rlutil.h"
+	"Empleado.h"
+	"Persona.h"
+	"Fecha.h"
+	"ArchivoEmpleados.h"
+	"Menu.h"
+
+1730761926 source:c:\users\river\desktop\lato\sistemadegestion\fecha.cpp
+	<iostream>
+	<cstring>
+	<tuple>
+	<string>
+	"rlutil.h"
+	"Fecha.h"
+	"Menu.h"
+
+1730731381 source:c:\users\river\desktop\lato\sistemadegestion\main.cpp
+	<iostream>
+	"Menu.h"
+	"rlutil.h"
+
+1730922596 c:\users\river\desktop\lato\sistemadegestion\menu.h
+	"Cliente.h"
+	"Empleado.h"
+	"rlutil.h"
+
+1730331043 c:\users\river\desktop\lato\sistemadegestion\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1730922596 source:c:\users\river\desktop\lato\sistemadegestion\menu.cpp
+	<iostream>
+	<vector>
+	<cstdio>
+	<cstring>
+	"ArchivoClientes.h"
+	"ArchivoEmpleados.h"
+	"ArchivoVentas.h"
+	"ArchivoProductos.h"
+	"ArchivoDetalleVentas.h"
+	"Menu.h"
+	"Listados.h"
+	"Cliente.h"
+	"Empleado.h"
+	"Venta.h"
+	"Producto.h"
+	"rlutil.h"
+
+1730922596 source:c:\users\river\desktop\lato\sistemadegestion\persona.cpp
+	<iostream>
+	<cstring>
+	"rlutil.h"
+	"Persona.h"
+	"Menu.h"
+
+1730922596 source:c:\users\river\desktop\lato\sistemadegestion\producto.cpp
+	<iostream>
+	<cstring>
+	"rlutil.h"
+	"DetalleVenta.h"
+	"Producto.h"
+	"ArchivoProductos.h"
+	"Menu.h"
+
+1730922784 source:c:\users\river\desktop\lato\sistemadegestion\venta.cpp
+	<iostream>
+	"rlutil.h"
+	"Fecha.h"
+	"Empleado.h"
+	"Cliente.h"
+	"ArchivoEmpleados.h"
+	"ArchivoClientes.h"
+	"Venta.h"
+	"ArchivoVentas.h"
+	"ArchivoDetalleVentas.h"
+	"DetalleVenta.h"
+	"ArchivoProductos.h"
+	"Producto.h"
+	"Menu.h"
+
+1730530328 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivodetalleventas.cpp
+	<string>
+	<cstring>
+	"ArchivoDetalleVentas.h"
+	"DetalleVenta.h"
+
+1730530217 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivodetalleventas.h
+	"DetalleVenta.h"
+
+1730396827 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoproductos.cpp
+	<string>
+	<cstring>
+	"ArchivoProductos.h"
+	"Producto.h"
+
+1730396815 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoproductos.h
+	"Producto.h"
+
+1730341581 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1730922596 c:\users\river\desktop\lato\sistemadegestion\listados.h
+
+1730922596 source:c:\users\river\desktop\lato\sistemadegestion\listados.cpp
+	<iostream>
+	"Menu.h"
+	"ArchivoClientes.h"
+	"ArchivoEmpleados.h"
+	"ArchivoVentas.h"
+	"ArchivoProductos.h"
+	"ArchivoDetalleVentas.h"
+	"Cliente.h"
+	"Empleado.h"
+	"Venta.h"
+	"Producto.h"
+	"rlutil.h"
+	"Listados.h"
+

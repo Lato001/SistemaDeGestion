@@ -1,31 +1,42 @@
 #ifndef VENTA_H_INCLUDED
 #define VENTA_H_INCLUDED
 #include "Fecha.h"
-#include "Persona.h"
-class Venta{
+#include "Empleado.h"
+#include "Cliente.h"
+#include "DetalleVenta.h"
+
+class Venta
+{
 private:
-    int nDeVenta;
+    int idVenta;
+    int idEmpleado;
+    int idCliente;
     Fecha fecha;
-    Persona vendedor;
     int formaDePago;
-    float importeDeVenta;
+    float importeTotal = 0;
+    bool estado = false;
 public:
 
- Venta();
- Venta(int _nDeVenta, Fecha _fecha, Persona _vendedor, int _formaDePago,int importeDeVenta );
- int getNDeVenta();
- Fecha getFecha();
- Persona getVendedor();
- int getFormaDePago();
- int getImporteDeVenta();
+    Venta();
+    Venta(int _idVenta,  int _idEmpleado, int _idCliente, Fecha _fecha, int _formaDePago, float _importeTotal, bool _estado);
+    int getIdVenta();
+    int getIdEmpleado();
+    int getIdCliente();
+    Fecha getFecha();
+    int getFormaDePago();
+    float getImporteTotal();
+    bool getEstado();
 
- void setNDeVenta(int _nDeVenta);
- void setFecha(Fecha _fecha);
- void setFormaDePago(int _formaDePago);
- void setVendedor(Persona _vendedor);
- void setImporteDeVenta(float _importeDeVenta);
+    void setidVenta(int _idVenta);
+    void setidEmpleado(int _idEmpleado);
+    void setidCliente(int _idCliente);
+    void setFecha(Fecha _fecha);
+    void setFormaDePago(int _formaDePago);
+    void setImporteTotal(float _ImporteTotal);
+    void setEstado(bool _estado);
 
- void mostrarVenta();
+    void cargarVenta();
+    void mostrarVenta();
 };
 
 
