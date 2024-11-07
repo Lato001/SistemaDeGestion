@@ -6,6 +6,9 @@
 #include <conio.h>
 
 #include "ArchivoVentas.h"
+#include "ArchivoEmpleados.h"
+#include "ArchivoClientes.h"
+#include "Listados.h"
 #include "Venta.h"
 #include "rlutil.h"
 #include "Menu.h"
@@ -106,8 +109,10 @@ int ArchivoVentas::BuscarPosRegistro(int idVenta){
     return -1;
 }
 
-void ArchivoVentas::ModificarVenta(int idVenta) {
+void ArchivoVentas::ModificarVenta(int idVenta, int op) {
     Menu menu;
+    ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
+    ArchivoClientes Clientes("ArchivoClientes.dat");
     int pos = BuscarPosRegistro(idVenta);
     if (pos == -1) {
 
@@ -117,7 +122,61 @@ void ArchivoVentas::ModificarVenta(int idVenta) {
         }
     Venta venta = Leer(pos);
     int idOriginal = venta.getIdVenta();
-    venta.cargarVenta();
+
+    switch (op)
+    {
+    case 1:
+        {
+
+        Fecha fecha;
+        fecha.cargarFecha();
+        venta.setFecha(fecha);
+        }
+        break;
+    case 2:
+        {
+
+        int input;
+        Listados listados;
+        listados.listarEmpleadosAll();
+        cout<< "Ingrese el Id Empleado: ";
+        cin >> input;
+        if(Empleados.Buscar(input).getID() != -1){
+            venta.setidEmpleado(input);
+        }
+        }
+        break;
+    case 3:
+        {
+        Listados listados;
+        listados.listarClientesAll();
+        int input;
+        cout<< "Ingrese el ID del Cliente: ";
+        cin >> input;
+        if(Clientes.Buscar(input).getID() != -1){
+            venta.setidCliente(input);
+        }
+
+        }
+        break;
+    case 4:
+        {
+        int input = 0;
+        Menu menu;
+        while(!(input>0 && input<4)){
+            cout<< "Ingrese el Metodo de pago:\n1.Efectivo\n2.Debito\n3.Credito\nOpcion: ";
+            cin >> input;
+            if(!(input>0 && input<4)){
+            menu.mensajeDeError("Metodo de pago invalido");
+            system("pause");
+            }
+        }
+        venta.setFormaDePago(input);
+        }
+        break;
+    default:
+        break;
+    }
     venta.setidVenta(idOriginal);
     if (Guardar(venta, pos)) {
             Menu::setColor(2);
