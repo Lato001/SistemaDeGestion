@@ -163,7 +163,7 @@ Menu menu;
 
         cout << "PRECIO UNITARIO: ";
         menu.setColor(0);
-        cout << Productos.Buscar(DetalleVentas.BuscarPorLinea(idVenta, i).getIdProducto()).getPrecioUnitario() << endl; //llamar al precio unitario que traeria desde producto asociado a DetalleVentas por herencia
+        cout << (int) Productos.Buscar(DetalleVentas.BuscarPorLinea(idVenta, i).getIdProducto()).getPrecioUnitario() << endl; //llamar al precio unitario que traeria desde producto asociado a DetalleVentas por herencia
 menu.setColor(7);
         cout << "CANTIDAD DEL PRODUCTO: ";
         menu.setColor(0);
@@ -172,7 +172,7 @@ menu.setColor(7);
         cout<< "IMPORTE: ";
         menu.setColor(0);
         cout << "$";
-        cout << DetalleVentas.BuscarPorLinea(idVenta,i).getImporte()<<endl;
+        cout << (int) DetalleVentas.BuscarPorLinea(idVenta,i).getImporte()<<endl;
         menu.setColor(7);
         cout<<endl;
         cout<<endl;
