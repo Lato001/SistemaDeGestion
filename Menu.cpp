@@ -95,22 +95,38 @@ void Menu::menuExportarCSV()
     setColor(7);
     cout<<"----------------------------------"<<endl;
     cout<<"Elija la opcion que desee realizar"<<endl;
-    cout<<"1. Exportar"<<endl;
-    cout<<"2. Algo mas? @Marcos "<<endl;
+    cout<<"1. Productos"<<endl;
+    cout<<"2. Ventas "<<endl;
+    cout<<"3. Clientes "<<endl;
+    cout<<"4. Empleado "<<endl;
+    cout<<"5. Detalle de Ventas "<<endl;
     cout<<"0. Volver al menu principal"<<endl;
     cout<<"==================================="<<endl;
     setColor(0);
            cin>>op;
         system("cls");
-        if(op> (0) && op<3)
+        if(op> (0) && op<6)
         {
             opcionValida=true;
         }
 
         switch (op)
         {
+
         case 1:
-            Exportar();
+            ExportarProductos();
+            break;
+        case 2:
+            ExportarVentas();
+            break;
+        case 3:
+            ExportarClientes();
+            break;
+        case 4:
+            ExportarEmpleados();
+            break;
+        case 5:
+            ExportarDetalledeVentas();
             break;
         case 0:
             exit(0);
@@ -127,7 +143,20 @@ void Menu::menuExportarCSV()
     }
     while(!opcionValida);
 }
-void Menu::Exportar()
+void Menu::ExportarProductos()
+{
+
+}
+void Menu::ExportarVentas()
+{
+
+}void Menu::ExportarClientes()
+{
+
+}void Menu::ExportarEmpleados()
+{
+
+}void Menu::ExportarDetalledeVentas()
 {
 
 }
