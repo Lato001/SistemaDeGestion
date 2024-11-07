@@ -307,25 +307,35 @@ void ArchivoVentas::exportarVentasACSV(string nombreArchivoCSV) {
 
     int cont = 0;
     Venta venta;
+    ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
+    ArchivoClientes Clientes("ArchivoClientes.dat");
+
         archivoCSV << "     -------------Datos de Ventas----------------"<<endl;
     while (fread(&venta, sizeof(Venta), 1, registro))
     {
         Menu::setColor(7);
-        archivoCSV << "ID: " << venta.getIdVenta() <<endl;
-        archivoCSV << "NOMBRE: " <<venta.getIdEmpleado() <<endl;
-        archivoCSV << "CLIENTE: " <<venta.getIdCliente() <<endl;
-        archivoCSV << "FECHA DE INGRESO: " << venta.getFecha().getDia()<<"/"<<venta.getFecha().getMes()<<"/"<<venta.getFecha().getAnio() <<endl;
-        archivoCSV << "FORMA DE PAGO: " <<venta.getFormaDePago() << endl;
-        archivoCSV << "IMPORTE TOTAL: " <<venta.getImporteTotal() << endl;
-        archivoCSV << "ESTADO: " <<venta.getEstado() << endl;
+        archivoCSV << "FECHA: " << venta.getFecha().getDia()<<"/"<<venta.getFecha().getMes()<<"/"<<venta.getFecha().getAnio()<<endl;
+        archivoCSV << "ID VENTA: " << venta.getIdVenta() <<endl;
+        archivoCSV << "EMPLEADO: " << Empleados.Buscar(venta.getIdVenta()).getNombre() <<endl;
+        archivoCSV << "EMPLEADO ID: " << Empleados.Buscar(venta.getIdVenta()).getID() <<endl;
+        archivoCSV << "CLIENTE: " << Clientes.Buscar(venta.getIdVenta()).getNombre() <<endl;
+        archivoCSV << "CLIENTE ID: " << Clientes.Buscar(venta.getIdVenta()).getID() <<endl;
+        archivoCSV << "FORMA DE PAGO: " << venta.getFormaDePago() << endl;
+        archivoCSV << "IMPORTE TOTAL: " << venta.getImporteTotal() << endl;
+        archivoCSV << "ESTADO: " << venta.getEstado() << endl;
         archivoCSV << endl;
         archivoCSV << "-----------------------------------------------------" << endl;
         archivoCSV << endl;
 
+
+
+        cout << "FECHA: " << venta.getFecha().getDia()<<"/"<<venta.getFecha().getMes()<<"/"<<venta.getFecha().getAnio()<<endl;
         cout << "ID:"<< venta.getIdVenta()<< endl;
-        cout <<"NOMBRE:"<< venta.getIdEmpleado()<< endl;
-        cout <<"CLIENTE:"<< venta.getIdCliente()<< endl;
-        archivoCSV << "FECHA DE INGRESO: " << venta.getFecha().getDia()<<"/"<<venta.getFecha().getMes()<<"/"<<venta.getFecha().getAnio() <<endl;
+        cout << "EMPLEADO: " << Empleados.Buscar(venta.getIdVenta()).getNombre() <<endl;
+        cout << "EMPLEADO ID: " << Empleados.Buscar(venta.getIdVenta()).getID() <<endl;
+        cout << "CLIENTE: " << Clientes.Buscar(venta.getIdVenta()).getNombre() <<endl;
+        cout << "CLIENTE ID: " << Clientes.Buscar(venta.getIdVenta()).getID() <<endl;
+        cout << "FECHA DE INGRESO: " << venta.getFecha().getDia()<<"/"<<venta.getFecha().getMes()<<"/"<<venta.getFecha().getAnio() <<endl;
         cout <<"FORMA DE PAGO:" << venta.getFormaDePago() << endl;
         cout <<"IMPORTE TOTAL:" << venta.getImporteTotal() << endl;
         cout <<"ESTADO:" << venta.getEstado() << endl;
