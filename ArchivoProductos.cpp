@@ -347,8 +347,6 @@ void ArchivoProductos::exportarProductosACSV(string nombreArchivoCSV)
         return;
     }
 
-    archivoCSV << "ID,Nombre,Categoria,Precio,Stock" << endl;
-
     int cont = 0;
     Producto producto;
 //  Leer productos desde el archivo binario y escribirlos en el archivo CSV
