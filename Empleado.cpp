@@ -119,6 +119,7 @@ void Empleado::cargarEmpleado(){
     {
         Menu::setColor(7);
         cout << "Ingrese su sueldo: "<< endl;
+        Menu::setColor(0);
         cin>>inputSueldo;
         Menu::setColor(0);
         if (inputSueldo > 0)
