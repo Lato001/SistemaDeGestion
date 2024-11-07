@@ -252,24 +252,24 @@ void ArchivoVentas::exportarVentasACSV(string nombreArchivoCSV) {
     while (fread(&venta, sizeof(Venta), 1, registro))
     {
         Menu::setColor(7);
-        archivoCSV << "ID: " << venta.getIdVenta() << ","<<endl;
-        archivoCSV << "NOMBRE: " <<venta.getIdEmpleado() << ","<<endl;
-        archivoCSV << "Categoria: " <<venta.getIdCliente() << ","<<endl;
-        archivoCSV << "FECHA DE INGRESO: " << venta.getFecha().getDia()<<"/"<<venta.getFecha().getMes()<<"/"<<venta.getFecha().getAnio() << ","<<endl;
-        archivoCSV << "Stock: " <<venta.getFormaDePago() << endl;
-        archivoCSV << "Stock: " <<venta.getImporteTotal() << endl;
-        archivoCSV << "Stock: " <<venta.getEstado() << endl;
+        archivoCSV << "ID: " << venta.getIdVenta() <<endl;
+        archivoCSV << "NOMBRE: " <<venta.getIdEmpleado() <<endl;
+        archivoCSV << "CLIENTE: " <<venta.getIdCliente() <<endl;
+        archivoCSV << "FECHA DE INGRESO: " << venta.getFecha().getDia()<<"/"<<venta.getFecha().getMes()<<"/"<<venta.getFecha().getAnio() <<endl;
+        archivoCSV << "FORMA DE PAGO: " <<venta.getFormaDePago() << endl;
+        archivoCSV << "IMPORTE TOTAL: " <<venta.getImporteTotal() << endl;
+        archivoCSV << "ESTADO: " <<venta.getEstado() << endl;
         archivoCSV << endl;
         archivoCSV << "-----------------------------------------------------" << endl;
         archivoCSV << endl;
 
         cout << "ID:"<< venta.getIdVenta()<< endl;
-        cout <<"Nombre:"<< venta.getIdEmpleado()<< endl;
-        cout <<"Categoria:"<< venta.getIdCliente()<< endl;
-        archivoCSV << "FECHA DE INGRESO: " << venta.getFecha().getDia()<<"/"<<venta.getFecha().getMes()<<"/"<<venta.getFecha().getAnio() << ","<<endl;
-        cout <<"Stock:" << venta.getFormaDePago() << endl;
-        cout <<"Stock:" << venta.getImporteTotal() << endl;
-        cout <<"Stock:" << venta.getEstado() << endl;
+        cout <<"NOMBRE:"<< venta.getIdEmpleado()<< endl;
+        cout <<"CLIENTE:"<< venta.getIdCliente()<< endl;
+        archivoCSV << "FECHA DE INGRESO: " << venta.getFecha().getDia()<<"/"<<venta.getFecha().getMes()<<"/"<<venta.getFecha().getAnio() <<endl;
+        cout <<"FORMA DE PAGO:" << venta.getFormaDePago() << endl;
+        cout <<"IMPORTE TOTAL:" << venta.getImporteTotal() << endl;
+        cout <<"ESTADO:" << venta.getEstado() << endl;
         cout << endl;
         cout << "-----------------------------------------------------" << endl;
         cout << endl;

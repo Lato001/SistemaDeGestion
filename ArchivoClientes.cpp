@@ -407,21 +407,21 @@ void ArchivoClientes::exportarClientesACSV(string nombreArchivoCSV) {
     while (fread(&cliente, sizeof(Cliente), 1, registro))
     {
         Menu::setColor(7);
-        archivoCSV << "ID: " << cliente.getDNI() << ","<<endl;
-        archivoCSV << "NOMBRE: " <<cliente.getNombre() << ","<<endl;
-        archivoCSV << "APELLIDO: " <<cliente.getApellido() << ","<<endl;
-        archivoCSV << "EMAIL: " <<cliente.getEmail() << ","<<endl;
+        archivoCSV << "DNI: " << cliente.getDNI() <<endl;
+        archivoCSV << "NOMBRE: " <<cliente.getNombre() <<endl;
+        archivoCSV << "APELLIDO: " <<cliente.getApellido() <<endl;
+        archivoCSV << "EMAIL: " <<cliente.getEmail() <<endl;
         archivoCSV << "NUMERO DE TELEFONO: " <<cliente.getnTelefono() << endl;
         archivoCSV << "LOCALIDAD: " <<cliente.getLocalidad() << endl;
         archivoCSV << endl;
         archivoCSV << "-----------------------------------------------------" << endl;
         archivoCSV << endl;
 
-        cout << "ID:"<< cliente.getDNI()<< endl;
-        cout <<"Nombre:"<< cliente.getApellido()<< endl;
-        cout <<"Categoria:"<< cliente.getEmail()<< endl;
-        cout <<"Precio:"<< cliente.getnTelefono()<< endl;
-        cout <<"Stock:" << cliente.getLocalidad() << endl;
+        cout << "DNI:"<< cliente.getDNI()<< endl;
+        cout <<"APELLIDO:"<< cliente.getApellido()<< endl;
+        cout <<"EMAIL:"<< cliente.getEmail()<< endl;
+        cout <<"TELEFONO:"<< cliente.getnTelefono()<< endl;
+        cout <<"LOCALIDAD:" << cliente.getLocalidad() << endl;
         cout << endl;
         cout << "-----------------------------------------------------" << endl;
         cout << endl;

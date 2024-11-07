@@ -145,10 +145,12 @@ int ArchivoDetalleVentas::BuscarPosRegistro(int idVenta){
 }
 
 void ArchivoDetalleVentas::ModificarDetalleVenta(int idVenta) {
+    Menu menu;
     int pos = BuscarPosRegistro(idVenta);
     if (pos == -1) {
-            Menu::setColor(4);
-        cout << "Detalle de Venta no encontrada." << endl;
+
+         menu.mensajeDeError("Detalle de Venta no encontrada.");
+         cout  << endl;
         return;
         }
     DetalleVenta detalleVenta = Leer(pos);
@@ -159,8 +161,9 @@ void ArchivoDetalleVentas::ModificarDetalleVenta(int idVenta) {
             Menu::setColor(7);
         cout << "Datos del detalle venta actualizados." << endl;
     } else {
-        Menu::setColor(4);
-        cout << "Error al actualizar los datos del detalle de venta." << endl;
+
+         menu.mensajeDeError("Error al actualizar los datos del detalle de venta.");
+         cout << endl;
     }
 }
 
@@ -190,11 +193,11 @@ void ArchivoDetalleVentas::exportarDetalleVentasACSV(string nombreArchivoCSV)
     while (fread(&detalle, sizeof(DetalleVenta), 1, registro))
     {
         Menu::setColor(7);
-        archivoCSV << "ID: " << detalle.getIdVenta() << ","<<endl;
-        archivoCSV << "NOMBRE: " <<detalle.getIdLinea() << ","<<endl;
-        archivoCSV << "Categoria: " <<detalle.getIdProducto() << ","<<endl;
-        archivoCSV << "Precio Unitario: " <<detalle.getCantidadProducto() << ","<<endl;
-        archivoCSV << "Stock: " <<detalle.getImporte() << endl;
+        archivoCSV << "ID VENTA: " << detalle.getIdVenta() <<endl;
+        archivoCSV << "ID LINEA: " <<detalle.getIdLinea() <<endl;
+        archivoCSV << "ID PRODUCTO: " <<detalle.getIdProducto() <<endl;
+        archivoCSV << "CANTIDAD PRODUCTO: " <<detalle.getCantidadProducto() <<endl;
+        archivoCSV << "IMPORTE: " <<detalle.getImporte() << endl;
         archivoCSV << "ESTADO: " <<detalle.getEstado() << endl;
         archivoCSV << endl;
         archivoCSV << "-----------------------------------------------------" << endl;
@@ -202,9 +205,9 @@ void ArchivoDetalleVentas::exportarDetalleVentasACSV(string nombreArchivoCSV)
 
         cout << "ID VENTA:"<< detalle.getIdVenta()<< endl;
         cout <<"ID LINEA:"<< detalle.getIdLinea()<< endl;
-        cout <<"Categoria:"<< detalle.getIdProducto()<< endl;
-        cout <<"Precio:"<< detalle.getCantidadProducto()<< endl;
-        cout <<"Stock:" << detalle.getImporte() << endl;
+        cout <<"ID PRODUCTO:"<< detalle.getIdProducto()<< endl;
+        cout <<"CANTIDAD PRODUCTO:"<< detalle.getCantidadProducto()<< endl;
+        cout <<"IMPORTE:" << detalle.getImporte() << endl;
         cout <<"ESTADO:" << detalle.getEstado() << endl;
         cout << endl;
         cout << "-----------------------------------------------------" << endl;

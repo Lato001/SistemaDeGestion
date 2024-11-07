@@ -491,18 +491,30 @@ void ArchivoEmpleados::exportarEmpleadosACSV(string nombreArchivoCSV)
     while (fread(&empleado, sizeof(Empleado), 1, registro))
     {
         Menu::setColor(7);
-        archivoCSV << "FECHA DE INGRESO: " << empleado.getFechaIngreso().getDia()<<"/"<<empleado.getFechaIngreso().getMes()<<"/"<<empleado.getFechaIngreso().getAnio() << ","<<endl;
-        archivoCSV << "NOMBRE: " <<empleado.getAsistencias() << ","<<endl;
-        archivoCSV << "Categoria: " <<empleado.getIsVacaciones() << ","<<endl;
-        archivoCSV << "Precio Unitario: " <<empleado.getSueldo() << ","<<endl;
+        archivoCSV << "FECHA DE INGRESO: " << empleado.getFechaIngreso().getDia()<<"/"<<empleado.getFechaIngreso().getMes()<<"/"<<empleado.getFechaIngreso().getAnio()<<endl;
+        archivoCSV << "ASISTENCIAS: " <<empleado.getAsistencias() <<endl;
+        archivoCSV << "VACACIONES ACTIVAS: " <<endl;
+        if (empleado.getIsVacaciones()) {
+            cout << "Si"  ;
+        }  else {
+            cout << "No"  ;
+          }
+          cout <<endl;
+        archivoCSV << "SUELDO: " ;
+        archivoCSV <<empleado.getSueldo() <<endl;
         archivoCSV << endl;
         archivoCSV << "-----------------------------------------------------" << endl;
         archivoCSV << endl;
 
-        cout << "FECHA DE INGRESO: " << empleado.getFechaIngreso().getDia()<<"/"<<empleado.getFechaIngreso().getMes()<<"/"<<empleado.getFechaIngreso().getAnio() << ","<<endl;
-        cout <<"Nombre:"<< empleado.getAsistencias()<< endl;
-        cout <<"Categoria:"<< empleado.getIsVacaciones()<< endl;
-        cout <<"Precio:"<< empleado.getSueldo()<< endl;
+        cout << "FECHA DE INGRESO: " << empleado.getFechaIngreso().getDia()<<"/"<<empleado.getFechaIngreso().getMes()<<"/"<<empleado.getFechaIngreso().getAnio() <<endl;
+        cout <<"ASISTNCIAS:"<< empleado.getAsistencias()<< endl;
+        cout << "VACACIONES ACTIVAS: ";
+        if (empleado.getIsVacaciones()) {
+            cout << "Si"  ;
+        }  else {
+            cout << "No"  ;
+          }
+        cout <<"SUELDO:"<< empleado.getSueldo()<< endl;
         cout << endl;
         cout << "-----------------------------------------------------" << endl;
         cout << endl;
