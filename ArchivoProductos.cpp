@@ -328,38 +328,52 @@ void ArchivoProductos::eliminarRegistroProducto(int productoID)
 }
 
 
-void ArchivoProductos::exportarProductosACSV(string nombreArchivoCSV) {
+void ArchivoProductos::exportarProductosACSV(string nombreArchivoCSV)
+{
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
-    if (registro == nullptr) {
+    if (registro == nullptr)
+    {
         Menu menu;
         menu.mensajeDeError("Error al abrir el archivo para lectura.");
         return;
     }
 
     ofstream archivoCSV(nombreArchivoCSV);
-    if (!archivoCSV.is_open()) {
+    if (!archivoCSV.is_open())
+    {
         Menu menu;
         menu.mensajeDeError("Error al crear el archivo CSV.");
         fclose(registro);
         return;
-        Menu::setColor(7);
     }
 
-    Producto producto;
+    archivoCSV << "ID,Nombre,Categoria,Precio,Stock" << endl;
+
     int cont = 0;
-    while (fread(&producto, sizeof(Producto), 1, registro)) {
-    cout << "ID:"<< producto.getID()<< endl;
-    cout <<"Nombre:"<< producto.getNombre()<< endl;
-    cout <<"Categoria:"<< producto.getCategoriaProducto()<< endl;
-    cout <<"Precio:"<< producto.getPrecioUnitario()<< endl;
-    cout <<"Stock:" << producto.getStock() << endl;
-    cout << endl;
-     cout << "-----------------------------------------------------" << endl;
-    cout << endl;
+    Producto producto;
+//  Leer productos desde el archivo binario y escribirlos en el archivo CSV
+    while (fread(&producto, sizeof(Producto), 1, registro))
+    {
+        Menu::setColor(7);
+//      Escribir los datos de cada producto en el archivo CSV:
+        archivoCSV << producto.getID() << ","
+                   << producto.getNombre() << ","
+                   << producto.getCategoriaProducto() << ","
+                   << producto.getPrecioUnitario() << ","
+                   << producto.getStock() << endl;
 
-
+        cout << "ID:"<< producto.getID()<< endl;
+        cout <<"Nombre:"<< producto.getNombre()<< endl;
+        cout <<"Categoria:"<< producto.getCategoriaProducto()<< endl;
+        cout <<"Precio:"<< producto.getPrecioUnitario()<< endl;
+        cout <<"Stock:" << producto.getStock() << endl;
+        cout << endl;
+        cout << "-----------------------------------------------------" << endl;
+        cout << endl;
+        cont++;
     }
-
     fclose(registro);
     archivoCSV.close();
+
+    cout << "Se exportaron " << cont << " productos al archivo CSV." << endl;
 }
