@@ -345,18 +345,19 @@ void ArchivoProductos::exportarProductosACSV(string nombreArchivoCSV) {
         Menu::setColor(7);
     }
 
-    cout << "ID,Nombre,Categoria,Precio,Stock" << endl;
-
     Producto producto;
     int cont = 0;
     while (fread(&producto, sizeof(Producto), 1, registro)) {
+    cout << "ID:"<< producto.getID()<< endl;
+    cout <<"Nombre:"<< producto.getNombre()<< endl;
+    cout <<"Categoria:"<< producto.getCategoriaProducto()<< endl;
+    cout <<"Precio:"<< producto.getPrecioUnitario()<< endl;
+    cout <<"Stock:" << producto.getStock() << endl;
+    cout << endl;
+     cout << "-----------------------------------------------------" << endl;
+    cout << endl;
 
-              cout << producto.getID() << ","
-                   << producto.getNombre() << ","
-                   << producto.getCategoriaProducto() << ","
-                   << producto.getPrecioUnitario() << ","
-                   << producto.getStock() << endl;
-        cont++;
+
     }
 
     fclose(registro);

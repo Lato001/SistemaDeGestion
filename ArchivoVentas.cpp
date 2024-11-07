@@ -245,21 +245,21 @@ void ArchivoVentas::exportarVentasACSV(string nombreArchivoCSV) {
         return;
     }
 
-         Menu::setColor(7);
-    cout << "idVenta,idEmpleado,idCliente,formaDePago,importeTotal,estado" << endl;
 
     Venta venta;
     int cont = 0;
     while (fread(&venta, sizeof(Venta), 1, registro)) {
+    cout << "ID Venta:"<< venta.getIdVenta()<< endl;
+    cout << "ID Empleado:"<< venta.getIdEmpleado()<< endl;
+    cout << "ID Cliente:"<< venta.getIdCliente()<< endl;
+    cout <<"Forma De Pago:"<< venta.getFormaDePago()<< endl;
+    cout <<"Importe Total:"<< venta.getImporteTotal()<< endl;
+    cout << "Estado:" << venta.getEstado()<< endl;
+    cout << endl;
+    cout << "-----------------------------------------------------" << endl;
+    cout << endl;
 
-              cout << venta.getIdVenta() << ","
-                   << venta.getIdEmpleado() << ","
-                   << venta.getIdCliente() << ","
-                   << venta.getFormaDePago() << ","
-                   << venta.getImporteTotal() << ","
-                   << venta.getEstado() << endl;
 
-        cont++;
     }
 
     fclose(registro);

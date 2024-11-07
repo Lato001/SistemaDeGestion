@@ -399,21 +399,22 @@ void ArchivoClientes::exportarClientesACSV(string nombreArchivoCSV) {
         return;
     }
 
-    cout << "ID,DNI,Nombre,Apellido,Email,nTelefono,Localidad" << endl;
 
     Cliente cliente;
     int cont = 0;
     while (fread(&cliente, sizeof(Cliente), 1, registro)) {
+    cout << "ID:" << cliente.getID()<< endl;
+    cout << "DNI:" << cliente.getDNI()<< endl;
+    cout << "Nombre:" << cliente.getNombre()<< endl;
+    cout << "Apellido:" << cliente.getApellido()<< endl;
+    cout << "Email:"<< cliente.getEmail()<< endl;
+    cout << "Num Telefono:"  << cliente.getnTelefono()<< endl;
+    cout << "Localidad:"  << cliente.getLocalidad() << endl;
+    cout << endl;
+    cout << "-----------------------------------------------------" << endl;
+    cout << endl;
 
-              cout << cliente.getID() << ","
-                   << cliente.getDNI() << ","
-                   << cliente.getNombre() << ","
-                   << cliente.getApellido() << ","
-                   << cliente.getEmail() << ","
-                   << cliente.getnTelefono() << ","
-                   << cliente.getLocalidad() << endl;
 
-        cont++;
     }
 
     fclose(registro);

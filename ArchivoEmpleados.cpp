@@ -482,18 +482,18 @@ void ArchivoEmpleados::exportarEmpleadosACSV(string nombreArchivoCSV) {
         return;
     }
 
-    cout << "ID,Asistencias,IsVacaciones,Sueldo" << endl;
-
     Empleado empleado;
     int cont = 0;
     while (fread(&empleado, sizeof(Empleado), 1, registro)) {
+    cout << "ID:" << empleado.getID() << endl;
+    cout << "Asistencias:" << empleado.getAsistencias() << endl;
+    cout << "IsVacaciones:" << empleado.getIsVacaciones() << endl;
+    cout <<"Sueldo:" << empleado.getSueldo() << endl;
+    cout << endl;
+    cout << "-----------------------------------------------------" << endl;
+    cout << endl;
 
-              cout << empleado.getID() << ","
-                   << empleado.getAsistencias() << ","
-                   << empleado.getIsVacaciones() << ","
-                   << empleado.getSueldo() << endl;
 
-        cont++;
     }
 
     fclose(registro);

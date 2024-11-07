@@ -181,16 +181,18 @@ void ArchivoDetalleVentas::exportarDetalleVentasACSV(string nombreArchivoCSV) {
         return;
     }
 
-    cout << "IdVenta,ImporteTotal,Estado" << endl;
 
     DetalleVenta detalleVenta;
     int cont = 0;
     while (fread(&detalleVenta, sizeof(DetalleVenta), 1, registro)) {
+    cout << "ID Venta:" << detalleVenta.getIdVenta()<< endl;
+    cout << "Importe Total:" << detalleVenta.getImporte()<< endl;
+    cout << "Estado:" << detalleVenta.getEstado()<< endl;
+    cout << endl;
+    cout << "-----------------------------------------------------" << endl;
+    cout << endl;
 
-              cout << detalleVenta.getIdVenta() << ","
-                   << detalleVenta.getImporte() << ","
-                   << detalleVenta.getEstado() << endl;
-        cont++;
+
     }
 
     fclose(registro);
