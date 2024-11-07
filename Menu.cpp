@@ -832,9 +832,19 @@ void Menu::clientesMasActivos() {
             }else{
                 cout<< " Tercer";
             }
-            cout<<" cliente con mas compras: " << cliente.getNombre()<<" "<<
-            cliente.getApellido()<< ", ID: " << topClientes[i]
-                      << ", con " << topCompras[i] << " compras." <<endl;
+            cout<<" cliente con mas compras: " ;
+    setColor(0);
+            cout << cliente.getNombre()<<" ";            cout << cliente.getApellido();
+    setColor(7);
+            cout << ", ID: " ;
+    setColor(0);
+            cout << topClientes[i];
+    setColor(7);
+                      cout << ", con " ;
+    setColor(0);
+                      cout << topCompras[i] ;
+    setColor(7);
+                      cout << " compras." <<endl;
         }
     }
 
@@ -902,15 +912,26 @@ void Menu::clientesMenosActivos() {
             Cliente cliente = Clientes.Buscar(topClientes[i]);
             cout << "\nEl";
             if (i == 0) {
-                cout << " Primero";
+                cout << " Primer";
             } else if (i == 1) {
                 cout << " Segundo";
             } else {
                 cout << " Tercer";
             }
-            cout << " cliente con menos compras: " << cliente.getNombre() << " "
-                 << cliente.getApellido() << ", ID: " << topClientes[i]
-                 << ", con " << topCompras[i] << " compras." << endl;
+            cout << " cliente con menos compras: " ;
+    setColor(0);
+            cout << cliente.getNombre() << " ";
+                cout  << cliente.getApellido() ;
+    setColor(7);
+                 cout << ", ID: " ;
+    setColor(0);
+                 cout << topClientes[i];
+    setColor(7);
+               cout  << ", con " ;
+    setColor(0);
+               cout << topCompras[i] ;
+    setColor(7);
+               cout << " compras." << endl;
         }
     }
 
@@ -978,13 +999,24 @@ void Menu::empleadosMayoresVentas() {
             } else {
                 cout << " Tercer";
             }
-            cout << " empleado con mas ventas: " << empleado.getNombre() << " "
-                 << empleado.getApellido() << ", ID: " << topEmpleados[i]
-                 << ", con " << topVentas[i] << " ventas." << endl;
+            cout << " empleado con mas ventas: ";
+    setColor(0);
+            cout  << empleado.getNombre() << " ";
+                 cout << empleado.getApellido() ;
+    setColor(7);
+                 cout << ", ID: " ;
+    setColor(0);
+                 cout << topEmpleados[i];
+    setColor(7);
+                cout << ", con " ;
+    setColor(0);
+                cout << topVentas[i];
+    setColor(7);               cout  << " ventas." << endl;
         }
     }
     if (topEmpleados[0] == -1) {
-        cout << "No se encontraron registros de ventas." << std::endl;
+        mensajeDeError ( "No se encontraron registros de ventas." );
+        cout << endl;
     }
 }
 
@@ -1055,13 +1087,20 @@ void Menu::fdpMasUtilizadas() {
             } else {
                 cout << " Tercera";
             }
-            cout << " forma de pago mas utilizada es: " << topFormasDePago[i]
-                 << ", fue utilizada (" << topContadores[i] << ") veces." << endl;
+            cout << " forma de pago mas utilizada es: " ;
+setColor(0);
+            cout << topFormasDePago[i];
+setColor(7);             cout    << ", fue utilizada (" ;
+setColor(0);
+             cout << topContadores[i] ;
+setColor(7);
+             cout << ") veces." << endl;
         }
     }
 
     if (topFormasDePago[0] == "") {
-        cout << "No se encontraron registros de ventas." << std::endl;
+        mensajeDeError( "No se encontraron registros de ventas.");
+         cout << endl;
     }
 }
 
