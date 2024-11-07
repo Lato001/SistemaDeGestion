@@ -557,8 +557,14 @@ void Menu::modificarRegistroVenta()
             cout<<"Elija el atributo a modificar" << endl;
             cout<<"1. Fecha: ";
             venta.getFecha().mostrarFecha();
-            cout<<"2. Empleado: " <<Empleados.Buscar(venta.getIdVenta()).getNombre()<< " " <<Empleados.Buscar(venta.getIdVenta()).getApellido() <<endl;
-            cout<<"3. Cliente: " << Clientes.Buscar(venta.getIdVenta()).getNombre()<< " " <<Clientes.Buscar(venta.getIdVenta()).getApellido() <<endl;
+            cout<<"2. Empleado: " ;
+            setColor(0);
+            cout <<Empleados.Buscar(venta.getIdVenta()).getNombre()<< " " <<Empleados.Buscar(venta.getIdVenta()).getApellido() <<endl;
+            setColor(7);
+            cout<<"3. Cliente: " ;
+            setColor(0);
+            cout << Clientes.Buscar(venta.getIdVenta()).getNombre()<< " " <<Clientes.Buscar(venta.getIdVenta()).getApellido() <<endl;
+            setColor(7);
             cout<< "4. Detalle de venta"<<endl;
             cout<< "0. Volver al menu principal"<<endl;
             cout<< "Seleccione una opcion: ";

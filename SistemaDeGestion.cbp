@@ -46,6 +46,8 @@
 		<Unit filename="Cliente.h" />
 		<Unit filename="DetalleVenta.cpp" />
 		<Unit filename="DetalleVenta.h" />
+		<Unit filename="Eliminados.cpp" />
+		<Unit filename="Eliminados.h" />
 		<Unit filename="Empleado.cpp" />
 		<Unit filename="Empleado.h" />
 		<Unit filename="Fecha.cpp" />

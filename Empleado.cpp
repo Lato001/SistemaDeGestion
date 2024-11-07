@@ -37,7 +37,9 @@ void Empleado::setfechadeingreso (Fecha _fechaDeIngreso){fechaDeIngreso = _fecha
 void Empleado::setSueldo(float _sueldo){sueldo = _sueldo;}
 void Empleado::mostrarEmpleado()
 {
-    cout << "      ID EMPLEADO: "<< getID()<<endl;
+    cout << "      ID EMPLEADO: ";
+    Menu::setColor(0);
+    cout << getID()<<endl;
     mostrarPersona();
     cout<<"          Detalles en la empresa:"<<endl;
     Menu::setColor(7);
