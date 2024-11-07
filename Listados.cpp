@@ -70,7 +70,7 @@ void Listados::MenulistarClientes()
         system("cls");
     }
     while(!opcionValida);
-    MenulistarClientes();
+    menu.listar();
 }
 void Listados::MenulistarEmpleados()
 {
@@ -137,7 +137,7 @@ void Listados::MenulistarEmpleados()
     while(!opcionValida);
         system("pause");
         system("cls");
-    MenulistarEmpleados();
+    menu.listar();
 }
 void Listados::listarEmpleadosAll()
 {
@@ -145,9 +145,6 @@ void Listados::listarEmpleadosAll()
     Empleado registro;
 
     Empleados.FiltrarEmpleados();
-    system("pause");
-    system("cls");
-    MenulistarEmpleados();
 }
 
 void Listados::listarEmpleadosxOrdenAlfabetico()
@@ -166,8 +163,9 @@ void Listados::listarEmpleadosxName()
     menu.setColor(7);
     cout<<"Ingrese el nombre del empleado a filtrar: ";
     menu.setColor(0);
-    string nombre;
-    cin >> nombre;
+    char nombre[50];
+    cin.ignore();
+    cin.getline(nombre, 50);
     Empleados.FiltrarPorNombre(nombre);
     menu.setColor(7);
     system("pause");
@@ -207,32 +205,28 @@ bool opcionValida=false;
 while (op!=0 || op !=1)
     {
             menu.setColor(7);
-    cout << "0.Filtrar Empleados de Vacaciones "<<endl;
     cout << "1.Filtrar Empleados Trabajando "<<endl;
-    cout << "2.Volver al menu principal "<<endl;
+    cout << "2.Filtrar Empleados de Vacaciones "<<endl;
+    cout << "3.Volver al menu principal "<<endl;
      menu.setColor(0);
     cin >> op;
     system ("cls");
     if(op!=0 || op !=1)
     {
-        if (op==2)
+        if (op==3)
         {
             system ("cls");
             menu.setColor(7);
             menu.getMainMenu();
         }
         else{
-        Empleados.FiltrarPorVacacionesActivas(op);
         menu.setColor(0);
-        if(op==0 || op==1)
+        if(op==1 || op==2)
         {
+            Empleados.FiltrarPorVacacionesActivas(op-1);
             opcionValida=true;
-        }
-        if (opcionValida==false)
-        {
-
-
-            menu.mensajeDeError("Opcion invalida! vuelva a intentarlo");
+        }else{
+        menu.mensajeDeError("Opcion invalida! vuelva a intentarlo");
 
         }
         }
@@ -266,12 +260,13 @@ void Listados::listarClientesAll()
 void Listados::listarClientesxName()
 {
     Menu menu;
+    char nombre[50];
     ArchivoClientes Clientes ("ArchivoClientes.dat");
     menu.setColor(7);
     cout<<"Ingrese el nombre del cliente a filtrar: ";
     menu.setColor(0);
-    string nombre;
-    cin >> nombre;
+    cin.ignore();
+    cin.getline(nombre, 50);
     Clientes.FiltrarPorNombre(nombre);
     menu.setColor(7);
     system("pause");
@@ -303,8 +298,6 @@ void Listados::listarClientesxID()
 void Listados::listarClientesxComprasRealizadas(){
     ArchivoClientes Clientes("ArchivoClientes.dat");
     Clientes.FiltrarPorNComprasRealizadas();
-    system("pause");
-    system("cls");
 }
 
 void Listados::listarVentas()
@@ -340,7 +333,7 @@ void Listados::MenulistarProductos()
     {
         menu.setColor(7);
         cout<<"----------------------------------"<<endl;
-        cout<<"Elija la opcion que desee realizar"<<endl;
+        cout<<"Elija la opcion que desee realizar "<<endl;
         cout<<"1. Listar por Nombre"<<endl;
         cout<<"2. Listar por ID"<<endl;
         cout<<"3. Listar por Categoria"<<endl;
@@ -381,9 +374,12 @@ void Listados::MenulistarProductos()
         }
 
 
+    system("pause");
+    system("cls");
 
     }
     while(!opcionValida);
+    menu.listar();
 }
 void Listados::MenuListarProductosDetalleVentas()
 {
@@ -435,12 +431,13 @@ void Listados::listarProductosAll()
 void Listados::listarProductosxName()
 {
     Menu menu;
+    char nombre[50];
     ArchivoProductos Productos ("ArchivoProductos.dat");
     menu.setColor(7);
     cout<<"Ingrese el nombre del producto a filtrar: ";
     menu.setColor(0);
-    string nombre;
-    cin >> nombre;
+    cin.ignore();
+    cin.getline(nombre, 50);
     Productos.FiltrarPorNombre(nombre);
     menu.setColor(7);
 }

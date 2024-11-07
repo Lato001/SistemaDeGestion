@@ -399,7 +399,6 @@ void Menu::modificar()
         cout<<"2. Modificar Producto"<<endl;
         cout<<"3. Modificar Empleado"<<endl;
         cout<<"4. Modificar Cliente"<<endl;
-        cout<<"5. Modificar Detalle de Venta"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         setColor(0);
@@ -423,6 +422,8 @@ void Menu::modificar()
             ArchivoProductos archivoProductos("ArchivoProductos.dat");
             int productoID;
             setColor(7);
+            Listados listados;
+            listados.listarProductosAll();
             cout << "Ingrese el ID del producto que desea modificar: ";
             cin >> productoID;
             archivoProductos.ModificarProducto(productoID);
@@ -432,8 +433,10 @@ void Menu::modificar()
         case 3:
              {
            ArchivoEmpleados archivoEmpleados("ArchivoEmpleados.dat");
+            Listados listados;
             int empleadoID;
             setColor(7);
+            listados.listarEmpleadosAll();
             cout << "Ingrese el ID del empleado que desea modificar: ";
             setColor(0);
             cin >> empleadoID;
@@ -443,8 +446,10 @@ void Menu::modificar()
         case 4:
              {
             ArchivoClientes archivoClientes("ArchivoClientes.dat");
+            Listados listados;
             int clienteID;
             setColor(7);
+            listados.listarClientesAll();
             cout << "Ingrese el ID del cliente que desea modificar: ";
             setColor(0);
             cin >> clienteID;
@@ -454,8 +459,10 @@ void Menu::modificar()
         case 5:
             {
             ArchivoDetalleVentas archivoDetalleVentas("ArchivoDetalleVentas.dat");
+            Listados listados;
             int idVenta;
             setColor(7);
+            listados.listarVentas();
             cout << "Ingrese el ID de la venta que desea modificar: ";
             setColor(0);
             cin >> idVenta;
@@ -547,7 +554,7 @@ void Menu::modificarRegistroVenta()
     cout<< "Seleccione el ID de la venta a modificar: ";
     setColor(0);
     cin >> input;
-
+    system("cls");
     if( Ventas.Buscar(input).getIdVenta() !=  -1)
     {
         while(!opcionValida)
@@ -565,7 +572,17 @@ void Menu::modificarRegistroVenta()
             setColor(0);
             cout << Clientes.Buscar(venta.getIdVenta()).getNombre()<< " " <<Clientes.Buscar(venta.getIdVenta()).getApellido() <<endl;
             setColor(7);
-            cout<< "4. Detalle de venta"<<endl;
+            cout<< "4. Forma de Pago: ";
+            if( venta.getFormaDePago() == 1){
+                cout<< "Efectivo";
+
+            }else if( venta.getFormaDePago() == 2){
+                cout<< "Debito";
+            }else{
+
+                cout<< "Credito";
+            }
+            cout<<endl;
             cout<< "0. Volver al menu principal"<<endl;
             cout<< "Seleccione una opcion: ";
             setColor(0);
@@ -592,44 +609,23 @@ void Menu::modificarRegistroVenta()
         mensajeDeError("No existe venta con este ID, vuelva a intentarlo");
         modificar();
     }
-
+    system("cls");
+    setColor(7);
     switch (input)
     {
     case 1:
-    {
-        setColor(2);
-        Fecha nuevaFecha;
-        cout<<"Nueva fecha a cargar"<<endl;
-        nuevaFecha.cargarFecha();
-        nuevaFecha.mostrarFecha();
-        system("pause");
-        Ventas.Buscar(venta.getIdVenta()).setFecha(nuevaFecha);
-        cout<< "Nueva fecha cargada: ";
-        ///NUEVA FECHA CARGADA
-        Ventas.Buscar(venta.getIdVenta()).getFecha().mostrarFecha();
-        system("pause");
-        system("cls");
-
-
-    }
+        Ventas.ModificarVenta(venta.getIdVenta(),1);
+        break;
     break;
     case 2:
-    {
-        setColor(7);
-        cout<<"Empleado que efectuo la venta"<<endl;
-        listados.listarEmpleadosAll();
-        cout<< "Seleccione el ID del empleado que efectuo la venta:";
-        setColor(0);
-        cin >> input;
-        if(Empleados.Buscar(input).getID() != -1)
-        {
-            Ventas.Buscar(venta.getIdVenta()).setidEmpleado(input);
-            setColor(7);
-            cout<< "Nuevo Empleado : " <<Ventas.Buscar(venta.getIdVenta()).getIdEmpleado();
-        }
-
-    }
+        Ventas.ModificarVenta(venta.getIdVenta(),2);
     break;
+    case 3:
+        Ventas.ModificarVenta(venta.getIdVenta(),3);
+        break;
+    case 4:
+        Ventas.ModificarVenta(venta.getIdVenta(),4);
+        break;
     default:
         break;
     }
@@ -737,15 +733,14 @@ Listados listados;
         cout<<"1. Clientes MAS+ activos"<<endl;
         cout<<"2. Clientes MENOS- activos"<<endl;
         cout<<"3. Empleados con MAS+ ventas"<<endl;
-        cout<<"4. Empleados con Mejores Asistencias (FALTA TERMINAR)"<<endl;
-        cout<<"5. Formas de pago MAS+ utilizadas"<<endl;
+        cout<<"4. Formas de pago MAS+ utilizadas"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         setColor(0);
 
         cin>>op;
         system("cls");
-        if(op>0 && op<2)
+        if(op>0 && op<5)
         {
             opcionValida=true;
         }
@@ -761,8 +756,6 @@ Listados listados;
             empleadosMayoresVentas();
             break;
         case 4:
-            break;
-        case 5:
             fdpMasUtilizadas();
             break;
         case 0:

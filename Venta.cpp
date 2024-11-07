@@ -88,7 +88,7 @@ void Venta::cargarVenta() {
 
         for (int i = 0; i < Empleados.CantidadRegistros(); i++) {
             registroEmpleado = Empleados.Leer(i);
-            cout << "ID: " << registroEmpleado.getID() << " - Nombre: " << registroEmpleado.getNombre() << endl;
+            cout << "ID: " << registroEmpleado.getID() << " - Nombre: " << registroEmpleado.getNombre() <<" "<< registroEmpleado.getApellido()<< endl;
         }
            Menu::setColor(7);
         cout << "Ingrese el ID del Empleado: ";
@@ -121,7 +121,7 @@ void Venta::cargarVenta() {
 
         for (int i = 0; i < Clientes.CantidadRegistros(); i++) {
             registroCliente = Clientes.Leer(i);
-            cout << "ID: " << registroCliente.getID() << " - Nombre: " << registroCliente.getNombre() << endl;
+            cout << "ID: " << registroCliente.getID() << " - Nombre: " << registroCliente.getNombre() << registroCliente.getApellido() << endl;
         }
          Menu::setColor(7);
         cout << "Ingrese el ID del cliente: ";

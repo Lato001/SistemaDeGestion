@@ -27,6 +27,7 @@ void Cliente::setClienteID(int _clienteID) {
 }
 
 void Cliente::mostrarCliente() {
+    Menu::setColor(7);
     cout << "      ID CLIENTE: ";
      Menu::setColor(0);
     cout << getID()<< endl;

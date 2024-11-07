@@ -20,7 +20,7 @@ private:
         bool Guardar(Venta venta, int posicion);
 
         int BuscarPosRegistro(int idVenta);
-        void ModificarVenta(int idVenta);
+        void ModificarVenta(int idVenta, int op);
         void eliminarArchivoVentas();
         void eliminarRegistroVenta(int VentaID);
 
