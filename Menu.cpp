@@ -372,9 +372,9 @@ void Menu::modificar()
 }
 void Menu::eliminar()
 {
-    Eliminados eliminados;
     int op=0;
     bool opcionValida=false;
+    Eliminados eliminados;
 
     do
     {

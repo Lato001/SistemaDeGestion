@@ -174,7 +174,6 @@ void Eliminados::eliminarRegistroCliente()
 void Eliminados::eliminarArchivoVentas()
 {
     ArchivoVentas Ventas("ArchivoVentas.dat");
-    Venta venta;
 
     Ventas.eliminarArchivoVentas();
     system("pause");
@@ -184,7 +183,6 @@ void Eliminados::eliminarArchivoVentas()
 void Eliminados::eliminarRegistroVenta()
 {
     ArchivoVentas Ventas("ArchivoVentas.dat");
-    Venta venta;
     Menu menu;
 
     int ventaID;
