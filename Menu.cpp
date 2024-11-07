@@ -98,7 +98,7 @@ void Menu::menuExportarCSV()
     cout<<"1. Productos"<<endl;
     cout<<"2. Ventas "<<endl;
     cout<<"3. Clientes "<<endl;
-    cout<<"4. Empleado ( falta terminar )"<<endl;
+    cout<<"4. Empleado "<<endl;
     cout<<"5. Detalle de Ventas "<<endl;
     cout<<"0. Volver al menu principal"<<endl;
     cout<<"==================================="<<endl;
@@ -190,7 +190,6 @@ void Menu::ExportarClientes()
 }
 void Menu::ExportarEmpleados()
 {
-    /*
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
 
     string nombreCSV;
@@ -198,11 +197,11 @@ void Menu::ExportarEmpleados()
     cout << "Ingrese el nombre que desea asignarle al archivo CSV de Empleados ";
     setColor(0);
     cin>>nombreCSV;
+    Empleados.exportarEmpleadosACSV(nombreCSV);
 
     system("pause");
     system("cls");
     menuExportarCSV();
-    */
 }
 void Menu::ExportarDetalledeVentas()
 {

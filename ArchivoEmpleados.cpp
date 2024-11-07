@@ -466,5 +466,39 @@ int ArchivoEmpleados::BuscarPosRegistro(int empleadoID){
     return -1;
 }
 
+void ArchivoEmpleados::exportarEmpleadosACSV(string nombreArchivoCSV) {
+    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    if (registro == nullptr) {
+        Menu menu;
+        menu.mensajeDeError("Error al abrir el archivo para lectura.");
+        return;
+    }
+
+    ofstream archivoCSV(nombreArchivoCSV);
+    if (!archivoCSV.is_open()) {
+        Menu menu;
+        menu.mensajeDeError("Error al crear el archivo CSV.");
+        fclose(registro);
+        return;
+    }
+
+    cout << "ID,Asistencias,IsVacaciones,Sueldo" << endl;
+
+    Empleado empleado;
+    int cont = 0;
+    while (fread(&empleado, sizeof(Empleado), 1, registro)) {
+
+              cout << empleado.getID() << ","
+                   << empleado.getAsistencias() << ","
+                   << empleado.getIsVacaciones() << ","
+                   << empleado.getSueldo() << endl;
+
+        cont++;
+    }
+
+    fclose(registro);
+    archivoCSV.close();
+}
+
 
 

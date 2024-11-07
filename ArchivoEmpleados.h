@@ -33,6 +33,7 @@ private:
         Empleado Leer(int posicion);
         int CantidadRegistros();
         void Leer(int CantidadRegistros, Empleado *vector);
+        void exportarEmpleadosACSV(string nombreArchivoCSV);
 };
 
 #endif // ARCHIVOEMPLEADOS_H_INCLUDED
