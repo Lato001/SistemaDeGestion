@@ -356,17 +356,20 @@ void ArchivoProductos::exportarProductosACSV(string nombreArchivoCSV)
     {
         Menu::setColor(7);
 //      Escribir los datos de cada producto en el archivo CSV:
-        archivoCSV << producto.getID() << ","
-                   << producto.getNombre() << ","
-                   << producto.getCategoriaProducto() << ","
-                   << producto.getPrecioUnitario() << ","
-                   << producto.getStock() << endl;
+        archivoCSV << "ID:" << producto.getID() <<endl;
+        archivoCSV << "NOMBRE: " <<producto.getNombre() <<endl;
+        archivoCSV << "CATEGORIA: " <<producto.getCategoriaProducto() <<endl;
+        archivoCSV << "PRECIO UNITARIO: " <<producto.getPrecioUnitario() <<endl;
+        archivoCSV << "STOCK: " <<producto.getStock() << endl;
+        archivoCSV << endl;
+        archivoCSV << "-----------------------------------------------------" << endl;
+        archivoCSV << endl;
 
         cout << "ID:"<< producto.getID()<< endl;
-        cout <<"Nombre:"<< producto.getNombre()<< endl;
-        cout <<"Categoria:"<< producto.getCategoriaProducto()<< endl;
-        cout <<"Precio:"<< producto.getPrecioUnitario()<< endl;
-        cout <<"Stock:" << producto.getStock() << endl;
+        cout <<"NOMBRE:"<< producto.getNombre()<< endl;
+        cout <<"CATEGORIA:"<< producto.getCategoriaProducto()<< endl;
+        cout <<"PRECIO UNITARIO:"<< producto.getPrecioUnitario()<< endl;
+        cout <<"STOCK:" << producto.getStock() << endl;
         cout << endl;
         cout << "-----------------------------------------------------" << endl;
         cout << endl;
