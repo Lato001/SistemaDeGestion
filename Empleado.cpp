@@ -62,7 +62,10 @@ void Empleado::mostrarEmpleado()
         cout<<"No "<<endl;
     }
     Menu::setColor(7);
-    cout<<"              Sueldo: "<<getSueldo()<<endl;
+    cout<<"              Sueldo: ";
+    Menu::setColor(0);
+    cout <<getSueldo()<<endl;
+    Menu::setColor(7);
 
 }
 void Empleado::cargarEmpleado(){
