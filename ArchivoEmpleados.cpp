@@ -136,7 +136,7 @@ void ArchivoEmpleados::FiltrarPorOrdenAlfabetico()
             {
                 for (int j = 0; j <= cantRegistros ; j++)
                 {
-                    if (strcmp (registro[j].getNombre(),registro[i].getNombre()) > 0)
+                    if (strcmp (registro[j].getApellido(),registro[i].getApellido()) > 0)
                     {
                         Empleado temp = registro[i];
                         registro[i] = registro[j];

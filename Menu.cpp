@@ -36,6 +36,7 @@ void Menu::getMainMenu()
         cout<<"4. Modificar Registros"<<endl;
         cout<<"5. Eliminar Registros"<<endl;
         cout<<"6. Informes"<<endl;
+        cout<<"7. Exportar Archivos CSV "<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"==================================="<<endl;
         setColor(0);
@@ -65,6 +66,10 @@ void Menu::getMainMenu()
             break;
         case 6:
             menuInformes();
+            break;
+        case 7:
+            menuExportarCSV();
+            break;
         case 0:
             exit(0);
             break;
@@ -79,6 +84,52 @@ void Menu::getMainMenu()
         opcionValida = false;
     }
     while(!opcionValida);
+}
+void Menu::menuExportarCSV()
+{
+    int op=0;
+    bool opcionValida=false;
+
+    do
+    {
+    setColor(7);
+    cout<<"----------------------------------"<<endl;
+    cout<<"Elija la opcion que desee realizar"<<endl;
+    cout<<"1. Exportar"<<endl;
+    cout<<"2. Algo mas? @Marcos "<<endl;
+    cout<<"0. Volver al menu principal"<<endl;
+    cout<<"==================================="<<endl;
+    setColor(0);
+           cin>>op;
+        system("cls");
+        if(op> (0) && op<3)
+        {
+            opcionValida=true;
+        }
+
+        switch (op)
+        {
+        case 1:
+            Exportar();
+            break;
+        case 0:
+            exit(0);
+            break;
+        default:
+
+            mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
+
+        }
+        system("pause");
+        system("cls");
+
+        opcionValida = false;
+    }
+    while(!opcionValida);
+}
+void Menu::Exportar()
+{
+
 }
 void Menu::listar()
 {

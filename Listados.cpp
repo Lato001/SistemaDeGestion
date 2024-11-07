@@ -31,8 +31,8 @@ void Listados::MenulistarClientes()
         cout<<"1. Por Nombre"<<endl;
         cout<<"2. Por Orden Alfabetico"<<endl;
         cout<<"3. Por ID"<<endl;
-        cout<<"4. Listar todos"<<endl;
-        cout<<"5. Listar Por Nro de Compras Realizadas"<<endl;
+        cout<<"4. Listar Por Nro de Compras Realizadas"<<endl;
+        cout<<"5. Listar todos"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
     menu.setColor(0);
@@ -55,10 +55,10 @@ void Listados::MenulistarClientes()
             listarClientesxID();
             break;
         case 4:
-            listarClientesAll();
+            listarClientesxComprasRealizadas();
             break;
         case 5:
-            listarClientesxComprasRealizadas();
+            listarClientesAll();
         case 0:
             menu.getMainMenu();
         default:
@@ -84,12 +84,12 @@ void Listados::MenulistarEmpleados()
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Por Nombre"<<endl;
-        cout<<"2. Por Orden Alfabetico"<<endl;
+        cout<<"2. Por Orden Alfabetico (Apellido)"<<endl;
         cout<<"3. Por ID"<<endl;
         cout<<"4. Por Fecha de Ingreso"<<endl;
-        cout<<"5. Listar todos"<<endl;
-        cout<<"6. Listar por asistencias"<<endl;
-        cout<<"7. Listar por Vacaciones Activas SI/NO"<<endl;
+        cout<<"5. Listar por asistencias"<<endl;
+        cout<<"6. Listar por Vacaciones Activas SI/NO"<<endl;
+        cout<<"7. Listar todos"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
    menu.setColor(0);
@@ -115,13 +115,13 @@ void Listados::MenulistarEmpleados()
             listarEmpleadosxFecha();
             break;
         case 5:
-            listarEmpleadosAll();
-            break;
-        case 6:
             listarEmpleadosxAsistencias();
             break;
-        case 7:
+        case 6:
             listarEmpleadosxVacaciones();
+            break;
+        case 7:
+            listarEmpleadosAll();
             break;
         case 0:
             menu.getMainMenu();
@@ -135,6 +135,8 @@ void Listados::MenulistarEmpleados()
 
     }
     while(!opcionValida);
+        system("pause");
+        system("cls");
     MenulistarEmpleados();
 }
 void Listados::listarEmpleadosAll()

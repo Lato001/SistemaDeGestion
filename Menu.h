@@ -35,6 +35,10 @@ public:
     void empleadosMayoresVentas();
     void empleadosMayoresAsistencias();
     void fdpMasUtilizadas();
+    //EXPORTAR .toCSV
+
+    void menuExportarCSV();
+    void Exportar();
 
     ///FUNCIONES PARA INTERFAZ
     void mensajeDeError(string mensaje);
