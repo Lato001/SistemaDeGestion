@@ -374,3 +374,40 @@ string nombreCliente;
         cout << "Cliente con ID " << clienteID << " no encontrado." << endl;
     }
 }
+
+void ArchivoClientes::exportarClientesACSV(string nombreArchivoCSV) {
+    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    if (registro == nullptr) {
+        Menu menu;
+        menu.mensajeDeError("Error al abrir el archivo para lectura.");
+        return;
+    }
+
+    ofstream archivoCSV(nombreArchivoCSV);
+    if (!archivoCSV.is_open()) {
+        Menu menu;
+        menu.mensajeDeError("Error al crear el archivo CSV.");
+        fclose(registro);
+        return;
+    }
+
+    cout << "ID,DNI,Nombre,Apellido,Email,nTelefono,Localidad" << endl;
+
+    Cliente cliente;
+    int cont = 0;
+    while (fread(&cliente, sizeof(Cliente), 1, registro)) {
+
+              cout << cliente.getID() << ","
+                   << cliente.getDNI() << ","
+                   << cliente.getNombre() << ","
+                   << cliente.getApellido() << ","
+                   << cliente.getEmail() << ","
+                   << cliente.getnTelefono() << ","
+                   << cliente.getLocalidad() << endl;
+
+        cont++;
+    }
+
+    fclose(registro);
+    archivoCSV.close();
+}

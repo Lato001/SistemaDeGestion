@@ -2,6 +2,7 @@
 #include <string>
 #include <cstring>
 #include <iostream>
+#include <fstream>
 
 #include "ArchivoDetalleVentas.h"
 #include "DetalleVenta.h"
@@ -163,3 +164,35 @@ void ArchivoDetalleVentas::ModificarDetalleVenta(int idVenta) {
     }
 }
 
+
+void ArchivoDetalleVentas::exportarDetalleVentasACSV(string nombreArchivoCSV) {
+    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    if (registro == nullptr) {
+        Menu menu;
+        menu.mensajeDeError("Error al abrir el archivo para lectura.");
+        return;
+    }
+
+    ofstream archivoCSV(nombreArchivoCSV);
+    if (!archivoCSV.is_open()) {
+        Menu menu;
+        menu.mensajeDeError("Error al crear el archivo CSV.");
+        fclose(registro);
+        return;
+    }
+
+    cout << "IdVenta,ImporteTotal,Estado" << endl;
+
+    DetalleVenta detalleVenta;
+    int cont = 0;
+    while (fread(&detalleVenta, sizeof(DetalleVenta), 1, registro)) {
+
+              cout << detalleVenta.getIdVenta() << ","
+                   << detalleVenta.getImporte() << ","
+                   << detalleVenta.getEstado() << endl;
+        cont++;
+    }
+
+    fclose(registro);
+    archivoCSV.close();
+}

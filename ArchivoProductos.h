@@ -25,6 +25,7 @@ private:
 
         void eliminarArchivoProductos();
         void eliminarRegistroProducto(int productoID);
+        void exportarProductosACSV(string nombreArchivoCSV);
 
         Producto Leer(int posicion);
         int CantidadRegistros();

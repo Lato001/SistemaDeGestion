@@ -326,3 +326,38 @@ void ArchivoProductos::eliminarRegistroProducto(int productoID)
         cout << "Producto con ID " << productoID << " no encontrado." << endl;
     }
 }
+
+
+void ArchivoProductos::exportarProductosACSV(string nombreArchivoCSV) {
+    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    if (registro == nullptr) {
+        Menu menu;
+        menu.mensajeDeError("Error al abrir el archivo para lectura.");
+        return;
+    }
+
+    ofstream archivoCSV(nombreArchivoCSV);
+    if (!archivoCSV.is_open()) {
+        Menu menu;
+        menu.mensajeDeError("Error al crear el archivo CSV.");
+        fclose(registro);
+        return;
+    }
+
+    cout << "ID,Nombre,Categoria,Precio,Stock" << endl;
+
+    Producto producto;
+    int cont = 0;
+    while (fread(&producto, sizeof(Producto), 1, registro)) {
+
+              cout << producto.getID() << ","
+                   << producto.getNombre() << ","
+                   << producto.getCategoriaProducto() << ","
+                   << producto.getPrecioUnitario() << ","
+                   << producto.getStock() << endl;
+        cont++;
+    }
+
+    fclose(registro);
+    archivoCSV.close();
+}

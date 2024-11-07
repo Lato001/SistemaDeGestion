@@ -26,6 +26,7 @@ private:
         void ModificarCliente(int clienteID);
         void eliminarArchivoClientes();
         void eliminarRegistroCliente(int clienteID);
+        void exportarClientesACSV(string nombreArchivoCSV);
 
         Cliente Leer(int posicion);
         int CantidadRegistros();

@@ -28,6 +28,7 @@ private:
         Venta Leer(int posicion);
         int CantidadRegistros();
         void Leer(int CantidadRegistros, Venta *vector);
+        void exportarVentasACSV(string nombreArchivoCSV);
 };
 
 #endif // ARCHIVOVENTAS_H_INCLUDED

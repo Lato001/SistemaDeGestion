@@ -220,3 +220,40 @@ void ArchivoVentas::eliminarRegistroVenta(int ventaID)
         cout << "Venta con ID " << idVenta << " no encontrado." << endl;
     }
 }
+
+
+void ArchivoVentas::exportarVentasACSV(string nombreArchivoCSV) {
+    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    if (registro == nullptr) {
+        Menu menu;
+        menu.mensajeDeError("Error al abrir el archivo para lectura.");
+        return;
+    }
+
+    ofstream archivoCSV(nombreArchivoCSV);
+    if (!archivoCSV.is_open()) {
+        Menu menu;
+        menu.mensajeDeError("Error al crear el archivo CSV.");
+        fclose(registro);
+        return;
+    }
+
+    cout << "idVenta,idEmpleado,idCliente,formaDePago,importeTotal,estado" << endl;
+
+    Venta venta;
+    int cont = 0;
+    while (fread(&venta, sizeof(Venta), 1, registro)) {
+
+              cout << venta.getIdVenta() << ","
+                   << venta.getIdEmpleado() << ","
+                   << venta.getIdCliente() << ","
+                   << venta.getFormaDePago() << ","
+                   << venta.getImporteTotal() << ","
+                   << venta.getEstado() << endl;
+
+        cont++;
+    }
+
+    fclose(registro);
+    archivoCSV.close();
+}

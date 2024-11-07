@@ -21,5 +21,6 @@ private:
         void ModificarDetalleVenta(int idVenta);
         int BuscarPosRegistro(int idVenta);
         void Leer(int CantidadRegistros, DetalleVenta *vector);
+        void exportarDetalleVentasACSV(string nombreArchivoCSV);
 };
 #endif // ARCHIVODETALLEVENTAS_H_INCLUDED
