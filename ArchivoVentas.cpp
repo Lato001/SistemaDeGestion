@@ -230,38 +230,53 @@ void ArchivoVentas::eliminarRegistroVenta(int ventaID)
 
 
 void ArchivoVentas::exportarVentasACSV(string nombreArchivoCSV) {
-    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
-    if (registro == nullptr) {
         Menu menu;
+    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    if (registro == nullptr)
+    {
         menu.mensajeDeError("Error al abrir el archivo para lectura.");
         return;
     }
 
     ofstream archivoCSV(nombreArchivoCSV);
-    if (!archivoCSV.is_open()) {
-        Menu menu;
+    if (!archivoCSV.is_open())
+    {
         menu.mensajeDeError("Error al crear el archivo CSV.");
         fclose(registro);
         return;
     }
 
-
-    Venta venta;
     int cont = 0;
-    while (fread(&venta, sizeof(Venta), 1, registro)) {
-    cout << "ID Venta:"<< venta.getIdVenta()<< endl;
-    cout << "ID Empleado:"<< venta.getIdEmpleado()<< endl;
-    cout << "ID Cliente:"<< venta.getIdCliente()<< endl;
-    cout <<"Forma De Pago:"<< venta.getFormaDePago()<< endl;
-    cout <<"Importe Total:"<< venta.getImporteTotal()<< endl;
-    cout << "Estado:" << venta.getEstado()<< endl;
-    cout << endl;
-    cout << "-----------------------------------------------------" << endl;
-    cout << endl;
+    Venta venta;
+        archivoCSV << "     -------------Datos de Ventas----------------"<<endl;
+    while (fread(&venta, sizeof(Venta), 1, registro))
+    {
+        Menu::setColor(7);
+        archivoCSV << "ID: " << venta.getIdVenta() << ","<<endl;
+        archivoCSV << "NOMBRE: " <<venta.getIdEmpleado() << ","<<endl;
+        archivoCSV << "Categoria: " <<venta.getIdCliente() << ","<<endl;
+        archivoCSV << "FECHA DE INGRESO: " << venta.getFecha().getDia()<<"/"<<venta.getFecha().getMes()<<"/"<<venta.getFecha().getAnio() << ","<<endl;
+        archivoCSV << "Stock: " <<venta.getFormaDePago() << endl;
+        archivoCSV << "Stock: " <<venta.getImporteTotal() << endl;
+        archivoCSV << "Stock: " <<venta.getEstado() << endl;
+        archivoCSV << endl;
+        archivoCSV << "-----------------------------------------------------" << endl;
+        archivoCSV << endl;
 
-
+        cout << "ID:"<< venta.getIdVenta()<< endl;
+        cout <<"Nombre:"<< venta.getIdEmpleado()<< endl;
+        cout <<"Categoria:"<< venta.getIdCliente()<< endl;
+        archivoCSV << "FECHA DE INGRESO: " << venta.getFecha().getDia()<<"/"<<venta.getFecha().getMes()<<"/"<<venta.getFecha().getAnio() << ","<<endl;
+        cout <<"Stock:" << venta.getFormaDePago() << endl;
+        cout <<"Stock:" << venta.getImporteTotal() << endl;
+        cout <<"Stock:" << venta.getEstado() << endl;
+        cout << endl;
+        cout << "-----------------------------------------------------" << endl;
+        cout << endl;
+        cont++;
     }
-
     fclose(registro);
     archivoCSV.close();
+
+    cout << "Se exportaron " << cont << " Ventas al archivo CSV." << endl;
 }

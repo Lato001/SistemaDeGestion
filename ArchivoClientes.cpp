@@ -385,38 +385,50 @@ string nombreCliente;
 
 void ArchivoClientes::exportarClientesACSV(string nombreArchivoCSV) {
     FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
-    if (registro == nullptr) {
+    if (registro == nullptr)
+    {
         Menu menu;
         menu.mensajeDeError("Error al abrir el archivo para lectura.");
         return;
     }
 
     ofstream archivoCSV(nombreArchivoCSV);
-    if (!archivoCSV.is_open()) {
+    if (!archivoCSV.is_open())
+    {
         Menu menu;
         menu.mensajeDeError("Error al crear el archivo CSV.");
         fclose(registro);
         return;
     }
 
-
-    Cliente cliente;
     int cont = 0;
-    while (fread(&cliente, sizeof(Cliente), 1, registro)) {
-    cout << "ID:" << cliente.getID()<< endl;
-    cout << "DNI:" << cliente.getDNI()<< endl;
-    cout << "Nombre:" << cliente.getNombre()<< endl;
-    cout << "Apellido:" << cliente.getApellido()<< endl;
-    cout << "Email:"<< cliente.getEmail()<< endl;
-    cout << "Num Telefono:"  << cliente.getnTelefono()<< endl;
-    cout << "Localidad:"  << cliente.getLocalidad() << endl;
-    cout << endl;
-    cout << "-----------------------------------------------------" << endl;
-    cout << endl;
+    Cliente cliente;
+        archivoCSV << "   -------------Datos de Clientes----------------"<<endl;
+    while (fread(&cliente, sizeof(Cliente), 1, registro))
+    {
+        Menu::setColor(7);
+        archivoCSV << "ID: " << cliente.getDNI() << ","<<endl;
+        archivoCSV << "NOMBRE: " <<cliente.getNombre() << ","<<endl;
+        archivoCSV << "APELLIDO: " <<cliente.getApellido() << ","<<endl;
+        archivoCSV << "EMAIL: " <<cliente.getEmail() << ","<<endl;
+        archivoCSV << "NUMERO DE TELEFONO: " <<cliente.getnTelefono() << endl;
+        archivoCSV << "LOCALIDAD: " <<cliente.getLocalidad() << endl;
+        archivoCSV << endl;
+        archivoCSV << "-----------------------------------------------------" << endl;
+        archivoCSV << endl;
 
-
+        cout << "ID:"<< cliente.getDNI()<< endl;
+        cout <<"Nombre:"<< cliente.getApellido()<< endl;
+        cout <<"Categoria:"<< cliente.getEmail()<< endl;
+        cout <<"Precio:"<< cliente.getnTelefono()<< endl;
+        cout <<"Stock:" << cliente.getLocalidad() << endl;
+        cout << endl;
+        cout << "-----------------------------------------------------" << endl;
+        cout << endl;
+        cont++;
     }
-
     fclose(registro);
     archivoCSV.close();
+
+    cout << "Se exportaron " << cont << " Clientes al archivo CSV." << endl;
 }

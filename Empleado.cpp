@@ -93,16 +93,20 @@ void Empleado::cargarEmpleado(){
     Menu::setColor(7);
 
     cout << "Esta en vacaciones S/N? " << endl;
+       Menu::setColor(0);
     cin >> inputLetra;
 
     while (inputLetra != 'S' && inputLetra != 'N') {
         menu.mensajeDeError("Opción invalida! Intentelo de nuevo.");
+    Menu::setColor(7);
         cout << "Esta en vacaciones S/N? " << endl;
+    Menu::setColor(0);
         cin >> inputLetra;
     }
 
     if (inputLetra == 'S') {
         vacacionesActivas = true;
+    Menu::setColor(7);
         cout << "Vacaciones activas" << endl;
     } else {
         vacacionesActivas = false;

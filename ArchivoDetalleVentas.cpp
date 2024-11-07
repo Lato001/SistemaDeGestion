@@ -165,36 +165,54 @@ void ArchivoDetalleVentas::ModificarDetalleVenta(int idVenta) {
 }
 
 
-void ArchivoDetalleVentas::exportarDetalleVentasACSV(string nombreArchivoCSV) {
-    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
-    if (registro == nullptr) {
+void ArchivoDetalleVentas::exportarDetalleVentasACSV(string nombreArchivoCSV)
+{
         Menu menu;
+    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    if (registro == nullptr)
+    {
         menu.mensajeDeError("Error al abrir el archivo para lectura.");
         return;
     }
 
     ofstream archivoCSV(nombreArchivoCSV);
-    if (!archivoCSV.is_open()) {
-        Menu menu;
+    if (!archivoCSV.is_open())
+    {
+        DetalleVenta detalle;
         menu.mensajeDeError("Error al crear el archivo CSV.");
         fclose(registro);
         return;
     }
 
-
-    DetalleVenta detalleVenta;
     int cont = 0;
-    while (fread(&detalleVenta, sizeof(DetalleVenta), 1, registro)) {
-    cout << "ID Venta:" << detalleVenta.getIdVenta()<< endl;
-    cout << "Importe Total:" << detalleVenta.getImporte()<< endl;
-    cout << "Estado:" << detalleVenta.getEstado()<< endl;
-    cout << endl;
-    cout << "-----------------------------------------------------" << endl;
-    cout << endl;
+    DetalleVenta detalle;
+        archivoCSV << "     -------------Datos de productos----------------"<<endl;
+    while (fread(&detalle, sizeof(DetalleVenta), 1, registro))
+    {
+        Menu::setColor(7);
+        archivoCSV << "ID: " << detalle.getIdVenta() << ","<<endl;
+        archivoCSV << "NOMBRE: " <<detalle.getIdLinea() << ","<<endl;
+        archivoCSV << "Categoria: " <<detalle.getIdProducto() << ","<<endl;
+        archivoCSV << "Precio Unitario: " <<detalle.getCantidadProducto() << ","<<endl;
+        archivoCSV << "Stock: " <<detalle.getImporte() << endl;
+        archivoCSV << "ESTADO: " <<detalle.getEstado() << endl;
+        archivoCSV << endl;
+        archivoCSV << "-----------------------------------------------------" << endl;
+        archivoCSV << endl;
 
-
+        cout << "ID VENTA:"<< detalle.getIdVenta()<< endl;
+        cout <<"ID LINEA:"<< detalle.getIdLinea()<< endl;
+        cout <<"Categoria:"<< detalle.getIdProducto()<< endl;
+        cout <<"Precio:"<< detalle.getCantidadProducto()<< endl;
+        cout <<"Stock:" << detalle.getImporte() << endl;
+        cout <<"ESTADO:" << detalle.getEstado() << endl;
+        cout << endl;
+        cout << "-----------------------------------------------------" << endl;
+        cout << endl;
+        cont++;
     }
-
     fclose(registro);
     archivoCSV.close();
+
+    cout << "Se exportaron " << cont << " Detalle De Ventas al archivo CSV." << endl;
 }

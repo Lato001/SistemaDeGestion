@@ -10,6 +10,7 @@
 #include "Empleado.h"
 #include "Menu.h"
 #include "rlutil.h"
+#include "Fecha.h"
 
 using namespace std;
 
@@ -466,39 +467,49 @@ int ArchivoEmpleados::BuscarPosRegistro(int empleadoID){
     return -1;
 }
 
-void ArchivoEmpleados::exportarEmpleadosACSV(string nombreArchivoCSV) {
-    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
-    if (registro == nullptr) {
+void ArchivoEmpleados::exportarEmpleadosACSV(string nombreArchivoCSV)
+{
         Menu menu;
+    FILE *registro = fopen(_nombreArchivo.c_str(), "rb");
+    if (registro == nullptr)
+    {
         menu.mensajeDeError("Error al abrir el archivo para lectura.");
         return;
     }
 
     ofstream archivoCSV(nombreArchivoCSV);
-    if (!archivoCSV.is_open()) {
-        Menu menu;
+    if (!archivoCSV.is_open())
+    {
         menu.mensajeDeError("Error al crear el archivo CSV.");
         fclose(registro);
         return;
     }
 
-    Empleado empleado;
     int cont = 0;
-    while (fread(&empleado, sizeof(Empleado), 1, registro)) {
-    cout << "ID:" << empleado.getID() << endl;
-    cout << "Asistencias:" << empleado.getAsistencias() << endl;
-    cout << "IsVacaciones:" << empleado.getIsVacaciones() << endl;
-    cout <<"Sueldo:" << empleado.getSueldo() << endl;
-    cout << endl;
-    cout << "-----------------------------------------------------" << endl;
-    cout << endl;
+    Empleado empleado;
+    archivoCSV << "     -------------Datos de Empleados----------------"<<endl;
+    while (fread(&empleado, sizeof(Empleado), 1, registro))
+    {
+        Menu::setColor(7);
+        archivoCSV << "FECHA DE INGRESO: " << empleado.getFechaIngreso().getDia()<<"/"<<empleado.getFechaIngreso().getMes()<<"/"<<empleado.getFechaIngreso().getAnio() << ","<<endl;
+        archivoCSV << "NOMBRE: " <<empleado.getAsistencias() << ","<<endl;
+        archivoCSV << "Categoria: " <<empleado.getIsVacaciones() << ","<<endl;
+        archivoCSV << "Precio Unitario: " <<empleado.getSueldo() << ","<<endl;
+        archivoCSV << endl;
+        archivoCSV << "-----------------------------------------------------" << endl;
+        archivoCSV << endl;
 
-
+        cout << "FECHA DE INGRESO: " << empleado.getFechaIngreso().getDia()<<"/"<<empleado.getFechaIngreso().getMes()<<"/"<<empleado.getFechaIngreso().getAnio() << ","<<endl;
+        cout <<"Nombre:"<< empleado.getAsistencias()<< endl;
+        cout <<"Categoria:"<< empleado.getIsVacaciones()<< endl;
+        cout <<"Precio:"<< empleado.getSueldo()<< endl;
+        cout << endl;
+        cout << "-----------------------------------------------------" << endl;
+        cout << endl;
+        cont++;
     }
-
     fclose(registro);
     archivoCSV.close();
+
+    cout << "Se exportaron " << cont << " productos al archivo CSV." << endl;
 }
-
-
-
