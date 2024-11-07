@@ -342,6 +342,7 @@ void ArchivoProductos::exportarProductosACSV(string nombreArchivoCSV) {
         menu.mensajeDeError("Error al crear el archivo CSV.");
         fclose(registro);
         return;
+        Menu::setColor(7);
     }
 
     cout << "ID,Nombre,Categoria,Precio,Stock" << endl;

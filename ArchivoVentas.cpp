@@ -245,6 +245,7 @@ void ArchivoVentas::exportarVentasACSV(string nombreArchivoCSV) {
         return;
     }
 
+         Menu::setColor(7);
     cout << "idVenta,idEmpleado,idCliente,formaDePago,importeTotal,estado" << endl;
 
     Venta venta;
