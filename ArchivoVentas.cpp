@@ -199,6 +199,7 @@ void ArchivoVentas::eliminarArchivoVentas()
     ofstream entrada;
     entrada.open("temp.dat", ios::out);
 
+
     if (salida.fail())
     {
         menu.mensajeDeError("Hubo un error al abrir el archivo ArchivoVentas.dat");
@@ -213,9 +214,34 @@ void ArchivoVentas::eliminarArchivoVentas()
         entrada.close();
 
         remove("ArchivoVentas.dat");  // Eliminar el archivo original
-        rename("temp.dat", "ArchivoVentas.dat");  // Renombrar el archivo temporal a "ArchivoEmpleados.dat"
+
+        rename("temp.dat", "ArchivoVentas.dat");  // Renombrar el archivo temporal a "ArchivoVentas.dat"
         Menu::setColor(2);
-        cout<<"Registros del archivo eliminados"<<endl;
+        cout<<"Registros del archivo Ventas eliminados"<<endl;
+        Menu::setColor(7);
+    }
+
+    salida.open("ArchivoDetalleVentas.dat", ios::in);
+    entrada.open("temp1.dat", ios::out);
+
+        if (salida.fail())
+    {
+        menu.mensajeDeError("Hubo un error al abrir el archivo ArchivoVentas.dat");
+       cout << endl;
+        cin.get();
+        exit(0);
+    }
+    else
+    {
+
+        salida.close();
+        entrada.close();
+
+        remove("ArchivoDetalleVentas.dat");
+
+        rename("temp1.dat", "ArchivoDetalleVentas.dat");
+        Menu::setColor(2);
+        cout<<"Registros del archivo Detalle de Ventas eliminados"<<endl;
         Menu::setColor(7);
     }
 }
@@ -257,7 +283,6 @@ void ArchivoVentas::eliminarRegistroVenta(int ventaID)
             encontrado = true;
         }
     }
-
 
     fclose(archivoOriginal);
     fclose(archivoTemporal);
