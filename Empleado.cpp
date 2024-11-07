@@ -61,8 +61,7 @@ void Empleado::mostrarEmpleado()
         cout<<"No "<<endl;
     }
     Menu::setColor(7);
-  //      Menu::setColor(3);
-//    cout <<"//////////////////////////////////////////////////////////////"<< endl<<endl;
+    cout<<"              Sueldo: "<<getSueldo()<<endl;
 
 }
 void Empleado::cargarEmpleado(){
@@ -70,6 +69,7 @@ void Empleado::cargarEmpleado(){
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     int inputNumeros;
     char inputLetra;
+    float inputSueldo=0;
     Fecha fechaACargar;
 
     cargarPersona();
@@ -107,10 +107,26 @@ void Empleado::cargarEmpleado(){
     if (inputLetra == 'S') {
         vacacionesActivas = true;
     Menu::setColor(7);
-        cout << "Vacaciones activas" << endl;
     } else {
         vacacionesActivas = false;
-        cout << "Vacaciones inactivas" << endl;
     }
+
+    while (inputSueldo < 1)
+    {
+        Menu::setColor(7);
+        cout << "Ingrese su sueldo: "<< endl;
+        cin>>inputSueldo;
+        Menu::setColor(0);
+        if (inputSueldo > 0)
+        {
+            sueldo = inputSueldo;
+        }
+        else
+        {
+            menu.mensajeDeError("Opcion Invalida!");
+        }
+    }
+
+
 
 }

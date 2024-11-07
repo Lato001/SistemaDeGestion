@@ -510,7 +510,7 @@ void ArchivoEmpleados::exportarEmpleadosACSV(string nombreArchivoCSV)
         }
         archivoCSV<<endl;
         archivoCSV << "SUELDO: " ;
-        archivoCSV <<empleado.getSueldo() <<endl;
+        archivoCSV << empleado.getSueldo() <<endl;
         archivoCSV << endl;
         archivoCSV << "-----------------------------------------------------" << endl;
         archivoCSV << endl;
