@@ -12,6 +12,7 @@
 #include "Menu.h"
 #include "Listados.h"
 #include "Eliminados.h"
+#include "Exportados.h"
 
 #include "Cliente.h"
 #include "Empleado.h"
@@ -22,6 +23,7 @@ using namespace std;
 
 void Menu::getMainMenu()
 {
+    Exportados exportar;
     int op=0;
     bool opcionValida=false;
 
@@ -30,11 +32,11 @@ void Menu::getMainMenu()
         setColor(7);
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
-        cout<<"1. Listar"<<endl;
-        cout<<"2. Crear (Empleado / Cliente)"<<endl;
-        cout<<"3. Registrar (Ventas / Productos)"<<endl;
-        cout<<"4. Modificar Registros"<<endl;
-        cout<<"5. Eliminar Registros"<<endl;
+        cout<<"1. Venta"<<endl;
+        cout<<"2. Empleado"<<endl;
+        cout<<"3. Cliente"<<endl;
+        cout<<"4. Productos"<<endl;
+        cout<<"5. Detalle de Venta"<<endl;
         cout<<"6. Informes"<<endl;
         cout<<"7. Exportar Archivos CSV "<<endl;
         cout<<"0. Salir"<<endl;
@@ -68,7 +70,7 @@ void Menu::getMainMenu()
             menuInformes();
             break;
         case 7:
-            menuExportarCSV();
+            exportar.menuExportarCSV();
             break;
         case 0:
             exit(0);
@@ -85,159 +87,7 @@ void Menu::getMainMenu()
     }
     while(!opcionValida);
 }
-void Menu::menuExportarCSV()
-{
-    int op=0;
-    bool opcionValida=false;
 
-    do
-    {
-    setColor(7);
-    cout<<"----------------------------------"<<endl;
-    cout<<"Elija la opcion que desee realizar"<<endl;
-    cout<<"1. Productos"<<endl;
-    cout<<"2. Ventas "<<endl;
-    cout<<"3. Clientes "<<endl;
-    cout<<"4. Empleado "<<endl;
-    cout<<"5. Detalle de Ventas "<<endl;
-    cout<<"0. Volver al menu principal"<<endl;
-    cout<<"==================================="<<endl;
-    setColor(0);
-           cin>>op;
-        system("cls");
-        if(op> (0) && op<6)
-        {
-            opcionValida=true;
-        }
-
-        switch (op)
-        {
-
-        case 1:
-            ExportarProductos();
-            break;
-        case 2:
-            ExportarVentas();
-            break;
-        case 3:
-            ExportarClientes();
-            break;
-        case 4:
-            ExportarEmpleados();
-            break;
-        case 5:
-            ExportarDetalledeVentas();
-            break;
-        case 0:
-            getMainMenu();
-            break;
-        default:
-
-            mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
-
-        }
-        system("pause");
-        system("cls");
-
-        opcionValida = false;
-    }
-    while(!opcionValida);
-}
-void Menu::ExportarProductos()
-{
-    ArchivoProductos Productos("ArchivoProductos.dat");
-
-    string nombreCSV;
-    setColor(7);
-    cout << "Ingrese el nombre que desea asignarle al archivo CSV de productos: ";
-    setColor(0);
-    cin>>nombreCSV;
-    system("cls");
-    setColor(7);
-    cout << "======================================================================" << endl;
-    Productos.exportarProductosACSV(nombreCSV);
-    cout << "======================================================================" << endl;
-    system("pause");
-    system("cls");
-
-    menuExportarCSV();
-}
-void Menu::ExportarVentas()
-{
-    ArchivoVentas Ventas("ArchivoVentas.dat");
-
-    string nombreCSV;
-    setColor(7);
-    cout << "Ingrese el nombre que desea asignarle al archivo CSV de Ventas: ";
-    setColor(0);
-    cin>>nombreCSV;
-    system("cls");
-    setColor(7);
-    cout << "======================================================================" << endl;
-    Ventas.exportarVentasACSV(nombreCSV);
-    cout << "======================================================================" << endl;
-    system("pause");
-    system("cls");
-
-    menuExportarCSV();
-}
-void Menu::ExportarClientes()
-{
-    ArchivoClientes Clientes("ArchivoClientes.dat");
-
-    string nombreCSV;
-    setColor(7);
-    cout << "Ingrese el nombre que desea asignarle al archivo CSV de Clientes: ";
-    setColor(0);
-    cin>>nombreCSV;
-    system("cls");
-    setColor(7);
-    cout << "======================================================================" << endl;
-    Clientes.exportarClientesACSV(nombreCSV);
-    cout << "======================================================================" << endl;
-    system("pause");
-    system("cls");
-
-    menuExportarCSV();
-}
-void Menu::ExportarEmpleados()
-{
-    ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
-
-    string nombreCSV;
-    setColor(7);
-    cout << "Ingrese el nombre que desea asignarle al archivo CSV de Empleados: ";
-    setColor(0);
-    cin>>nombreCSV;
-    system("cls");
-    setColor(7);
-    cout << "======================================================================" << endl;
-    Empleados.exportarEmpleadosACSV(nombreCSV);
-    cout << "======================================================================" << endl;
-    system("pause");
-    system("cls");
-
-    menuExportarCSV();
-}
-void Menu::ExportarDetalledeVentas()
-{
-    ArchivoDetalleVentas DetalleDeVentas("ArchivoDetalleVentas.dat");
-
-    string nombreCSV;
-    setColor(7);
-    cout << "Ingrese el nombre que desea asignarle al archivo CSV de Detalle De Ventas: ";
-    setColor(0);
-    cin>>nombreCSV;
-    system("cls");
-    setColor(7);
-    cout << "======================================================================" << endl;
-    DetalleDeVentas.exportarDetalleVentasACSV(nombreCSV);
-    cout << "======================================================================" << endl;
-    system("pause");
-    system("cls");
-
-    menuExportarCSV();
-}
 void Menu::listar()
 {
     Listados listados;
