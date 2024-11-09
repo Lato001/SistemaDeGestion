@@ -122,18 +122,25 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
             cantidadProducto = input;
 
             productoActual.setStock(productoActual.getStock() - input);
-            Productos.Guardar(productoActual, Productos.BuscarPos(idProducto)); ///??? PARA QUE SIRVE
+        if (Productos.Guardar(productoActual, Productos.BuscarPos(idProducto))) /// Actualiza el stock adentro del archivo
+        {
+            cout << "El producto se ha registrado correctamente." << endl;
             opcionValida = true;
         }
         else
         {
+            menu.mensajeDeError("Error al registrar el producto.");
+        }
+        }
+        else if (input > productoActual.getStock())
+        {
 
-            menu.mensajeDeError("Opcion invalida! Vuelva a intentarlo") ;
+            menu.mensajeDeError("Opcion invalida, no hay suficiente stock.") ;
+
+        }
 
             system("pause");
             system("cls");
-
-        }
     }
 
     importe = Productos.Buscar(idProducto).getPrecioUnitario() * cantidadProducto;
