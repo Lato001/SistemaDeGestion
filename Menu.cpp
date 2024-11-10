@@ -3,22 +3,24 @@
 #include <cstdio>
 #include <cstring>
 
-#include "ArchivoClientes.h"
-#include "ArchivoEmpleados.h"
 #include "ArchivoVentas.h"
-#include "ArchivoProductos.h"
 #include "ArchivoDetalleVentas.h"
+#include "ArchivoProductos.h"
+#include "ArchivoEmpleados.h"
+#include "ArchivoClientes.h"
 
 #include "Menu.h"
 #include "Listados.h"
 #include "Eliminados.h"
 #include "Exportados.h"
 
-#include "Cliente.h"
-#include "Empleado.h"
 #include "Venta.h"
 #include "Producto.h"
+#include "Empleado.h"
+#include "Cliente.h"
+
 #include "rlutil.h"
+
 using namespace std;
 
 void Menu::getMainMenu()
@@ -52,7 +54,7 @@ void Menu::getMainMenu()
         switch (op)
         {
         case 1:
-            listar();
+            mVentas();
             break;
         case 2:
             crear();
@@ -61,7 +63,7 @@ void Menu::getMainMenu()
             registrar();
             break;
         case 4:
-            modificar();
+            modificarRegistroVenta();
             break;
         case 5:
             eliminar();
@@ -74,6 +76,67 @@ void Menu::getMainMenu()
             break;
         case 0:
             exit(0);
+            break;
+        default:
+
+            mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
+
+        }
+        system("pause");
+        system("cls");
+
+        opcionValida = false;
+    }
+    while(!opcionValida);
+}
+
+void Menu::mVentas()
+{
+    Exportados exportar;
+    Listados listar;
+    Eliminados eliminar;
+    int op=0;
+    bool opcionValida=false;
+
+    do
+    {
+        setColor(7);
+        cout<<"----------------------------------"<<endl;
+        cout<<"Elija la opcion que desee realizar"<<endl;
+        cout<<"1. Crear"<<endl;
+        cout<<"2. Listar"<<endl;
+        cout<<"3. Modificar"<<endl;
+        cout<<"4. Eliminar"<<endl;
+        cout<<"5. Exportar"<<endl;
+        cout<<"0. Salir"<<endl;
+        cout<<"==================================="<<endl;
+        setColor(0);
+        cin>>op;
+        system("cls");
+        if(op> (0) && op<4)
+        {
+            opcionValida=true;
+        }
+
+        switch (op)
+        {
+        case 1:
+            registrarVenta();
+            break;
+        case 2:
+            listar.listarVentas();
+            break;
+        case 3:
+            modificarRegistroVenta();
+            break;
+        case 4:
+            eliminar.menuEliminarVentas();
+            break;
+        case 5:
+            exportar.ExportarVentas();
+            break;
+        case 0:
+            getMainMenu();
             break;
         default:
 

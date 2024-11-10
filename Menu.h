@@ -17,6 +17,10 @@ public:
     void modificar();
     void eliminar();
 
+//    -----------------------------------
+
+    void mVentas();
+
     ///FUNCIONES PARA CREACION DE OBJETOS
     void crearEmpleado();
     void crearCliente();
