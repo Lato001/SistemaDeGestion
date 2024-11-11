@@ -22,9 +22,6 @@ public:
     void mVentas();
     void mEmpleados();
 
-    //HOOOOOOOOOOOOO
-    void modificarEmpleado();
-
     ///FUNCIONES PARA CREACION DE OBJETOS
     void crearEmpleado();
     void crearCliente();

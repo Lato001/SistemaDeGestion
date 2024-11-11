@@ -21,12 +21,14 @@
 #include "Cliente.h"
 
 #include "rlutil.h"
+#include "Modificaciones.h"
 
 using namespace std;
 
 void Menu::getMainMenu()
 {
     Exportados exportar;
+    Modificaciones modifica;
     Informes infor;
     int op=0;
     bool opcionValida=false;
@@ -65,7 +67,7 @@ void Menu::getMainMenu()
             registrar();
             break;
         case 4:
-            modificarRegistroVenta();
+            modifica.modificarRegistroVenta();
             break;
         case 5:
             eliminar();
@@ -94,6 +96,7 @@ void Menu::getMainMenu()
 
 void Menu::mEmpleados()
 {
+    Modificaciones modifica;
     Exportados exportar;
     Listados listar;
     Eliminados eliminar;
@@ -131,7 +134,7 @@ void Menu::mEmpleados()
             listar.listarEmpleadosAll();
             break;
         case 3:
-            modificarEmpleado();
+            modifica.modificarEmpleado();
             break;
         case 4:
             eliminar.menuEliminarEmpleados();
@@ -152,24 +155,12 @@ void Menu::mEmpleados()
     while(!opcionValida);
 }
 
-void Menu::modificarEmpleado()
-{
-    ArchivoEmpleados archivoEmpleados("ArchivoEmpleados.dat");
-    Listados listados;
-    int empleadoID;
-    setColor(7);
-    listados.listarEmpleadosAll();
-    cout << "Ingrese el ID del empleado que desea modificar: ";
-    setColor(0);
-    cin >> empleadoID;
-    archivoEmpleados.ModificarEmpleado(empleadoID);
-}
-
 void Menu::mVentas()
 {
     Exportados exportar;
     Listados listar;
     Eliminados eliminar;
+    Modificaciones modifica;
     int op=0;
     bool opcionValida=false;
 
@@ -202,7 +193,7 @@ void Menu::mVentas()
             listar.listarVentas();
             break;
         case 3:
-            modificarRegistroVenta();
+            modifica.modificarRegistroVenta();
             break;
         case 4:
             eliminar.menuEliminarVentas();
@@ -373,96 +364,6 @@ void Menu::registrar()
     while(!opcionValida);
     registrar();
 }
-void Menu::modificar()
-{
-    int op=0;
-    bool opcionValida=false;
-
-    do
-    {
-        setColor(7);
-        cout<<"----------------------------------"<<endl;
-        cout<<"Elija la opcion que desee realizar"<<endl;
-        cout<<"1. Modificar Venta"<<endl;
-        cout<<"2. Modificar Producto"<<endl;
-        cout<<"3. Modificar Empleado"<<endl;
-        cout<<"4. Modificar Cliente"<<endl;
-        cout<<"0. Volver al menu principal"<<endl;
-        cout<<"==================================="<<endl;
-        setColor(0);
-
-        cin>>op;
-        system("cls");
-        if(op>0 && op<6)
-        {
-            opcionValida=true;
-        }
-        switch (op)
-        {
-        case 1:
-
-            modificarRegistroVenta();
-            break;
-        case 2:
-         {
-            ArchivoProductos archivoProductos("ArchivoProductos.dat");
-            int productoID;
-            setColor(7);
-            Listados listados;
-            listados.listarProductosAll();
-            cout << "Ingrese el ID del producto que desea modificar: ";
-            cin >> productoID;
-            archivoProductos.ModificarProducto(productoID);
-            break;
-        }
-        case 3:
-        {
-            modificarEmpleado();
-            break;
-        }
-        case 4:
-        {
-
-            ArchivoClientes archivoClientes("ArchivoClientes.dat");
-            Listados listados;
-            int clienteID;
-            setColor(7);
-            listados.listarClientesAll();
-            cout << "Ingrese el ID del cliente que desea modificar: ";
-            setColor(0);
-            cin >> clienteID;
-            archivoClientes.ModificarCliente(clienteID);
-            break;
-        }
-        case 5:
-         {
-            ArchivoDetalleVentas archivoDetalleVentas("ArchivoDetalleVentas.dat");
-            Listados listados;
-            int idVenta;
-            setColor(7);
-            listados.listarVentas();
-            cout << "Ingrese el ID de la venta que desea modificar: ";
-            setColor(0);
-            cin >> idVenta;
-            archivoDetalleVentas.ModificarDetalleVenta(idVenta);
-            break;
-        }
-        case 0:
-            getMainMenu();
-            break;
-        default:
-            setColor(4);
-            mensajeDeError("Opcion invalida!, vuelva a intentarlo");
-        }
-        system("pause");
-        system("cls");
-
-
-
-    }
-    while(!opcionValida);
-    modificar();
-}
 void Menu::eliminar()
 {
     int op=0;
@@ -516,110 +417,6 @@ void Menu::eliminar()
         opcionValida = false;
     }
     while(!opcionValida);
-}
-
-void Menu::modificarRegistroVenta()
-{
-    Listados listados;
-    int input;
-    ArchivoVentas Ventas("ArchivoVentas.dat");
-    ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
-    ArchivoClientes Clientes("ArchivoClientes.dat");
-    ArchivoDetalleVentas DetalleVentas("ArchivoDetalleVentas.dat");
-    Venta venta;
-    bool opcionValida = false;
-    listados.listarVentas();
-    setColor(7);
-    cout<< "Seleccione el ID de la venta a modificar: "<<endl;
-    cout<<"0. Volver al menu principal"<<endl;
-    setColor(0);
-    cin >> input;
-    system("cls");
-    if (input !=0 )
-    {
-        if( Ventas.Buscar(input).getIdVenta() !=  -1)
-        {
-            while(!opcionValida)
-            {
-                venta = Ventas.Buscar(input);
-                setColor(7);
-                cout<<"Elija el atributo a modificar" << endl;
-                cout<<"1. Fecha: ";
-                venta.getFecha().mostrarFecha();
-                cout<<"2. Empleado: " ;
-                setColor(0);
-                cout <<Empleados.Buscar(venta.getIdVenta()).getNombre()<< " " <<Empleados.Buscar(venta.getIdVenta()).getApellido() <<endl;
-                setColor(7);
-                cout<<"3. Cliente: " ;
-                setColor(0);
-                cout << Clientes.Buscar(venta.getIdVenta()).getNombre()<< " " <<Clientes.Buscar(venta.getIdVenta()).getApellido() <<endl;
-                setColor(7);
-                cout<< "4. Forma de Pago: ";
-                setColor(0);
-                switch (venta.getFormaDePago())
-                {
-                case 1:
-                    cout<< "Efectivo";
-                    break;
-                case 2:
-                    cout<< "Debito";
-                    break;
-                case 3:
-                    cout<<"Credito";
-                    break;
-                }
-                cout<<endl;
-                setColor(7);
-                cout<< "0. Volver al menu principal"<<endl<<endl;
-                cout<< "Seleccione una opcion: ";
-                setColor(0);
-                cin >> input;
-                opcionValida = (input> 0 && input< 5);
-                if(!opcionValida)
-                {
-                    if(input != 0)
-                    {
-
-                        mensajeDeError("Opcion invalida");
-                        system("pause");
-                    }
-                    else
-                    {
-                        system("cls");
-                        getMainMenu();
-                    }
-                }
-            }
-        }
-        else
-        {
-            mensajeDeError("No existe venta con este ID, vuelva a intentarlo");
-            modificar();
-        }
-        system("cls");
-        setColor(7);
-        switch (input)
-        {
-        case 1:
-            Ventas.ModificarVenta(venta.getIdVenta(),1);
-            break;
-        case 2:
-            Ventas.ModificarVenta(venta.getIdVenta(),2);
-            break;
-        case 3:
-            Ventas.ModificarVenta(venta.getIdVenta(),3);
-            break;
-        case 4:
-            Ventas.ModificarVenta(venta.getIdVenta(),4);
-            break;
-        default:
-            break;
-        }
-    }
-    else
-    {
-        getMainMenu();
-    }
 }
 
 void Menu::crearEmpleado()
