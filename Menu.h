@@ -20,6 +20,7 @@ public:
 //    -----------------------------------
 
     void mVentas();
+    void mEmpleados();
 
     ///FUNCIONES PARA CREACION DE OBJETOS
     void crearEmpleado();

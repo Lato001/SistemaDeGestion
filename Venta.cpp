@@ -75,7 +75,9 @@ void Venta::cargarVenta() {
 
     rlutil::cls();
     Menu::setColor(7);
-    cout << "Ingrese la fecha de la venta:" << endl;
+    cout << "0. Volver al Menu Principal" << endl << endl ;
+    cout << "Ingrese la fecha de la venta" << endl;
+
     Menu::setColor(0);
     fecha.cargarFecha();
     system("pause");

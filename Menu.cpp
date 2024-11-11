@@ -59,7 +59,7 @@ void Menu::getMainMenu()
             mVentas();
             break;
         case 2:
-            crear();
+            mEmpleados();
             break;
         case 3:
             registrar();
@@ -92,7 +92,7 @@ void Menu::getMainMenu()
     while(!opcionValida);
 }
 
-void Menu::mVentas()
+void Menu::mEmpleados()
 {
     Exportados exportar;
     Listados listar;
@@ -102,8 +102,10 @@ void Menu::mVentas()
 
     do
     {
+
+
         setColor(7);
-        cout<<"----------------------------------"<<endl;
+        cout<<"-----------MENU EMPLEADO-----------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Crear"<<endl;
         cout<<"2. Listar"<<endl;
@@ -115,7 +117,77 @@ void Menu::mVentas()
         setColor(0);
         cin>>op;
         system("cls");
-        if(op> (0) && op<4)
+        if (op> (0) && op<6)
+        {
+            opcionValida=true;
+        }
+
+        switch (op)
+        {
+        case 1:
+            crearEmpleado();
+            break;
+        case 2:
+            listar.listarEmpleadosAll();
+            break;
+        case 3:
+            {
+            ArchivoEmpleados archivoEmpleados("ArchivoEmpleados.dat");
+            Listados listados;
+            int empleadoID;
+            setColor(7);
+            listados.listarEmpleadosAll();
+            cout << "Ingrese el ID del empleado que desea modificar: ";
+            setColor(0);
+            cin >> empleadoID;
+            archivoEmpleados.ModificarEmpleado(empleadoID);
+            break;
+            }
+        case 4:
+            eliminar.menuEliminarEmpleados();
+            break;
+        case 5:
+            exportar.ExportarEmpleados();
+            break;
+        case 0:
+            getMainMenu();
+            break;
+        default:
+            mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
+        }
+        system("pause");
+        system("cls");
+
+        opcionValida = false;
+    }
+    while(!opcionValida);
+}
+
+
+void Menu::mVentas()
+{
+    Exportados exportar;
+    Listados listar;
+    Eliminados eliminar;
+    int op=0;
+    bool opcionValida=false;
+
+    do
+    {
+        setColor(7);
+        cout<<"-----------MENU VENTAS------------"<<endl;
+        cout<<"Elija la opcion que desee realizar"<<endl;
+        cout<<"1. Crear"<<endl;
+        cout<<"2. Listar"<<endl;
+        cout<<"3. Modificar"<<endl;
+        cout<<"4. Eliminar"<<endl;
+        cout<<"5. Exportar"<<endl;
+        cout<<"0. Salir"<<endl;
+        cout<<"==================================="<<endl;
+        setColor(0);
+        cin>>op;
+        system("cls");
+        if(op> (0) && op<6)
         {
             opcionValida=true;
         }
@@ -490,6 +562,7 @@ void Menu::modificarRegistroVenta()
                 cout << Clientes.Buscar(venta.getIdVenta()).getNombre()<< " " <<Clientes.Buscar(venta.getIdVenta()).getApellido() <<endl;
                 setColor(7);
                 cout<< "4. Forma de Pago: ";
+                setColor(0);
                 switch (venta.getFormaDePago())
                 {
                 case 1:
@@ -503,6 +576,7 @@ void Menu::modificarRegistroVenta()
                     break;
                 }
                 cout<<endl;
+                setColor(7);
                 cout<< "0. Volver al menu principal"<<endl<<endl;
                 cout<< "Seleccione una opcion: ";
                 setColor(0);

@@ -10,67 +10,108 @@ using namespace std;
 #include "Fecha.h"
 #include "Menu.h"
 
-Fecha::Fecha() {
+Fecha::Fecha()
+{
     dia = 0;
     mes = 0;
     anio = 0;
 }
 
-Fecha::Fecha(int _dia, int _mes, int _anio) {
+Fecha::Fecha(int _dia, int _mes, int _anio)
+{
     dia = _dia;
     mes = _mes;
     anio = _anio;
 }
 
-int Fecha::getDia() {
+int Fecha::getDia()
+{
     return dia;
 }
 
-int Fecha::getMes() {
+int Fecha::getMes()
+{
     return mes;
 }
 
-int Fecha::getAnio() {
+int Fecha::getAnio()
+{
     return anio;
 }
 
-void Fecha::setDia(int _dia) {
+void Fecha::setDia(int _dia)
+{
     dia = _dia;
 }
 
-void Fecha::setMes(int _mes) {
+void Fecha::setMes(int _mes)
+{
     mes = _mes;
 }
 
-void Fecha::setAnio(int _anio) {
+void Fecha::setAnio(int _anio)
+{
     anio = _anio;
 }
 
-void Fecha::cargarFecha() {
+void Fecha::cargarFecha()
+{
     Menu menu;
     bool validacion = false;
-    while (!validacion) {
+    while (!validacion)
+    {
         int input;
         Menu::setColor(7);
         cout << "Ingrese el dia: ";
         Menu::setColor(0);
         cin >> input;
-        dia = input;
+        if (input !=0)
+        {
+            dia = input;
+
+        }
+        else
+        {
+            system("cls");
+            menu.getMainMenu();
+        }
         Menu::setColor(7);
         cout << "Ingrese el mes: ";
         Menu::setColor(0);
         cin >> input;
-        mes = input;
+        if (input !=0)
+        {
+            mes = input;
+
+        }
+        else
+        {
+            system("cls");
+            menu.getMainMenu();
+        }
         Menu::setColor(7);
         cout << "Ingrese el anio: ";
         Menu::setColor(0);
         cin >> input;
-        anio = input;
+        if (input !=0)
+        {
+
+            anio = input;
+
+        }
+        else
+        {
+            system("cls");
+            menu.getMainMenu();
+        }
         validacion = validar();
-        if (validacion) {
+        if (validacion)
+        {
             Menu::setColor(2);
             cout << "La fecha se guardo correctamente" << endl;
-        } else {
+        }
+        else
+        {
 
             menu.mensajeDeError("Error, Ingrese una fecha real");
         }
@@ -78,57 +119,69 @@ void Fecha::cargarFecha() {
     }
 }
 
-bool Fecha::validar() {
-    if (anio > 1800 && anio < 2025) {
-        if (mes < 1 || mes > 12) {
+bool Fecha::validar()
+{
+    if (anio > 1800 && anio < 2025)
+    {
+        if (mes < 1 || mes > 12)
+        {
             return false;
         }
-        switch (mes) {
-            case 1:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 10:
-            case 12:
-                return (dia >= 1 && dia <= 31);
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                return (dia >= 1 && dia <= 30);
-            case 2:
-                return (dia <= 29);
-            default:
-                return false;
+        switch (mes)
+        {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            return (dia >= 1 && dia <= 31);
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            return (dia >= 1 && dia <= 30);
+        case 2:
+            return (dia <= 29);
+        default:
+            return false;
         }
-    } else {
+    }
+    else
+    {
         return false;
     }
 }
 
-void Fecha::RestarDia() {
+void Fecha::RestarDia()
+{
     dia--;
-    if (!validar()) {
+    if (!validar())
+    {
         mes--;
-        if (mes < 1) {
+        if (mes < 1)
+        {
             mes = 12;
             anio--;
         }
-        if (mes != 2) {
+        if (mes != 2)
+        {
             int diasPorMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
             dia = diasPorMes[mes - 1];
         }
     }
 }
 
-void Fecha::mostrarFecha() {
+void Fecha::mostrarFecha()
+{
     Menu::setColor(0);
     cout << dia << "/" << mes << "/" << anio << endl;
     Menu::setColor(7);
 }
 
-char* Fecha::toString() {
+char* Fecha::toString()
+{
     char* buffer = new char[11];
     snprintf(buffer, 11, "%02d/%02d/%04d", dia, mes, anio);
     return buffer;
