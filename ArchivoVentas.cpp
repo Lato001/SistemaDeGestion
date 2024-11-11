@@ -135,28 +135,48 @@ void ArchivoVentas::ModificarVenta(int idVenta, int op) {
         break;
     case 2:
         {
+            int input;
+            Listados listados;
+            listados.listarEmpleadosAll();
+            cout<< "Ingrese el Id del Empleado: "<<endl;
+            cout<< "0. Volver al menu principal "<<endl;
+            cin >> input;
+            if (input != 0 )
+            {
 
-        int input;
-        Listados listados;
-        listados.listarEmpleadosAll();
-        cout<< "Ingrese el Id Empleado: ";
-        cin >> input;
-        if(Empleados.Buscar(input).getID() != -1){
-            venta.setidEmpleado(input);
-        }
+                if(Empleados.Buscar(input).getID() != -1)
+                {
+                    venta.setidEmpleado(input);
+                }
+            }
+            else
+            {
+                system ("cls");
+                menu.getMainMenu();
+            }
         }
         break;
     case 3:
         {
-        Listados listados;
-        listados.listarClientesAll();
-        int input;
-        cout<< "Ingrese el ID del Cliente: ";
-        cin >> input;
-        if(Clientes.Buscar(input).getID() != -1){
-            venta.setidCliente(input);
-        }
+            int input;
+            Listados listados;
+            listados.listarClientesAll();
+            cout<< "Ingrese el Id del Cliente: "<<endl;
+            cout<< "0. Volver al menu principal "<<endl;
+            cin >> input;
+            if (input != 0)
+            {
 
+                if(Clientes.Buscar(input).getID() != -1)
+                {
+                    venta.setidCliente(input);
+                }
+            }
+            else
+            {
+                system ("cls");
+                menu.getMainMenu();
+            }
         }
         break;
     case 4:

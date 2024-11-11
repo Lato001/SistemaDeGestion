@@ -327,13 +327,11 @@ void Menu::modificar()
         switch (op)
         {
         case 1:
-            {
+
             modificarRegistroVenta();
             break;
-             }
-            break;
         case 2:
-            {
+         {
             ArchivoProductos archivoProductos("ArchivoProductos.dat");
             int productoID;
             setColor(7);
@@ -343,10 +341,9 @@ void Menu::modificar()
             cin >> productoID;
             archivoProductos.ModificarProducto(productoID);
             break;
-             }
-            break;
+        }
         case 3:
-             {
+        {
            ArchivoEmpleados archivoEmpleados("ArchivoEmpleados.dat");
             Listados listados;
             int empleadoID;
@@ -357,9 +354,10 @@ void Menu::modificar()
             cin >> empleadoID;
             archivoEmpleados.ModificarEmpleado(empleadoID);
             break;
-             }
+        }
         case 4:
-             {
+        {
+
             ArchivoClientes archivoClientes("ArchivoClientes.dat");
             Listados listados;
             int clienteID;
@@ -370,9 +368,9 @@ void Menu::modificar()
             cin >> clienteID;
             archivoClientes.ModificarCliente(clienteID);
             break;
-             }
+        }
         case 5:
-            {
+         {
             ArchivoDetalleVentas archivoDetalleVentas("ArchivoDetalleVentas.dat");
             Listados listados;
             int idVenta;
@@ -383,9 +381,10 @@ void Menu::modificar()
             cin >> idVenta;
             archivoDetalleVentas.ModificarDetalleVenta(idVenta);
             break;
-             }
+        }
         case 0:
             getMainMenu();
+            break;
         default:
             setColor(4);
             mensajeDeError("Opcion invalida!, vuelva a intentarlo");
@@ -466,83 +465,93 @@ void Menu::modificarRegistroVenta()
     bool opcionValida = false;
     listados.listarVentas();
     setColor(7);
-    cout<< "Seleccione el ID de la venta a modificar: ";
+    cout<< "Seleccione el ID de la venta a modificar: "<<endl;
+    cout<<"0. Volver al menu principal"<<endl;
     setColor(0);
     cin >> input;
     system("cls");
-    if( Ventas.Buscar(input).getIdVenta() !=  -1)
+    if (input !=0 )
     {
-        while(!opcionValida)
+        if( Ventas.Buscar(input).getIdVenta() !=  -1)
         {
-            venta = Ventas.Buscar(input);
-            setColor(7);
-            cout<<"Elija el atributo a modificar" << endl;
-            cout<<"1. Fecha: ";
-            venta.getFecha().mostrarFecha();
-            cout<<"2. Empleado: " ;
-            setColor(0);
-            cout <<Empleados.Buscar(venta.getIdVenta()).getNombre()<< " " <<Empleados.Buscar(venta.getIdVenta()).getApellido() <<endl;
-            setColor(7);
-            cout<<"3. Cliente: " ;
-            setColor(0);
-            cout << Clientes.Buscar(venta.getIdVenta()).getNombre()<< " " <<Clientes.Buscar(venta.getIdVenta()).getApellido() <<endl;
-            setColor(7);
-            cout<< "4. Forma de Pago: ";
-            if( venta.getFormaDePago() == 1){
-                cout<< "Efectivo";
-
-            }else if( venta.getFormaDePago() == 2){
-                cout<< "Debito";
-            }else{
-
-                cout<< "Credito";
-            }
-            cout<<endl;
-            cout<< "0. Volver al menu principal"<<endl;
-            cout<< "Seleccione una opcion: ";
-            setColor(0);
-            cin >> input;
-            opcionValida = (input> 0 && input< 5);
-            if(!opcionValida)
+            while(!opcionValida)
             {
-                if(input != 0)
+                venta = Ventas.Buscar(input);
+                setColor(7);
+                cout<<"Elija el atributo a modificar" << endl;
+                cout<<"1. Fecha: ";
+                venta.getFecha().mostrarFecha();
+                cout<<"2. Empleado: " ;
+                setColor(0);
+                cout <<Empleados.Buscar(venta.getIdVenta()).getNombre()<< " " <<Empleados.Buscar(venta.getIdVenta()).getApellido() <<endl;
+                setColor(7);
+                cout<<"3. Cliente: " ;
+                setColor(0);
+                cout << Clientes.Buscar(venta.getIdVenta()).getNombre()<< " " <<Clientes.Buscar(venta.getIdVenta()).getApellido() <<endl;
+                setColor(7);
+                cout<< "4. Forma de Pago: ";
+                switch (venta.getFormaDePago())
                 {
-
-                    mensajeDeError("Opcion invalida");
-                    system("pause");
+                case 1:
+                    cout<< "Efectivo";
+                    break;
+                case 2:
+                    cout<< "Debito";
+                    break;
+                case 3:
+                    cout<<"Credito";
+                    break;
                 }
-                else
+                cout<<endl;
+                cout<< "0. Volver al menu principal"<<endl<<endl;
+                cout<< "Seleccione una opcion: ";
+                setColor(0);
+                cin >> input;
+                opcionValida = (input> 0 && input< 5);
+                if(!opcionValida)
                 {
-                    system("cls");
-                    getMainMenu();
+                    if(input != 0)
+                    {
+
+                        mensajeDeError("Opcion invalida");
+                        system("pause");
+                    }
+                    else
+                    {
+                        system("cls");
+                        getMainMenu();
+                    }
                 }
             }
+        }
+        else
+        {
+            mensajeDeError("No existe venta con este ID, vuelva a intentarlo");
+            modificar();
+        }
+        system("cls");
+        setColor(7);
+        switch (input)
+        {
+        case 1:
+            Ventas.ModificarVenta(venta.getIdVenta(),1);
+            break;
+        case 2:
+            Ventas.ModificarVenta(venta.getIdVenta(),2);
+            break;
+        case 3:
+            Ventas.ModificarVenta(venta.getIdVenta(),3);
+            break;
+        case 4:
+            Ventas.ModificarVenta(venta.getIdVenta(),4);
+            break;
+        default:
+            break;
         }
     }
     else
     {
-        mensajeDeError("No existe venta con este ID, vuelva a intentarlo");
-        modificar();
-    }
-    system("cls");
-    setColor(7);
-    switch (input)
-    {
-    case 1:
-        Ventas.ModificarVenta(venta.getIdVenta(),1);
-        break;
-    break;
-    case 2:
-        Ventas.ModificarVenta(venta.getIdVenta(),2);
-    break;
-    case 3:
-        Ventas.ModificarVenta(venta.getIdVenta(),3);
-        break;
-    case 4:
-        Ventas.ModificarVenta(venta.getIdVenta(),4);
-        break;
-    default:
-        break;
+        getMainMenu();
     }
 }
 

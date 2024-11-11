@@ -91,7 +91,7 @@ void Venta::cargarVenta() {
             cout << "ID: " << registroEmpleado.getID() << " - Nombre: " << registroEmpleado.getNombre() <<" "<< registroEmpleado.getApellido()<< endl;
         }
            Menu::setColor(7);
-        cout << "Ingrese el ID del Empleado: ";
+        cout << "Ingrese el Id del Empleado: ";
            Menu::setColor(0);        cin >> input;
 
         if (Empleados.Buscar(input).getID() != -1) {
@@ -124,7 +124,7 @@ void Venta::cargarVenta() {
             cout << "ID: " << registroCliente.getID() << " - Nombre: " << registroCliente.getNombre() << registroCliente.getApellido() << endl;
         }
          Menu::setColor(7);
-        cout << "Ingrese el ID del cliente: ";
+        cout << "Ingrese el Id del cliente: ";
          Menu::setColor(0);        cin >> input;
 
         if (Clientes.Buscar(input).getID() != -1) {

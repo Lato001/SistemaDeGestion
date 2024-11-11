@@ -87,14 +87,23 @@ void Eliminados::eliminarRegistroEmpleado()
 
     int empleadoID;
     menu.setColor(7);
-    cout << "Ingrese el ID del empleado que desea eliminar: ";
+    cout << "Ingrese el ID del empleado que desea eliminar: "<<endl;
+    cout << "0. Volver al menu principal "<<endl;
     menu.setColor(0);
     cin>>empleadoID;
+    if (empleadoID)
+    {
 
     Empleados.eliminarRegistroEmpleado(empleadoID);
     system("pause");
     system("cls");
     menuEliminarEmpleados();
+    }
+    else
+    {
+        system ("cls");
+        menu.getMainMenu();
+    }
 }
 
 void Eliminados::menuEliminarClientes()
@@ -163,13 +172,22 @@ void Eliminados::eliminarRegistroCliente()
     int clienteID;
     menu.setColor(7);
     cout << "Ingrese el ID del cliente que desea eliminar: ";
+    cout << "0. Volver al menu principal "<<endl;
     menu.setColor(0);
     cin>>clienteID;
+    if (clienteID != 0)
+    {
 
     Clientes.eliminarRegistroCliente(clienteID);
     system("pause");
     system("cls");
     menuEliminarClientes();
+    }
+    else
+    {
+        system ("cls");
+        menu.getMainMenu();
+    }
 }
 void Eliminados::eliminarArchivoVentas()
 {
@@ -187,14 +205,23 @@ void Eliminados::eliminarRegistroVenta()
 
     int ventaID;
     menu.setColor(7);
-    cout << "Ingrese el ID de la venta que desea eliminar: ";
+    cout << "Ingrese el ID de la venta que desea eliminar: "<<endl;
+    cout << "0. Volver al menu principal "<<endl;
     menu.setColor(0);
     cin>>ventaID;
+    if (ventaID)
+    {
 
     Ventas.eliminarRegistroVenta(ventaID);
     system("pause");
     system("cls");
     menuEliminarVentas();
+    }
+    else
+    {
+        system ("cls");
+        menu.getMainMenu();
+    }
 }
 
 void Eliminados::menuEliminarVentas()
@@ -301,11 +328,18 @@ void Eliminados::eliminarRegistroProducto()
     cout << "Ingrese el ID del producto que desea eliminar: ";
     menu.setColor(0);
     cin>>productoID;
+    if (productoID)
+    {
 
     Productos.eliminarRegistroProducto(productoID);
     system("pause");
     system("cls");
-
+    }
+    else
+    {
+        system ("cls");
+        menu.getMainMenu();
+    }
 }
 
 void Eliminados::eliminarArchivoProductos()

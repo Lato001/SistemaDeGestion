@@ -88,18 +88,28 @@ void Exportados::ExportarProductos()
 
     string nombreCSV;
     menu.setColor(7);
-    cout << "Ingrese el nombre que desea asignarle al archivo CSV de productos: ";
+    cout << "Ingrese el nombre que desea asignarle al archivo CSV de productos: "<<endl;
+    cout << "0. Volver al menu principal "<<endl;
     menu.setColor(0);
     cin>>nombreCSV;
-    system("cls");
-    menu.setColor(7);
-    cout << "======================================================================" << endl;
-    Productos.exportarProductosACSV(nombreCSV);
-    cout << "======================================================================" << endl;
-    system("pause");
-    system("cls");
+    if (nombreCSV != "0")
+    {
 
-    menuExportarCSV();
+        system("cls");
+        menu.setColor(7);
+        cout << "======================================================================" << endl;
+        Productos.exportarProductosACSV(nombreCSV);
+        cout << "======================================================================" << endl;
+        system("pause");
+        system("cls");
+
+        menuExportarCSV();
+    }
+    else
+    {
+        system ("cls");
+        menu.getMainMenu();
+    }
 }
 void Exportados::ExportarVentas()
 {
@@ -108,9 +118,12 @@ void Exportados::ExportarVentas()
 
     string nombreCSV;
     menu.setColor(7);
-    cout << "Ingrese el nombre que desea asignarle al archivo CSV de Ventas: ";
+    cout << "Ingrese el nombre que desea asignarle al archivo CSV de Ventas: "<<endl;
+    cout << "0. Volver al menu principal "<<endl;
     menu.setColor(0);
     cin>>nombreCSV;
+        if (nombreCSV != "0")
+    {
     system("cls");
     menu.setColor(7);
     cout << "======================================================================" << endl;
@@ -120,6 +133,12 @@ void Exportados::ExportarVentas()
     system("cls");
 
     menuExportarCSV();
+    }
+    else
+    {
+        system ("cls");
+    menu.getMainMenu();
+    }
 }
 void Exportados::ExportarClientes()
 {
@@ -128,9 +147,13 @@ void Exportados::ExportarClientes()
 
     string nombreCSV;
     menu.setColor(7);
-    cout << "Ingrese el nombre que desea asignarle al archivo CSV de Clientes: ";
+    cout << "Ingrese el nombre que desea asignarle al archivo CSV de Clientes: "<<endl;
+    cout << "0. Volver al menu principal "<<endl;
     menu.setColor(0);
     cin>>nombreCSV;
+    if (nombreCSV != "0")
+    {
+
     system("cls");
     menu.setColor(7);
     cout << "======================================================================" << endl;
@@ -140,6 +163,12 @@ void Exportados::ExportarClientes()
     system("cls");
 
     menuExportarCSV();
+    }
+    else
+    {
+        system ("cls");
+        menu.getMainMenu();
+    }
 }
 void Exportados::ExportarEmpleados()
 {
@@ -148,18 +177,27 @@ void Exportados::ExportarEmpleados()
 
     string nombreCSV;
     menu.setColor(7);
-    cout << "Ingrese el nombre que desea asignarle al archivo CSV de Empleados: ";
+    cout << "Ingrese el nombre que desea asignarle al archivo CSV de Empleados: "<<endl;
+    cout << "0. Volver al menu principal "<<endl;
     menu.setColor(0);
     cin>>nombreCSV;
-    system("cls");
-    menu.setColor(7);
-    cout << "======================================================================" << endl;
-    Empleados.exportarEmpleadosACSV(nombreCSV);
-    cout << "======================================================================" << endl;
-    system("pause");
-    system("cls");
+    if (nombreCSV != "0")
+    {
+        system("cls");
+        menu.setColor(7);
+        cout << "======================================================================" << endl;
+        Empleados.exportarEmpleadosACSV(nombreCSV);
+        cout << "======================================================================" << endl;
+        system("pause");
+        system("cls");
 
-    menuExportarCSV();
+        menuExportarCSV();
+    }
+    else
+    {
+        system ("cls");
+        menu.getMainMenu();
+    }
 }
 void Exportados::ExportarDetalledeVentas()
 {
@@ -168,9 +206,13 @@ void Exportados::ExportarDetalledeVentas()
 
     string nombreCSV;
     menu.setColor(7);
-    cout << "Ingrese el nombre que desea asignarle al archivo CSV de Detalle De Ventas: ";
+    cout << "Ingrese el nombre que desea asignarle al archivo CSV de Detalle De Ventas: "<<endl;
+    cout << "0. Volver al menu principal "<<endl;
     menu.setColor(0);
     cin>>nombreCSV;
+    if (nombreCSV != "0")
+    {
+
     system("cls");
     menu.setColor(7);
     cout << "======================================================================" << endl;
@@ -180,4 +222,10 @@ void Exportados::ExportarDetalledeVentas()
     system("cls");
 
     menuExportarCSV();
+    }
+    else
+    {
+        system ("cls");
+        menu.getMainMenu();
+    }
 }
