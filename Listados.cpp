@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "Menu.h"
+#include "Listados.h"
 
 
 #include "ArchivoClientes.h"
@@ -8,12 +9,13 @@
 #include "ArchivoVentas.h"
 #include "ArchivoProductos.h"
 #include "ArchivoDetalleVentas.h"
+
 #include "Cliente.h"
 #include "Empleado.h"
 #include "Venta.h"
 #include "Producto.h"
+
 #include "rlutil.h"
-#include "Listados.h"
 
 using namespace std;
 
@@ -25,7 +27,7 @@ void Listados::MenulistarClientes()
 
     do
     {
-    menu.setColor(7);
+        menu.setColor(7);
         cout<<"----------------------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Por Nombre"<<endl;
@@ -35,9 +37,9 @@ void Listados::MenulistarClientes()
         cout<<"5. Listar todos"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
-    menu.setColor(0);
-        cin>>op;
+        menu.setColor(0);
 
+        cin>>op;
         system("cls");
         if(op>0 && op<6)
         {
@@ -64,7 +66,6 @@ void Listados::MenulistarClientes()
         default:
 
             menu.mensajeDeError("Opcion invalida!, vuelva a intentarlo");
-
         }
         system("pause");
         system("cls");

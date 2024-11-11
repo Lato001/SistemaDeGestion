@@ -32,14 +32,6 @@ public:
     ///MODIFICACIONES DE VENTAS
     void modificarRegistroVenta();
 
-    ///INFORMES
-    void menuInformes();
-    void clientesMasActivos();
-    void clientesMenosActivos();
-    void empleadosMayoresVentas();
-    void empleadosMayoresAsistencias();
-    void fdpMasUtilizadas();
-
 
     ///FUNCIONES PARA INTERFAZ
     void mensajeDeError(string mensaje);
