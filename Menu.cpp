@@ -92,6 +92,66 @@ void Menu::getMainMenu()
     while(!opcionValida);
 }
 
+void Menu::mProductos()
+{
+    Exportados exportar;
+    Listados listar;
+    Eliminados eliminar;
+    int op = 0;
+    bool opcionValida = false;
+
+    do
+    {
+        setColor(7);
+        cout << "-----------MENU PRODUCTOS------------" << endl;
+        cout << "Elija la opcion que desee realizar" << endl;
+        cout << "1. Crear" << endl;
+        cout << "2. Listar" << endl;
+        cout << "3. Modificar" << endl;
+        cout << "4. Eliminar" << endl;
+        cout << "5. Exportar" << endl;
+        cout << "0. Salir" << endl;
+        cout << "===================================" << endl;
+        setColor(0);
+        cin >> op;
+        system("cls");
+
+        if (op > 0 && op < 6)
+        {
+            opcionValida = true;
+        }
+
+        switch (op)
+        {
+        case 1:
+            registrarProducto();
+            break;
+        case 2:
+            listar.MenulistarProductos();
+            break;
+        case 3:
+            modificarRegistroProducto();
+            break;
+        case 4:
+            eliminar.menuEliminarProductos();
+            break;
+        case 5:
+            exportar.ExportarProductos();
+            break;
+        case 0:
+            getMainMenu();
+            return;
+        default:
+            mensajeDeError("Opcion invalida!, vuelva a intentarlo");
+        }
+
+        system("pause");
+        system("cls");
+        opcionValida = false;
+    }
+    while (!opcionValida);
+}
+
 void Menu::mEmpleados()
 {
     Exportados exportar;
@@ -614,6 +674,91 @@ void Menu::modificarRegistroVenta()
             break;
         default:
             break;
+        }
+    }
+    else
+    {
+        getMainMenu();
+    }
+}
+
+void Menu::modificarRegistroProducto()
+{
+    Listados listados;
+    int input;
+    ArchivoProductos Productos("ArchivoProductos.dat");
+    Producto producto;
+    bool opcionValida = false;
+
+    listados.MenulistarProductos();
+    setColor(7);
+    cout << "Seleccione el ID del producto a modificar: " << endl;
+    cout << "0. Volver al menu principal" << endl;
+    setColor(0);
+    cin >> input;
+    system("cls");
+
+    if (input != 0)
+    {
+        if (Productos.Buscar(input).getIdProducto() != -1)
+        {
+            while (!opcionValida)
+            {
+                producto = Productos.Buscar(input);
+
+                setColor(7);
+                cout << "Elija el atributo a modificar" << endl;
+                cout << "1. Nombre: " << producto.getNombre() << endl;
+                cout << "2. Precio: " << producto.getPrecioUnitario() << endl;
+                cout << "3. Stock: " << producto.getStock() << endl;
+                cout << "4. Categoria: " << producto.getCategoriaProducto() << endl;
+                cout << "0. Volver al menu principal" << endl << endl;
+                setColor(0);
+
+                cout << "Seleccione una opcion: ";
+                cin >> input;
+                opcionValida = (input > 0 && input < 5);
+
+                if (!opcionValida)
+                {
+                    if (input != 0)
+                    {
+                        mensajeDeError("Opcion invalida");
+                        system("pause");
+                    }
+                    else
+                    {
+                        system("cls");
+                        getMainMenu();
+                        return;
+                    }
+                }
+            }
+
+            system("cls");
+            setColor(7);
+
+            switch (input)
+            {
+            case 1:
+                //Productos.ModificarProducto(producto.getIdProducto(), 1);
+                break;
+            case 2:
+                //Productos.ModificarProducto(producto.getIdProducto(), 2);
+                break;
+            case 3:
+                //Productos.ModificarProducto(producto.getIdProducto(), 3);
+                break;
+            case 4:
+               // Productos.ModificarProducto(producto.getIdProducto(), 4);
+            default:
+                break;
+            }
+        }
+        else
+        {
+            mensajeDeError("No existe producto con este ID, vuelva a intentarlo");
+            modificarRegistroProducto();
         }
     }
     else

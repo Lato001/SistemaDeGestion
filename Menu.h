@@ -21,17 +21,19 @@ public:
 
     void mVentas();
     void mEmpleados();
+    void mProductos();
 
     //HOOOOOOOOOOOOO
     void modificarEmpleado();
+    void modificarRegistroProducto();
 
     ///FUNCIONES PARA CREACION DE OBJETOS
     void crearEmpleado();
     void crearCliente();
+    void registrarProducto();
 
     ///REGISTRACIONES DE VENTAS Y NUEVOS PRODUCTOS
     void registrarVenta();
-    void registrarProducto();
 
     ///MODIFICACIONES DE VENTAS
     void modificarRegistroVenta();
