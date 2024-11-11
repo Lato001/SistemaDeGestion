@@ -131,18 +131,8 @@ void Menu::mEmpleados()
             listar.listarEmpleadosAll();
             break;
         case 3:
-            {
-            ArchivoEmpleados archivoEmpleados("ArchivoEmpleados.dat");
-            Listados listados;
-            int empleadoID;
-            setColor(7);
-            listados.listarEmpleadosAll();
-            cout << "Ingrese el ID del empleado que desea modificar: ";
-            setColor(0);
-            cin >> empleadoID;
-            archivoEmpleados.ModificarEmpleado(empleadoID);
+            modificarEmpleado();
             break;
-            }
         case 4:
             eliminar.menuEliminarEmpleados();
             break;
@@ -157,12 +147,23 @@ void Menu::mEmpleados()
         }
         system("pause");
         system("cls");
-
         opcionValida = false;
     }
     while(!opcionValida);
 }
 
+void Menu::modificarEmpleado()
+{
+    ArchivoEmpleados archivoEmpleados("ArchivoEmpleados.dat");
+    Listados listados;
+    int empleadoID;
+    setColor(7);
+    listados.listarEmpleadosAll();
+    cout << "Ingrese el ID del empleado que desea modificar: ";
+    setColor(0);
+    cin >> empleadoID;
+    archivoEmpleados.ModificarEmpleado(empleadoID);
+}
 
 void Menu::mVentas()
 {
@@ -416,15 +417,7 @@ void Menu::modificar()
         }
         case 3:
         {
-           ArchivoEmpleados archivoEmpleados("ArchivoEmpleados.dat");
-            Listados listados;
-            int empleadoID;
-            setColor(7);
-            listados.listarEmpleadosAll();
-            cout << "Ingrese el ID del empleado que desea modificar: ";
-            setColor(0);
-            cin >> empleadoID;
-            archivoEmpleados.ModificarEmpleado(empleadoID);
+            modificarEmpleado();
             break;
         }
         case 4:

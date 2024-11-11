@@ -181,20 +181,30 @@ void ArchivoVentas::ModificarVenta(int idVenta, int op) {
         break;
     case 4:
         {
-        int input = 0;
-        Menu menu;
-        while(!(input>0 && input<4)){
-            cout<< "Ingrese el Metodo de pago:\n1.Efectivo\n2.Debito\n3.Credito\nOpcion: ";
-            cin >> input;
-            if(!(input>0 && input<4)){
-            menu.mensajeDeError("Metodo de pago invalido");
-            system("pause");
+            int input = 0;
+            Menu menu;
+            while(!(input>0 && input<4))
+            {
+                cout << "0.Volver al menu principal" << endl;
+                cout<< "Ingrese el Metodo de pago:\n1.Efectivo\n2.Debito\n3.Credito\nOpcion: ";
+                cin >> input;
+                if (input != 0)
+                {
+
+                    if(!(input>0 && input<4))
+                    {
+                        menu.mensajeDeError("Metodo de pago invalido");
+                        system("pause");
+                    }
+                venta.setFormaDePago(input);
+                }
+            else
+            {
+                system ("cls");
+                menu.getMainMenu();
+            }
             }
         }
-        venta.setFormaDePago(input);
-        }
-        break;
-    default:
         break;
     }
     venta.setidVenta(idOriginal);
