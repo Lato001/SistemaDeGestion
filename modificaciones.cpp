@@ -28,10 +28,22 @@ void Modificaciones::modificarEmpleado()
     int empleadoID;
     menu.setColor(7);
     listados.listarEmpleadosAll();
+    cout << endl ;
+    cout << "0. Volver al Menu Principal" << endl << endl ;
     cout << "Ingrese el ID del empleado que desea modificar: ";
     menu.setColor(0);
     cin >> empleadoID;
+     if (empleadoID !=0)
+        {
+
     archivoEmpleados.ModificarEmpleado(empleadoID);
+
+        }
+        else
+        {
+            system("cls");
+            menu.getMainMenu();
+        }
 }
 
 void Modificaciones::modificarRegistroVenta()
@@ -47,8 +59,9 @@ void Modificaciones::modificarRegistroVenta()
     bool opcionValida = false;
     listados.listarVentas();
     menu.setColor(7);
+    cout << endl;
+    cout<<"0. Volver al menu principal"<<endl << endl;
     cout<< "Seleccione el ID de la venta a modificar: "<<endl;
-    cout<<"0. Volver al menu principal"<<endl;
     menu.setColor(0);
     cin >> input;
     system("cls");

@@ -87,8 +87,8 @@ void Eliminados::eliminarRegistroEmpleado()
 
     int empleadoID;
     menu.setColor(7);
-    cout << "Ingrese el ID del empleado que desea eliminar: "<<endl;
-    cout << "0. Volver al menu principal "<<endl;
+    cout << "0. Volver al menu principal "<<endl << endl;
+    cout << "Ingrese el ID del empleado que desea eliminar: " ;
     menu.setColor(0);
     cin>>empleadoID;
     if (empleadoID)
@@ -171,8 +171,8 @@ void Eliminados::eliminarRegistroCliente()
 
     int clienteID;
     menu.setColor(7);
+    cout << "0. Volver al menu principal "<<endl << endl;
     cout << "Ingrese el ID del cliente que desea eliminar: ";
-    cout << "0. Volver al menu principal "<<endl;
     menu.setColor(0);
     cin>>clienteID;
     if (clienteID != 0)
@@ -205,8 +205,8 @@ void Eliminados::eliminarRegistroVenta()
 
     int ventaID;
     menu.setColor(7);
-    cout << "Ingrese el ID de la venta que desea eliminar: "<<endl;
-    cout << "0. Volver al menu principal "<<endl;
+    cout << "0. Volver al menu principal "<<endl << endl ;
+    cout << "Ingrese el ID de la venta que desea eliminar: ";
     menu.setColor(0);
     cin>>ventaID;
     if (ventaID)
