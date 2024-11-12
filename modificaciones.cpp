@@ -21,29 +21,140 @@ using namespace std;
 
 void Modificaciones::modificarEmpleado()
 {
-    Menu menu;
-
-    ArchivoEmpleados archivoEmpleados("ArchivoEmpleados.dat");
     Listados listados;
-    int empleadoID;
-    menu.setColor(7);
+    Menu menu;
+    int input;
+    ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
+
+    Empleado empleado;
+    bool opcionValida = false;
     listados.listarEmpleadosAll();
-    cout << endl ;
-    cout << "0. Volver al Menu Principal" << endl << endl ;
-    cout << "Ingrese el ID del empleado que desea modificar: ";
+    menu.setColor(7);
+    cout << endl;
+    cout<<"0. Volver al menu principal"<<endl << endl;
+    cout<< "Seleccione el ID del empleado a modificar: "<<endl;
     menu.setColor(0);
-    cin >> empleadoID;
-     if (empleadoID !=0)
+    cin >> input;
+    system("cls");
+    if (input !=0 )
+    {
+        if( Empleados.Buscar(input).getID() !=  -1)
         {
+            while(!opcionValida)
+            {
+                empleado = Empleados.Buscar(input);
+                menu.setColor(7);
+                cout<<"Elija el atributo a modificar" << endl;
+                cout<<"1. DNI: ";
+                empleado.getDNI();
+                cout<<endl;
+                cout<<"2. Nombre: " ;
+                menu.setColor(0);
+                cout <<empleado.getNombre()<<endl;
+                menu.setColor(7);
+                cout<<"3. Apellido: " ;
+                menu.setColor(0);
+                cout << empleado.getApellido()<<endl;
+                menu.setColor(7);
+                cout<<"4. Email: " ;
+                menu.setColor(0);
+                cout << empleado.getEmail()<<endl;
+                menu.setColor(7);
+                cout<<"5. Numero de telefono: " ;
+                menu.setColor(0);
+                cout << empleado.getnTelefono()<<endl;
+                menu.setColor(7);
+                cout<<"6. Localidad: " ;
+                menu.setColor(0);
+                cout << empleado.getLocalidad()<<endl;
+                menu.setColor(7);
+                cout<< "7. Fecha de Ingreso: ";
+                menu.setColor(0);
+                empleado.getFechaIngreso().mostrarFecha();
+                menu.setColor(7);
+                cout<< "8. Asistencias: ";
+                menu.setColor(0);
+                cout << Empleados.Buscar(empleado.getID()).getAsistencias()<<endl;
+                menu.setColor(7);
+                cout<< "9. Vacaciones: ";
+                menu.setColor(0);
+                cout << Empleados.Buscar(empleado.getID()).getIsVacaciones()<<endl;
+                menu.setColor(7);
+                cout<< "10. Sueldo: ";
+                menu.setColor(0);
+                cout << Empleados.Buscar(empleado.getID()).getSueldo()<<endl;
+                menu.setColor(7);
+                cout<<endl;
+                cout<< "0. Volver al menu principal"<<endl<<endl;
+                cout<< "Seleccione una opcion: ";
+                menu.setColor(0);
+                cin >> input;
+                opcionValida = (input> 0 && input< 11);
+                if(!opcionValida)
+                {
+                    if(input != 0)
+                    {
 
-    archivoEmpleados.ModificarEmpleado(empleadoID);
-
+                        menu.mensajeDeError("Opcion invalida");
+                        system("pause");
+                    }
+                    else
+                    {
+                        system("cls");
+                        menu.getMainMenu();
+                    }
+                }
+            }
         }
         else
         {
-            system("cls");
-            menu.getMainMenu();
+            menu.mensajeDeError("No existe Empleado con este ID, vuelva a intentarlo");
+            menu.mEmpleados();
         }
+        system("cls");
+        menu.setColor(7);
+        switch (input)
+        {
+        case 1:
+            Empleados.ModificarEmpleado(empleado.getID(),1);
+            break;
+        case 2:
+            Empleados.ModificarEmpleado(empleado.getID(),2);
+            break;
+        case 3:
+            Empleados.ModificarEmpleado(empleado.getID(),3);
+            break;
+        case 4:
+            Empleados.ModificarEmpleado(empleado.getID(),4);
+            break;
+        case 5:
+            Empleados.ModificarEmpleado(empleado.getID(),5);
+            break;
+        case 6:
+            Empleados.ModificarEmpleado(empleado.getID(),6);
+            break;
+        case 7:
+            Empleados.ModificarEmpleado(empleado.getID(),7);
+            break;
+        case 8:
+            Empleados.ModificarEmpleado(empleado.getID(),8);
+            break;
+        case 9:
+            Empleados.ModificarEmpleado(empleado.getID(),9);
+            break;
+        case 10:
+            Empleados.ModificarEmpleado(empleado.getID(),10);
+            break;
+
+        default:
+            break;
+        }
+    }
+    else
+    {
+        system ("cls");
+        menu.getMainMenu();
+    }
 }
 
 void Modificaciones::modificarRegistroVenta()

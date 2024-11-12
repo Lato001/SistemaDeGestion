@@ -424,27 +424,125 @@ void ArchivoEmpleados::Leer(int cantidadRegistros, Empleado *vector){
     fclose(registro);
 }
 
-void ArchivoEmpleados::ModificarEmpleado(int empleadoID) {
+void ArchivoEmpleados::ModificarEmpleado(int empleadoID, int atributo)
+{
     Menu menu;
+    ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
+
     int pos = BuscarPosRegistro(empleadoID);
-    if (pos == -1) {
+    if (pos == -1)
+    {
 
         menu.mensajeDeError("Empleado no encontrado." );
-                            cout << endl;
+        cout << endl;
         return;
-        }
+    }
+
     Empleado empleado = Leer(pos);
-    int idOriginal = empleado.getID();
-    empleado.cargarEmpleado();
-    empleado.setempleadoID(idOriginal);
-    if (Guardar(empleado, pos)) {
-            Menu::setColor(2);
+
+    switch (atributo)
+    {
+    case 1:
+    {
+        int nuevoDNI;
+            cout << "Ingrese nuevo DNI: ";
+            cin >> nuevoDNI;
+            empleado.setDNI(nuevoDNI);
+            break;
+        }
+    case 2:
+        {
+            char nuevoNombre[50];
+            cout << "Ingrese nuevo nombre: ";
+            cin.ignore();
+            cin.getline(nuevoNombre, 50);
+            empleado.setNombre(nuevoNombre);
+            break;
+        }
+    case 3:
+        {
+            char nuevoApellido[50];
+            cout << "Ingrese nuevo apellido: ";
+            cin.ignore();
+            cin.getline(nuevoApellido, 50);
+            empleado.setApellido(nuevoApellido);
+            break;
+        }
+    case 4:
+        {
+            char nuevoEmail[50];
+            cout << "Ingrese nuevo email: ";
+            cin.ignore();
+            cin.getline(nuevoEmail, 50);
+            empleado.setEmail(nuevoEmail);
+            break;
+        }
+    case 5:
+        {
+
+             int nuevonTelefono;
+            cout << "Ingrese nuevo número de teléfono: ";
+            cin.ignore(); // Ignorar el salto de línea pendiente
+            cin>>nuevonTelefono;
+            empleado.setnTelefono(nuevonTelefono);
+            break;
+        }
+    case 6:
+        {
+            char nuevaLocalidad[50];
+            cout << "Ingrese nueva localidad: ";
+            cin.ignore();
+            cin.getline(nuevaLocalidad, 50);
+            empleado.setLocalidad(nuevaLocalidad);
+            break;
+        }
+    case 7:
+        {
+            Fecha nuevaFecha;
+            cout << "Ingrese nueva fecha de ingreso (dd mm yyyy): "<<endl;
+            nuevaFecha.cargarFecha();
+            empleado.setfechadeingreso(nuevaFecha);
+            break;
+        }
+    case 8:
+        {
+            int nuevasAsistencias;
+            cout << "Ingrese nuevas asistencias: ";
+            cin >> nuevasAsistencias;
+            empleado.setAsistencias(nuevasAsistencias);
+            break;
+        }
+    case 9:
+        {
+            bool enVacaciones;
+            cout << "¿Esta de vacaciones? (1 para si, 0 para no): ";
+            cin >> enVacaciones;
+            empleado.setvacacionesActivas(enVacaciones);
+            break;
+        }
+    case 10:
+        {
+            float nuevoSueldo;
+            cout << "Ingrese nuevo sueldo: ";
+            cin >> nuevoSueldo;
+            empleado.setSueldo(nuevoSueldo);
+            break;
+        }
+    default:
+        menu.mensajeDeError("Atributo no válido.");
+        return;
+    }
+    if (Guardar(empleado, pos))
+    {
+        Menu::setColor(2);
         cout << "Datos del empleado actualizados." << endl;
-            Menu::setColor(7);
-    } else {
+        Menu::setColor(7);
+    }
+    else
+    {
 
         menu.mensajeDeError("Error al actualizar los datos del empleado.");
-                            cout << endl;
+        cout << endl;
     }
 }
 

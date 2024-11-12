@@ -46,7 +46,7 @@ void Empleado::mostrarEmpleado()
     Menu::setColor(7);
     cout << "              Fecha de Ingreso: ";
     Menu::setColor(0);
-    getFechaIngreso().mostrarFecha();;
+    getFechaIngreso().mostrarFecha();
     Menu::setColor(7);
     cout << "              Asistencias: ";
     Menu::setColor(0);

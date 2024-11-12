@@ -25,7 +25,8 @@ private:
         void FiltrarPorFecha();
         void FiltrarPorAsistencias();
         void FiltrarPorVacacionesActivas(bool _vacaciones);
-        void ModificarEmpleado(int empleadoID);
+
+        void ModificarEmpleado(int empleadoID, int atributo);
 
         void eliminarArchivoEmpleados();
         void eliminarRegistroEmpleado(int empleadoID);
