@@ -4,7 +4,7 @@ class Modificaciones {
 public:
     void modificarEmpleado();
     void modificarRegistroVenta();
-    void modificarProductos();
+    void modificarRegistroProductos();
     void modificarClientes();
     void modificarDetalleVentas();
 

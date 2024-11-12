@@ -375,12 +375,10 @@ void Listados::MenulistarProductos()
         }
 
 
-    system("pause");
-    system("cls");
+
 
     }
     while(!opcionValida);
-    menu.listar();
 }
 void Listados::MenuListarProductosDetalleVentas()
 {

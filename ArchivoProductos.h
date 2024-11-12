@@ -18,7 +18,7 @@ private:
         void FiltrarPorNombre(string _nombre);
         void FiltrarPorID(int productoID);
         void FiltrarPorCategoria (string _categoria);
-        void ModificarProducto(int productoID);
+        void ModificarProducto(int productoID, int atributo);
 
         int BuscarPos(int productoID);
         int ContLineas(int ID);

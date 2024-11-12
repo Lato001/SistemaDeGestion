@@ -309,8 +309,6 @@ void Eliminados::menuEliminarProductos()
             menu.mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
 
         }
-        system("pause");
-        system("cls");
 
         opcionValida = false;
     }
@@ -338,7 +336,7 @@ void Eliminados::eliminarRegistroProducto()
     else
     {
         system ("cls");
-        menu.getMainMenu();
+        menu.mProductos();
     }
 }
 

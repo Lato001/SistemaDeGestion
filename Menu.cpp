@@ -67,7 +67,7 @@ void Menu::getMainMenu()
             registrar();
             break;
         case 4:
-            modifica.modificarRegistroVenta();
+            mProductos();
             break;
         case 5:
             eliminar();
@@ -215,6 +215,69 @@ void Menu::mVentas()
         opcionValida = false;
     }
     while(!opcionValida);
+}
+
+
+
+
+void Menu::mProductos()
+{
+    Exportados exportar;
+    Listados listar;
+    Eliminados eliminar;
+    Modificaciones modifica;
+    int op = 0;
+    bool opcionValida = false;
+
+    do
+    {
+        setColor(7);
+        cout << "-----------MENU PRODUCTOS------------" << endl;
+        cout << "Elija la opcion que desee realizar" << endl;
+        cout << "1. Crear" << endl;
+        cout << "2. Listar" << endl;
+        cout << "3. Modificar" << endl;
+        cout << "4. Eliminar" << endl;
+        cout << "5. Exportar" << endl;
+        cout << "0. Salir" << endl;
+        cout << "===================================" << endl;
+        setColor(0);
+        cin >> op;
+        system("cls");
+
+        if (op > 0 && op < 6)
+        {
+            opcionValida = true;
+        }
+
+        switch (op)
+        {
+        case 1:
+            registrarProducto();
+            break;
+        case 2:
+            listar.MenulistarProductos();
+            break;
+        case 3:
+            modifica.modificarRegistroProductos();
+            break;
+        case 4:
+            eliminar.menuEliminarProductos();
+            break;
+        case 5:
+            exportar.ExportarProductos();
+            break;
+        case 0:
+            getMainMenu();
+            return;
+        default:
+            mensajeDeError("Opcion invalida!, vuelva a intentarlo");
+        }
+        system("pause");
+        system("cls");
+        opcionValida = false;
+    }
+    while (!opcionValida);
 }
 
 void Menu::listar()

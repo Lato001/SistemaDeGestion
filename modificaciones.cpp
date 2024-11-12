@@ -161,7 +161,7 @@ void Modificaciones::modificarRegistroVenta()
 {
     Listados listados;
     Menu menu;
-    int input;
+    int input, idVenta;
     ArchivoVentas Ventas("ArchivoVentas.dat");
     ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     ArchivoClientes Clientes("ArchivoClientes.dat");
@@ -174,15 +174,15 @@ void Modificaciones::modificarRegistroVenta()
     cout<<"0. Volver al menu principal"<<endl << endl;
     cout<< "Seleccione el ID de la venta a modificar: "<<endl;
     menu.setColor(0);
-    cin >> input;
+    cin >> idVenta;
     system("cls");
-    if (input !=0 )
+    if (idVenta !=0 )
     {
-        if( Ventas.Buscar(input).getIdVenta() !=  -1)
+        if( Ventas.Buscar(idVenta).getIdVenta() !=  -1)
         {
             while(!opcionValida)
             {
-                venta = Ventas.Buscar(input);
+                venta = Ventas.Buscar(idVenta);
                 menu.setColor(7);
                 cout<<"Elija el atributo a modificar" << endl;
                 cout<<"1. Fecha: ";
@@ -263,17 +263,89 @@ void Modificaciones::modificarRegistroVenta()
     }
 }
 
-void Modificaciones::modificarProductos()
+void Modificaciones::modificarRegistroProductos()
 {
     Menu menu;
-    ArchivoProductos archivoProductos("ArchivoProductos.dat");
-    int productoID;
+    ArchivoProductos Productos("ArchivoProductos.dat");
+    Producto producto;
+    int input, idProducto;
     menu.setColor(7);
+    bool opcionValida = false;
     Listados listados;
     listados.listarProductosAll();
     cout << "Ingrese el ID del producto que desea modificar: ";
-    cin >> productoID;
-    archivoProductos.ModificarProducto(productoID);
+    cin >> idProducto;
+    system("cls");
+
+
+
+     if (idProducto !=0 )
+    {
+        if( Productos.Buscar(idProducto).getID() !=  -1)
+        {
+            while(!opcionValida)
+            {
+                producto = Productos.Buscar(idProducto);
+                menu.setColor(7);
+                cout<<"Elija el atributo a modificar" << endl;
+                cout<< "1. Nombre del Producto: " << producto.getNombre() << endl;
+                cout<<"2. Categoria del Producto: "<< producto.getCategoriaProducto()<<endl;
+                cout<<"3. Precio Unitario: "  << producto.getPrecioUnitario()<<endl;
+                cout<< "4. Stock: " <<producto.getStock()<<endl;
+                cout<<endl;
+                menu.setColor(7);
+                cout<< "0. Volver al menu principal"<<endl<<endl;
+                cout<< "Seleccione una opcion: ";
+                menu.setColor(0);
+                cin >> input;
+                system("cls");
+                opcionValida = (input> 0 && input< 5);
+                if(!opcionValida)
+                {
+                    if(input != 0)
+                    {
+
+                        menu.mensajeDeError("Opcion invalida");
+                        system("pause");
+                        system("cls");
+                    }
+                    else
+                    {
+                        system("cls");
+                        menu.mProductos();
+                    }
+                }
+            }
+        }
+        else
+        {
+            menu.mensajeDeError("No existe Producto con este ID, vuelva a intentarlo");
+            menu.mProductos();
+        }
+        system("cls");
+        menu.setColor(7);
+        switch (input)
+        {
+        case 1:
+            Productos.ModificarProducto(producto.getID(),1);
+            break;
+        case 2:
+            Productos.ModificarProducto(producto.getID(),2);
+            break;
+        case 3:
+           Productos.ModificarProducto(producto.getID(),3);
+            break;
+        case 4:
+            Productos.ModificarProducto(producto.getID(),4);
+            break;
+        default:
+            break;
+        }
+    }
+    else
+    {
+        menu.mProductos();
+    }
 }
 void Modificaciones::modificarClientes()
 {

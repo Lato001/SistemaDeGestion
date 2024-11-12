@@ -21,6 +21,8 @@ public:
 
     void mVentas();
     void mEmpleados();
+    void mClientes();
+    void mProductos();
 
     ///FUNCIONES PARA CREACION DE OBJETOS
     void crearEmpleado();

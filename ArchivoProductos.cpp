@@ -212,17 +212,57 @@ void ArchivoProductos::Leer(int cantidadRegistros, Producto *vector){
     fclose(registro);
 }
 
-void ArchivoProductos::ModificarProducto(int productoID) {
+void ArchivoProductos::ModificarProducto(int productoID, int atributo) {
+    Menu menu;
     int pos = BuscarPos(productoID);
     if (pos == -1) {
             Menu::setColor(4);
         cout << "Producto no encontrado." << endl;
         return;
         }
+
     Producto producto = Leer(pos);
-    int idOriginal = producto.getID();
-    producto.cargarProducto();
-    producto.setProductoID(idOriginal);
+
+    switch (atributo)
+    {
+    case 1:
+        ///NOMBRE
+        char nuevoNombreProducto[50];
+        cout << "Ingrese el nuevo nombre: ";
+        cin.ignore();
+        cin.getline(nuevoNombreProducto, 50);
+        producto.setNombre(nuevoNombreProducto);
+        break;
+    case 2:
+        ///CATEGORIA
+        char nuevoNombreCategoria[50];
+            cout << "Ingrese el nuevo nombre de Categoria: ";
+            cin.ignore();
+            cin.getline(nuevoNombreCategoria, 50);
+            producto.setNombre(nuevoNombreCategoria);
+        break;
+    case 3:
+        ///PRECIO UNITARIO
+        float nuevoPrecioUnitario;
+        cout<<"Ingrese el nuevo importe unitario: ";
+        cin >> nuevoPrecioUnitario;
+        producto.setPrecioUnitario(nuevoPrecioUnitario);
+        break;
+    case 4:
+        ///STOCK
+        int nuevoStock;
+        cout<<"Ingrese el stock actual: ";
+        cin >> nuevoStock;
+        producto.setStock(nuevoStock);
+        break;
+
+
+    default:
+        menu.mensajeDeError("Atributo no válido.");
+        return;
+        break;
+    }
+
     if (Guardar(producto, pos)) {
             Menu::setColor(7);
         cout << "Datos del producto actualizados." << endl;
