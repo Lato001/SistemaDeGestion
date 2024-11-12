@@ -216,8 +216,9 @@ void ArchivoProductos::ModificarProducto(int productoID, int atributo) {
     Menu menu;
     int pos = BuscarPos(productoID);
     if (pos == -1) {
-            Menu::setColor(4);
-        cout << "Producto no encontrado." << endl;
+
+         menu.mensajeDeError("Producto no encontrado.") ;
+         cout << endl;
         return;
         }
 
@@ -228,7 +229,9 @@ void ArchivoProductos::ModificarProducto(int productoID, int atributo) {
     case 1:
         ///NOMBRE
         char nuevoNombreProducto[50];
+         Menu::setColor(7);
         cout << "Ingrese el nuevo nombre: ";
+         Menu::setColor(0);
         cin.ignore();
         cin.getline(nuevoNombreProducto, 50);
         producto.setNombre(nuevoNombreProducto);
@@ -236,7 +239,9 @@ void ArchivoProductos::ModificarProducto(int productoID, int atributo) {
     case 2:
         ///CATEGORIA
         char nuevoNombreCategoria[50];
+         Menu::setColor(7);
             cout << "Ingrese el nuevo nombre de Categoria: ";
+             Menu::setColor(0);
             cin.ignore();
             cin.getline(nuevoNombreCategoria, 50);
             producto.setNombre(nuevoNombreCategoria);
@@ -244,14 +249,18 @@ void ArchivoProductos::ModificarProducto(int productoID, int atributo) {
     case 3:
         ///PRECIO UNITARIO
         float nuevoPrecioUnitario;
+         Menu::setColor(7);
         cout<<"Ingrese el nuevo importe unitario: ";
+         Menu::setColor(0);
         cin >> nuevoPrecioUnitario;
         producto.setPrecioUnitario(nuevoPrecioUnitario);
         break;
     case 4:
         ///STOCK
         int nuevoStock;
+         Menu::setColor(7);
         cout<<"Ingrese el stock actual: ";
+         Menu::setColor(0);
         cin >> nuevoStock;
         producto.setStock(nuevoStock);
         break;
@@ -267,8 +276,9 @@ void ArchivoProductos::ModificarProducto(int productoID, int atributo) {
             Menu::setColor(7);
         cout << "Datos del producto actualizados." << endl;
     } else {
-        Menu::setColor(4);
-        cout << "Error al actualizar los datos del producto." << endl;
+
+        menu.mensajeDeError("Error al actualizar los datos del producto.");
+        cout  << endl;
     }
 }
 
@@ -284,20 +294,25 @@ void ArchivoProductos::eliminarArchivoProductos()
 
     if (salida.fail())
     {
-        cout << "Hubo un error al abrir el archivo ArchivoProductos.dat" << endl;
+        menu.mensajeDeError("Hubo un error al abrir el archivo ArchivoProductos.dat");
+        cout << endl;
         cin.get();
         exit(0);
     }
     else
     {
+        menu.setColor(7);
         cout << "Introduzca el nombre: ";
+        menu.setColor(0);
         cin >> aux;
 
         while (salida >> nombre)
         {
             if (aux == nombre)
             {
+                menu.setColor(2);
                 cout << "El registro ha sido eliminado." << endl;
+                menu.setColor(7);
             }
             else
             {
@@ -314,18 +329,21 @@ void ArchivoProductos::eliminarArchivoProductos()
 }
 void ArchivoProductos::eliminarRegistroProducto(int productoID)
 {
+    Menu menu;
     string nombreProducto;
     FILE* archivoOriginal = fopen(_nombreArchivo.c_str(), "rb");
     if (archivoOriginal == nullptr)
     {
-        cout << "Error al abrir el archivo para lectura." << endl;
+        menu.mensajeDeError("Error al abrir el archivo para lectura.");
+        cout << endl;
         return;
     }
 
     FILE* archivoTemporal = fopen("productos_temp.dat", "wb");
     if (archivoTemporal == nullptr)
     {
-        cout << "Error al crear archivo temporal." << endl;
+      menu.mensajeDeError("Error al crear archivo temporal.");
+      cout << endl;
         fclose(archivoOriginal);
         return;
     }
@@ -357,13 +375,28 @@ void ArchivoProductos::eliminarRegistroProducto(int productoID)
     {
         remove(_nombreArchivo.c_str());
         rename("productos_temp.dat", _nombreArchivo.c_str());
-        cout << "Producto con ID " << productoID <<" y con nombre " << nombreProducto << " eliminado correctamente." << endl;
+        menu.setColor(7);
+        cout << "Producto con ID " ;
+        menu.setColor(0);
+        cout << productoID;
+        menu.setColor(0);
+        cout <<" y con nombre " ;
+        menu.setColor(0);
+        cout<< nombreProducto ;
+        menu.setColor(7);
+        cout<< " eliminado correctamente." ;
+        cout << endl;
     }
     else
     {
 
         remove("productos_temp.dat");
-        cout << "Producto con ID " << productoID << " no encontrado." << endl;
+        cout << "Producto con ID ";
+        menu.setColor(0);
+        cout << productoID ;
+        menu.setColor(7);
+        cout << " no encontrado." ;
+        cout << endl;
     }
 }
 
