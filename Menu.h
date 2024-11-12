@@ -11,9 +11,6 @@ class Menu{
 public:
     ///FUNCIONES DE MANEJO DE MENU
     void getMainMenu();
-    void listar();
-    void crear();
-    void registrar();
     void modificar();
     void eliminar();
 
@@ -21,8 +18,8 @@ public:
 
     void mVentas();
     void mEmpleados();
-    void mClientes();
     void mProductos();
+    void mClientes();
 
     ///FUNCIONES PARA CREACION DE OBJETOS
     void crearEmpleado();

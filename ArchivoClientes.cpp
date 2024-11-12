@@ -87,7 +87,6 @@ void ArchivoClientes::FiltrarClientes(){
     }
     while (fread(&cliente, sizeof(cliente), 1, registro)) {
         cont++;
-        cout << cont << ". ";
         cliente.mostrarCliente();
     }
 
@@ -264,7 +263,7 @@ void ArchivoClientes::Leer(int CantidadRegistros, Cliente *vector){
     fclose(registro);
 }
 
-void ArchivoClientes::ModificarCliente(int clienteID) {
+void ArchivoClientes::ModificarCliente(int clienteID, int atributo) {
     Menu menu;
     int pos = BuscarPosRegistro(clienteID);
     if (pos == -1) {
@@ -273,9 +272,67 @@ void ArchivoClientes::ModificarCliente(int clienteID) {
         return;
         }
     Cliente cliente = Leer(pos);
-    int idOriginal = cliente.getID();
-    cliente.cargarCliente();
-    cliente.setClienteID(idOriginal);
+
+switch (atributo)
+    {
+    case 1:
+    {
+        int nuevoDNI;
+            cout << "Ingrese nuevo DNI: ";
+            cin >> nuevoDNI;
+            cliente.setDNI(nuevoDNI);
+            break;
+        }
+    case 2:
+        {
+            char nuevoNombre[50];
+            cout << "Ingrese nuevo nombre: ";
+            cin.ignore();
+            cin.getline(nuevoNombre, 50);
+            cliente.setNombre(nuevoNombre);
+            break;
+        }
+    case 3:
+        {
+            char nuevoApellido[50];
+            cout << "Ingrese nuevo apellido: ";
+            cin.ignore();
+            cin.getline(nuevoApellido, 50);
+            cliente.setApellido(nuevoApellido);
+            break;
+        }
+    case 4:
+        {
+            char nuevoEmail[50];
+            cout << "Ingrese nuevo email: ";
+            cin.ignore();
+            cin.getline(nuevoEmail, 50);
+            cliente.setEmail(nuevoEmail);
+            break;
+        }
+    case 5:
+        {
+             int nuevonTelefono;
+            cout << "Ingrese nuevo número de teléfono: ";
+            cin.ignore();
+            cin>>nuevonTelefono;
+            cliente.setnTelefono(nuevonTelefono);
+            break;
+        }
+    case 6:
+        {
+            char nuevaLocalidad[50];
+            cout << "Ingrese nueva localidad: ";
+            cin.ignore();
+            cin.getline(nuevaLocalidad, 50);
+            cliente.setLocalidad(nuevaLocalidad);
+            break;
+        }
+    default:
+        menu.mensajeDeError("Atributo no válido.");
+        return;
+        break;
+    }
     if (Guardar(cliente, pos)) {
             Menu::setColor(7);
         cout << "Datos del cliente actualizados." << endl;

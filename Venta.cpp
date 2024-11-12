@@ -92,9 +92,14 @@ void Venta::cargarVenta() {
             registroEmpleado = Empleados.Leer(i);
             cout << "ID: " << registroEmpleado.getID() << " - Nombre: " << registroEmpleado.getNombre() <<" "<< registroEmpleado.getApellido()<< endl;
         }
+        cout << endl << "0. Cancelar y Volver al menu principal" << endl << endl ;
            Menu::setColor(7);
         cout << "Ingrese el Id del Empleado: ";
            Menu::setColor(0);        cin >> input;
+        if(input == 0){
+            system("cls");
+            menu.mVentas();
+        }
 
         if (Empleados.Buscar(input).getID() != -1) {
             idEmpleado = input;
@@ -125,10 +130,14 @@ void Venta::cargarVenta() {
             registroCliente = Clientes.Leer(i);
             cout << "ID: " << registroCliente.getID() << " - Nombre: " << registroCliente.getNombre() << registroCliente.getApellido() << endl;
         }
+        cout << endl << "0. Cancelar y Volver al menu principal" << endl << endl ;
          Menu::setColor(7);
         cout << "Ingrese el Id del cliente: ";
          Menu::setColor(0);        cin >> input;
-
+        if(input == 0){
+            system("cls");
+            menu.mVentas();
+        }
         if (Clientes.Buscar(input).getID() != -1) {
             idCliente = input;
             clienteValido = true;
@@ -140,6 +149,9 @@ void Venta::cargarVenta() {
             system("cls");
         }
     }
+        cout<<"CLIENTE ELEGIDO: "<<endl;
+        Clientes.Buscar(idCliente).mostrarCliente();
+        cout<<endl;
             Menu::setColor(7);
     system("pause");
     system("cls");
@@ -147,9 +159,16 @@ void Venta::cargarVenta() {
     while (!formaDePagoValida) {
         Menu::setColor(7);
         cout << "Seleccione forma de pago:" << endl;
-        cout << "1. Efectivo\n2. Debito\n3. Credito" << endl << "Opcion: ";
+        cout << "1. Efectivo\n2. Debito\n3. Credito" << endl;
+        cout << endl << "0. Cancelar y Volver al menu principal" << endl << endl ;
+        cout<<"Opcion: ";
+
         Menu::setColor(0);
         cin >> input;
+        if(input == 0){
+            system("cls");
+            menu.mVentas();
+        }
         formaDePago = input;
 
         if (formaDePago > 0 && formaDePago < 4) {
@@ -164,6 +183,8 @@ void Venta::cargarVenta() {
         } else {
 
             menu.mensajeDeError("Metodo de pago no valido.");
+            system("pause");
+            system("cls");
 
         }
     }

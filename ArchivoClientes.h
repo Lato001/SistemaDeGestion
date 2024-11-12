@@ -23,7 +23,7 @@ private:
         void FiltrarPorID(int _ID);
         void FiltrarPorNComprasRealizadas();
 
-        void ModificarCliente(int clienteID);
+        void ModificarCliente(int clienteID, int atributo);
         void eliminarArchivoClientes();
         void eliminarRegistroCliente(int clienteID);
         void exportarClientesACSV(string nombreArchivoCSV);

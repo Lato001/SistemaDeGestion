@@ -115,7 +115,7 @@ void Eliminados::menuEliminarClientes()
     do
     {
         menu.setColor(7);
-        cout<<"----------------------------------"<<endl;
+        cout<<"--------------MENU ELIMINAR CLIENTES--------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Eliminar un registro"<<endl;
         cout<<"2. Eliminar archivo"<<endl;
@@ -168,9 +168,10 @@ void Eliminados::eliminarRegistroCliente()
     ArchivoClientes Clientes("ArchivoClientes.dat");
     Cliente cliente;
     Menu menu;
-
+    Listados listados;
     int clienteID;
     menu.setColor(7);
+    listados.listarClientesAll();
     cout << "0. Volver al menu principal "<<endl << endl;
     cout << "Ingrese el ID del cliente que desea eliminar: ";
     menu.setColor(0);

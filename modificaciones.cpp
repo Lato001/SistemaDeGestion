@@ -31,7 +31,7 @@ void Modificaciones::modificarEmpleado()
     listados.listarEmpleadosAll();
     menu.setColor(7);
     cout << endl;
-    cout<<"0. Volver al menu principal"<<endl << endl;
+    cout<<"0. Volver al Menu de Empleados"<<endl << endl;
     cout<< "Seleccione el ID del empleado a modificar: "<<endl;
     menu.setColor(0);
     cin >> input;
@@ -101,7 +101,7 @@ void Modificaciones::modificarEmpleado()
                     else
                     {
                         system("cls");
-                        menu.getMainMenu();
+                        menu.mEmpleados();
                     }
                 }
             }
@@ -153,7 +153,7 @@ void Modificaciones::modificarEmpleado()
     else
     {
         system ("cls");
-        menu.getMainMenu();
+        menu.mEmpleados();
     }
 }
 
@@ -171,7 +171,7 @@ void Modificaciones::modificarRegistroVenta()
     listados.listarVentas();
     menu.setColor(7);
     cout << endl;
-    cout<<"0. Volver al menu principal"<<endl << endl;
+    cout<<"0. Volver al Menu de Ventas"<<endl << endl;
     cout<< "Seleccione el ID de la venta a modificar: "<<endl;
     menu.setColor(0);
     cin >> idVenta;
@@ -227,7 +227,7 @@ void Modificaciones::modificarRegistroVenta()
                     else
                     {
                         system("cls");
-                        menu.getMainMenu();
+                        menu.mVentas();
                     }
                 }
             }
@@ -259,7 +259,7 @@ void Modificaciones::modificarRegistroVenta()
     }
     else
     {
-        menu.getMainMenu();
+        menu.mVentas();
     }
 }
 
@@ -273,6 +273,8 @@ void Modificaciones::modificarRegistroProductos()
     bool opcionValida = false;
     Listados listados;
     listados.listarProductosAll();
+    cout << endl;
+    cout<<"0. Volver al Menu Productos"<<endl << endl;
     cout << "Ingrese el ID del producto que desea modificar: ";
     cin >> idProducto;
     system("cls");
@@ -351,14 +353,116 @@ void Modificaciones::modificarRegistroProductos()
 void Modificaciones::modificarClientes()
 {
     Menu menu;
-    ArchivoClientes archivoClientes("ArchivoClientes.dat");
+    ArchivoClientes Clientes("ArchivoClientes.dat");
     Listados listados;
-    int clienteID;
+    int idCliente, input;
+    Cliente cliente;
+    bool opcionValida;
     menu.setColor(7);
     listados.listarClientesAll();
+    cout << endl;
+    cout<<"0. Volver al Menu de Clientes"<<endl << endl;
     cout << "Ingrese el ID del cliente que desea modificar: ";
     menu.setColor(0);
-    cin >> clienteID;
-    archivoClientes.ModificarCliente(clienteID);
+    cin >> idCliente;
+    system("cls");
+
+
+    if (idCliente !=0 )
+    {
+        if( Clientes.Buscar(idCliente).getID() !=  -1)
+        {
+            while(!opcionValida)
+            {
+                cliente = Clientes.Buscar(idCliente);
+                menu.setColor(7);
+                cout<<"Elija el atributo a modificar" << endl;
+                cout<<"1. DNI: ";
+                menu.setColor(0);
+                cout<< cliente.getDNI();
+                cout<<endl;
+                menu.setColor(7);
+                cout<<"2. Nombre: " ;
+                menu.setColor(0);
+                cout <<cliente.getNombre()<<endl;
+                menu.setColor(7);
+                cout<<"3. Apellido: " ;
+                menu.setColor(0);
+                cout << cliente.getApellido()<<endl;
+                menu.setColor(7);
+                cout<<"4. Email: " ;
+                menu.setColor(0);
+                cout << cliente.getEmail()<<endl;
+                menu.setColor(7);
+                cout<<"5. Numero de telefono: " ;
+                menu.setColor(0);
+                cout << cliente.getnTelefono()<<endl;
+                menu.setColor(7);
+                cout<<"6. Localidad: " ;
+                menu.setColor(0);
+                cout << cliente.getLocalidad()<<endl;
+                cout<<endl;
+                menu.setColor(7);
+                cout<< "0. Volver al menu principal"<<endl<<endl;
+                cout<< "Seleccione una opcion: ";
+                menu.setColor(0);
+
+                cin >> input;
+                system("cls");
+                opcionValida = (input> 0 && input< 7);
+                if(!opcionValida)
+                {
+                    if(input != 0)
+                    {
+
+                        menu.mensajeDeError("Opcion invalida");
+                        system("pause");
+                        system("cls");
+                    }
+                    else
+                    {
+                        system("cls");
+                        menu.mClientes();
+                    }
+                }
+            }
+        }
+        else
+        {
+            menu.mensajeDeError("No existe Cliente con este ID, vuelva a intentarlo");
+            menu.mClientes();
+        }
+        system("cls");
+        menu.setColor(7);
+        switch (input)
+        {
+        case 1:
+            Clientes.ModificarCliente(cliente.getID(),1);
+            break;
+        case 2:
+            Clientes.ModificarCliente(cliente.getID(),2);
+            break;
+        case 3:
+            Clientes.ModificarCliente(cliente.getID(),3);
+            break;
+        case 4:
+            Clientes.ModificarCliente(cliente.getID(),4);
+            break;
+        case 5:
+            Clientes.ModificarCliente(cliente.getID(),5);
+            break;
+        case 6:
+            Clientes.ModificarCliente(cliente.getID(),6);
+            break;
+        default:
+            break;
+        }
+    }
+    else
+    {
+        menu.mClientes();
+    }
+
+
 }
 

@@ -81,12 +81,17 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
     {
         listados.MenuListarProductosDetalleVentas();
         Menu::setColor(7);
+        cout << endl << "0. Cancelar y Volver al menu principal" << endl << endl ;
         cout << "Ingrese el -ID- de la opcion deseada: ";
 
         Menu::setColor(0);
         cin >> input;
-
+        if(input == 0){
+            system("cls");
+            menu.mVentas();
+        }
         productoActual = Productos.Buscar(input);
+
 
         if (productoActual.getID() != -1 && productoActual.getStock() > 0)
         {
@@ -95,8 +100,13 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
         }
         else
         {
-            menu.mensajeDeError("Opcion invalida, no hay suficiente stock");
-            if(!productoActual.getStock() >0)
+            if(productoActual.getID() == -1){
+            menu.mensajeDeError("No existe el producto con el id ingresado");
+            }else{
+                menu.mensajeDeError("Opcion invalida, no hay suficiente stock");
+
+
+            }
 
             cout<<endl;
             system("pause");
@@ -113,10 +123,16 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
     {
         Menu::setColor(7);
         cout << "Stock Disponible: " << productoActual.getStock() << endl << endl;
+        cout << endl << "0. Cancelar y Volver al menu principal" << endl << endl ;
         cout << "Ingrese la cantidad comprada del producto: " << endl;
         Menu::setColor(0);
         cin >> input;
 
+
+        if(input == 0){
+            system("cls");
+            menu.mVentas();
+        }
         if (input > 0 && input <= productoActual.getStock())
         {
             cantidadProducto = input;
@@ -124,7 +140,7 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
             productoActual.setStock(productoActual.getStock() - input);
         if (Productos.Guardar(productoActual, Productos.BuscarPos(idProducto))) /// Actualiza el stock adentro del archivo
         {
-            cout << "El producto se ha registrado correctamente." << endl;
+            cout << "El nuevo stock del producto se ha actualizado." << endl;
             opcionValida = true;
         }
         else
@@ -145,9 +161,7 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
 
     importe = Productos.Buscar(idProducto).getPrecioUnitario() * cantidadProducto;
     Menu::setColor(7);
-    cout<<"TOTAL DE VENTA REGISTRADA: $";
-    Menu::setColor(0);
-    cout <<importe <<endl;
+    cout<<"TOTAL DE VENTA REGISTRADA: $" << importe<<endl;
 
 }
 

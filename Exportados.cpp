@@ -31,19 +31,18 @@ void Exportados::menuExportarCSV()
     do
     {
     menu.setColor(7);
-    cout<<"----------------------------------"<<endl;
+    cout<<"--------------MENU EXPORTAR--------------------"<<endl;
     cout<<"Elija la opcion que desee realizar"<<endl;
     cout<<"1. Productos"<<endl;
     cout<<"2. Ventas "<<endl;
     cout<<"3. Clientes "<<endl;
     cout<<"4. Empleado "<<endl;
-    cout<<"5. Detalle de Ventas "<<endl;
     cout<<"0. Volver al menu principal"<<endl;
     cout<<"==================================="<<endl;
     menu.setColor(0);
            cin>>op;
         system("cls");
-        if(op> (0) && op<6)
+        if(op> (0) && op<5)
         {
             opcionValida=true;
         }
@@ -62,9 +61,6 @@ void Exportados::menuExportarCSV()
             break;
         case 4:
             ExportarEmpleados();
-            break;
-        case 5:
-            ExportarDetalledeVentas();
             break;
         case 0:
             menu.getMainMenu();

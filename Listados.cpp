@@ -28,7 +28,7 @@ void Listados::MenulistarClientes()
     do
     {
         menu.setColor(7);
-        cout<<"----------------------------------"<<endl;
+        cout<<"--------------LISTAR CLIENTES--------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Por Nombre"<<endl;
         cout<<"2. Por Orden Alfabetico"<<endl;
@@ -61,6 +61,7 @@ void Listados::MenulistarClientes()
             break;
         case 5:
             listarClientesAll();
+            break;
         case 0:
             menu.getMainMenu();
         default:
@@ -71,7 +72,7 @@ void Listados::MenulistarClientes()
         system("cls");
     }
     while(!opcionValida);
-    menu.listar();
+    menu.mClientes();
 }
 void Listados::MenulistarEmpleados()
 {
@@ -82,7 +83,7 @@ void Listados::MenulistarEmpleados()
     do
     {
    menu.setColor(7);
-        cout<<"----------------------------------"<<endl;
+        cout<<"---------------LISTAR EMPLEADOS-------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Por Nombre"<<endl;
         cout<<"2. Por Orden Alfabetico (Apellido)"<<endl;
@@ -138,7 +139,7 @@ void Listados::MenulistarEmpleados()
     while(!opcionValida);
         system("pause");
         system("cls");
-    menu.listar();
+    menu.mEmpleados();
 }
 void Listados::listarEmpleadosAll()
 {
@@ -200,8 +201,8 @@ void Listados::listarEmpleadosxVacaciones()
     Menu menu;
 ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
 int op = -1;
-int m = -1;
-bool opcionValida=false;
+
+
 
 while (op!=0 || op !=1)
     {
@@ -225,7 +226,7 @@ while (op!=0 || op !=1)
         if(op==1 || op==2)
         {
             Empleados.FiltrarPorVacacionesActivas(op-1);
-            opcionValida=true;
+
         }else{
         menu.mensajeDeError("Opcion invalida! vuelva a intentarlo");
 
@@ -253,9 +254,6 @@ void Listados::listarClientesAll()
     ArchivoClientes Clientes("ArchivoClientes.dat");
     Cliente registro;
     Clientes.FiltrarClientes();
-    system("pause");
-    system("cls");
-    MenulistarClientes();
 
 }
 void Listados::listarClientesxName()
@@ -333,7 +331,7 @@ void Listados::MenulistarProductos()
     do
     {
         menu.setColor(7);
-        cout<<"----------------------------------"<<endl;
+        cout<<"---------------LISTAR PRODUCTOS-------------------"<<endl;
         cout<<"Elija la opcion que desee realizar "<<endl;
         cout<<"1. Listar por Nombre"<<endl;
         cout<<"2. Listar por ID"<<endl;
@@ -389,7 +387,7 @@ int opcion;
     {
         Menu::setColor(7);
 
-        cout<<"----------------------------------"<<endl;
+        cout<<"--------------LISTAR PRODUCTOS DV--------------------"<<endl;
         cout<<"Como desea listar los productos"<<endl;
         cout<<"1. Listar por Nombre"<<endl;
         cout<<"2. Listar por Categoria"<<endl;

@@ -36,11 +36,11 @@ void Menu::getMainMenu()
     do
     {
         setColor(7);
-        cout<<"----------------------------------"<<endl;
+        cout<<"---------------MENU PRINCIPAL-------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
-        cout<<"1. Venta"<<endl;
-        cout<<"2. Empleado"<<endl;
-        cout<<"3. Cliente"<<endl;
+        cout<<"1. Ventas"<<endl;
+        cout<<"2. Empleados"<<endl;
+        cout<<"3. Clientes"<<endl;
         cout<<"4. Productos"<<endl;
         cout<<"5. Informes"<<endl;
         cout<<"6. Exportar Archivos CSV "<<endl;
@@ -63,7 +63,7 @@ void Menu::getMainMenu()
             mEmpleados();
             break;
         case 3:
-            registrar();
+            mClientes();
             break;
         case 4:
             mProductos();
@@ -104,14 +104,14 @@ void Menu::mEmpleados()
 
 
         setColor(7);
-        cout<<"-----------MENU EMPLEADO-----------"<<endl;
+        cout<<"-----------MENU EMPLEADOS-----------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Crear"<<endl;
         cout<<"2. Listar"<<endl;
         cout<<"3. Modificar"<<endl;
         cout<<"4. Eliminar"<<endl;
         cout<<"5. Exportar"<<endl;
-        cout<<"0. Salir"<<endl;
+        cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         setColor(0);
         cin>>op;
@@ -170,7 +170,7 @@ void Menu::mVentas()
         cout<<"3. Modificar"<<endl;
         cout<<"4. Eliminar"<<endl;
         cout<<"5. Exportar"<<endl;
-        cout<<"0. Salir"<<endl;
+        cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         setColor(0);
         cin>>op;
@@ -235,7 +235,7 @@ void Menu::mProductos()
         cout << "3. Modificar" << endl;
         cout << "4. Eliminar" << endl;
         cout << "5. Exportar" << endl;
-        cout << "0. Salir" << endl;
+        cout << "0. Volver al menu principal" << endl;
         cout << "===================================" << endl;
         setColor(0);
         cin >> op;
@@ -276,153 +276,69 @@ void Menu::mProductos()
     while (!opcionValida);
 }
 
-void Menu::listar()
-{
-    Listados listados;
+void Menu::mClientes(){
+    Modificaciones modifica;
+    Exportados exportar;
+    Listados listar;
+    Eliminados eliminar;
     int op=0;
     bool opcionValida=false;
 
     do
     {
+
+
         setColor(7);
-        cout<<"----------------------------------"<<endl;
+        cout<<"-----------MENU CLIENTES-----------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
-        cout<<"1. Listar Ventas"<<endl;
-        cout<<"2. Listar Productos"<<endl;
-        cout<<"3. Listar Empleados"<<endl;
-        cout<<"4. Listar Clientes"<<endl;
+        cout<<"1. Crear"<<endl;
+        cout<<"2. Listar"<<endl;
+        cout<<"3. Modificar"<<endl;
+        cout<<"4. Eliminar"<<endl;
+        cout<<"5. Exportar"<<endl;
         cout<<"0. Volver al menu principal"<<endl;
         cout<<"==================================="<<endl;
         setColor(0);
         cin>>op;
         system("cls");
-        if(op>0 && op<5)
+        if (op> (0) && op<6)
         {
             opcionValida=true;
         }
+
         switch (op)
         {
         case 1:
-            listados.listarVentas();
-            break;
-        case 2:
-            listados.MenulistarProductos();
-            break;
-        case 3:
-            listados.MenulistarEmpleados();
-            break;
-        case 4:
-            listados.MenulistarClientes();
-            break;
-        case 0:
-            getMainMenu();
-        default:
-            mensajeDeError("Opcion invalida!, vuelva a intentarlo");
-            setColor(7);
-        }
-        system("pause");
-        system("cls");
-
-
-
-    }
-    while(!opcionValida);
-    listar();
-}
-void Menu::crear()
-{
-    int op=0;
-    bool opcionValida=false;
-
-    do
-    {
-
-              setColor(7);
-        cout<<"----------------------------------"<<endl;
-        cout<<"Elija la opcion que desee realizar"<<endl;
-        cout<<"1. Crear Empleado"<<endl;
-        cout<<"2. Crear Cliente"<<endl;
-        cout<<"0. Volver al menu principal"<<endl;
-        cout<<"==================================="<<endl;
-         setColor(0);
-        cin>>op;
-        system("cls");
-        if(op>0 && op<3)
-
-        {
-            opcionValida=true;
-        }
-        switch (op)
-        {
-        case 1:
-            crearEmpleado();
-            break;
-        case 2:
             crearCliente();
             break;
-        case 0:
-            getMainMenu();
-            break;
-        default:
-
-           mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
-
-        }
-        system("pause");
-        system("cls");
-
-
-
-    }
-    while(!opcionValida);
-    crear();
-}
-void Menu::registrar()
-{
-
-    int op=0;
-    bool opcionValida=false;
-
-    do
-    {
-    setColor(7);
-        cout<<"----------------------------------"<<endl;
-        cout<<"Elija la opcion que desee realizar"<<endl;
-        cout<<"1. Registrar Venta"<<endl;
-        cout<<"2. Registrar Producto"<<endl;
-        cout<<"0. Volver al menu principal"<<endl;
-        cout<<"==================================="<<endl;
-            setColor(0);
-        cin>>op;
-        system("cls");
-        if(op>0 && op<3)
-        {
-            opcionValida=true;
-        }
-        switch (op)
-        {
-        case 1:
-            registrarVenta();
-            break;
         case 2:
-            registrarProducto();
+            listar.MenulistarClientes();
+            break;
+        case 3:
+            modifica.modificarClientes();
+            break;
+        case 4:
+            eliminar.menuEliminarClientes();
+            break;
+        case 5:
+            exportar.ExportarClientes();
             break;
         case 0:
             getMainMenu();
+            break;
         default:
-
             mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
-
         }
         system("pause");
         system("cls");
-
-
-
+        opcionValida = false;
     }
     while(!opcionValida);
-    registrar();
 }
+
+
+
+
 void Menu::eliminar()
 {
     int op=0;
