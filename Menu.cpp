@@ -42,9 +42,8 @@ void Menu::getMainMenu()
         cout<<"2. Empleado"<<endl;
         cout<<"3. Cliente"<<endl;
         cout<<"4. Productos"<<endl;
-        cout<<"5. Detalle de Venta"<<endl;
-        cout<<"6. Informes"<<endl;
-        cout<<"7. Exportar Archivos CSV "<<endl;
+        cout<<"5. Informes"<<endl;
+        cout<<"6. Exportar Archivos CSV "<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"==================================="<<endl;
         setColor(0);
@@ -70,12 +69,9 @@ void Menu::getMainMenu()
             mProductos();
             break;
         case 5:
-            eliminar();
-            break;
-        case 6:
             infor.menuInformes();
             break;
-        case 7:
+        case 6:
             exportar.menuExportarCSV();
             break;
         case 0:

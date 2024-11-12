@@ -144,29 +144,6 @@ int ArchivoDetalleVentas::BuscarPosRegistro(int idVenta){
     return -1;
 }
 
-void ArchivoDetalleVentas::ModificarDetalleVenta(int idVenta) {
-    Menu menu;
-    int pos = BuscarPosRegistro(idVenta);
-    if (pos == -1) {
-
-         menu.mensajeDeError("Detalle de Venta no encontrada.");
-         cout  << endl;
-        return;
-        }
-    DetalleVenta detalleVenta = Leer(pos);
-    int idOriginal = detalleVenta.getIdVenta();
-    detalleVenta.cargarDetalleDeVenta(idOriginal);
-    detalleVenta.setIdVenta(idOriginal);
-    if (Guardar(detalleVenta, pos)) {
-            Menu::setColor(7);
-        cout << "Datos del detalle venta actualizados." << endl;
-    } else {
-
-         menu.mensajeDeError("Error al actualizar los datos del detalle de venta.");
-         cout << endl;
-    }
-}
-
 
 void ArchivoDetalleVentas::exportarDetalleVentasACSV(string nombreArchivoCSV)
 {

@@ -6,7 +6,6 @@ public:
     void modificarRegistroVenta();
     void modificarRegistroProductos();
     void modificarClientes();
-    void modificarDetalleVentas();
 
 };
 #endif // MODIFICACIONES_H_INCLUDED

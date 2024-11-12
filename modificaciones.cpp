@@ -297,6 +297,7 @@ void Modificaciones::modificarRegistroProductos()
                 cout<< "0. Volver al menu principal"<<endl<<endl;
                 cout<< "Seleccione una opcion: ";
                 menu.setColor(0);
+
                 cin >> input;
                 system("cls");
                 opcionValida = (input> 0 && input< 5);
@@ -360,16 +361,4 @@ void Modificaciones::modificarClientes()
     cin >> clienteID;
     archivoClientes.ModificarCliente(clienteID);
 }
-void Modificaciones::modificarDetalleVentas()
-{
-    Menu menu;
-    ArchivoDetalleVentas archivoDetalleVentas("ArchivoDetalleVentas.dat");
-    Listados listados;
-    int idVenta;
-    menu.setColor(7);
-    listados.listarVentas();
-    cout << "Ingrese el ID de la venta que desea modificar: ";
-    menu.setColor(0);
-    cin >> idVenta;
-    archivoDetalleVentas.ModificarDetalleVenta(idVenta);
-}
+
