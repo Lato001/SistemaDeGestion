@@ -1,4 +1,4 @@
-#pragma once
+
 
 #include <string>
 #include <cstring>
@@ -197,7 +197,6 @@ void ArchivoClientes::FiltrarPorNComprasRealizadas(){
 
   ArchivoVentas ventas("ArchivoVentas.dat");
     ArchivoClientes clientes("ArchivoClientes.dat");
-    Menu menu;
 
     const int nClientes = clientes.CantidadRegistros();
 
