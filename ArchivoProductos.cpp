@@ -295,36 +295,22 @@ void ArchivoProductos::eliminarArchivoProductos()
     if (salida.fail())
     {
         menu.mensajeDeError("Hubo un error al abrir el archivo ArchivoProductos.dat");
-        cout << endl;
+       cout << endl;
         cin.get();
         exit(0);
     }
     else
     {
-        menu.setColor(7);
-        cout << "Introduzca el nombre: ";
-        menu.setColor(0);
-        cin >> aux;
-
-        while (salida >> nombre)
-        {
-            if (aux == nombre)
-            {
-                menu.setColor(2);
-                cout << "El registro ha sido eliminado." << endl;
-                menu.setColor(7);
-            }
-            else
-            {
-                entrada << nombre << " " << endl;
-            }
-        }
 
         salida.close();
         entrada.close();
 
         remove("ArchivoProductos.dat");  // Eliminar el archivo original
-        rename("temp.dat", "ArchivoProductos.dat");  // Renombrar el archivo temporal a "ArchivoEmpleados.dat"
+
+        rename("temp.dat", "ArchivoProductos.dat");  // Renombrar el archivo temporal a "ArchivoVentas.dat"
+        Menu::setColor(2);
+        cout<<"Registros del archivo Productos eliminados"<<endl;
+        Menu::setColor(7);
     }
 }
 void ArchivoProductos::eliminarRegistroProducto(int productoID)

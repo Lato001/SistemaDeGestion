@@ -129,9 +129,9 @@ void Listados::MenulistarEmpleados()
             menu.getMainMenu();
         default:
             menu.mensajeDeError("Opcion invalida!, vuelva a intentarlo");
+            system("pause");
         }
-        system("pause");
-        system("cls");
+
 
 
 
@@ -207,15 +207,15 @@ int op = -1;
 while (op!=0 || op !=1)
     {
             menu.setColor(7);
-    cout << "1.Filtrar Empleados Trabajando "<<endl;
-    cout << "2.Filtrar Empleados de Vacaciones "<<endl;
-    cout << "3.Volver al menu principal "<<endl;
+    cout << "1. Filtrar Empleados Trabajando "<<endl;
+    cout << "2. Filtrar Empleados de Vacaciones "<<endl;
+    cout << "0. Volver al menu principal "<<endl;
      menu.setColor(0);
     cin >> op;
     system ("cls");
-    if(op!=0 || op !=1)
+    if(op > -1 || op < 3)
     {
-        if (op==3)
+        if (op==0)
         {
             system ("cls");
             menu.setColor(7);

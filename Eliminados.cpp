@@ -320,14 +320,18 @@ void Eliminados::eliminarRegistroProducto()
 {
     ArchivoProductos Productos("ArchivoProductos.dat");
     Producto producto;
+    Listados listados;
     Menu menu;
 
     int productoID;
     menu.setColor(7);
+    listados.listarProductosAll();
+    cout<<endl;
+    cout << "0. Volver al menu principal" <<endl<<endl;
     cout << "Ingrese el ID del producto que desea eliminar: ";
     menu.setColor(0);
     cin>>productoID;
-    if (productoID)
+    if (Productos.Buscar(productoID).getID() != -1)
     {
 
     Productos.eliminarRegistroProducto(productoID);
