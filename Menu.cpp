@@ -35,7 +35,7 @@ void Menu::getMainMenu()
     do
     {
         setColor(7);
-        cout<<"---------------MENU PRINCIPAL-------------------"<<endl;
+        cout<<"-----------MENU PRINCIPAL---------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Ventas"<<endl;
         cout<<"2. Empleados"<<endl;
