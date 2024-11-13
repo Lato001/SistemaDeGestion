@@ -86,23 +86,34 @@ void Informes::clientesMasActivos()
     ArchivoClientes Clientes("ArchivoClientes.dat");
 
     int numClientes = Clientes.CantidadRegistros();
+    if (numClientes < 1) {
+        menu.mensajeDeError("No se encontraron registros de clientes.");
+        return;
+    }
+
     std::vector<int> comprasClientesArr(numClientes, 0);
 
-    // Contar las compras por cliente
+
     for (int i = 0; i < Ventas.CantidadRegistros(); i++)
     {
-        int idCliente = Ventas.Leer(i).getIdCliente();
-        comprasClientesArr[Clientes.BuscarPosRegistro(idCliente)]++;
+        Venta venta = Ventas.Leer(i);
+        int idCliente = venta.getIdCliente();
+        int posCliente = Clientes.BuscarPosRegistro(idCliente);
+
+        if (posCliente >= 0 && posCliente < numClientes) {
+            comprasClientesArr[posCliente]++;
+        }
     }
+
     int topClientes[3] = {-1, -1, -1};
     int topCompras[3] = {0, 0, 0};
 
     for (int i = 0; i < numClientes; i++)
     {
         int cantidadCompras = comprasClientesArr[i];
+
         if (cantidadCompras > topCompras[0])
         {
-
             topClientes[2] = topClientes[1];
             topCompras[2] = topCompras[1];
 
@@ -127,8 +138,6 @@ void Informes::clientesMasActivos()
         }
     }
 
-
-
     for (int i = 0; i < 3; i++)
     {
         if (topClientes[i] != -1)
@@ -141,32 +150,32 @@ void Informes::clientesMasActivos()
             }
             else if(i == 1)
             {
-                cout<< " Segundo:";
+                cout << " Segundo";
             }
             else
             {
-                cout<< " Tercer";
+                cout << " Tercer";
             }
-            cout<<" cliente con mas compras: " ;
+            cout << " cliente con mas compras: ";
             menu.setColor(0);
-            cout << cliente.getNombre()<<" ";
-            cout << cliente.getApellido();
+            cout << cliente.getNombre() << " " << cliente.getApellido();
             menu.setColor(7);
-            cout << ", ID: " ;
+            cout << ", ID: ";
             menu.setColor(0);
             cout << topClientes[i];
             menu.setColor(7);
-            cout << ", con " ;
+            cout << ", con ";
             menu.setColor(0);
-            cout << topCompras[i] ;
+            cout << topCompras[i];
             menu.setColor(7);
-            cout << " compras." <<endl;
+            cout << " compras." << endl;
         }
     }
 
     if (topClientes[0] == -1)
     {
-        cout << "No se encontraron registros de compradores." << std::endl;
+        menu.mensajeDeError("No se encontraron registros de compradores.");
+
     }
 }
 
@@ -180,6 +189,11 @@ void Informes::clientesMenosActivos()
     int numClientes = Clientes.CantidadRegistros();
     std::vector<int> comprasClientesArr(numClientes, 0);
 
+    if (numClientes < 1 ) {
+            menu.mensajeDeError("No se encontraron registros de clientes.");
+        return;
+    }
+
 
     for (int i = 0; i < Ventas.CantidadRegistros(); i++)
     {
@@ -189,15 +203,14 @@ void Informes::clientesMenosActivos()
 
 
     int topClientes[3] = {-1, -1, -1};
-    // Cantidad de compras de esos tres clientes (inicializado al valor más alto)
     int topCompras[3] = {INT_MAX, INT_MAX, INT_MAX};
 
 
     for (int i = 0; i < numClientes; i++)
     {
         int cantidadCompras = comprasClientesArr[i];
+        if (cantidadCompras == 0) continue;
 
-        // Si el cliente tiene menos compras que el primero (el que tiene menos compras)
         if (cantidadCompras < topCompras[0])
         {
 
@@ -269,7 +282,7 @@ void Informes::clientesMenosActivos()
 
     if (topClientes[0] == -1)
     {
-        cout << "No se encontraron registros de compradores." << std::endl;
+        menu.mensajeDeError("No se encontraron registros de compradores.");
     }
 }
 
@@ -283,7 +296,11 @@ void Informes::empleadosMayoresVentas()
     int numEmpleados = Empleados.CantidadRegistros();
     std::vector<int> ventasEmpleadosArr(numEmpleados, 0);
 
-    // Contar las ventas por Empleado
+     if (numEmpleados < 1) {
+        menu.mensajeDeError("No se encontraron registros de Empleados.");
+        return;
+    }
+
     for (int i = 0; i < Ventas.CantidadRegistros(); i++)
     {
         int idEmpleado = Ventas.Leer(i).getIdEmpleado();
@@ -364,7 +381,6 @@ void Informes::empleadosMayoresVentas()
     if (topEmpleados[0] == -1)
     {
         menu.mensajeDeError ( "No se encontraron registros de ventas." );
-        cout << endl;
     }
 }
 
@@ -375,6 +391,10 @@ void Informes::fdpMasUtilizadas()
     ArchivoVentas Ventas("ArchivoVentas.dat");
 
     int numVentas = Ventas.CantidadRegistros();
+    if (numVentas < 1) {
+            menu.mensajeDeError("No se encontraron registros de Ventas." );
+        return;
+    }
     string topFormasDePago[3] = {"","",""};
     int fdpContadores[3] = {}; // Contadores de "Efectivo", "Debito", "Credito"
     int topContadores[3] = {};
@@ -464,6 +484,5 @@ void Informes::fdpMasUtilizadas()
     if (topFormasDePago[0] == "")
     {
         menu.mensajeDeError( "No se encontraron registros de ventas.");
-        cout << endl;
     }
 }

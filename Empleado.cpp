@@ -93,12 +93,22 @@ void Empleado::cargarEmpleado(){
     cout<< "Ingrese las asistencias del empleado: " << endl;
        Menu::setColor(0);
     cin >> inputNumeros;
+        if (inputNumeros == 0)
+        {
+            system ("cls");
+            menu.mEmpleados();
+        }
     asistencias = inputNumeros;
     Menu::setColor(7);
 
     cout << "Esta en vacaciones S/N? " << endl;
        Menu::setColor(0);
     cin >> inputLetra;
+    if (inputLetra == '0')
+    {
+        system ("cls");
+            menu.mEmpleados();
+    }
 
     while (inputLetra != 'S' && inputLetra != 'N') {
         menu.mensajeDeError("Opción invalida! Intentelo de nuevo.");
@@ -130,8 +140,12 @@ void Empleado::cargarEmpleado(){
         {
             menu.mensajeDeError("Opcion Invalida!");
         }
+        if (inputSueldo == 0)
+        {
+            system ("cls");
+            menu.mEmpleados();
+        }
     }
-
-
+    system ("pause");
 
 }

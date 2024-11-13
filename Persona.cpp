@@ -91,46 +91,87 @@ void Persona::mostrarPersona() {
     menu.setColor(7);
 }
 
-void Persona::cargarPersona() {
+void Persona::cargarPersona()
+{
+    Menu menu;
+
     int inputNumeros;
     char inputLetras[50];
 
-    Menu::setColor(7);
+    menu.setColor(7);
+    cout << "0. Cancelar y volver al menu anterior "<<endl<<endl;
+
     cout << "Ingrese el DNI:" << endl;
-    Menu::setColor(0);
+    menu.setColor(0);
     cin >> inputNumeros;
+    menu.setColor(7);
+    if (inputNumeros == 0)
+        {
+            system ("cls");
+            menu.mEmpleados();
+        }
     setDNI(inputNumeros);
 
-   Menu::setColor(7);
+
+    menu.setColor(7);
     cout << "Ingrese el Nombre:" << endl;
-    Menu::setColor(0);
+    menu.setColor(0);
     cin.ignore();
     cin.getline(inputLetras, 50);
+    if (strcmp(inputLetras, "0") == 0)
+        {
+            system ("cls");
+            menu.mEmpleados();
+        }
     setNombre(inputLetras);
 
-   Menu::setColor(7);
+   menu.setColor(7);
     cout << "Ingrese el Apellido:" << endl;
-    Menu::setColor(0);
+    menu.setColor(0);
     cin.getline(inputLetras, 50);
+        menu.setColor(7);
+        if (strcmp(inputLetras, "0") == 0)
+        {
+            system ("cls");
+            menu.mEmpleados();
+        }
     setApellido(inputLetras);
 
-   Menu::setColor(7);
+
+    menu.setColor(7);
     cout << "Ingrese el Email:" << endl;
-    Menu::setColor(0);
+    menu.setColor(0);
     cin.getline(inputLetras, 50);
+    if (strcmp(inputLetras, "0") == 0)
+    {
+        system ("cls");
+        menu.mEmpleados();
+    }
     setEmail(inputLetras);
 
-   Menu::setColor(7);
+   menu.setColor(7);
     cout << "Ingrese el Telefono:" << endl;
-   Menu::setColor(0);
+   menu.setColor(0);
     cin >> inputNumeros;
+    if (inputNumeros == 0)
+        {
+            system ("cls");
+            menu.mEmpleados();
+
+        }
     setnTelefono(inputNumeros);
 
-   Menu::setColor(7);
+
+   menu.setColor(7);
     cout << "Ingrese la Localidad:" << endl;
-   Menu::setColor(0);
+   menu.setColor(0);
     cin.ignore();
     cin.getline(inputLetras, 50);
+    if (strcmp(inputLetras, "0") == 0)
+        {
+            system ("cls");
+            menu.mEmpleados();
+        }
     setLocalidad(inputLetras);
 }
 
