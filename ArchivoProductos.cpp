@@ -212,7 +212,8 @@ void ArchivoProductos::Leer(int cantidadRegistros, Producto *vector){
     fclose(registro);
 }
 
-void ArchivoProductos::ModificarProducto(int productoID, int atributo) {
+void ArchivoProductos::ModificarProducto(int productoID, int atributo)
+{
     Menu menu;
     int pos = BuscarPos(productoID);
     if (pos == -1) {
@@ -229,9 +230,9 @@ void ArchivoProductos::ModificarProducto(int productoID, int atributo) {
     case 1:
         ///NOMBRE
         char nuevoNombreProducto[50];
-         Menu::setColor(7);
+         menu.setColor(7);
         cout << "Ingrese el nuevo nombre: ";
-         Menu::setColor(0);
+         menu.setColor(0);
         cin.ignore();
         cin.getline(nuevoNombreProducto, 50);
         producto.setNombre(nuevoNombreProducto);
@@ -239,9 +240,9 @@ void ArchivoProductos::ModificarProducto(int productoID, int atributo) {
     case 2:
         ///CATEGORIA
         char nuevoNombreCategoria[50];
-         Menu::setColor(7);
+         menu.setColor(7);
             cout << "Ingrese el nuevo nombre de Categoria: ";
-             Menu::setColor(0);
+             menu.setColor(0);
             cin.ignore();
             cin.getline(nuevoNombreCategoria, 50);
             producto.setNombre(nuevoNombreCategoria);
@@ -249,18 +250,18 @@ void ArchivoProductos::ModificarProducto(int productoID, int atributo) {
     case 3:
         ///PRECIO UNITARIO
         float nuevoPrecioUnitario;
-         Menu::setColor(7);
+         menu.setColor(7);
         cout<<"Ingrese el nuevo importe unitario: ";
-         Menu::setColor(0);
+         menu.setColor(0);
         cin >> nuevoPrecioUnitario;
         producto.setPrecioUnitario(nuevoPrecioUnitario);
         break;
     case 4:
         ///STOCK
         int nuevoStock;
-         Menu::setColor(7);
+         menu.setColor(7);
         cout<<"Ingrese el stock actual: ";
-         Menu::setColor(0);
+         menu.setColor(0);
         cin >> nuevoStock;
         producto.setStock(nuevoStock);
         break;
@@ -273,8 +274,9 @@ void ArchivoProductos::ModificarProducto(int productoID, int atributo) {
     }
 
     if (Guardar(producto, pos)) {
-            Menu::setColor(7);
+            menu.setColor(2);
         cout << "Datos del producto actualizados." << endl;
+        menu.setColor(7);
     } else {
 
         menu.mensajeDeError("Error al actualizar los datos del producto.");
@@ -365,7 +367,8 @@ void ArchivoProductos::eliminarRegistroProducto(int productoID)
         cout << "Producto con ID " ;
         menu.setColor(0);
         cout << productoID;
-        menu.setColor(0);
+
+        menu.setColor(7);
         cout <<" y con nombre " ;
         menu.setColor(0);
         cout<< nombreProducto ;
@@ -408,11 +411,11 @@ void ArchivoProductos::exportarProductosACSV(string nombreArchivoCSV)
 
     int cont = 0;
     Producto producto;
-//  Leer productos desde el archivo binario y escribirlos en el archivo CSV
+//  Lee en binario y escibe en CSV
     while (fread(&producto, sizeof(Producto), 1, registro))
     {
         Menu::setColor(7);
-//      Escribir los datos de cada producto en el archivo CSV:
+//      Escribe los datos en el archivo .csv
         archivoCSV << "ID:" << producto.getID() <<endl;
         archivoCSV << "NOMBRE: " <<producto.getNombre() <<endl;
         archivoCSV << "CATEGORIA: " <<producto.getCategoriaProducto() <<endl;

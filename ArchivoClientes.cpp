@@ -381,8 +381,9 @@ void ArchivoClientes::ModificarCliente(int clienteID, int atributo)
 
     if (Guardar(cliente, pos))
     {
-        Menu::setColor(7);
+        menu.setColor(2);
         cout << "Datos del cliente actualizados." << endl;
+        menu.setColor(7);
     }
     else
     {

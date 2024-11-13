@@ -82,11 +82,17 @@ void Eliminados::eliminarArchivoEmpleados()
 void Eliminados::eliminarRegistroEmpleado()
 {
     Menu menu;
-    ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
     Empleado empleado;
+    Listados listar;
+
+    ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
 
     int empleadoID;
     menu.setColor(7);
+
+    listar.listarEmpleadosAll();
+
+    cout<<endl;
     cout << "0. Volver al menu principal "<<endl << endl;
     cout << "Ingrese el ID del empleado que desea eliminar: " ;
     menu.setColor(0);
@@ -202,10 +208,16 @@ void Eliminados::eliminarArchivoVentas()
 void Eliminados::eliminarRegistroVenta()
 {
     ArchivoVentas Ventas("ArchivoVentas.dat");
+
     Menu menu;
+    Listados listar;
 
     int ventaID;
     menu.setColor(7);
+
+    listar.listarVentas();
+
+    cout<<endl;
     cout << "0. Volver al menu principal "<<endl << endl ;
     cout << "Ingrese el ID de la venta que desea eliminar: ";
     menu.setColor(0);

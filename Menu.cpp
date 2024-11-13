@@ -308,12 +308,14 @@ void Menu::mClientes(){
         {
         case 1:
             crearCliente();
+            system ("pause");
             break;
         case 2:
             listar.MenulistarClientes();
             break;
         case 3:
             modifica.modificarClientes();
+            system ("pause");
             break;
         case 4:
             eliminar.menuEliminarClientes();
