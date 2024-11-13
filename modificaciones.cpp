@@ -46,7 +46,9 @@ void Modificaciones::modificarEmpleado()
                 menu.setColor(7);
                 cout<<"Elija el atributo a modificar" << endl;
                 cout<<"1. DNI: ";
-                empleado.getDNI();
+                menu.setColor(0);
+                cout<< empleado.getDNI();
+                menu.setColor(7);
                 cout<<endl;
                 cout<<"2. Nombre: " ;
                 menu.setColor(0);

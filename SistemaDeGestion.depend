@@ -1,0 +1,322 @@
+# depslib dependency file v1.0
+1731456101 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoclientes.cpp
+	<string>
+	<cstring>
+	<iostream>
+	<vector>
+	<fstream>
+	<conio.h>
+	"ArchivoClientes.h"
+	"ArchivoVentas.h"
+	"Cliente.h"
+	"rlutil.h"
+	"Menu.h"
+	"Modificaciones.h"
+
+1731454048 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoclientes.h
+	"Persona.h"
+	"Cliente.h"
+
+1731094425 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.h
+
+1731094425 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\cliente.h
+	"persona.h"
+
+1731094425 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoventas.h
+	"Venta.h"
+	"Cliente.h"
+	"Fecha.h"
+	"Venta.h"
+	"DetalleVenta.h"
+
+1731094425 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.h
+	"Fecha.h"
+	"Empleado.h"
+	"Cliente.h"
+	"DetalleVenta.h"
+
+1731438146 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.h
+
+1731094425 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.h
+	"Persona.h"
+	"Fecha.h"
+
+1731094425 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.h
+
+1731094425 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1731454048 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.h
+	"Cliente.h"
+	"Empleado.h"
+	"rlutil.h"
+
+1731446863 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivodetalleventas.cpp
+	<string>
+	<cstring>
+	<iostream>
+	<fstream>
+	"ArchivoDetalleVentas.h"
+	"DetalleVenta.h"
+	"rlutil.h"
+	"Menu.h"
+
+1731446877 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivodetalleventas.h
+	"DetalleVenta.h"
+
+1731457212 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.cpp
+	<string>
+	<cstring>
+	<iostream>
+	<fstream>
+	<conio.h>
+	"ArchivoEmpleados.h"
+	"Empleado.h"
+	"rlutil.h"
+	"Fecha.h"
+	"Menu.h"
+	"Modificaciones.h"
+
+1731438357 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoempleados.h
+	"Persona.h"
+	"Empleado.h"
+
+1731452239 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoproductos.cpp
+	<string>
+	<cstring>
+	<iostream>
+	<fstream>
+	<conio.h>
+	"ArchivoProductos.h"
+	"Producto.h"
+	"rlutil.h"
+	"Menu.h"
+
+1731446408 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoproductos.h
+	"Producto.h"
+
+1731094425 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.h
+	"DetalleVenta.h"
+
+1731425925 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\archivoventas.cpp
+	<string>
+	<cstring>
+	<iostream>
+	<fstream>
+	<conio.h>
+	"ArchivoVentas.h"
+	"ArchivoEmpleados.h"
+	"ArchivoClientes.h"
+	"Listados.h"
+	"Venta.h"
+	"rlutil.h"
+	"Menu.h"
+
+1731094425 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\listados.h
+
+1731094425 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\cliente.cpp
+	<iostream>
+	"rlutil.h"
+	"Persona.h"
+	"Cliente.h"
+	"ArchivoClientes.h"
+	"Menu.h"
+
+1731454048 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\detalleventa.cpp
+	<iostream>
+	"rlutil.h"
+	"DetalleVenta.h"
+	"ArchivoDetalleVentas.h"
+	"Venta.h"
+	"Producto.h"
+	"ArchivoProductos.h"
+	"Menu.h"
+	"Listados.h"
+
+1731454048 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\eliminados.cpp
+	<iostream>
+	<vector>
+	<cstdio>
+	<cstring>
+	"ArchivoClientes.h"
+	"ArchivoEmpleados.h"
+	"ArchivoVentas.h"
+	"ArchivoProductos.h"
+	"ArchivoDetalleVentas.h"
+	"Menu.h"
+	"Listados.h"
+	"Eliminados.h"
+	"Cliente.h"
+	"Empleado.h"
+	"Venta.h"
+	"Producto.h"
+	"rlutil.h"
+
+1731094425 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\eliminados.h
+
+1731435321 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\empleado.cpp
+	<iostream>
+	<string>
+	"rlutil.h"
+	"Empleado.h"
+	"Persona.h"
+	"Fecha.h"
+	"ArchivoEmpleados.h"
+	"Menu.h"
+
+1731438151 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\fecha.cpp
+	<iostream>
+	<cstring>
+	<tuple>
+	<string>
+	"rlutil.h"
+	"Fecha.h"
+	"Menu.h"
+
+1731454048 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\listados.cpp
+	<iostream>
+	"Menu.h"
+	"Listados.h"
+	"ArchivoClientes.h"
+	"ArchivoEmpleados.h"
+	"ArchivoVentas.h"
+	"ArchivoProductos.h"
+	"ArchivoDetalleVentas.h"
+	"Cliente.h"
+	"Empleado.h"
+	"Venta.h"
+	"Producto.h"
+	"rlutil.h"
+
+1731163157 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\main.cpp
+	<iostream>
+	"Menu.h"
+	"rlutil.h"
+
+1731454048 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\menu.cpp
+	<iostream>
+	<vector>
+	<cstdio>
+	<cstring>
+	"ArchivoVentas.h"
+	"ArchivoDetalleVentas.h"
+	"ArchivoProductos.h"
+	"ArchivoEmpleados.h"
+	"ArchivoClientes.h"
+	"Menu.h"
+	"Listados.h"
+	"Eliminados.h"
+	"Exportados.h"
+	"Informes.h"
+	"Venta.h"
+	"Producto.h"
+	"Empleado.h"
+	"Cliente.h"
+	"rlutil.h"
+	"Modificaciones.h"
+
+1731163470 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\exportados.h
+
+1731281799 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\informes.h
+
+1731446893 c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\modificaciones.h
+
+1731454286 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\persona.cpp
+	<iostream>
+	<cstring>
+	"rlutil.h"
+	"Persona.h"
+	"Menu.h"
+
+1731094425 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\producto.cpp
+	<iostream>
+	<cstring>
+	"rlutil.h"
+	"DetalleVenta.h"
+	"Producto.h"
+	"ArchivoProductos.h"
+	"Menu.h"
+
+1731454048 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\venta.cpp
+	<iostream>
+	"rlutil.h"
+	"Fecha.h"
+	"Empleado.h"
+	"Cliente.h"
+	"ArchivoEmpleados.h"
+	"ArchivoClientes.h"
+	"Venta.h"
+	"ArchivoVentas.h"
+	"ArchivoDetalleVentas.h"
+	"DetalleVenta.h"
+	"ArchivoProductos.h"
+	"Producto.h"
+	"Menu.h"
+
+1731283181 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\informes.cpp
+	<iostream>
+	<vector>
+	<cstdio>
+	<cstring>
+	"ArchivoVentas.h"
+	"ArchivoDetalleVentas.h"
+	"ArchivoProductos.h"
+	"ArchivoEmpleados.h"
+	"ArchivoClientes.h"
+	"Menu.h"
+	"Listados.h"
+	"Eliminados.h"
+	"Exportados.h"
+	"Informes.h"
+	"Venta.h"
+	"Producto.h"
+	"Empleado.h"
+	"Cliente.h"
+
+1731454048 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\exportados.cpp
+	<iostream>
+	<vector>
+	<cstdio>
+	<cstring>
+	"ArchivoClientes.h"
+	"ArchivoEmpleados.h"
+	"ArchivoVentas.h"
+	"ArchivoProductos.h"
+	"ArchivoDetalleVentas.h"
+	"Cliente.h"
+	"Empleado.h"
+	"Venta.h"
+	"Producto.h"
+	"rlutil.h"
+	"Menu.h"
+	"Listados.h"
+	"Eliminados.h"
+	"Exportados.h"
+
+1731457273 source:c:\users\agusp\downloads\utn\tp integrador con github\sistemadegestion\modificaciones.cpp
+	<iostream>
+	"Menu.h"
+	"Listados.h"
+	"ArchivoClientes.h"
+	"ArchivoEmpleados.h"
+	"ArchivoVentas.h"
+	"ArchivoProductos.h"
+	"ArchivoDetalleVentas.h"
+	"Cliente.h"
+	"Empleado.h"
+	"Venta.h"
+	"Producto.h"
+	"rlutil.h"
+	"Modificaciones.h"
+
