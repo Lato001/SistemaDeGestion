@@ -292,7 +292,7 @@ void ArchivoClientes::ModificarCliente(int clienteID, int atributo)
         if (nuevoDNI == 0 )
         {
             system ("cls");
-            modifica.modificarClientes();
+            return;
         }
         cliente.setDNI(nuevoDNI);
     break;
@@ -307,7 +307,7 @@ void ArchivoClientes::ModificarCliente(int clienteID, int atributo)
         if (strcmp(nuevoNombre, "0") == 0)
         {
             system ("cls");
-            modifica.modificarClientes();
+            return;
         }
         cliente.setNombre(nuevoNombre);
     break;
@@ -322,7 +322,7 @@ void ArchivoClientes::ModificarCliente(int clienteID, int atributo)
         if (strcmp(nuevoApellido, "0") == 0)
         {
             system ("cls");
-            modifica.modificarClientes();
+            return;
         }
         cliente.setApellido(nuevoApellido);
         break;
@@ -337,7 +337,7 @@ void ArchivoClientes::ModificarCliente(int clienteID, int atributo)
         if (strcmp(nuevoEmail, "0") == 0)
         {
             system ("cls");
-            modifica.modificarClientes();
+            return;
         }
         cliente.setEmail(nuevoEmail);
         break;
@@ -352,7 +352,7 @@ void ArchivoClientes::ModificarCliente(int clienteID, int atributo)
         if (nuevonTelefono == 0)
         {
             system ("cls");
-            modifica.modificarClientes();
+            return;
         }
         cliente.setnTelefono(nuevonTelefono);
         break;
@@ -367,7 +367,7 @@ void ArchivoClientes::ModificarCliente(int clienteID, int atributo)
         if (strcmp(nuevaLocalidad, "0") == 0)
         {
             system ("cls");
-            modifica.modificarClientes();
+            return;
         }
         cliente.setLocalidad(nuevaLocalidad);
         break;
@@ -377,6 +377,8 @@ void ArchivoClientes::ModificarCliente(int clienteID, int atributo)
         return;
         break;
     }
+
+
     if (Guardar(cliente, pos))
     {
         Menu::setColor(7);
