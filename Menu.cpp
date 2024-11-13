@@ -27,7 +27,6 @@ using namespace std;
 
 void Menu::getMainMenu()
 {
-    Exportados exportar;
     Informes infor;
     int op=0;
     bool opcionValida=false;
