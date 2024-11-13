@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-#pragma once
-
 #include <string>
 #include <cstring>
 #include <iostream>
@@ -12,6 +9,8 @@
 #include "Menu.h"
 #include "rlutil.h"
 #include "Fecha.h"
+#include "Modificaciones.h"
+
 
 using namespace std;
 
@@ -20,196 +19,9 @@ ArchivoEmpleados::ArchivoEmpleados(string nombreArchivo)
 {
     _nombreArchivo = nombreArchivo;
 }
-
-bool ArchivoEmpleados::Guardar(Empleado empleado)
-{
+bool ArchivoEmpleados::Guardar(Empleado empleado){
     FILE *registro = fopen(_nombreArchivo.c_str(), "ab");
-    if(registro == NULL)
-void ArchivoEmpleados::ModificarEmpleado(int empleadoID, int atributo)
-{
-    Menu menu;
-    Modificaciones modifica;
-    ArchivoEmpleados Empleados("ArchivoEmpleados.dat");
-
-    int pos = BuscarPosRegistro(empleadoID);
-    if (pos == -1)
-    {
-
-        menu.mensajeDeError("Empleado no encontrado." );
-        cout << endl;
-        return;
-    }
-
-    Empleado empleado = Leer(pos);
-
-    switch (atributo)
-    {
-    case 1:
-    {
-        int nuevoDNI;
-            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
-            cout << "Ingrese nuevo DNI: ";
-            Menu::setColor(0);
-            cin >> nuevoDNI;
-            Menu::setColor(7);
-            if (nuevoDNI == 0)
-        {
-            system ("cls");
-            modifica.modificarEmpleado();
-        }
-            empleado.setDNI(nuevoDNI);
-            break;
-    }
-    case 2:
-        {
-            char nuevoNombre[50];
-            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
-            cout << "Ingrese nuevo nombre: ";
-            Menu::setColor(0);
-            cin.ignore();
-            cin.getline(nuevoNombre, 50);
-            Menu::setColor(7);
-            if (strcmp(nuevoNombre, "0") == 0)
-        {
-            system ("cls");
-            modifica.modificarEmpleado();
-        }
-            empleado.setNombre(nuevoNombre);
-            break;
-        }
-    case 3:
-        {
-            char nuevoApellido[50];
-            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
-            cout << "Ingrese nuevo apellido: ";
-            Menu::setColor(0);
-            cin.ignore();
-            cin.getline(nuevoApellido, 50);
-            Menu::setColor(7);
-            if (strcmp(nuevoApellido, "0") == 0)
-            {
-            system ("cls");
-            modifica.modificarEmpleado();
-            }
-            empleado.setApellido(nuevoApellido);
-            break;
-        }
-    case 4:
-        {
-            char nuevoEmail[50];
-            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
-            cout << "Ingrese nuevo email: ";
-            cin.ignore();
-            cin.getline(nuevoEmail, 50);
-            if (strcmp(nuevoEmail, "0") == 0)
-            {
-                system ("cls");
-                modifica.modificarEmpleado();
-            }
-            empleado.setEmail(nuevoEmail);
-            break;
-        }
-    case 5:
-        {
-
-             int nuevonTelefono;
-            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
-            cout << "Ingrese nuevo nï¿½mero de telï¿½fono: ";
-            cin.ignore();
-            cin>>nuevonTelefono;
-            if (nuevonTelefono == 0)
-            {
-                system ("cls");
-                modifica.modificarEmpleado();
-            }
-            empleado.setnTelefono(nuevonTelefono);
-            break;
-        }
-    case 6:
-        {
-            char nuevaLocalidad[50];
-            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
-            cout << "Ingrese nueva localidad: ";
-            cin.ignore();
-            cin.getline(nuevaLocalidad, 50);
-            if (strcmp(nuevaLocalidad, "0") == 0)
-            {
-                system ("cls");
-                modifica.modificarEmpleado();
-            }
-            empleado.setLocalidad(nuevaLocalidad);
-            break;
-        }
-    case 7:
-        {
-            Fecha nuevaFecha;
-            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
-            cout << "Ingrese nueva fecha de ingreso (dd mm yyyy): "<<endl;
-            nuevaFecha.cargarFecha();
-            break;
-        }
-    case 8:
-        {
-            int nuevasAsistencias;
-            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
-            cout << "Ingrese nuevas asistencias: ";
-            cin >> nuevasAsistencias;
-            if (nuevasAsistencias == 0)
-            {
-                system ("cls");
-                modifica.modificarEmpleado();
-            }
-            empleado.setAsistencias(nuevasAsistencias);
-            break;
-        }
-    case 9:
-        {
-            int enVacaciones;
-            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
-            cout << "ï¿½Esta de vacaciones? (1 para no, 2 para si): ";
-            cin >> enVacaciones;
-            if (enVacaciones == 0)
-            {
-                system ("cls");
-                modifica.modificarEmpleado();
-            }
-
-            empleado.setvacacionesActivas(enVacaciones-1);
-            break;
-        }
-    case 10:
-        {
-            float nuevoSueldo;
-            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
-            cout << "Ingrese nuevo sueldo: ";
-            cin >> nuevoSueldo;
-            if (nuevoSueldo == 0)
-            {
-                system ("cls");
-                modifica.modificarEmpleado();
-            }
-            empleado.setSueldo(nuevoSueldo);
-            break;
-        }
-    default:
-        menu.mensajeDeError("Atributo no vï¿½lido.");
-        return;
-    }
-    if (Guardar(empleado, pos))
-    {
-        Menu::setColor(2);
-        cout << "Datos del empleado actualizados." << endl;
-        Menu::setColor(7);
-    }
-    else
-    {
-
-        menu.mensajeDeError("Error al actualizar los datos del empleado.");
-        cout << endl;
-    }
-}
-
-    {
+    if(registro == NULL){
         return false;
     }
     bool ok = fwrite(&empleado, sizeof(Empleado), 1, registro);
@@ -391,7 +203,7 @@ void ArchivoEmpleados::FiltrarPorFecha()
     Empleado* empleado = new Empleado [cantRegistros];
     Menu menu;
     Fecha fecha;
-    int cont = 0;
+
     if (registro == nullptr)
     {
         menu.mensajeDeError("No se encontraron empleados." );
@@ -448,15 +260,15 @@ void ArchivoEmpleados::FiltrarPorAsistencias()
         return;
     }
 
-    // Leer empleados desde el archivo
+
     while (fread(&empleado, sizeof(empleado), 1, registro) && cont < 40)
     {
-        empleadoArr[cont] = empleado; // Agregar empleado al arreglo
+        empleadoArr[cont] = empleado;
         cont++;
     }
     fclose(registro);
 
-    // Ordenar empleados por asistencias de manera ascendente
+
     for (int i = 0; i < cont - 1; i++)
     {
         for (int j = 0; j < cont - i - 1; j++)
@@ -471,7 +283,7 @@ void ArchivoEmpleados::FiltrarPorAsistencias()
         }
     }
 
-    // Mostrar empleados ordenados por asistencias
+
     for (int i = 0; i < cont; i++)
     {
         empleadoArr[i].mostrarEmpleado();
@@ -674,91 +486,152 @@ void ArchivoEmpleados::ModificarEmpleado(int empleadoID, int atributo)
     case 1:
     {
         int nuevoDNI;
-        cout << "Ingrese nuevo DNI: ";
-        cin >> nuevoDNI;
-        empleado.setDNI(nuevoDNI);
-        break;
+            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
+            cout << "Ingrese nuevo DNI: ";
+            Menu::setColor(0);
+            cin >> nuevoDNI;
+            Menu::setColor(7);
+            if (nuevoDNI == 0)
+        {
+            system ("cls");
+            return;
+        }
+            empleado.setDNI(nuevoDNI);
+            break;
     }
     case 2:
-    {
-        char nuevoNombre[50];
-        cout << "Ingrese nuevo nombre: ";
-        cin.ignore();
-        cin.getline(nuevoNombre, 50);
-        empleado.setNombre(nuevoNombre);
-        break;
-    }
+        {
+            char nuevoNombre[50];
+            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
+            cout << "Ingrese nuevo nombre: ";
+            Menu::setColor(0);
+            cin.ignore();
+            cin.getline(nuevoNombre, 50);
+            Menu::setColor(7);
+            if (strcmp(nuevoNombre, "0") == 0)
+        {
+            system ("cls");
+            return;
+        }
+            empleado.setNombre(nuevoNombre);
+            break;
+        }
     case 3:
-    {
-        char nuevoApellido[50];
-        cout << "Ingrese nuevo apellido: ";
-        cin.ignore();
-        cin.getline(nuevoApellido, 50);
-        empleado.setApellido(nuevoApellido);
-        break;
-    }
+        {
+            char nuevoApellido[50];
+            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
+            cout << "Ingrese nuevo apellido: ";
+            Menu::setColor(0);
+            cin.ignore();
+            cin.getline(nuevoApellido, 50);
+            Menu::setColor(7);
+            if (strcmp(nuevoApellido, "0") == 0)
+            {
+            system ("cls");
+            return;
+            }
+            empleado.setApellido(nuevoApellido);
+            break;
+        }
     case 4:
-    {
-        char nuevoEmail[50];
-        cout << "Ingrese nuevo email: ";
-        cin.ignore();
-        cin.getline(nuevoEmail, 50);
-        empleado.setEmail(nuevoEmail);
-        break;
-    }
+        {
+            char nuevoEmail[50];
+            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
+            cout << "Ingrese nuevo email: ";
+            cin.ignore();
+            cin.getline(nuevoEmail, 50);
+            if (strcmp(nuevoEmail, "0") == 0)
+            {
+                system ("cls");
+                return;
+            }
+            empleado.setEmail(nuevoEmail);
+            break;
+        }
     case 5:
-    {
+        {
 
-        int nuevonTelefono;
-        cout << "Ingrese nuevo número de teléfono: ";
-        cin.ignore(); // Ignorar el salto de línea pendiente
-        cin>>nuevonTelefono;
-        empleado.setnTelefono(nuevonTelefono);
-        break;
-    }
+             int nuevonTelefono;
+            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
+            cout << "Ingrese nuevo numero de telefono: ";
+            cin.ignore();
+            cin>>nuevonTelefono;
+            if (nuevonTelefono == 0)
+            {
+                system ("cls");
+                return;
+            }
+            empleado.setnTelefono(nuevonTelefono);
+            break;
+        }
     case 6:
-    {
-        char nuevaLocalidad[50];
-        cout << "Ingrese nueva localidad: ";
-        cin.ignore();
-        cin.getline(nuevaLocalidad, 50);
-        empleado.setLocalidad(nuevaLocalidad);
-        break;
-    }
+        {
+            char nuevaLocalidad[50];
+            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
+            cout << "Ingrese nueva localidad: ";
+            cin.ignore();
+            cin.getline(nuevaLocalidad, 50);
+            if (strcmp(nuevaLocalidad, "0") == 0)
+            {
+                system ("cls");
+               return;
+            }
+            empleado.setLocalidad(nuevaLocalidad);
+            break;
+        }
     case 7:
-    {
-        Fecha nuevaFecha;
-        cout << "Ingrese nueva fecha de ingreso (dd mm yyyy): "<<endl;
-        nuevaFecha.cargarFecha();
-        empleado.setfechadeingreso(nuevaFecha);
-        break;
-    }
+        {
+            Fecha nuevaFecha;
+            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
+            cout << "Ingrese nueva fecha de ingreso (dd mm yyyy): "<<endl;
+            nuevaFecha.cargarFecha();
+            break;
+        }
     case 8:
-    {
-        int nuevasAsistencias;
-        cout << "Ingrese nuevas asistencias: ";
-        cin >> nuevasAsistencias;
-        empleado.setAsistencias(nuevasAsistencias);
-        break;
-    }
+        {
+            int nuevasAsistencias;
+            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
+            cout << "Ingrese nuevas asistencias: ";
+            cin >> nuevasAsistencias;
+            if (nuevasAsistencias == 0)
+            {
+                system ("cls");
+                return;
+            }
+            empleado.setAsistencias(nuevasAsistencias);
+            break;
+        }
     case 9:
-    {
-        bool enVacaciones;
-        cout << "¿Esta de vacaciones? (1 para si, 0 para no): ";
-        cin >> enVacaciones;
-        empleado.setvacacionesActivas(enVacaciones);
-        break;
-    }
+        {
+            int enVacaciones;
+            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
+            cout << "Esta de vacaciones? (1 para no, 2 para si): ";
+            cin >> enVacaciones;
+            if (enVacaciones == 0)
+            {
+                system ("cls");
+                return;
+            }
+
+            empleado.setvacacionesActivas(enVacaciones-1);
+            break;
+        }
     case 10:
-    {
-        float nuevoSueldo;
-        cout << "Ingrese nuevo sueldo: ";
-        cin >> nuevoSueldo;
-        empleado.setSueldo(nuevoSueldo);
-        break;
-    }
+        {
+            float nuevoSueldo;
+            cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
+            cout << "Ingrese nuevo sueldo: ";
+            cin >> nuevoSueldo;
+            if (nuevoSueldo == 0)
+            {
+                system ("cls");
+                return;
+            }
+            empleado.setSueldo(nuevoSueldo);
+            break;
+        }
     default:
-        menu.mensajeDeError("Atributo no válido.");
+        menu.mensajeDeError("Atributo no vï¿½lido.");
         return;
     }
     if (Guardar(empleado, pos))

@@ -50,12 +50,17 @@
 		<Unit filename="Eliminados.h" />
 		<Unit filename="Empleado.cpp" />
 		<Unit filename="Empleado.h" />
+		<Unit filename="Exportados.cpp" />
+		<Unit filename="Exportados.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
+		<Unit filename="Informes.cpp" />
+		<Unit filename="Informes.h" />
 		<Unit filename="Listados.cpp" />
 		<Unit filename="Listados.h" />
 		<Unit filename="Menu.cpp" />
 		<Unit filename="Menu.h" />
+		<Unit filename="Modificaciones.h" />
 		<Unit filename="Persona.cpp" />
 		<Unit filename="Persona.h" />
 		<Unit filename="Producto.cpp" />
@@ -63,6 +68,7 @@
 		<Unit filename="Venta.cpp" />
 		<Unit filename="Venta.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="modificaciones.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
