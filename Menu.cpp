@@ -104,7 +104,7 @@ void Menu::mEmpleados()
 
 
         setColor(7);
-        cout<<"-----------MENU EMPLEADOS-----------"<<endl;
+        cout<<"-----------EMPLEADOS-----------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Crear"<<endl;
         cout<<"2. Listar"<<endl;
@@ -127,7 +127,7 @@ void Menu::mEmpleados()
             crearEmpleado();
             break;
         case 2:
-            listar.listarEmpleadosAll();
+            listar.MenulistarEmpleados();
             break;
         case 3:
             modifica.modificarEmpleado();

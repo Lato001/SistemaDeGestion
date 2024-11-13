@@ -31,7 +31,7 @@ void Listados::MenulistarClientes()
         cout<<"--------------LISTAR CLIENTES--------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Por Nombre"<<endl;
-        cout<<"2. Por Orden Alfabetico"<<endl;
+        cout<<"2. Por Orden Alfabetico (Apellido)"<<endl;
         cout<<"3. Por ID"<<endl;
         cout<<"4. Listar Por Nro de Compras Realizadas"<<endl;
         cout<<"5. Listar todos"<<endl;

@@ -33,7 +33,7 @@ void Informes::menuInformes()
     do
     {
         menu.setColor(7);
-        cout<<"----------------------------------"<<endl;
+        cout<<"--------------INFORMES--------------------"<<endl;
         cout<<"Elija la opcion que desee realizar"<<endl;
         cout<<"1. Clientes MAS+ activos"<<endl;
         cout<<"2. Clientes MENOS- activos"<<endl;

@@ -132,24 +132,25 @@ void ArchivoClientes::FiltrarPorOrdenAlfabetico()
     Cliente cliente;
     Menu menu;
 
-    if(registroA == nullptr)
+    if (registroA == nullptr)
     {
-
-       menu.mensajeDeError("No se han encontrado clientes registrados");
-
-            return;
+        menu.mensajeDeError("No se han encontrado clientes registrados");
+        return;
     }
+
     if (cantRegistros != 0)
     {
-        for (int i = 0; i < cantRegistros; i++ )
+        for (int i = 0; i < cantRegistros; i++)
         {
-            registro[i] = ArchivoClientes::Leer(i);
+            registro[i] = ArchivoClientes::Leer(i);  // Asegúrate de que Leer(i) devuelve el cliente correcto
         }
-        for (int i = 0; i <= cantRegistros ; i++)
+
+        // Ordenamiento alfabético usando burbuja
+        for (int i = 0; i < cantRegistros - 1; i++)
         {
-            for (int j = 0; j <= cantRegistros ; j++)
+            for (int j = i + 1; j < cantRegistros; j++)
             {
-                if (strcmp (registro[j].getNombre(),registro[i].getNombre()) > 0)
+                if (strcmp(registro[i].getApellido(), registro[j].getApellido()) > 0)
                 {
                     Cliente temp = registro[i];
                     registro[i] = registro[j];
@@ -157,11 +158,14 @@ void ArchivoClientes::FiltrarPorOrdenAlfabetico()
                 }
             }
         }
-        for ( int i = 0 ; i <=cantRegistros ; i++ )
+
+        // Mostrar los clientes ordenados
+        for (int i = 0; i < cantRegistros; i++)
         {
-        registro[i].mostrarCliente();
+            registro[i].mostrarCliente();
         }
     }
+
     delete[] registro;
     fclose(registroA);
 }
