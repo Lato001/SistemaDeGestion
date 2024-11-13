@@ -47,9 +47,10 @@ void Cliente::cargarCliente() {
     }else{
         clienteID = Clientes.Leer((Clientes.CantidadRegistros()-1)).getID() + 1;
     }
-
+    system ("cls");
     Menu::setColor(2);
     cout << "Cliente cargado correctamente con ID: " << clienteID << endl;
 
     Menu::setColor(7);
+
 }

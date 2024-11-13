@@ -19,7 +19,6 @@ Venta::Venta() {
     idVenta = 0;
     idEmpleado = 0;
     idCliente = 0;
-    fecha;
     formaDePago = 0;
     importeTotal = 0;
     estado = false;
@@ -149,7 +148,9 @@ void Venta::cargarVenta() {
             system("cls");
         }
     }
+    menu.setColor(7);
         cout<<"CLIENTE ELEGIDO: "<<endl;
+        menu.setColor(0);
         Clientes.Buscar(idCliente).mostrarCliente();
         cout<<endl;
             Menu::setColor(7);

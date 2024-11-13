@@ -11,7 +11,6 @@ using namespace std;
 
 Empleado::Empleado()
 {
-    fechaDeIngreso;
     empleadoID = 0;
     asistencias = 0;
     vacacionesActivas = false;
@@ -146,6 +145,5 @@ void Empleado::cargarEmpleado(){
             menu.mEmpleados();
         }
     }
-    system ("pause");
-
+    system ("cls");
 }

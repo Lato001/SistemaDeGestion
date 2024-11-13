@@ -120,6 +120,7 @@ void Menu::mEmpleados()
         {
         case 1:
             crearEmpleado();
+        system ("pause");
             break;
         case 2:
             listar.MenulistarEmpleados();
@@ -330,8 +331,6 @@ void Menu::mClientes(){
     }
     while(!opcionValida);
 }
-
-
 
 
 void Menu::eliminar()
