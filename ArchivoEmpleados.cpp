@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 #pragma once
 
 #include <string>
