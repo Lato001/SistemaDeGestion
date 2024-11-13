@@ -122,7 +122,10 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
     while (!opcionValida)
     {
         Menu::setColor(7);
-        cout << "Stock Disponible: " << productoActual.getStock() << endl << endl;
+        cout << "Stock Disponible: "
+        Menu::setColor(0);
+        cout <<productoActual.getStock() << endl << endl;
+        Menu::setColor(7);
         cout << endl << "0. Cancelar y Volver al menu principal" << endl << endl ;
         cout << "Ingrese la cantidad comprada del producto: " << endl;
         Menu::setColor(0);
@@ -142,7 +145,9 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
             productoActual.setStock(productoActual.getStock() - input);
             if (Productos.Guardar(productoActual, Productos.BuscarPos(idProducto))) /// Actualiza el stock adentro del archivo
             {
+                Menu::setColor(2);
                 cout << "El nuevo stock del producto se ha actualizado." << endl;
+                Menu::setColor(7);
                 opcionValida = true;
             }
             else

@@ -762,7 +762,7 @@ void ArchivoEmpleados::exportarEmpleadosACSV(string nombreArchivoCSV)
         cout << empleado.getSueldo()<< endl;
         cout << endl;
         Menu::setColor(7);
-        cout << "-----------------------------------------------------" << endl;
+        cout << "-----------------------------------------------------" << endl; producto
         cout << endl;
         cont++;
     }
