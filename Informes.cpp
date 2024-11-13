@@ -75,6 +75,7 @@ void Informes::menuInformes()
         system("cls");
     }
     while(!opcionValida);
+
     menuInformes();
 }
 void Informes::clientesMasActivos()

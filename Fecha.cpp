@@ -95,9 +95,7 @@ void Fecha::cargarFecha()
         cin >> input;
         if (input !=0)
         {
-
             anio = input;
-
         }
         else
         {

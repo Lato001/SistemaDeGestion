@@ -380,8 +380,8 @@ void Listados::MenulistarProductos()
 }
 void Listados::MenuListarProductosDetalleVentas()
 {
-Menu menu;
-int opcion;
+    Menu menu;
+    int opcion;
     bool opcionValida = false;
     while (!opcionValida)
     {
@@ -392,9 +392,15 @@ int opcion;
         cout<<"1. Listar por Nombre"<<endl;
         cout<<"2. Listar por Categoria"<<endl;
         cout<<"3. Listar Productos Disponibles"<<endl;
+        cout<<endl;
+        cout<<"0. Volver al menu anterior"<<endl;
         cout<<"==================================="<<endl;
         Menu::setColor(0);
         cin>>opcion;
+        if ( opcion == 0)
+        {
+            menu.registrarVenta();
+        }
         if (opcion > 0 && opcion < 4 )
         {
             opcionValida = true;
@@ -402,13 +408,14 @@ int opcion;
             {
             case 1:
                 listarProductosxName();
-            break;
+                break;
             case 2:
                 listarProductosxCategoria();
-            break;
+                break;
             case 3:
                 listarProductosDisponibles();
-            break;
+
+                break;
             default:
                 menu.mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
 

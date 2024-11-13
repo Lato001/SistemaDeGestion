@@ -188,10 +188,12 @@ void Modificaciones::modificarRegistroVenta()
                 menu.setColor(7);
                 cout<<"Elija el atributo a modificar" << endl;
                 cout<<"1. Fecha: ";
+                menu.setColor(0);
                 venta.getFecha().mostrarFecha();
+                menu.setColor(7);
                 cout<<"2. Empleado: " ;
                 menu.setColor(0);
-                cout <<Empleados.Buscar(venta.getIdVenta()).getNombre()<< " " <<Empleados.Buscar(venta.getIdVenta()).getApellido() <<endl;
+                cout<<Empleados.Buscar(venta.getIdEmpleado()).getNombre()<<" "<<Empleados.Buscar(venta.getIdEmpleado()).getApellido()<<endl;
                 menu.setColor(7);
                 cout<<"3. Cliente: " ;
                 menu.setColor(0);

@@ -129,34 +129,37 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
         cin >> input;
 
 
-        if(input == 0){
+        if(input == 0)
+        {
             system("cls");
             menu.mVentas();
         }
+
         if (input > 0 && input <= productoActual.getStock())
         {
             cantidadProducto = input;
 
             productoActual.setStock(productoActual.getStock() - input);
-        if (Productos.Guardar(productoActual, Productos.BuscarPos(idProducto))) /// Actualiza el stock adentro del archivo
-        {
-            cout << "El nuevo stock del producto se ha actualizado." << endl;
-            opcionValida = true;
-        }
-        else
-        {
-            menu.mensajeDeError("Error al registrar el producto.");
-        }
+            if (Productos.Guardar(productoActual, Productos.BuscarPos(idProducto))) /// Actualiza el stock adentro del archivo
+            {
+                cout << "El nuevo stock del producto se ha actualizado." << endl;
+                opcionValida = true;
+            }
+            else
+            {
+                menu.mensajeDeError("Error al registrar el producto.");
+            }
         }
         else if (input > productoActual.getStock())
         {
-
             menu.mensajeDeError("Opcion invalida, no hay suficiente stock.") ;
-
         }
-
-            system("pause");
-            system("cls");
+        if (input < 0)
+        {
+            menu.mensajeDeError("Opcion invalida, Vuelve a intentarlo!");
+        }
+        system ("pause");
+        system("cls");
     }
 
     importe = Productos.Buscar(idProducto).getPrecioUnitario() * cantidadProducto;

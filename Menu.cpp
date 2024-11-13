@@ -42,13 +42,12 @@ void Menu::getMainMenu()
         cout<<"3. Clientes"<<endl;
         cout<<"4. Productos"<<endl;
         cout<<"5. Informes"<<endl;
-        cout<<"6. Exportar Archivos CSV "<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"==================================="<<endl;
         setColor(0);
         cin>>op;
         system("cls");
-        if(op> (0) && op<4)
+        if(op> (0) && op<6)
         {
             opcionValida=true;
         }
@@ -69,9 +68,6 @@ void Menu::getMainMenu()
             break;
         case 5:
             infor.menuInformes();
-            break;
-        case 6:
-            exportar.menuExportarCSV();
             break;
         case 0:
             exit(0);
@@ -444,8 +440,9 @@ void Menu::crearCliente()
 
 void Menu::registrarVenta()
 {
-    ArchivoVentas Ventas("ArchivoVentas.dat");
+    Menu menu;
     Venta venta;
+    ArchivoVentas Ventas("ArchivoVentas.dat");
     venta.cargarVenta();
     if ( Ventas.Guardar(venta) )
     {
@@ -458,6 +455,9 @@ void Menu::registrarVenta()
     {
         mensajeDeError("Error al registrar la venta.");
     }
+    system ("pause");
+    system ("cls");
+    menu.mVentas();
 
 }
 void Menu::registrarProducto()
