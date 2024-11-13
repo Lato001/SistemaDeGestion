@@ -72,7 +72,7 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
     ArchivoProductos Productos("ArchivoProductos.dat");
 
 
-    int input, opcion;
+    int input;
     Producto productoActual;
 
 
@@ -122,7 +122,7 @@ void DetalleVenta::cargarDetalleDeVenta(int _idVenta)
     while (!opcionValida)
     {
         Menu::setColor(7);
-        cout << "Stock Disponible: "
+        cout << "Stock Disponible: ";
         Menu::setColor(0);
         cout <<productoActual.getStock() << endl << endl;
         Menu::setColor(7);
