@@ -320,3 +320,323 @@
 	"rlutil.h"
 	"Modificaciones.h"
 
+1731460473 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoclientes.cpp
+	<string>
+	<cstring>
+	<iostream>
+	<vector>
+	<fstream>
+	<conio.h>
+	"ArchivoClientes.h"
+	"ArchivoVentas.h"
+	"Cliente.h"
+	"rlutil.h"
+	"Menu.h"
+	"Modificaciones.h"
+
+1731447911 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoclientes.h
+	"Persona.h"
+	"Cliente.h"
+
+1730968824 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\persona.h
+
+1730968824 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\cliente.h
+	"persona.h"
+
+1731083493 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoventas.h
+	"Venta.h"
+	"Cliente.h"
+	"Fecha.h"
+	"Venta.h"
+	"DetalleVenta.h"
+
+1730968824 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.h
+	"Fecha.h"
+	"Empleado.h"
+	"Cliente.h"
+	"DetalleVenta.h"
+
+1730968824 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\fecha.h
+
+1730968824 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\empleado.h
+	"Persona.h"
+	"Fecha.h"
+
+1730968824 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\detalleventa.h
+
+1730968824 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1731450176 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\menu.h
+	"Cliente.h"
+	"Empleado.h"
+	"rlutil.h"
+
+1731447002 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\modificaciones.h
+
+1731447002 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivodetalleventas.cpp
+	<string>
+	<cstring>
+	<iostream>
+	<fstream>
+	"ArchivoDetalleVentas.h"
+	"DetalleVenta.h"
+	"rlutil.h"
+	"Menu.h"
+
+1731447002 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivodetalleventas.h
+	"DetalleVenta.h"
+
+1731453854 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoproductos.cpp
+	<string>
+	<cstring>
+	<iostream>
+	<fstream>
+	<conio.h>
+	"ArchivoProductos.h"
+	"Producto.h"
+	"rlutil.h"
+	"Menu.h"
+
+1731442617 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoproductos.h
+	"Producto.h"
+
+1730968824 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\producto.h
+	"DetalleVenta.h"
+
+1731439859 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoventas.cpp
+	<string>
+	<cstring>
+	<iostream>
+	<fstream>
+	<conio.h>
+	"ArchivoVentas.h"
+	"ArchivoEmpleados.h"
+	"ArchivoClientes.h"
+	"Listados.h"
+	"Venta.h"
+	"rlutil.h"
+	"Menu.h"
+
+1731441741 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoempleados.h
+	"Persona.h"
+	"Empleado.h"
+
+1730968824 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\listados.h
+
+1731083493 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\cliente.cpp
+	<iostream>
+	"rlutil.h"
+	"Persona.h"
+	"Cliente.h"
+	"ArchivoClientes.h"
+	"Menu.h"
+
+1731453723 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\detalleventa.cpp
+	<iostream>
+	"rlutil.h"
+	"DetalleVenta.h"
+	"ArchivoDetalleVentas.h"
+	"Venta.h"
+	"Producto.h"
+	"ArchivoProductos.h"
+	"Menu.h"
+	"Listados.h"
+
+1731450032 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\eliminados.cpp
+	<iostream>
+	<vector>
+	<cstdio>
+	<cstring>
+	"ArchivoClientes.h"
+	"ArchivoEmpleados.h"
+	"ArchivoVentas.h"
+	"ArchivoProductos.h"
+	"ArchivoDetalleVentas.h"
+	"Menu.h"
+	"Listados.h"
+	"Eliminados.h"
+	"Cliente.h"
+	"Empleado.h"
+	"Venta.h"
+	"Producto.h"
+	"rlutil.h"
+
+1730968824 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\eliminados.h
+
+1731441741 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\empleado.cpp
+	<iostream>
+	<string>
+	"rlutil.h"
+	"Empleado.h"
+	"Persona.h"
+	"Fecha.h"
+	"ArchivoEmpleados.h"
+	"Menu.h"
+
+1731439859 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\fecha.cpp
+	<iostream>
+	<cstring>
+	<tuple>
+	<string>
+	"rlutil.h"
+	"Fecha.h"
+	"Menu.h"
+
+1731456378 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\listados.cpp
+	<iostream>
+	"Menu.h"
+	"Listados.h"
+	"ArchivoClientes.h"
+	"ArchivoEmpleados.h"
+	"ArchivoVentas.h"
+	"ArchivoProductos.h"
+	"ArchivoDetalleVentas.h"
+	"Cliente.h"
+	"Empleado.h"
+	"Venta.h"
+	"Producto.h"
+	"rlutil.h"
+
+1730968824 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\main.cpp
+	<iostream>
+	"Menu.h"
+	"rlutil.h"
+
+1731460647 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\menu.cpp
+	<iostream>
+	<vector>
+	<cstdio>
+	<cstring>
+	"ArchivoVentas.h"
+	"ArchivoDetalleVentas.h"
+	"ArchivoProductos.h"
+	"ArchivoEmpleados.h"
+	"ArchivoClientes.h"
+	"Menu.h"
+	"Listados.h"
+	"Eliminados.h"
+	"Exportados.h"
+	"Informes.h"
+	"Venta.h"
+	"Producto.h"
+	"Empleado.h"
+	"Cliente.h"
+	"rlutil.h"
+	"Modificaciones.h"
+
+1731439855 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\exportados.h
+
+1731439855 c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\informes.h
+
+1730968824 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\persona.cpp
+	<iostream>
+	<cstring>
+	"rlutil.h"
+	"Persona.h"
+	"Menu.h"
+
+1730968824 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\producto.cpp
+	<iostream>
+	<cstring>
+	"rlutil.h"
+	"DetalleVenta.h"
+	"Producto.h"
+	"ArchivoProductos.h"
+	"Menu.h"
+
+1731451589 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\venta.cpp
+	<iostream>
+	"rlutil.h"
+	"Fecha.h"
+	"Empleado.h"
+	"Cliente.h"
+	"ArchivoEmpleados.h"
+	"ArchivoClientes.h"
+	"Venta.h"
+	"ArchivoVentas.h"
+	"ArchivoDetalleVentas.h"
+	"DetalleVenta.h"
+	"ArchivoProductos.h"
+	"Producto.h"
+	"Menu.h"
+
+1731457918 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\modificaciones.cpp
+	<iostream>
+	"Menu.h"
+	"Listados.h"
+	"ArchivoClientes.h"
+	"ArchivoEmpleados.h"
+	"ArchivoVentas.h"
+	"ArchivoProductos.h"
+	"ArchivoDetalleVentas.h"
+	"Cliente.h"
+	"Empleado.h"
+	"Venta.h"
+	"Producto.h"
+	"rlutil.h"
+	"Modificaciones.h"
+
+1731453262 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\exportados.cpp
+	<iostream>
+	<vector>
+	<cstdio>
+	<cstring>
+	"ArchivoClientes.h"
+	"ArchivoEmpleados.h"
+	"ArchivoVentas.h"
+	"ArchivoProductos.h"
+	"ArchivoDetalleVentas.h"
+	"Cliente.h"
+	"Empleado.h"
+	"Venta.h"
+	"Producto.h"
+	"rlutil.h"
+	"Menu.h"
+	"Listados.h"
+	"Eliminados.h"
+	"Exportados.h"
+
+1731455515 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\informes.cpp
+	<iostream>
+	<vector>
+	<cstdio>
+	<cstring>
+	"ArchivoVentas.h"
+	"ArchivoDetalleVentas.h"
+	"ArchivoProductos.h"
+	"ArchivoEmpleados.h"
+	"ArchivoClientes.h"
+	"Menu.h"
+	"Listados.h"
+	"Eliminados.h"
+	"Exportados.h"
+	"Informes.h"
+	"Venta.h"
+	"Producto.h"
+	"Empleado.h"
+	"Cliente.h"
+
+1731460161 source:c:\users\winbylato\desktop\tpintegradorgithub\sistemadegestion\archivoempleados.cpp
+	<string>
+	<cstring>
+	<iostream>
+	<fstream>
+	"ArchivoEmpleados.h"
+	"Empleado.h"
+	"Menu.h"
+	"rlutil.h"
+	"Fecha.h"
+	"Modificaciones.h"
+

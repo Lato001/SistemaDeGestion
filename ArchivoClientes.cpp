@@ -291,7 +291,7 @@ void ArchivoClientes::ModificarCliente(int clienteID, int atributo)
         cin >> nuevoDNI;
         if (nuevoDNI == 0 )
         {
-            system ("cls");
+            system("cls");
             return;
         }
         cliente.setDNI(nuevoDNI);

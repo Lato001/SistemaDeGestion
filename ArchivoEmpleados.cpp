@@ -2,7 +2,8 @@
 #include <cstring>
 #include <iostream>
 #include <fstream>
-#include <conio.h>
+
+
 
 #include "ArchivoEmpleados.h"
 #include "Empleado.h"
@@ -82,7 +83,6 @@ void ArchivoEmpleados::FiltrarEmpleados()
     while (fread(&empleado, sizeof(empleado), 1, registro))
     {
         cont++;
-        cout << cont << ". ";
         empleado.mostrarEmpleado();
     }
 

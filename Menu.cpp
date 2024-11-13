@@ -28,7 +28,6 @@ using namespace std;
 void Menu::getMainMenu()
 {
     Exportados exportar;
-    Modificaciones modifica;
     Informes infor;
     int op=0;
     bool opcionValida=false;
@@ -144,7 +143,6 @@ void Menu::mEmpleados()
         default:
             mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
         }
-        system("pause");
         system("cls");
         opcionValida = false;
     }
@@ -329,7 +327,6 @@ void Menu::mClientes(){
         default:
             mensajeDeError("Opcion invalida!, vuelva a intentarlo" );
         }
-        system("pause");
         system("cls");
         opcionValida = false;
     }
