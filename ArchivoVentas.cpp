@@ -1,4 +1,3 @@
-#pragma once
 #include <string>
 #include <cstring>
 #include <iostream>
@@ -229,7 +228,6 @@ void ArchivoVentas::eliminarArchivoVentas()
 {
     Menu menu;
     menu.setColor(7);
-    int id, aux;
     ifstream salida;
     salida.open("ArchivoVentas.dat", ios::in);
     ofstream entrada;
