@@ -249,14 +249,19 @@ void Venta::mostrarVenta() {
     cout << endl<<endl<<endl;
     menu.setColor(7);
     cout << "FECHA: ";
+    Menu::setColor(0);
     getFecha().mostrarFecha();
+    Menu::setColor(7);
     cout << "VENDEDOR: " << endl;
-
+Menu::setColor(0);
     Empleados.Buscar(getIdEmpleado()).mostrarEmpleado();
     cout << endl;
+    Menu::setColor(7);
     cout << "COMPRADOR: " << endl;
+    Menu::setColor(0);
     Clientes.Buscar(getIdCliente()).mostrarCliente();
     cout << endl;
+    Menu::setColor(7);
     cout << "FORMA DE PAGO: ";
     menu.setColor(0);
     switch (getFormaDePago()) {

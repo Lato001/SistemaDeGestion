@@ -288,7 +288,9 @@ void ArchivoClientes::ModificarCliente(int clienteID, int atributo)
         int nuevoDNI;
         cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
         cout << "Ingrese nuevo DNI: ";
+        Menu::setColor(0);
         cin >> nuevoDNI;
+        Menu::setColor(7);
         if (nuevoDNI == 0 )
         {
             system("cls");
@@ -302,8 +304,10 @@ void ArchivoClientes::ModificarCliente(int clienteID, int atributo)
         char nuevoNombre[50];
         cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
         cout << "Ingrese nuevo nombre: ";
+        Menu::setColor(0);
         cin.ignore();
         cin.getline(nuevoNombre, 50);
+        Menu::setColor(7);
         if (strcmp(nuevoNombre, "0") == 0)
         {
             system ("cls");
@@ -317,8 +321,10 @@ void ArchivoClientes::ModificarCliente(int clienteID, int atributo)
         char nuevoApellido[50];
         cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
         cout << "Ingrese nuevo apellido: ";
+        Menu::setColor(0);
         cin.ignore();
         cin.getline(nuevoApellido, 50);
+        Menu::setColor(7);
         if (strcmp(nuevoApellido, "0") == 0)
         {
             system ("cls");
@@ -332,8 +338,10 @@ void ArchivoClientes::ModificarCliente(int clienteID, int atributo)
         char nuevoEmail[50];
         cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
         cout << "Ingrese nuevo email: ";
+        Menu::setColor(0);
         cin.ignore();
         cin.getline(nuevoEmail, 50);
+        Menu::setColor(7);
         if (strcmp(nuevoEmail, "0") == 0)
         {
             system ("cls");
@@ -347,8 +355,10 @@ void ArchivoClientes::ModificarCliente(int clienteID, int atributo)
         int nuevonTelefono;
         cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
         cout << "Ingrese nuevo número de teléfono: ";
+        Menu::setColor(0);
         cin.ignore();
         cin>>nuevonTelefono;
+        Menu::setColor(7);
         if (nuevonTelefono == 0)
         {
             system ("cls");
@@ -362,8 +372,10 @@ void ArchivoClientes::ModificarCliente(int clienteID, int atributo)
         char nuevaLocalidad[50];
         cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
         cout << "Ingrese nueva localidad: ";
+        Menu::setColor(0);
         cin.ignore();
         cin.getline(nuevaLocalidad, 50);
+        Menu::setColor(7);
         if (strcmp(nuevaLocalidad, "0") == 0)
         {
             system ("cls");
@@ -524,11 +536,26 @@ void ArchivoClientes::exportarClientesACSV(string nombreArchivoCSV) {
         archivoCSV << "-----------------------------------------------------" << endl;
         archivoCSV << endl;
 
-        cout << "DNI:"<< cliente.getDNI()<< endl;
-        cout <<"APELLIDO:"<< cliente.getApellido()<< endl;
-        cout <<"EMAIL:"<< cliente.getEmail()<< endl;
-        cout <<"TELEFONO:"<< cliente.getnTelefono()<< endl;
-        cout <<"LOCALIDAD:" << cliente.getLocalidad() << endl;
+        cout << "DNI:";
+        Menu::setColor(0);
+        cout << cliente.getDNI()<< endl;
+        Menu::setColor(7);
+        cout <<"APELLIDO:";
+        Menu::setColor(0);
+        cout << cliente.getApellido()<< endl;
+        Menu::setColor(7);
+        cout <<"EMAIL:";
+        Menu::setColor(0);
+        cout << cliente.getEmail()<< endl;
+        Menu::setColor(7);
+        cout <<"TELEFONO:";
+        Menu::setColor(0);
+        cout << cliente.getnTelefono()<< endl;
+        Menu::setColor(7);
+        cout <<"LOCALIDAD:" ;
+        Menu::setColor(0);
+        cout << cliente.getLocalidad() << endl;
+        Menu::setColor(7);
         cout << endl;
         cout << "-----------------------------------------------------" << endl;
         cout << endl;
@@ -536,6 +563,7 @@ void ArchivoClientes::exportarClientesACSV(string nombreArchivoCSV) {
     }
     fclose(registro);
     archivoCSV.close();
-
+Menu::setColor(2);
     cout << "Se exportaron " << cont << " Clientes al archivo CSV." << endl;
+    Menu::setColor(7);
 }

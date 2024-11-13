@@ -425,11 +425,31 @@ void ArchivoProductos::exportarProductosACSV(string nombreArchivoCSV)
         archivoCSV << "-----------------------------------------------------" << endl;
         archivoCSV << endl;
 
-        cout << "ID:"<< producto.getID()<< endl;
-        cout <<"NOMBRE:"<< producto.getNombre()<< endl;
-        cout <<"CATEGORIA:"<< producto.getCategoriaProducto()<< endl;
-        cout <<"PRECIO UNITARIO:"<< producto.getPrecioUnitario()<< endl;
-        cout <<"STOCK:" << producto.getStock() << endl;
+        cout << "ID:";
+        Menu::setColor(0);
+        cout << producto.getID();
+        Menu::setColor(7);
+        cout << endl;
+        cout <<"NOMBRE:";
+        Menu::setColor(0);
+        cout << producto.getNombre();
+        cout << endl;
+        Menu::setColor(7);
+        cout <<"CATEGORIA:";
+        Menu::setColor(0);
+        cout << producto.getCategoriaProducto();
+        cout << endl;
+        Menu::setColor(7);
+        cout <<"PRECIO UNITARIO:";
+        Menu::setColor(0);
+        cout << producto.getPrecioUnitario();
+        cout << endl;
+        Menu::setColor(7);
+        cout <<"STOCK:" ;
+        Menu::setColor(0);
+        cout << producto.getStock();
+        Menu::setColor(7);
+        cout << endl;
         cout << endl;
         cout << "-----------------------------------------------------" << endl;
         cout << endl;
@@ -437,6 +457,7 @@ void ArchivoProductos::exportarProductosACSV(string nombreArchivoCSV)
     }
     fclose(registro);
     archivoCSV.close();
-
+    Menu::setColor(2);
     cout << "Se exportaron " << cont << " productos al archivo CSV." << endl;
+    Menu::setColor(7);
 }

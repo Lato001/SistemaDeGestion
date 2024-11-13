@@ -280,7 +280,9 @@ void Modificaciones::modificarRegistroProductos()
     cout << endl;
     cout<<"0. Volver al Menu Productos"<<endl << endl;
     cout << "Ingrese el ID del producto que desea modificar: ";
+    Menu::setColor(0);
     cin >> idProducto;
+    Menu::setColor(7);
     system("cls");
 
 
@@ -294,10 +296,21 @@ void Modificaciones::modificarRegistroProductos()
                 producto = Productos.Buscar(idProducto);
                 menu.setColor(7);
                 cout<<"Elija el atributo a modificar" << endl;
-                cout<< "1. Nombre del Producto: " << producto.getNombre() << endl;
-                cout<<"2. Categoria del Producto: "<< producto.getCategoriaProducto()<<endl;
-                cout<<"3. Precio Unitario: "  << producto.getPrecioUnitario()<<endl;
-                cout<< "4. Stock: " <<producto.getStock()<<endl;
+                cout<< "1. Nombre del Producto: ";
+                Menu::setColor(0);
+                cout  << producto.getNombre() << endl;
+                Menu::setColor(7);
+                cout<<"2. Categoria del Producto: ";
+                Menu::setColor(0);
+                cout << producto.getCategoriaProducto()<<endl;
+                Menu::setColor(7);
+                cout <<"3. Precio Unitario: " ;
+                Menu::setColor(0);
+                cout  << producto.getPrecioUnitario()<<endl;
+                Menu::setColor(7);
+                cout<< "4. Stock: ";
+                Menu::setColor(0);
+                cout  <<producto.getStock()<<endl;
                 cout<<endl;
                 menu.setColor(7);
                 cout<< "0. Volver al menu principal"<<endl<<endl;

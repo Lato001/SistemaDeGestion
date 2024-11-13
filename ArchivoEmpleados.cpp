@@ -348,6 +348,7 @@ void ArchivoEmpleados::eliminarArchivoEmpleados()
 
         remove("ArchivoEmpleados.dat");  // Eliminar el archivo original
         rename("temp.dat", "ArchivoEmpleados.dat");  // Renombrar el archivo temporal a "ArchivoEmpleados.dat"
+        Menu::setColor(2);
         cout<<"Registros del archivo eliminados"<<endl;
     }
 }
@@ -538,8 +539,10 @@ void ArchivoEmpleados::ModificarEmpleado(int empleadoID, int atributo)
             char nuevoEmail[50];
             cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
             cout << "Ingrese nuevo email: ";
+            Menu::setColor(0);
             cin.ignore();
             cin.getline(nuevoEmail, 50);
+            Menu::setColor(7);
             if (strcmp(nuevoEmail, "0") == 0)
             {
                 system ("cls");
@@ -554,8 +557,10 @@ void ArchivoEmpleados::ModificarEmpleado(int empleadoID, int atributo)
              int nuevonTelefono;
             cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
             cout << "Ingrese nuevo numero de telefono: ";
+            Menu::setColor(0);
             cin.ignore();
             cin>>nuevonTelefono;
+            Menu::setColor(7);
             if (nuevonTelefono == 0)
             {
                 system ("cls");
@@ -569,8 +574,10 @@ void ArchivoEmpleados::ModificarEmpleado(int empleadoID, int atributo)
             char nuevaLocalidad[50];
             cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
             cout << "Ingrese nueva localidad: ";
+            Menu::setColor(0);
             cin.ignore();
             cin.getline(nuevaLocalidad, 50);
+            Menu::setColor(7);
             if (strcmp(nuevaLocalidad, "0") == 0)
             {
                 system ("cls");
@@ -584,7 +591,9 @@ void ArchivoEmpleados::ModificarEmpleado(int empleadoID, int atributo)
             Fecha nuevaFecha;
             cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
             cout << "Ingrese nueva fecha de ingreso (dd mm yyyy): "<<endl;
+            Menu::setColor(0);
             nuevaFecha.cargarFecha();
+            Menu::setColor(7);
             break;
         }
     case 8:
@@ -592,7 +601,9 @@ void ArchivoEmpleados::ModificarEmpleado(int empleadoID, int atributo)
             int nuevasAsistencias;
             cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
             cout << "Ingrese nuevas asistencias: ";
+            Menu::setColor(0);
             cin >> nuevasAsistencias;
+            Menu::setColor(7);
             if (nuevasAsistencias == 0)
             {
                 system ("cls");
@@ -606,7 +617,9 @@ void ArchivoEmpleados::ModificarEmpleado(int empleadoID, int atributo)
             int enVacaciones;
             cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
             cout << "Esta de vacaciones? (1 para no, 2 para si): ";
+            Menu::setColor(0);
             cin >> enVacaciones;
+            Menu::setColor(7);
             if (enVacaciones == 0)
             {
                 system ("cls");
@@ -621,7 +634,9 @@ void ArchivoEmpleados::ModificarEmpleado(int empleadoID, int atributo)
             float nuevoSueldo;
             cout << "0. Cancelar y volver al menu modificar "<<endl<<endl;
             cout << "Ingrese nuevo sueldo: ";
+            Menu::setColor(0);
             cin >> nuevoSueldo;
+            Menu::setColor(7);
             if (nuevoSueldo == 0)
             {
                 system ("cls");
@@ -719,9 +734,20 @@ void ArchivoEmpleados::exportarEmpleadosACSV(string nombreArchivoCSV)
         archivoCSV << "-----------------------------------------------------" << endl;
         archivoCSV << endl;
 
-        cout << "FECHA DE INGRESO: " << empleado.getFechaIngreso().getDia()<<"/"<<empleado.getFechaIngreso().getMes()<<"/"<<empleado.getFechaIngreso().getAnio() <<endl;
-        cout <<"ASISTNCIAS:"<< empleado.getAsistencias()<< endl;
+        cout << "FECHA DE INGRESO: ";
+        Menu::setColor(0);
+        cout  << empleado.getFechaIngreso().getDia();
+        cout <<"/"<<empleado.getFechaIngreso().getMes();
+        cout <<"/"<<empleado.getFechaIngreso().getAnio() ;
+        cout <<endl;
+        Menu::setColor(7);
+        cout <<"ASISTNCIAS:";
+        Menu::setColor(0);
+        cout << empleado.getAsistencias();
+        cout<< endl;
+        Menu::setColor(7);
         cout << "VACACIONES ACTIVAS: ";
+        Menu::setColor(0);
         if (empleado.getIsVacaciones())
         {
             cout << "Si"  ;
@@ -730,14 +756,19 @@ void ArchivoEmpleados::exportarEmpleadosACSV(string nombreArchivoCSV)
         {
             cout << "No"  ;
         }
-        cout <<"SUELDO:"<< empleado.getSueldo()<< endl;
+        Menu::setColor(7);
+        cout <<"SUELDO:";
+        Menu::setColor(0);
+        cout << empleado.getSueldo()<< endl;
         cout << endl;
+        Menu::setColor(7);
         cout << "-----------------------------------------------------" << endl;
         cout << endl;
         cont++;
     }
     fclose(registro);
     archivoCSV.close();
-
+Menu::setColor(2);
     cout << "Se exportaron " << cont << " productos al archivo CSV." << endl;
+    Menu::setColor(7);
 }

@@ -140,7 +140,9 @@ void ArchivoVentas::ModificarVenta(int idVenta, int op) {
             listados.listarEmpleadosAll();
             cout<< "Ingrese el Id del Empleado: "<<endl;
             cout<< "0. Volver al menu principal "<<endl;
+            Menu::setColor(0);
             cin >> input;
+            Menu::setColor(7);
             if (input != 0 )
             {
 
@@ -163,7 +165,9 @@ void ArchivoVentas::ModificarVenta(int idVenta, int op) {
             listados.listarClientesAll();
             cout<< "Ingrese el Id del Cliente: "<<endl;
             cout<< "0. Volver al menu principal "<<endl;
+            Menu::setColor(0);
             cin >> input;
+            Menu::setColor(7);
             if (input != 0)
             {
 
@@ -187,7 +191,9 @@ void ArchivoVentas::ModificarVenta(int idVenta, int op) {
             {
                 cout << "0.Volver al menu principal" << endl;
                 cout<< "Ingrese el Metodo de pago:\n1.Efectivo\n2.Debito\n3.Credito\nOpcion: ";
+                Menu::setColor(0);
                 cin >> input;
+                Menu::setColor(7);
                 if (input != 0)
                 {
 
@@ -384,16 +390,46 @@ void ArchivoVentas::exportarVentasACSV(string nombreArchivoCSV) {
 
 
 
-        cout << "FECHA: " << venta.getFecha().getDia()<<"/"<<venta.getFecha().getMes()<<"/"<<venta.getFecha().getAnio()<<endl;
-        cout << "ID:"<< venta.getIdVenta()<< endl;
-        cout << "EMPLEADO: " << Empleados.Buscar(venta.getIdVenta()).getNombre() <<endl;
-        cout << "EMPLEADO ID: " << Empleados.Buscar(venta.getIdVenta()).getID() <<endl;
-        cout << "CLIENTE: " << Clientes.Buscar(venta.getIdVenta()).getNombre() <<endl;
-        cout << "CLIENTE ID: " << Clientes.Buscar(venta.getIdVenta()).getID() <<endl;
-        cout << "FECHA DE INGRESO: " << venta.getFecha().getDia()<<"/"<<venta.getFecha().getMes()<<"/"<<venta.getFecha().getAnio() <<endl;
-        cout <<"FORMA DE PAGO:" << venta.getFormaDePago() << endl;
-        cout <<"IMPORTE TOTAL:" << venta.getImporteTotal() << endl;
-        cout <<"ESTADO:" << venta.getEstado() << endl;
+        cout << "FECHA: ";
+        Menu::setColor(0);
+        cout   << venta.getFecha().getDia()<<"/"<<venta.getFecha().getMes()<<"/"<<venta.getFecha().getAnio()<<endl;
+        Menu::setColor(7);
+        cout << "ID:";
+        Menu::setColor(0);
+        cout << venta.getIdVenta()<< endl;
+        Menu::setColor(7);
+        cout << "EMPLEADO: " ;
+        Menu::setColor(0);
+        cout << Empleados.Buscar(venta.getIdVenta()).getNombre() <<endl;
+        Menu::setColor(7);
+        cout << "EMPLEADO ID: " ;
+        Menu::setColor(0);
+        cout << Empleados.Buscar(venta.getIdVenta()).getID() <<endl;
+        Menu::setColor(7);
+        cout << "CLIENTE: " ;
+        Menu::setColor(0);
+        cout << Clientes.Buscar(venta.getIdVenta()).getNombre() <<endl;
+        Menu::setColor(7);
+        cout << "CLIENTE ID: " ;
+        Menu::setColor(0);
+        cout << Clientes.Buscar(venta.getIdVenta()).getID() <<endl;
+        Menu::setColor(7);
+        cout << "FECHA DE INGRESO: " ;
+        Menu::setColor(0);
+        cout << venta.getFecha().getDia()<<"/"<<venta.getFecha().getMes()<<"/"<<venta.getFecha().getAnio() <<endl;
+        Menu::setColor(7);
+        cout <<"FORMA DE PAGO:" ;
+        Menu::setColor(0);
+        cout << venta.getFormaDePago() << endl;
+        Menu::setColor(7);
+        cout <<"IMPORTE TOTAL:" ;
+        Menu::setColor(0);
+        cout << venta.getImporteTotal() << endl;
+        Menu::setColor(7);
+        cout <<"ESTADO:";
+        Menu::setColor(0);
+        cout  << venta.getEstado() << endl;
+        Menu::setColor(7);
         cout << endl;
         cout << "-----------------------------------------------------" << endl;
         cout << endl;
@@ -401,6 +437,7 @@ void ArchivoVentas::exportarVentasACSV(string nombreArchivoCSV) {
     }
     fclose(registro);
     archivoCSV.close();
-
+Menu::setColor(2);
     cout << "Se exportaron " << cont << " Ventas al archivo CSV." << endl;
+    Menu::setColor(7);
 }
